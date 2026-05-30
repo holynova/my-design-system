@@ -80,3 +80,45 @@
     ├── notion.md
     └── vue.md
 ```
+
+---
+
+## 如何在您的项目中使用设计规范 (How to Use)
+
+仅需三步，即可将本仓库中整理的设计规范整合进您的实际开发项目中：
+
+### 第一步：获取设计规范 (Copy Spec)
+进入任意设计规范详情展示页面，点击右上角的 **“Copy Spec”** 按钮。该操作将把包含设计原则、设计 token（如色板、字阶、间距、圆角等）的 Markdown 格式规范内容复制到您的剪贴板中。建议将其保存至项目根目录的 `docs/design-system.md` 文件中。
+
+### 第二步：定义全局 CSS 变量 (CSS Tokens)
+在您项目的全局样式表（例如 `global.css` 或 `variables.css`）中，根据复制的设计规范声明 CSS 自定义属性（CSS 变量）：
+
+```css
+:root {
+  --color-brand: #42b883; /* Vue 翡翠绿 */
+  --color-text-primary: #2c3e50; /* 碳灰阅读文本 */
+  --font-sans: 'Inter', sans-serif;
+  --radius-card: 8px;
+  --spacing-paragraph: 16px;
+}
+```
+
+### 第三步：应用至框架配置 (如 Tailwind CSS)
+如果您在使用 Tailwind CSS 等原子化类框架，可以扩展主配置文件以支持对应的设计系统 Token：
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        brand: '#42b883',
+      },
+      borderRadius: {
+        card: '8px',
+      }
+    }
+  }
+}
+```
+这样，您就能够直接在 HTML 中编写类如 `bg-brand` 或 `rounded-card` 的原子化样式，保持设计一致性。

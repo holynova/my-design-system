@@ -78,7 +78,7 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       width: 100%;
       margin: 0 auto;
       padding: 100px 24px 120px;
@@ -138,14 +138,15 @@
     /* ── Grid Layout ─────────────────────────── */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
       animation: fadeInUp 0.8s ease-out 0.2s both;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
       .grid {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
     }
 
@@ -646,6 +647,128 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* ── Tutorial Section ── */
+    .tutorial-section {
+      margin-top: 100px;
+      padding-top: 80px;
+      border-top: 1.5px dashed var(--card-border);
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .tutorial-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .tutorial-eyebrow {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #a67c52;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .tutorial-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .tutorial-subtitle {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .tutorial-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .tutorial-step {
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    }
+    
+    .tutorial-step:hover {
+      border-color: #a67c52;
+      box-shadow: 0 12px 30px rgba(166, 124, 82, 0.05);
+    }
+
+    .step-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: rgba(166, 124, 82, 0.15);
+      line-height: 1;
+    }
+
+    .tutorial-step h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    .tutorial-step p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .tutorial-code {
+      background: rgba(20, 20, 19, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-top: 8px;
+      overflow-x: auto;
+    }
+
+    .tutorial-code pre {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: none;
+    }
+
+    .tutorial-code code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-main);
+      background: transparent;
+      padding: 0;
+    }
+
+    @media (max-width: 640px) {
+      .tutorial-section {
+        margin-top: 64px;
+        padding-top: 48px;
+      }
+      .tutorial-header h2 {
+        font-size: 26px;
+      }
+      .tutorial-step {
+        padding: 24px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -979,6 +1102,53 @@
         </div>
       </a>
 
+    </div>
+
+    <!-- ── Tutorial Section ── -->
+    <div class="tutorial-section">
+      <div class="tutorial-header">
+        <span class="tutorial-eyebrow">INTEGRATION GUIDE</span>
+        <h2>如何将设计规范导入您的项目？</h2>
+        <p class="tutorial-subtitle">仅需三步，即可将 Markdown 格式的设计规范转化为您项目的实际样式与主题配置。</p>
+      </div>
+      
+      <div class="tutorial-steps">
+        <div class="tutorial-step">
+          <div class="step-num">01</div>
+          <h3>复制并保存设计 Token</h3>
+          <p>进入任意设计规范详情页，点击右上角的 <strong>“Copy Spec”</strong> 复制 Markdown 文本。推荐将该内容保存至项目文档中（如 <code>docs/design-system.md</code>），作为团队一致遵循的设计标准源头。</p>
+        </div>
+
+        <div class="tutorial-step">
+          <div class="step-num">02</div>
+          <h3>声明 CSS 自定义属性</h3>
+          <p>将设计系统中的色板与大小 token 转换为 CSS 变量。声明在全局样式表（例如 <code>global.css</code>）的根元素中，以便在项目各处引用：</p>
+          <div class="tutorial-code">
+            <pre><code>:root {
+  --color-primary: #42b883;
+  --font-sans: 'Inter', sans-serif;
+  --radius-lg: 8px;
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="tutorial-step">
+          <div class="step-num">03</div>
+          <h3>集成框架配置 (可选)</h3>
+          <p>如果您使用 Tailwind CSS，可以将设计系统对应的数值配置写入您的 <code>tailwind.config.js</code> 配置文件中，实现原子化类的无缝继承：</p>
+          <div class="tutorial-code">
+            <pre><code>module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        vue: '#42b883',
+      }
+    }
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
