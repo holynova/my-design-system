@@ -28,6 +28,10 @@
       --accent-linear-glow: rgba(94, 106, 210, 0.08);
       --accent-apple: #0066cc; /* Apple blue */
       --accent-apple-glow: rgba(0, 102, 204, 0.08);
+      --accent-tailwind: #6366f1; /* Tailwind Indigo */
+      --accent-tailwind-glow: rgba(99, 102, 241, 0.08);
+      --accent-notion: #37352f; /* Notion charcoal */
+      --accent-notion-glow: rgba(55, 53, 47, 0.06);
       
       --radius-lg: 16px;
       --radius-md: 10px;
@@ -209,6 +213,26 @@
       transform: translateY(-8px);
     }
 
+    /* Tailwind Card Variant */
+    .card.tailwind::before {
+      background: linear-gradient(90deg, var(--accent-tailwind), #38bdf8);
+    }
+    .card.tailwind:hover {
+      border-color: var(--accent-tailwind);
+      box-shadow: 0 20px 40px var(--accent-tailwind-glow);
+      transform: translateY(-8px);
+    }
+
+    /* Notion Card Variant */
+    .card.notion::before {
+      background: linear-gradient(90deg, var(--accent-notion), #7c7b77);
+    }
+    .card.notion:hover {
+      border-color: var(--accent-notion);
+      box-shadow: 0 20px 40px var(--accent-notion-glow);
+      transform: translateY(-8px);
+    }
+
     /* Card Preview (Increased height to 380px for prominence) */
     .card-preview {
       height: 380px;
@@ -230,6 +254,12 @@
     }
     .card.apple .card-preview {
       background: #f5f5f7;
+    }
+    .card.tailwind .card-preview {
+      background: #0f172a;
+    }
+    .card.notion .card-preview {
+      background: #fbfbfa;
     }
 
     /* Visual Mockup inside card preview */
@@ -385,6 +415,63 @@
       border-radius: 4px;
       align-self: flex-start;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
+
+    /* Tailwind Mockup Styles */
+    .card.tailwind .mockup-container {
+      background: #0f172a;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
+    }
+    .card.tailwind .mockup-dot {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .card.tailwind .mockup-line {
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .card.tailwind .mockup-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .card.tailwind .mockup-tag {
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid var(--accent-tailwind);
+      color: #a5b4fc;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      align-self: flex-start;
+      font-family: monospace;
+    }
+
+    /* Notion Mockup Styles */
+    .card.notion .mockup-container {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.06);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.02);
+    }
+    .card.notion .mockup-dot {
+      background: rgba(0, 0, 0, 0.06);
+    }
+    .card.notion .mockup-line {
+      background: rgba(0, 0, 0, 0.04);
+    }
+    .card.notion .mockup-title {
+      font-family: ui-sans-serif, -apple-system, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #37352f;
+    }
+    .card.notion .mockup-tag {
+      background: #fff9e6;
+      border: 1px solid #edecee;
+      color: #37352f;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      align-self: flex-start;
     }
 
     .card-body {
@@ -710,6 +797,96 @@
             <span class="meta-tag">San Francisco 字体</span>
             <span class="meta-tag">毛玻璃顶栏</span>
             <span class="meta-tag">宽幅留白</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 5: Tailwind CSS -->
+      <a href="pages/tailwindcss.html" target="_blank" class="card tailwind">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">composition over configuration</div>
+              <div class="mockup-tag">flex items-center gap-4</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#0f172a" title="slate-900"></div>
+                <div class="mockup-swatch-chip" style="background:#6366f1" title="indigo-500"></div>
+                <div class="mockup-swatch-chip" style="background:#38bdf8" title="sky-400"></div>
+                <div class="mockup-swatch-chip" style="background:#10b981" title="emerald-500"></div>
+                <div class="mockup-swatch-chip" style="background:#f43f5e" title="rose-500"></div>
+              </div>
+              <div class="mockup-line" style="width: 80%"></div>
+              <div class="mockup-line" style="width: 50%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Tailwind CSS Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            以实用优先为核心的现代响应式工具链，基于 Indigo 靛蓝与丰富且高对比的原子化色板。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">Indigo &amp; Sky</span>
+            <span class="meta-tag">原子化间距</span>
+            <span class="meta-tag">响应式前缀</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 6: Notion Design System -->
+      <a href="pages/notion.html" target="_blank" class="card notion">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">📓 Notion Workspace</div>
+              <div class="mockup-tag">💡 Callout Block</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff" title="bg"></div>
+                <div class="mockup-swatch-chip" style="background:#fbfbfa" title="sidebar"></div>
+                <div class="mockup-swatch-chip" style="background:#37352f" title="text"></div>
+                <div class="mockup-swatch-chip" style="background:#edecee" title="border"></div>
+                <div class="mockup-swatch-chip" style="background:#fff9e6" title="yellow highlight"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 45%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Notion Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            秉持无干扰极简原则的块状文档搭建系统，强调单色黑白灰与温和的马卡龙色标。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">无干扰黑白灰</span>
+            <span class="meta-tag">块状组装结构</span>
+            <span class="meta-tag">马卡龙高亮</span>
           </div>
         </div>
       </a>

@@ -1,6 +1,6 @@
 # Design System Catalog Hub (设计系统目录库)
 
-一个高品质、内容优先、自包含且零依赖的网页设计规范与排版引擎目录库。本仓库收集并整理了四种不同美学风格的现代设计规范，点击即可直接预览其排版、间距、色板和核心组件。
+一个高品质、内容优先、自包含且零依赖的网页设计规范与排版引擎目录库。本仓库收集并整理了六种不同美学风格的现代设计规范，点击即可直接预览其排版、间距、色板和核心组件。
 
 ![Screenshot](screenshot.png)
 
@@ -11,7 +11,7 @@
 
 ## 目录中收录的设计系统
 
-本目录库收录了以下四种极具代表性的设计规范：
+本目录库收录了以下六种极具代表性的设计规范：
 
 1. **HTML Effectiveness Spec** ([html-effectiveness.html](pages/html-effectiveness.html))
    - **特点**: 秉持温暖极简主义的文档级阅读设计系统，采用经典的 Serif / Sans / Mono 字体定位与 1.5px 极细实线修饰。
@@ -28,6 +28,14 @@
 4. **Apple HIG Spec** ([apple.html](pages/apple.html))
    - **特点**: 遵循苹果官方人机交互指南（HIG）的经典网页设计，强调极致的内容遵从、宽留白、SF Pro 动态字阶与毛玻璃顶栏层级。
    - **美学风格**: 高端产品感、简洁淡雅。
+
+5. **Tailwind CSS Spec** ([tailwindcss.html](pages/tailwindcss.html))
+   - **特点**: 以实用优先为核心的现代响应式工具链，基于 Indigo 靛蓝与丰富且高对比的原子化色板。
+   - **美学风格**: 现代、活力、高效，搭配深灰色的背景与 Indigo、Sky 强调色。
+
+6. **Notion Spec** ([notion.html](pages/notion.html))
+   - **特点**: 秉持无干扰极极简原则的块状文档搭建系统，强调单色黑白灰与温和的马卡龙色标。
+   - **美学风格**: 块状组装结构、无干扰极简、温暖素雅。
 
 ---
 
@@ -55,10 +63,14 @@
 │   ├── html-effectiveness.html
 │   ├── tw93.html
 │   ├── linear.html
-│   └── apple.html
+│   ├── apple.html
+│   ├── tailwindcss.html
+│   └── notion.html
 └── specs/                      # 原始设计系统规范 (Markdown 纯文本)
     ├── html-effectiveness.md
     ├── tw93.md
     ├── linear.md
-    └── apple.md
+    ├── apple.md
+    ├── tailwindcss.md
+    └── notion.md
 ```

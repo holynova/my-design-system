@@ -1,0 +1,633 @@
+<!-- Design System — Notion by holynova -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System — Notion</title>
+<style>
+  /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
+  :root {
+    --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    
+    --bg-default: #ffffff;
+    --bg-sidebar: #fbfbfa;
+    --border-color: #edecee;
+    --border-dark: #e9e9e9;
+    
+    --text-primary: #37352f;
+    --text-secondary: #7c7b77;
+    
+    --accent-blue: #2383e2;
+    --accent-blue-hover: #0078df;
+    
+    --bg-highlight-blue: #f1f6f9;
+    --bg-highlight-yellow: #fff9e6;
+    --bg-highlight-green: #f2f6f3;
+    --bg-highlight-pink: #fdf2f5;
+    --bg-highlight-orange: #faecec;
+    
+    --radius-sm: 3px;
+    --radius-md: 4px;
+    --radius-lg: 6px;
+    --radius-pill: 999px;
+    
+    --transition-base: 0.1s ease;
+  }
+
+  /* Dark mode overrides (by default responsive prefers-color-scheme) */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-default: #191919;
+      --bg-sidebar: #202020;
+      --border-color: #2f2f2f;
+      --border-dark: #3f3f3f;
+      
+      --text-primary: #e3e3e3;
+      --text-secondary: #9b9b9b;
+      
+      --bg-highlight-blue: rgba(35, 131, 226, 0.15);
+      --bg-highlight-yellow: rgba(223, 171, 1, 0.15);
+      --bg-highlight-green: rgba(16, 185, 129, 0.15);
+      --bg-highlight-pink: rgba(244, 63, 94, 0.15);
+      --bg-highlight-orange: rgba(245, 158, 11, 0.15);
+    }
+    .cover-image { background: linear-gradient(135deg, #2b313d 0%, #1e2026 100%) !important; }
+    .swatch .color-label { background: #202020 !important; }
+    table th { background: #202020 !important; }
+  }
+
+  /* ═══════════════════ RESET & BASE ═══════════════════ */
+  *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html {
+    background: var(--bg-default);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    line-height: 1.5;
+    padding-bottom: 140px;
+  }
+
+  a { color: var(--accent-blue); text-decoration: none; transition: color var(--transition-base); }
+  a:hover { text-decoration: underline; }
+  hr { height: 1px; border: 0; background: var(--border-color); margin: 28px 0; }
+  pre, code { font-family: var(--font-mono); }
+  code { font-size: 0.9em; background: var(--bg-highlight-pink); padding: 2px 4px; border-radius: var(--radius-sm); color: #d1417a; }
+  
+  pre {
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin: 20px 0;
+  }
+
+  /* COVER IMAGE */
+  .cover-image {
+    height: 180px;
+    background: linear-gradient(135deg, #e3e8f0 0%, #cbd5e1 100%);
+    width: 100%;
+  }
+
+  /* ═══════════════════ LAYOUT ═══════════════════ */
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 40px; position: relative; }
+
+  /* PAGE HEADER */
+  .page-header {
+    margin-top: -48px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .page-icon {
+    font-size: 64px;
+    width: 78px;
+    height: 78px;
+    background: var(--bg-default);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px var(--bg-default);
+  }
+  .page-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-top: 12px;
+  }
+  .page-breadcrumbs a { color: var(--text-secondary); }
+  .page-title {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
+  }
+  
+  /* ACTION CONTROLS */
+  .page-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .back-home-btn, #copy-md-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    background: var(--bg-default);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  .back-home-btn:hover, #copy-md-btn:hover {
+    background: var(--bg-sidebar);
+    border-color: var(--border-dark);
+  }
+  .back-home-btn svg, #copy-md-btn svg {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  #copy-md-btn svg {
+    fill: currentColor;
+  }
+
+  /* TWO-COLUMN GRID */
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .layout-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+  }
+  .sidebar-heading {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+  }
+  .sidebar a {
+    display: block;
+    font-size: 13.5px;
+    color: var(--text-primary);
+    padding: 4px 6px;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-base);
+  }
+  .sidebar a:hover {
+    background: var(--border-color);
+    text-decoration: none;
+  }
+
+  /* ═══════════════════ COMPONENTS & SECTIONS ═══════════════════ */
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 48px;
+    margin-bottom: 18px;
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-head h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .sec-head .idx {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  /* CALLOUT BLOCK */
+  .callout {
+    background: var(--bg-highlight-blue);
+    border-radius: var(--radius-md);
+    padding: 16px 16px 16px 12px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-color);
+  }
+  .callout .emoji { font-size: 20px; line-height: 1; }
+  .callout p { font-size: 14px; color: var(--text-primary); }
+
+  /* COLOR SWATCHES */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .swatch {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .swatch .color-block { height: 56px; }
+  .swatch .color-label {
+    padding: 8px;
+    font-size: 12px;
+    background: #ffffff;
+  }
+  .swatch .color-label .name { font-weight: 600; color: var(--text-primary); }
+  .swatch .color-label .hex { color: var(--text-secondary); font-family: var(--font-mono); font-size: 10.5px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-bottom: 24px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  th {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    font-weight: 600;
+    background: var(--bg-sidebar);
+  }
+  td { color: var(--text-secondary); }
+  td:first-child { font-weight: 600; color: var(--text-primary); }
+
+  /* TYPE SPECIMEN */
+  .type-spec { margin-bottom: 24px; }
+  .type-title { font-size: 40px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 4px; }
+  .type-h2 { font-size: 24px; font-weight: 600; line-height: 1.3; letter-spacing: -0.015em; margin: 20px 0 4px; }
+  .type-body { font-size: 16px; line-height: 1.5; color: var(--text-primary); }
+  .type-caption { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); margin-top: 4px; margin-bottom: 12px; }
+
+  /* LISTS */
+  ul { list-style: none; margin-bottom: 24px; }
+  li { display: flex; gap: 8px; margin-bottom: 6px; font-size: 14px; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 64px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+</style>
+</head>
+<body>
+
+  <!-- COVER IMAGE -->
+  <div class="cover-image"></div>
+
+  <div class="wrap">
+
+    <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
+    <div class="page-header">
+      <div class="page-icon">📓</div>
+      <div class="page-breadcrumbs">
+        <a href="../index.html">Hub</a> / <span>Notion Workspace</span>
+      </div>
+      <h1 class="page-title">Notion Design System</h1>
+      <div class="page-actions">
+        <a href="../index.html" class="back-home-btn">
+          <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Hub
+        </a>
+        <button id="copy-md-btn" onclick="copyMarkdownSpec()">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          Copy Spec
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ TWO-COLUMN LAYOUT ═══════════════════ -->
+    <div class="layout-grid">
+      <nav class="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Document</div>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#color">Color Scheme</a>
+          <a href="#typography">Typography</a>
+          <a href="#spacing">Block Spacing</a>
+        </div>
+      </nav>
+
+      <main>
+
+        <!-- 01 PHILOSOPHY -->
+        <div id="philosophy" class="sec-head"><span class="idx">01</span><h2>Design Philosophy</h2></div>
+        <div class="callout">
+          <div class="emoji">💡</div>
+          <p>
+            <strong>Deference to content:</strong> Notion visual blocks behave as structural tools rather than visual highlights. Emojis and flat containers organize thoughts natively without styling overhead.
+          </p>
+        </div>
+        <ul>
+          <li><span>✓</span> <strong>Content first:</strong> Typography is system native and focuses on high-density readability.</li>
+          <li><span>✓</span> <strong>Block composition:</strong> Elements group into independent containers and support nesting.</li>
+        </ul>
+
+        <!-- 02 COLOR PALETTE -->
+        <div id="color" class="sec-head"><span class="idx">02</span><h2>Color Palette</h2></div>
+        <div class="swatches">
+          <div class="swatch"><div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div><div class="color-label"><div class="name">bg-default</div><div class="hex">#ffffff</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#fbfbfa"></div><div class="color-label"><div class="name">bg-sidebar</div><div class="hex">#fbfbfa</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#37352f"></div><div class="color-label"><div class="name">text-primary</div><div class="hex">#37352f</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#edecee"></div><div class="color-label"><div class="name">border-default</div><div class="hex">#edecee</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#fff9e6"></div><div class="color-label"><div class="name">light-yellow</div><div class="hex">#fff9e6</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#f1f6f9"></div><div class="color-label"><div class="name">light-blue</div><div class="hex">#f1f6f9</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#f2f6f3"></div><div class="color-label"><div class="name">light-green</div><div class="hex">#f2f6f3</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#faecec"></div><div class="color-label"><div class="name">light-orange</div><div class="hex">#faecec</div></div></div>
+        </div>
+
+        <table>
+          <tr><th>Token</th><th>Hex Value</th><th>Role</th></tr>
+          <tr><td>--bg-default</td><td>#ffffff</td><td>Primary document sheet background</td></tr>
+          <tr><td>--bg-sidebar</td><td>#fbfbfa</td><td>Left page explorer sidebar</td></tr>
+          <tr><td>--text-primary</td><td>#37352f</td><td>High density slate-black for reading</td></tr>
+          <tr><td>--border-default</td><td>#edecee</td><td>Thin boundaries, separators, list lines</td></tr>
+          <tr><td>--highlight-blue</td><td>#f1f6f9</td><td>Callout containers, group highlight</td></tr>
+        </table>
+
+        <!-- 03 TYPOGRAPHY -->
+        <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography</h2></div>
+        <div class="type-spec">
+          <div class="type-title">Notion Workspace.</div>
+          <div class="type-caption">ui-sans-serif · 40px · font-bold · line-height 1.2</div>
+          <div class="type-h2">Building blocks for workflows</div>
+          <div class="type-caption">ui-sans-serif · 24px · font-semibold · line-height 1.3</div>
+          <p class="type-body">
+            Notion is a single space where you can think, write, and plan. Capture thoughts, manage projects, or run an entire company — and customize it exactly the way you want.
+          </p>
+          <div class="type-caption">ui-sans-serif · 16px · font-normal · line-height 1.5</div>
+        </div>
+
+        <table>
+          <tr><th>Role</th><th>Font Class</th><th>Size</th><th>Weight</th></tr>
+          <tr><td>Page Title</td><td>ui-sans-serif</td><td>40px</td><td>700 (Bold)</td></tr>
+          <tr><td>Subheading</td><td>ui-sans-serif</td><td>24px</td><td>600 (Semibold)</td></tr>
+          <tr><td>Body Copy</td><td>ui-sans-serif</td><td>16px</td><td>400 (Regular)</td></tr>
+          <tr><td>Sidebar label</td><td>ui-sans-serif</td><td>14px</td><td>500 (Medium)</td></tr>
+          <tr><td>Property list</td><td>ui-mono-serif</td><td>12px</td><td>400 (Regular)</td></tr>
+        </table>
+
+        <!-- 04 BLOCK SPACING -->
+        <div id="spacing" class="sec-head"><span class="idx">04</span><h2>Block Spacing</h2></div>
+        <table>
+          <tr><th>Layout Block</th><th>Spacing Rule</th><th>Spacing Value</th></tr>
+          <tr><td>Horizontal content</td><td>max-width</td><td>900px</td></tr>
+          <tr><td>Paragraph break</td><td>margin-bottom</td><td>4px</td></tr>
+          <tr><td>Heading margin</td><td>margin-top</td><td>24px</td></tr>
+          <tr><td>Callout block</td><td>internal padding</td><td>16px 16px 16px 12px</td></tr>
+          <tr><td>Rounded radius</td><td>rounded corners</td><td>4px (Callouts), 3px (UI controls)</td></tr>
+        </table>
+
+      </main>
+    </div>
+
+    <!-- ═══════════════════ FOOTER ═══════════════════ -->
+    <footer>
+      <div><strong>Design System — Notion</strong> · Adapted May 2026</div>
+      <div>
+        <a href="https://www.notion.so">Notion Website</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <textarea id="markdown-spec-content" style="display:none;"># Design System — Notion (Minimalist Workspace)
+
+Extracted and adapted from [notion.so](https://www.notion.so).
+A content-first, layout-agnostic workspace design system prioritizing block-based modularity, minimal visual noise, and pastel highlight states.
+
+---
+
+## 1. Design Philosophy
+
+- **Absolute content deference** — the workspace behaves as a blank sheet of paper; layout and borders are secondary to text
+- **Block-based modularity** — every element (paragraph, heading, callout, image) is a self-contained block that can be moved, colored, or indented
+- **Minimal chrome** — sidebars, toolbars, and controls fade away or toggle off to keep user attention on content
+- **Functional highlights** — color is utilized only to denote status, highlight text segments, or structure card groupings
+- **System fallback integration** — fonts and rendering rely on native OS frameworks to load instantly and feel cohesive
+
+---
+
+## 2. Color Palette
+
+| Token | Hex | Role |
+|-------|-----|------|
+| `--bg-default` | `#ffffff` | Primary canvas white |
+| `--bg-sidebar` | `#fbfbfa` | Warm off-white for left sidebar |
+| `--border-default`| `#edecee` | Fine divider border |
+| `--text-primary` | `#37352f` | Notion dark gray for high readability (near-black) |
+| `--text-secondary`| `#7c7b77` | Muted gray for subtitles, dates, and placeholders |
+| `--highlight-yellow`| `#fff9e6` | Pastel yellow background highlight |
+| `--highlight-blue`  | `#f1f6f9` | Pastel blue background highlight |
+| `--highlight-green` | `#f2f6f3` | Pastel green background highlight |
+| `--highlight-pink`  | `#fdf2f5` | Pastel pink background highlight |
+| `--highlight-orange`| `#faecec` | Pastel red/orange background highlight |
+
+**Usage rules:**
+- Never use pure black text (`#000000`); use Notion Slate (`#37352f`) to reduce eye strain.
+- Color highlights are applied to either text color (e.g. Red text) or block background (e.g. Red background `#faecec`). Never apply both simultaneously.
+
+---
+
+## 3. Typography
+
+### Font Stack
+
+| Option | Stack |
+|--------|-------|
+| Default Sans | `ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"` |
+| Serif Mode | `Lyon-Text, Georgia, ui-serif, serif` |
+| Mono Mode | `iawriter-mono, Nitti, Menlo, Monaco, Consolas, monospace` |
+
+### Type Scale
+
+| Element | Size | Weight | Line-height | Letter-spacing | Notes |
+|---------|------|------|--------|-------------|----------------|-------|
+| Title (H1) | 40px (`2.5rem`) | 700 | 1.2 | -0.02em | Workspace page title |
+| H2 | 24px (`1.5rem`) | 600 | 1.3 | -0.015em | Major section title |
+| H3 | 20px (`1.25rem`) | 600 | 1.4 | -0.01em | Subsection title |
+| Body Text | 16px (`1rem`) | 400 | 1.5 | — | Default body block |
+| Sidebar Link| 14px (`0.875rem`)| 500 | 1.4 | — | Left page navigation |
+| Captions | 12px (`0.75rem`)| 400 | 1.4 | — | Property lists |
+
+---
+
+## 4. Spacing System
+
+Notion uses block flow margins for vertical layouts:
+
+| Element | Margin / Padding | Role |
+|---------|------------------|------|
+| Page width | `900px` (max-width) | Default reading container width |
+| Block vertical | `4px` (margin-bottom) | Space between consecutive paragraphs |
+| Heading top | `24px` (margin-top) | Separating headings from text |
+| Callout padding | `16px 16px 16px 12px` | Internal container spacing |
+| Sidebar padding | `12px 14px` | Workspace padding |
+
+---
+
+## 5. Borders & Dividers
+
+- **Border width:** Always 1px (thin, clean dividers).
+- **Border colors:** `#edecee` (default gray) or `#e9e9e9` (darker slate-gray).
+- **Dividers:** Clean, block-level `<hr>` divider styled as `1px solid var(--border-default)`.
+
+---
+
+## 6. Border Radius
+
+| Element | Value |
+|---------|-------|
+| Small controls | 3px |
+| Callout blocks | 4px |
+| Selection overlays | 4px |
+| Database card panels | 6px |
+| Profile avatars / icons| 50% (circle) or 4px |
+
+---
+
+## 7. Shadows
+
+- **Database Cards:** `0 1px 3px rgba(15, 15, 15, 0.05), 0 0 1px rgba(15, 15, 15, 0.10)` (very soft layout elevation).
+- **Popovers & Menus:** `0 3px 6px rgba(15, 15, 15, 0.10), 0 9px 24px rgba(15, 15, 15, 0.20)`.
+
+---
+
+## 8. Layout Patterns
+
+### Callout Block
+```html
+<div class="callout-block bg-highlight-blue rounded-md border border-default p-4 flex gap-3">
+  <span class="emoji">💡</span>
+  <p class="text-primary text-sm">This is a callout box detailing an important design instruction.</p>
+</div>
+```
+
+### Workspace Header
+```
+├── .cover-image-container (height: 280px, background crop)
+└── .page-metadata-wrap (margin-top: -64px, negative translation)
+      ├── .page-icon (emoji or image, 78x78px)
+      └── h1.page-title (font-size: 40px)
+```
+
+---
+
+## 9. Component Patterns
+
+### Database Row Link
+```
+.flex + .items-center + .gap-2 + .px-3 + .py-2 + .hover:bg-sidebar-hover + .rounded-md + .cursor-pointer
+```
+
+---
+
+## 10. Transitions & Motion
+
+- **Speed:** Instant (`0ms` to `100ms` transitions) to simulate zero-overhead web document feel.
+- **Fade:** Simple `opacity` fade on hover controls (`transition: opacity 100ms ease`).
+- **Sidebar toggle:** `200ms` horizontal width translation (`transition: width 200ms cubic-bezier(0.2, 0.8, 0.2, 1)`).
+
+---
+
+## 11. Responsive Breakpoints
+
+- **Sidebar Collapse:** Below 900px, the left workspace sidebar collapses into a floating menu, and the main cover sheet fills 100% of the screen.
+- **Font Reduction:** Titles scale down slightly on mobile viewports.
+
+---
+
+## 12. Iconography
+
+- **Emojis** are the dominant visual marker for folders, databases, and page symbols
+- **Simple line icons** (`stroke-width: 2`, `#37352f` color) represent sidebar actions and database filters
+- Emojis scale at `24x24px` inside headings, or `78x78px` as main page icons
+
+---
+
+## 13. Code & Inline Elements
+
+- Inline code wraps inside minimal red/pink chips `bg-highlight-pink text-pink-600 px-1.5 py-0.5 rounded font-mono text-sm`
+- Block code uses a light gray background with copy buttons `bg-sidebar border border-default p-4 rounded font-mono`
+
+---
+
+## 14. Anti-Patterns (What This System Avoids)
+
+- No floating cards with heavy shadows on the primary canvas
+- No bright background fills — surfaces are strictly white or very faint gray
+- No rounded shapes above 8px (except circles)
+- No decorative borders — dividers are used strictly to divide distinct sections
+- No non-system sans-serif fonts
+</textarea>
+
+<script>
+  function copyMarkdownSpec() {
+    const mdText = document.getElementById('markdown-spec-content').value;
+    navigator.clipboard.writeText(mdText).then(() => {
+      const btn = document.getElementById('copy-md-btn');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+      btn.style.borderColor = 'var(--accent-blue)';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.borderColor = '';
+      }, 2000);
+    }).catch(err => {
+      console.error(err);
+      alert('Failed to copy: ' + err);
+    });
+  }
+</script>
+</body>
+</html>
