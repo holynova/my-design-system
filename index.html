@@ -1,672 +1,727 @@
-<!-- Design System — "The unreasonable effectiveness of HTML" -->
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design System — The unreasonable effectiveness of HTML</title>
-<style>
-  :root {
-    --ivory:  #FAF9F5;
-    --paper:  #FFFFFF;
-    --slate:  #141413;
-    --clay:   #D97757;
-    --clay-d: #B85C3E;
-    --oat:    #E3DACC;
-    --olive:  #788C5D;
-    --g100:   #F0EEE6;
-    --g200:   #E6E3DA;
-    --g300:   #D1CFC5;
-    --g500:   #87867F;
-    --g700:   #3D3D3A;
-    --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
-    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
-  }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>设计系统目录 · Design Systems Hub</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=LXGW+WenKai&display=swap" rel="stylesheet">
 
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  <style>
+    /* ═══════════════════ DESIGN SYSTEM INDEX STYLING (LIGHT THEME) ═══════════════════ */
+    :root {
+      --bg: #f9f8f6; /* Warm off-white/ivory-tinted paper bg */
+      --card-bg: #ffffff;
+      --card-border: rgba(20, 20, 19, 0.15); /* More visible default border */
+      --card-border-hover: rgba(20, 20, 19, 0.3);
+      --text-main: #141413; /* Deep dark slate near-black */
+      --text-secondary: #575752; /* Muted warm gray */
+      
+      --accent-html: #d97757; /* Clay red */
+      --accent-html-glow: rgba(217, 119, 87, 0.08);
+      --accent-tw93: #a67c52; /* Copper brown */
+      --accent-tw93-glow: rgba(166, 124, 82, 0.08);
+      --accent-linear: #5e6ad2; /* Linear purple */
+      --accent-linear-glow: rgba(94, 106, 210, 0.08);
+      --accent-apple: #0066cc; /* Apple blue */
+      --accent-apple-glow: rgba(0, 102, 204, 0.08);
+      
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --transition-speed: 0.3s;
+    }
 
-  body {
-    margin: 0;
-    background: var(--ivory);
-    color: var(--slate);
-    font-family: var(--sans);
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px 140px; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  /* ── masthead ─────────────────────────── */
-  header.masthead {
-    padding: 80px 0 56px;
-    border-bottom: 1.5px solid var(--g300);
-    margin-bottom: 12px;
-  }
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--g500);
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .eyebrow::before {
-    content: "";
-    width: 24px; height: 1.5px;
-    background: var(--clay);
-  }
-  h1 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(38px, 5.4vw, 62px);
-    line-height: 1.06;
-    letter-spacing: -0.018em;
-    margin: 0 0 8px;
-    max-width: 20ch;
-  }
-  h1 em {
-    font-style: italic;
-    color: var(--clay);
-  }
-  .intro {
-    font-size: 16.5px;
-    color: var(--g700);
-    margin: 22px 0 0;
-    max-width: 620px;
-  }
-  .intro a { color: var(--clay); text-decoration-color: var(--oat); text-underline-offset: 3px; }
-  .intro a:hover { text-decoration-color: var(--clay); }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-  /* ── toc pills ────────────────────────── */
-  nav.toc {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 26px 0 0;
-  }
-  nav.toc a {
-    font-size: 12.5px;
-    padding: 7px 14px;
-    border: 1.5px solid var(--g300);
-    border-radius: 999px;
-    text-decoration: none;
-    color: var(--g700);
-    background: var(--paper);
-    transition: border-color 120ms, color 120ms, background 120ms;
-  }
-  nav.toc a:hover { border-color: var(--slate); color: var(--slate); }
+    /* Ambient background glows */
+    body::before, body::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217, 119, 87, 0.04) 0%, rgba(255,255,255,0) 70%);
+      top: -150px;
+      left: -150px;
+      z-index: -1;
+      pointer-events: none;
+    }
+    body::after {
+      background: radial-gradient(circle, rgba(166, 124, 82, 0.04) 0%, rgba(255,255,255,0) 70%);
+      top: 30%;
+      right: -150px;
+      left: auto;
+    }
 
-  /* ── sections ─────────────────────────── */
-  section {
-    margin-top: 72px;
-    scroll-margin-top: 28px;
-  }
-  .sec-head {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 10px;
-  }
-  .sec-head .idx {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--clay);
-    font-weight: 600;
-    width: 34px;
-    flex-shrink: 0;
-  }
-  .sec-head h2 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 27px;
-    margin: 0;
-    letter-spacing: -0.012em;
-  }
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 100px 24px 120px;
+      flex: 1;
+    }
 
-  /* ── spec tables ──────────────────────── */
-  .spec-block {
-    margin-left: 50px;
-  }
-  @media (max-width: 640px) { .spec-block { margin-left: 0; } }
+    /* ── Header (Enlarged Weight) ─────────────────────────── */
+    header {
+      text-align: center;
+      margin-bottom: 80px;
+      animation: fadeInDown 0.8s ease-out;
+    }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13.5px;
-    margin-bottom: 32px;
-  }
-  th, td {
-    text-align: left;
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--g200);
-  }
-  th {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--g500);
-    font-weight: 500;
-    background: var(--g100);
-  }
-  td {
-    color: var(--g700);
-    vertical-align: top;
-  }
-  td:first-child {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--slate);
-  }
-  td code {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    background: var(--g100);
-    padding: 1px 6px;
-    border-radius: 4px;
-  }
+    .eyebrow {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      display: inline-block;
+      position: relative;
+      padding-bottom: 8px;
+    }
 
-  /* ── swatch strip ─────────────────────── */
-  .swatches {
-    display: flex;
-    gap: 0;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1.5px solid var(--g300);
-    margin-bottom: 32px;
-  }
-  .swatch {
-    flex: 1;
-    height: 72px;
-    position: relative;
-  }
-  .swatch .label {
-    position: absolute;
-    bottom: 6px;
-    left: 8px;
-    right: 8px;
-    font-family: var(--mono);
-    font-size: 9.5px;
-    letter-spacing: 0.04em;
-    color: var(--slate);
-  }
-  .swatch.dark .label { color: var(--ivory); }
+    .eyebrow::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      width: 50%;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--text-secondary), transparent);
+    }
 
-  /* ── color table ──────────────────────── */
-  .color-table td:first-child {
-    width: 130px;
-  }
-  .chip {
-    display: inline-block;
-    width: 18px; height: 18px;
-    border-radius: 4px;
-    border: 1px solid var(--g300);
-    vertical-align: middle;
-    margin-right: 8px;
-  }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(38px, 6vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #141413 30%, #a67c52 70%, #d97757 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-  /* ── type specimen ────────────────────── */
-  .type-spec { margin-bottom: 32px; }
-  .type-spec .h1-spec {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(38px, 5.4vw, 62px);
-    line-height: 1.06;
-    letter-spacing: -0.018em;
-    margin: 0 0 4px;
-  }
-  .type-spec .h1-spec em { font-style: italic; color: var(--clay); }
-  .type-spec .h2-spec {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 27px;
-    letter-spacing: -0.012em;
-    margin: 24px 0 4px;
-  }
-  .type-spec .meta {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    color: var(--g500);
-    margin-bottom: 16px;
-  }
+    .subtitle {
+      font-size: 17.5px;
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
 
-  /* ── code block ───────────────────────── */
-  pre {
-    background: var(--paper);
-    border: 1.5px solid var(--g300);
-    border-radius: 10px;
-    padding: 20px;
-    overflow-x: auto;
-    font-family: var(--mono);
-    font-size: 12px;
-    line-height: 1.6;
-    color: var(--g700);
-    margin-bottom: 32px;
-  }
+    /* ── Grid Layout ─────────────────────────── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 40px;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
 
-  /* ── spacing viz ──────────────────────── */
-  .spacing-demo {
-    margin-bottom: 32px;
-  }
-  .spacing-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 8px;
-    font-size: 13.5px;
-    color: var(--g700);
-  }
-  .spacing-bar {
-    height: 8px;
-    border-radius: 4px;
-    background: var(--clay);
-    opacity: 0.5;
-    flex-shrink: 0;
-  }
-  .spacing-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--g500);
-    width: 100px;
-    flex-shrink: 0;
-  }
+    @media (max-width: 1024px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-  /* ── dos / donts ──────────────────────── */
-  .dos-donts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-  @media (max-width: 640px) { .dos-donts { grid-template-columns: 1fr; } }
-  .do, .dont {
-    border-radius: 10px;
-    padding: 20px;
-    border: 1.5px solid var(--g300);
-    background: var(--paper);
-  }
-  .do h4 { color: var(--olive); margin: 0 0 8px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
-  .dont h4 { color: var(--clay); margin: 0 0 8px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+    /* ── Card Styling (Fully Clickable Links) ─────────────────────────── */
+    .card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border); /* Slightly thicker border for visibility */
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 20px rgba(20, 20, 19, 0.02);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color var(--transition-speed) ease,
+                  box-shadow var(--transition-speed) ease;
+    }
 
-  /* ── footer ───────────────────────────── */
-  footer {
-    margin-top: 100px;
-    border-top: 1.5px solid var(--g300);
-    padding-top: 36px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 20px;
-    flex-wrap: wrap;
-    font-size: 13px;
-    color: var(--g500);
-  }
-  footer .k { font-family: var(--serif); font-style: italic; color: var(--g700); font-size: 15px; }
-  footer a { color: var(--clay); text-decoration-color: var(--oat); text-underline-offset: 3px; }
-</style>
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      opacity: 0.9;
+    }
+
+    /* HTML Spec Card Variant */
+    .card.html::before {
+      background: linear-gradient(90deg, var(--accent-html), #e0937a);
+    }
+    .card.html:hover {
+      border-color: var(--accent-html);
+      box-shadow: 0 20px 40px var(--accent-html-glow);
+      transform: translateY(-8px);
+    }
+
+    /* Tw93 Card Variant */
+    .card.tw93::before {
+      background: linear-gradient(90deg, var(--accent-tw93), #c89d73);
+    }
+    .card.tw93:hover {
+      border-color: var(--accent-tw93);
+      box-shadow: 0 20px 40px var(--accent-tw93-glow);
+      transform: translateY(-8px);
+    }
+
+    /* Linear Card Variant */
+    .card.linear::before {
+      background: linear-gradient(90deg, var(--accent-linear), #98a2eb);
+    }
+    .card.linear:hover {
+      border-color: var(--accent-linear);
+      box-shadow: 0 20px 40px var(--accent-linear-glow);
+      transform: translateY(-8px);
+    }
+
+    /* Apple Card Variant */
+    .card.apple::before {
+      background: linear-gradient(90deg, var(--accent-apple), #3399ff);
+    }
+    .card.apple:hover {
+      border-color: var(--accent-apple);
+      box-shadow: 0 20px 40px var(--accent-apple-glow);
+      transform: translateY(-8px);
+    }
+
+    /* Card Preview (Increased height to 380px for prominence) */
+    .card-preview {
+      height: 380px;
+      background: #f3f1ed;
+      border-bottom: 1.5px solid var(--card-border);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 36px;
+      overflow: hidden;
+    }
+
+    .card.tw93 .card-preview {
+      background: #efece6;
+    }
+    .card.linear .card-preview {
+      background: #0f111a;
+    }
+    .card.apple .card-preview {
+      background: #f5f5f7;
+    }
+
+    /* Visual Mockup inside card preview */
+    .mockup-container {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      border: 1px solid rgba(20, 20, 19, 0.06);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      box-shadow: 0 12px 30px rgba(20, 20, 19, 0.05);
+      transform: translateY(15px);
+      transition: transform var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1), box-shadow var(--transition-speed) ease;
+    }
+
+    .card:hover .mockup-container {
+      transform: translateY(0px);
+      box-shadow: 0 18px 40px rgba(20, 20, 19, 0.08);
+    }
+
+    .mockup-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mockup-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(20,20,19,0.08);
+    }
+
+    .mockup-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .mockup-line {
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(20, 20, 19, 0.06);
+    }
+
+    /* Mockup swatches display */
+    .mockup-swatches {
+      display: flex;
+      gap: 6px;
+    }
+
+    .mockup-swatch-chip {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: 1px solid rgba(20, 20, 19, 0.08);
+    }
+
+    /* HTML Mockup Styles */
+    .card.html .mockup-title {
+      font-family: ui-serif, Georgia, serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--accent-html);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+    .card.html .mockup-tag {
+      background: rgba(217, 119, 87, 0.1);
+      border: 1px solid var(--accent-html);
+      color: var(--accent-html);
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      align-self: flex-start;
+    }
+
+    /* Tw93 Mockup Styles */
+    .card.tw93 .mockup-title {
+      font-family: 'LXGW WenKai', Kaiti, sans-serif;
+      font-size: 21px;
+      color: var(--accent-tw93);
+    }
+    .card.tw93 .mockup-tag {
+      background: rgba(166, 124, 82, 0.1);
+      border: 1px solid var(--accent-tw93);
+      color: var(--accent-tw93);
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      align-self: flex-start;
+      font-family: 'LXGW WenKai', Kaiti, sans-serif;
+    }
+
+    /* Linear Mockup Styles */
+    .card.linear .mockup-container {
+      background: #000212;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 30px rgba(94, 106, 210, 0.12);
+    }
+    .card.linear .mockup-dot {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .card.linear .mockup-line {
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .card.linear .mockup-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .card.linear .mockup-tag {
+      background: rgba(94, 106, 210, 0.15);
+      border: 1px solid var(--accent-linear);
+      color: #98a2eb;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      align-self: flex-start;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Apple Mockup Styles */
+    .card.apple .mockup-container {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.06);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+    }
+    .card.apple .mockup-dot {
+      background: rgba(0, 0, 0, 0.06);
+    }
+    .card.apple .mockup-line {
+      background: rgba(0, 0, 0, 0.04);
+    }
+    .card.apple .mockup-title {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+    .card.apple .mockup-tag {
+      background: #e5e5ea;
+      border: 1px solid #d2d2d7;
+      color: #1d1d1f;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      align-self: flex-start;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
+
+    .card-body {
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .card-arrow-wrap {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(20, 20, 19, 0.03);
+      border: 1px solid rgba(20, 20, 19, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .card-arrow-icon {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    /* Specific hover effects for card-arrow-wrap when hovering the card */
+    .card.html:hover .card-arrow-wrap {
+      background: var(--accent-html);
+      border-color: var(--accent-html);
+      color: #ffffff;
+      transform: translate(2px, -2px);
+    }
+    .card.tw93:hover .card-arrow-wrap {
+      background: var(--accent-tw93);
+      border-color: var(--accent-tw93);
+      color: #ffffff;
+      transform: translate(2px, -2px);
+    }
+    .card.linear:hover .card-arrow-wrap {
+      background: var(--accent-linear);
+      border-color: var(--accent-linear);
+      color: #ffffff;
+      transform: translate(2px, -2px);
+    }
+    .card.apple:hover .card-arrow-wrap {
+      background: var(--accent-apple);
+      border-color: var(--accent-apple);
+      color: #ffffff;
+      transform: translate(2px, -2px);
+    }
+
+    /* Changed descriptions to exactly one sentence */
+    .card-desc {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .meta-tag {
+      font-size: 11.5px;
+      padding: 6px 12px;
+      background: rgba(20, 20, 19, 0.03);
+      border: 1px solid rgba(20, 20, 19, 0.06);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 56px 0;
+      border-top: 1px solid rgba(20, 20, 19, 0.05);
+      color: var(--text-secondary);
+      font-size: 13.5px;
+      margin-top: 80px;
+    }
+
+    footer a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
 
-  <!-- ═══════════════════ MASTHEAD ═══════════════════ -->
-  <header class="masthead">
-    <div class="eyebrow">Extracted from a single .html file</div>
-    <h1>Design System &mdash; The unreasonable <em>effectiveness</em> of HTML</h1>
-    <p class="intro">
-      A functional-minimalist, content-forward design language with editorial warmth.
-      Extracted from <a href="https://thariqs.github.io/html-effectiveness/">thariqs.github.io/html-effectiveness</a>.
-      Warm neutrals, serif headings, mono metadata, and subtle delight &mdash; all in a single self-contained file.
-    </p>
-    <nav class="toc">
-      <a href="#philosophy">Philosophy</a>
-      <a href="#color">Color</a>
-      <a href="#typography">Typography</a>
-      <a href="#spacing">Spacing</a>
-      <a href="#borders">Borders &amp; Radius</a>
-      <a href="#layout">Layout</a>
-      <a href="#components">Components</a>
-      <a href="#motion">Motion</a>
-      <a href="#anti-patterns">Anti-Patterns</a>
-    </nav>
-  </header>
-
-  <!-- ═══════════════════ 01 PHILOSOPHY ═══════════════════ -->
-  <section id="philosophy">
-    <div class="sec-head"><span class="idx">01</span><h2>Design Philosophy</h2></div>
-    <div class="spec-block">
-      <div class="dos-donts">
-        <div class="do">
-          <h4>Do</h4>
-          <p>Use serif for headings, sans for body, mono for metadata — three fonts, clear roles.</p>
-          <p>Warm neutrals only — ivory, paper, oat. Never pure white or pure black.</p>
-          <p>Single accent color (clay) used sparingly. Olive is a cool counterpoint for diagrams.</p>
-          <p>Generous whitespace. Content breathes. Borders are thin (1.5px) and warm.</p>
-          <p>Subtle delight: gentle rotations, hover lifts, fast transitions. Never gaudy.</p>
-        </div>
-        <div class="dont">
-          <h4>Don't</h4>
-          <p>No bold weights above 600 — use weight 500 for emphasis.</p>
-          <p>No box shadows on static elements — only on hover or depth-establishing moments.</p>
-          <p>No background blur, glassmorphism, or gradient backgrounds.</p>
-          <p>No opacity-based hover states — shift color or position instead.</p>
-          <p>No external fonts, icon libraries, or CSS frameworks. Fully self-contained.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ 02 COLOR ═══════════════════ -->
-  <section id="color">
-    <div class="sec-head"><span class="idx">02</span><h2>Color Palette</h2></div>
-    <div class="spec-block">
-      <div class="swatches">
-        <div class="swatch" style="background:var(--ivory)"><span class="label">ivory #FAF9F5</span></div>
-        <div class="swatch" style="background:var(--paper)"><span class="label">paper #FFFFFF</span></div>
-        <div class="swatch dark" style="background:var(--slate)"><span class="label">slate #141413</span></div>
-        <div class="swatch" style="background:var(--clay)"><span class="label">clay #D97757</span></div>
-        <div class="swatch" style="background:var(--oat)"><span class="label">oat #E3DACC</span></div>
-        <div class="swatch" style="background:var(--olive)"><span class="label">olive #788C5D</span></div>
-      </div>
-      <div class="swatches" style="margin-top:2px">
-        <div class="swatch" style="background:var(--g100)"><span class="label">g100 #F0EEE6</span></div>
-        <div class="swatch" style="background:var(--g200)"><span class="label">g200 #E6E3DA</span></div>
-        <div class="swatch" style="background:var(--g300)"><span class="label">g300 #D1CFC5</span></div>
-        <div class="swatch dark" style="background:var(--g500)"><span class="label">g500 #87867F</span></div>
-        <div class="swatch dark" style="background:var(--g700)"><span class="label">g700 #3D3D3A</span></div>
-        <div class="swatch" style="background:var(--clay-d)"><span class="label">clay-d #B85C3E</span></div>
-      </div>
-      <table class="color-table">
-        <tr><th>Token</th><th>Hex</th><th>Role</th></tr>
-        <tr><td><span class="chip" style="background:var(--ivory)"></span>--ivory</td><td>#FAF9F5</td><td>Page background</td></tr>
-        <tr><td><span class="chip" style="background:var(--paper)"></span>--paper</td><td>#FFFFFF</td><td>Card / surface background</td></tr>
-        <tr><td><span class="chip" style="background:var(--slate)"></span>--slate</td><td>#141413</td><td>Primary text (near-black)</td></tr>
-        <tr><td><span class="chip" style="background:var(--clay)"></span>--clay</td><td>#D97757</td><td>Primary accent, links, highlights</td></tr>
-        <tr><td><span class="chip" style="background:var(--clay-d)"></span>--clay-d</td><td>#B85C3E</td><td>Darker accent (hover variant)</td></tr>
-        <tr><td><span class="chip" style="background:var(--oat)"></span>--oat</td><td>#E3DACC</td><td>Secondary surface, decorative</td></tr>
-        <tr><td><span class="chip" style="background:var(--olive)"></span>--olive</td><td>#788C5D</td><td>Secondary accent (diagrams only)</td></tr>
-        <tr><td><span class="chip" style="background:var(--g100)"></span>--g100</td><td>#F0EEE6</td><td>Light surface, thumbnail bg</td></tr>
-        <tr><td><span class="chip" style="background:var(--g200)"></span>--g200</td><td>#E6E3DA</td><td>Light border</td></tr>
-        <tr><td><span class="chip" style="background:var(--g300)"></span>--g300</td><td>#D1CFC5</td><td>Default border</td></tr>
-        <tr><td><span class="chip" style="background:var(--g500)"></span>--g500</td><td>#87867F</td><td>Secondary / muted text</td></tr>
-        <tr><td><span class="chip" style="background:var(--g700)"></span>--g700</td><td>#3D3D3A</td><td>Body text</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ 03 TYPOGRAPHY ═══════════════════ -->
-  <section id="typography">
-    <div class="sec-head"><span class="idx">03</span><h2>Typography</h2></div>
-    <div class="spec-block">
-      <div class="type-spec">
-        <div class="h1-spec">The unreasonable <em>effectiveness</em> of HTML</div>
-        <div class="meta">h1 &middot; serif &middot; clamp(38px, 5.4vw, 62px) &middot; weight 500 &middot; line-height 1.06 &middot; letter-spacing -0.018em</div>
-        <div class="h2-spec">Exploration &amp; Planning</div>
-        <div class="meta">h2 &middot; serif &middot; 27px &middot; weight 500 &middot; letter-spacing -0.012em</div>
-        <p style="font-size:16.5px;color:var(--g700);max-width:620px;">
-          This is <code>.intro</code> body copy — 16.5px sans on g700. Twenty self-contained files an agent produced instead of a wall of markdown.
-        </p>
-        <p style="font-size:14.5px;color:var(--g700);max-width:700px;">
-          This is <code>.sec-intro</code> — 14.5px sans, used for section descriptions. Slightly smaller, still highly readable.
-        </p>
-        <p style="font-size:13.5px;color:var(--g700);">
-          This is <code>.desc</code> — 13.5px sans, used for card body text at 1.5 line-height.
-        </p>
-      </div>
-      <table>
-        <tr><th>Token</th><th>Font Stack</th></tr>
-        <tr><td>--serif</td><td style="font-family:var(--serif);font-size:16px">ui-serif, Georgia, "Times New Roman", Times, serif</td></tr>
-        <tr><td>--sans</td><td style="font-family:var(--sans)">system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif</td></tr>
-        <tr><td>--mono</td><td style="font-family:var(--mono)">ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace</td></tr>
-      </table>
-      <table>
-        <tr><th>Element</th><th>Font</th><th>Size</th><th>Weight</th><th>Line-height</th><th>Letter-spacing</th></tr>
-        <tr><td>h1</td><td>serif</td><td>clamp(38px, 5.4vw, 62px)</td><td>500</td><td>1.06</td><td>-0.018em</td></tr>
-        <tr><td>h1 em</td><td>serif</td><td>inherit</td><td>italic</td><td>&mdash;</td><td>&mdash;</td></tr>
-        <tr><td>h2</td><td>serif</td><td>27px</td><td>500</td><td>&mdash;</td><td>-0.012em</td></tr>
-        <tr><td>.intro</td><td>sans</td><td>16.5px</td><td>400</td><td>1.55</td><td>&mdash;</td></tr>
-        <tr><td>.sec-intro</td><td>sans</td><td>14.5px</td><td>400</td><td>1.55</td><td>&mdash;</td></tr>
-        <tr><td>.title (card)</td><td>serif</td><td>19px</td><td>500</td><td>1.22</td><td>-0.008em</td></tr>
-        <tr><td>.desc (card)</td><td>sans</td><td>13.5px</td><td>400</td><td>1.5</td><td>&mdash;</td></tr>
-        <tr><td>.eyebrow</td><td>mono</td><td>12px</td><td>400</td><td>&mdash;</td><td>0.12em</td></tr>
-        <tr><td>.file</td><td>mono</td><td>11px</td><td>400</td><td>&mdash;</td><td>&mdash;</td></tr>
-        <tr><td>.idx</td><td>mono</td><td>13px</td><td>600</td><td>&mdash;</td><td>&mdash;</td></tr>
-        <tr><td>nav.toc a</td><td>sans</td><td>12.5px</td><td>400</td><td>&mdash;</td><td>&mdash;</td></tr>
-        <tr><td>.tag</td><td>mono</td><td>9.5px</td><td>400</td><td>&mdash;</td><td>0.08em</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ 04 SPACING ═══════════════════ -->
-  <section id="spacing">
-    <div class="sec-head"><span class="idx">04</span><h2>Spacing</h2></div>
-    <div class="spec-block">
-      <div class="spacing-demo">
-        <div class="spacing-row"><span class="spacing-label">Page max-width</span><span class="spacing-bar" style="width:112px"></span>1120px</div>
-        <div class="spacing-row"><span class="spacing-label">Page h-padding</span><span class="spacing-bar" style="width:32px"></span>32px</div>
-        <div class="spacing-row"><span class="spacing-label">Page b-padding</span><span class="spacing-bar" style="width:140px"></span>140px</div>
-        <div class="spacing-row"><span class="spacing-label">Section top</span><span class="spacing-bar" style="width:72px"></span>72px</div>
-        <div class="spacing-row"><span class="spacing-label">Card gap</span><span class="spacing-bar" style="width:20px"></span>20px</div>
-        <div class="spacing-row"><span class="spacing-label">Masthead top</span><span class="spacing-bar" style="width:80px"></span>80px</div>
-        <div class="spacing-row"><span class="spacing-label">Masthead bot</span><span class="spacing-bar" style="width:56px"></span>56px</div>
-        <div class="spacing-row"><span class="spacing-label">Card body pad</span><span class="spacing-bar" style="width:18px;opacity:0.3"></span>18px 20px 16px</div>
-      </div>
-      <table>
-        <tr><th>Token</th><th>Value</th><th>Usage</th></tr>
-        <tr><td>max-width</td><td>1120px</td><td>.wrap container</td></tr>
-        <tr><td>h-padding</td><td>32px</td><td>.wrap left/right</td></tr>
-        <tr><td>b-padding</td><td>140px</td><td>.wrap bottom</td></tr>
-        <tr><td>section gap</td><td>72px</td><td>margin-top between sections</td></tr>
-        <tr><td>card gap</td><td>20px</td><td>grid gap between cards</td></tr>
-        <tr><td>card body</td><td>18px 20px 16px</td><td>internal card padding</td></tr>
-        <tr><td>nav pill</td><td>7px 14px</td><td>toc link internal padding</td></tr>
-        <tr><td>sec-head gap</td><td>16px</td><td>flex gap in section header</td></tr>
-        <tr><td>sec indent</td><td>50px</td><td>left margin on .spec-block / .grid / .sec-intro</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ 05 BORDERS & RADIUS ═══════════════════ -->
-  <section id="borders">
-    <div class="sec-head"><span class="idx">05</span><h2>Borders &amp; Radius</h2></div>
-    <div class="spec-block">
-      <table>
-        <tr><th>Element</th><th>Border</th><th>Border-radius</th></tr>
-        <tr><td>Cards</td><td>1.5px solid g300</td><td>14px</td></tr>
-        <tr><td>Hero panes</td><td>1.5px solid g300</td><td>10px</td></tr>
-        <tr><td>Tags / badges</td><td>1.5px solid g300</td><td>6px</td></tr>
-        <tr><td>Nav pills</td><td>1.5px solid g300</td><td>999px (fully rounded)</td></tr>
-        <tr><td>Count badges</td><td>none</td><td>999px (fully rounded)</td></tr>
-        <tr><td>Code blocks / pre</td><td>1.5px solid g300</td><td>10px</td></tr>
-        <tr><td>SVG rects</td><td>varies</td><td>3&ndash;5px</td></tr>
-        <tr><td>Section dividers</td><td>1.5px solid g300 (border-bottom)</td><td>&mdash;</td></tr>
-      </table>
-      <p style="font-size:13.5px;color:var(--g700);">
-        <strong>Rule:</strong> Every border in the system is <strong>1.5px</strong>. Never thicker, never thinner.
-        This consistency is a defining characteristic. Border colors shift contextually (g300 default, g200 light, slate for emphasis/hover).
+  <div class="container">
+    
+    <!-- ═══════════════════ HEADER ═══════════════════ -->
+    <header>
+      <div class="eyebrow">Design System Hub</div>
+      <h1>设计系统规范库</h1>
+      <p class="subtitle">
+        收录高品质、内容优先的网页设计规范与中文排版引擎。点击卡片可直接打开并查看对应的交互细节及完整设计规格。
       </p>
-    </div>
-  </section>
+    </header>
 
-  <!-- ═══════════════════ 06 SHADOWS ═══════════════════ -->
-  <section id="shadows">
-    <div class="sec-head"><span class="idx">06</span><h2>Shadows</h2></div>
-    <div class="spec-block">
-      <table>
-        <tr><th>Context</th><th>Value</th></tr>
-        <tr><td>Card hover</td><td><code>0 10px 30px rgba(20, 20, 19, 0.10)</code></td></tr>
-        <tr><td>Hero HTML pane</td><td><code>0 12px 32px rgba(20, 20, 19, 0.10)</code></td></tr>
-      </table>
-      <p style="font-size:13.5px;color:var(--g700);">
-        Shadows are used <strong>only</strong> on hover or to establish depth hierarchy. Static cards have no shadow — the border alone defines them.
-        Shadows are always warm-tinted (slate-based) with subtle 0.10 opacity.
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ 07 LAYOUT ═══════════════════ -->
-  <section id="layout">
-    <div class="sec-head"><span class="idx">07</span><h2>Layout Patterns</h2></div>
-    <div class="spec-block">
-      <table>
-        <tr><th>Pattern</th><th>CSS</th><th>Notes</th></tr>
-        <tr>
-          <td>Page wrapper</td>
-          <td><code>max-width: 1120px; margin: 0 auto; padding: 0 32px 140px</code></td>
-          <td>Generous bottom padding</td>
-        </tr>
-        <tr>
-          <td>Card grid</td>
-          <td><code>grid-template-columns: repeat(auto-fill, minmax(316px, 1fr)); gap: 20px</code></td>
-          <td>Fluid, no breakpoints needed</td>
-        </tr>
-        <tr>
-          <td>Hero grid</td>
-          <td><code>grid-template-columns: 1fr 340px; gap: 48px</code></td>
-          <td>Stacks at 880px</td>
-        </tr>
-        <tr>
-          <td>Section layout</td>
-          <td>sec-head (flex row) &rarr; sec-intro &rarr; grid (50px left indent)</td>
-          <td>Indent drops at 640px</td>
-        </tr>
-        <tr>
-          <td>Nav (TOC)</td>
-          <td><code>display: flex; flex-wrap: wrap; gap: 8px</code></td>
-          <td>Pills wrap naturally</td>
-        </tr>
-        <tr>
-          <td>Footer</td>
-          <td><code>display: flex; justify-content: space-between; flex-wrap: wrap</code></td>
-          <td>Two sections, stacks on narrow</td>
-        </tr>
-      </table>
-      <table>
-        <tr><th>Breakpoint</th><th>Behavior</th></tr>
-        <tr><td>880px</td><td>Hero grid stacks to single column</td></tr>
-        <tr><td>640px</td><td>Section intro + card grid lose 50px left indent</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ 08 COMPONENTS ═══════════════════ -->
-  <section id="components">
-    <div class="sec-head"><span class="idx">08</span><h2>Component Patterns</h2></div>
-    <div class="spec-block">
-
-      <!-- Card demo -->
-      <p style="font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Card (static)</p>
-      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:32px;max-width:360px;">
-        <div style="background:var(--paper);border:1.5px solid var(--g300);border-radius:14px;overflow:hidden;width:100%;">
-          <div style="height:132px;background:var(--g100);border-bottom:1.5px solid var(--g200);display:flex;align-items:center;justify-content:center;padding:16px;">
-            <svg viewBox="0 0 120 80" style="width:100%;height:100%;overflow:visible">
-              <rect x="6" y="10" width="50" height="60" rx="5" fill="var(--paper)" stroke="var(--g500)" stroke-width="2.5"/>
-              <rect x="64" y="10" width="50" height="60" rx="5" fill="var(--oat)" stroke="var(--g500)" stroke-width="2.5"/>
-              <circle cx="89" cy="40" r="8" fill="var(--clay)"/>
-            </svg>
-          </div>
-          <div style="padding:18px 20px 16px;">
-            <div style="font-family:var(--serif);font-size:19px;font-weight:500;line-height:1.22;margin-bottom:7px;">Card title</div>
-            <div style="font-size:13.5px;color:var(--g700);line-height:1.5;margin-bottom:16px;">Description text that explains what this card links to. Two lines is typical.</div>
-            <div style="font-family:var(--mono);font-size:11px;color:var(--g500);border-top:1px solid var(--g100);padding-top:11px;display:flex;justify-content:space-between;"><span>filename.html</span><span>&rarr;</span></div>
+    <!-- ═══════════════════ GRID ═══════════════════ -->
+    <div class="grid">
+      
+      <!-- Card 1: HTML Effectiveness -->
+      <a href="pages/html-effectiveness.html" target="_blank" class="card html">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">The unreasonable <em>effectiveness</em> of HTML</div>
+              <div class="mockup-tag">Functional-Minimalist</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#FAF9F5" title="Ivory"></div>
+                <div class="mockup-swatch-chip" style="background:#FFFFFF" title="Paper"></div>
+                <div class="mockup-swatch-chip" style="background:#141413" title="Slate"></div>
+                <div class="mockup-swatch-chip" style="background:#d97757" title="Clay"></div>
+                <div class="mockup-swatch-chip" style="background:#788C5D" title="Olive"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Nav pills -->
-      <p style="font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Navigation Pills</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;">
-        <span style="font-size:12.5px;padding:7px 14px;border:1.5px solid var(--g300);border-radius:999px;color:var(--g700);background:var(--paper);">Exploration &amp; Planning</span>
-        <span style="font-size:12.5px;padding:7px 14px;border:1.5px solid var(--g300);border-radius:999px;color:var(--g700);background:var(--paper);">Code Review</span>
-        <span style="font-size:12.5px;padding:7px 14px;border:1.5px solid var(--slate);border-radius:999px;color:var(--slate);background:var(--paper);">Design (hover)</span>
-      </div>
-
-      <!-- Section header -->
-      <p style="font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Section Header</p>
-      <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:32px;">
-        <span style="font-family:var(--mono);font-size:13px;color:var(--clay);font-weight:600;width:34px;">01</span>
-        <span style="font-family:var(--serif);font-weight:500;font-size:27px;letter-spacing:-0.012em;">Section Title</span>
-        <span style="font-family:var(--mono);font-size:11px;color:var(--g500);background:var(--g100);padding:2px 8px;border-radius:999px;">3 demos</span>
-      </div>
-
-      <!-- Eyebrow -->
-      <p style="font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Eyebrow</p>
-      <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--g500);display:flex;align-items:center;gap:12px;margin-bottom:32px;">
-        <span style="width:24px;height:1.5px;background:var(--clay);display:inline-block;"></span>
-        Companion to the blog post
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════ 09 MOTION ═══════════════════ -->
-  <section id="motion">
-    <div class="sec-head"><span class="idx">09</span><h2>Motion &amp; Transitions</h2></div>
-    <div class="spec-block">
-      <table>
-        <tr><th>Element</th><th>Properties</th><th>Duration</th><th>Easing</th></tr>
-        <tr><td>Nav pills</td><td>border-color, color, background</td><td>120ms</td><td>ease (default)</td></tr>
-        <tr><td>Cards</td><td>transform, box-shadow, border-color</td><td>150ms</td><td>ease</td></tr>
-        <tr><td>Card thumb bg</td><td>background</td><td>150ms</td><td>ease</td></tr>
-        <tr><td>Card arrow</td><td>transform (translateX 3px)</td><td>150ms</td><td>ease</td></tr>
-        <tr><td>Page scroll</td><td>scroll-behavior</td><td>&mdash;</td><td>smooth</td></tr>
-      </table>
-      <p style="font-size:13.5px;color:var(--g700);">
-        <strong>Rule:</strong> Transitions are fast (120&ndash;150ms) and snappy. No opacity fades &mdash; changes are positional or color-shift based.
-        The card hover lift (3px translateY) combined with shadow and border-color change creates a subtle-but-clear interactive signal.
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ 10 ANTI-PATTERNS ═══════════════════ -->
-  <section id="anti-patterns">
-    <div class="sec-head"><span class="idx">10</span><h2>Anti-Patterns</h2></div>
-    <div class="spec-block">
-      <div class="dos-donts">
-        <div class="do">
-          <h4>This system is right for</h4>
-          <p>Content-heavy documentation, portfolios, blogs, companion pages, technical writing</p>
-          <p>Projects that value self-contained single-file HTML with zero dependencies</p>
-          <p>Interfaces where readability and scanability are the primary goals</p>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">HTML Effectiveness Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            秉持温暖极简主义的文档级阅读设计系统，采用经典的 Serif / Sans / Mono 字体定位与极细实线修饰。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">象牙黄与黏土红</span>
+            <span class="meta-tag">单文件无依赖</span>
+            <span class="meta-tag">人文报刊排版</span>
+          </div>
         </div>
-        <div class="dont">
-          <h4>This system is wrong for</h4>
-          <p>Data-dense dashboards, complex forms, real-time apps</p>
-          <p>Projects requiring dark mode (no dark palette defined)</p>
-          <p>Brand work that needs loud, high-energy visual language</p>
-        </div>
-      </div>
-      <table>
-        <tr><th>Avoid</th><th>Use Instead</th></tr>
-        <tr><td>Pure black (#000) or pure gray</td><td>Warm-tinted neutrals (slate, g700, g500)</td></tr>
-        <tr><td>Bold weights above 600</td><td>Weight 500 for emphasis</td></tr>
-        <tr><td>Box shadows on static elements</td><td>Borders only; shadows reserved for hover/depth</td></tr>
-        <tr><td>Background blur / glassmorphism</td><td>Solid paper or g100 backgrounds</td></tr>
-        <tr><td>Gradient backgrounds</td><td>Solid colors (one exception: hero SVG decorative)</td></tr>
-        <tr><td>Border-radius above 14px (except pills)</td><td>14px max for cards; 999px only for pill-shaped elements</td></tr>
-        <tr><td>Animations over 150ms</td><td>120-150ms snappy transitions</td></tr>
-        <tr><td>External font loads (Google Fonts, etc.)</td><td>System font stacks (ui-serif, system-ui, ui-monospace)</td></tr>
-        <tr><td>Icon libraries (Font Awesome, Lucide, etc.)</td><td>Inline SVG using design tokens</td></tr>
-        <tr><td>CSS frameworks (Tailwind, Bootstrap, etc.)</td><td>Hand-rolled CSS with custom properties</td></tr>
-        <tr><td>Opacity-based hover states</td><td>Color shifts or positional changes</td></tr>
-      </table>
-    </div>
-  </section>
+      </a>
 
-  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+      <!-- Card 2: Tw93 Weekly -->
+      <a href="pages/tw93.html" target="_blank" class="card tw93">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">潮流周刊 Design System</div>
+              <div class="mockup-tag">Chinese-Native Kaiti</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff" title="Light Bg"></div>
+                <div class="mockup-swatch-chip" style="background:#21262b" title="Dark Bg"></div>
+                <div class="mockup-swatch-chip" style="background:#a67c52" title="Accent"></div>
+                <div class="mockup-swatch-chip" style="background:#262626" title="Text"></div>
+                <div class="mockup-swatch-chip" style="background:#6b7280" title="Muted"></div>
+              </div>
+              <div class="mockup-line" style="width: 90%"></div>
+              <div class="mockup-line" style="width: 55%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">潮流周刊 by Tw93 Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            专为中文长文排版打造的文学画报感设计系统，使用开源“霞鹜文楷”与红铜色点缀，并原生支持深色模式。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">霞鹜文楷 Web Font</span>
+            <span class="meta-tag">赫蹏中文排版</span>
+            <span class="meta-tag">全自动暗色模式</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3: Linear Design System -->
+      <a href="pages/linear.html" target="_blank" class="card linear">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Linear Design System</div>
+              <div class="mockup-tag">Sleek Dark Mode</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#000212" title="bg"></div>
+                <div class="mockup-swatch-chip" style="background:#080a10" title="surface"></div>
+                <div class="mockup-swatch-chip" style="background:#5e6ad2" title="accent"></div>
+                <div class="mockup-swatch-chip" style="background:#f0f3f6" title="text"></div>
+                <div class="mockup-swatch-chip" style="background:#4cad6b" title="success"></div>
+              </div>
+              <div class="mockup-line" style="width: 80%"></div>
+              <div class="mockup-line" style="width: 45%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Linear Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            面向软件开发团队的暗色首选设计系统，以深邃星空蓝黑为底色，结合 Bento Grids 与动态光晕营造极客质感。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">深色模式优先</span>
+            <span class="meta-tag">Bento Grid 容器</span>
+            <span class="meta-tag">发光紫色调</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 4: Apple Design System -->
+      <a href="pages/apple.html" target="_blank" class="card apple">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Apple.com Web Style</div>
+              <div class="mockup-tag">Clean Premium HIG</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#f5f5f7" title="bg"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff" title="surface"></div>
+                <div class="mockup-swatch-chip" style="background:#1d1d1f" title="text"></div>
+                <div class="mockup-swatch-chip" style="background:#86868b" title="muted"></div>
+                <div class="mockup-swatch-chip" style="background:#0066cc" title="blue"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 50%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Apple HIG Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            遵循苹果官方人机交互指南（HIG）的经典网页设计，强调极致的内容遵从、宽留白与优雅的毛玻璃层级。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">San Francisco 字体</span>
+            <span class="meta-tag">毛玻璃顶栏</span>
+            <span class="meta-tag">宽幅留白</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <div>
-      <span class="k">Design System</span> &mdash; extracted May 2026
-    </div>
-    <div>
-      Source: <a href="https://thariqs.github.io/html-effectiveness/">thariqs.github.io/html-effectiveness</a>
-      &nbsp;&middot;&nbsp; <a href="https://github.com/holynova/my-design-system">GitHub</a>
-    </div>
+    <p>© 2026 设计系统目录库 · 优雅与极简的交汇</p>
   </footer>
 
-</div>
 </body>
 </html>

@@ -1,0 +1,973 @@
+<!-- Design System — 潮流周刊 (Trendy Weekly) by Tw93 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System — 潮流周刊 by Tw93</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" />
+<style>
+  /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
+  :root {
+    --font-body: "LXGW WenKai", "STKaiti", "KaiTi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SF Mono", Consolas, Monaco, "Courier New", Courier, monospace;
+    --theme-bg: #ffffff;
+    --theme-accent: #a67c52;
+    --theme-accent-hover: #8b5e3a;
+    --theme-text: #262626;
+    --theme-text-secondary: #6b7280;
+    --theme-divider: #e6e6e6;
+    --theme-card-bg: #f9f9f9;
+    --theme-code-bg: #1f2937;
+    --theme-code-text: #e5e7eb;
+    --radius: 8px;
+    --transition-base: 0.2s ease;
+    --line-height-normal: 1.7;
+    --line-height-tight: 1.6;
+    --font-size-base: 16px;
+    --font-size-small: 14px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --max-width: 864px;
+    --link-blue: #1d9bf0;
+  }
+
+  /* ═══════════════════ RESET ═══════════════════ */
+  *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: var(--font-size-base); color: var(--theme-text); -webkit-font-smoothing: subpixel-antialiased; scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--theme-bg);
+    color: var(--theme-text);
+    line-height: var(--line-height-normal);
+    letter-spacing: 0.5px;
+  }
+  img, video { max-width: 100%; height: auto; object-fit: cover; border-radius: var(--radius); }
+  a { color: var(--link-blue); cursor: pointer; transition: all var(--transition-base); text-decoration: none; }
+  a:hover { color: var(--theme-accent); }
+  hr { height: 1px; border: 0; background: var(--theme-divider); margin: 28px 0; }
+  pre, code { font-family: var(--font-mono); }
+  pre {
+    background: var(--theme-code-bg);
+    color: var(--theme-code-text);
+    padding: 16px 20px;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 24px 0;
+  }
+  code { font-size: 0.875em; }
+
+  /* ═══════════════════ LAYOUT ═══════════════════ */
+  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 16px 80px; }
+
+  /* ═══════════════════ MASTHEAD ═══════════════════ */
+  .masthead {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--theme-divider);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .masthead-logo {
+    width: 44px; height: 44px;
+    border-radius: var(--radius);
+    background: var(--theme-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .masthead h1 {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .masthead .sub {
+    font-size: var(--font-size-small);
+    color: var(--theme-text-secondary);
+    margin-top: 2px;
+  }
+  .back-home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border: 1px solid var(--theme-divider);
+    border-radius: var(--radius);
+    color: var(--theme-text);
+    background: var(--theme-bg);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  .back-home-link:hover {
+    color: var(--theme-accent);
+    border-color: var(--theme-accent);
+    background: rgba(166, 124, 82, 0.04);
+  }
+  #copy-md-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border: 1px solid var(--theme-divider);
+    border-radius: var(--radius);
+    color: var(--theme-text);
+    background: var(--theme-bg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+  #copy-md-btn:hover {
+    color: var(--theme-accent);
+    border-color: var(--theme-accent);
+    background: rgba(166, 124, 82, 0.04);
+  }
+
+  /* ═══════════════════ TWO-COLUMN LAYOUT ═══════════════════ */
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .layout-grid { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+  }
+
+  /* ═══════════════════ SIDEBAR ═══════════════════ */
+  .sidebar {
+    position: sticky;
+    top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .sidebar-section { display: flex; flex-direction: column; gap: 6px; }
+  .sidebar-heading {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--theme-text-secondary);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .sidebar a {
+    display: block;
+    font-size: var(--font-size-small);
+    color: var(--theme-text);
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all var(--transition-base);
+  }
+  .sidebar a:hover, .sidebar a.active {
+    color: var(--theme-accent);
+    background: rgba(166, 124, 82, 0.08);
+  }
+  .sidebar a .count {
+    font-size: 11px;
+    color: var(--theme-text-secondary);
+    margin-left: 4px;
+  }
+
+  /* ═══════════════════ SECTION HEADINGS ═══════════════════ */
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 56px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--theme-divider);
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-head .idx {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--theme-accent);
+    font-weight: 600;
+  }
+  .sec-head h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+  }
+
+  /* ═══════════════════ COLOR SWATCHES ═══════════════════ */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .swatch {
+    border-radius: var(--radius);
+    border: 1px solid var(--theme-divider);
+    overflow: hidden;
+  }
+  .swatch .color-block { height: 64px; }
+  .swatch .color-label {
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    background: #fff;
+  }
+  .swatch .color-label .name { font-weight: 600; color: var(--theme-text); }
+  .swatch .color-label .hex { color: var(--theme-text-secondary); font-family: var(--font-mono); font-size: 11px; }
+
+  /* ═══════════════════ TABLES ═══════════════════ */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-small);
+    margin-bottom: 28px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--theme-divider);
+  }
+  th {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--theme-text-secondary);
+    font-weight: 600;
+    background: var(--theme-card-bg);
+  }
+  td { vertical-align: top; }
+  td:first-child { font-weight: 600; }
+  td code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--theme-card-bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  /* ═══════════════════ TYPE SPECIMEN ═══════════════════ */
+  .type-spec { margin-bottom: 28px; }
+  .type-h1 { font-size: 2.25em; font-weight: 800; line-height: 1.11; margin-bottom: 4px; }
+  .type-h2 { font-size: 1.5em; font-weight: 700; line-height: 1.33; margin: 24px 0 4px; }
+  .type-h3 { font-size: 1.25em; font-weight: 600; line-height: 1.6; margin: 20px 0 4px; }
+  .type-body { font-size: 1rem; line-height: 1.75; color: #374151; max-width: 65ch; }
+  .type-small { font-size: var(--font-size-small); color: var(--theme-text-secondary); }
+  .type-caption {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--theme-text-secondary);
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+
+  /* ═══════════════════ SPACING VIZ ═══════════════════ */
+  .spacing-demo { margin-bottom: 28px; }
+  .spacing-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 6px;
+    font-size: var(--font-size-small);
+  }
+  .spacing-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: var(--theme-accent);
+    opacity: 0.45;
+    flex-shrink: 0;
+  }
+  .spacing-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--theme-text-secondary);
+    width: 90px;
+    flex-shrink: 0;
+  }
+
+  /* ═══════════════════ DO / DON'T ═══════════════════ */
+  .dos-donts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 640px) { .dos-donts { grid-template-columns: 1fr; } }
+  .do, .dont {
+    border-radius: var(--radius);
+    padding: 20px;
+    border: 1px solid var(--theme-divider);
+    background: #fff;
+  }
+  .do h4, .dont h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+    font-family: var(--font-mono);
+  }
+  .do h4 { color: #059669; }
+  .dont h4 { color: #dc2626; }
+  .do p, .dont p { font-size: var(--font-size-small); color: var(--theme-text-secondary); line-height: 1.6; }
+
+  /* ═══════════════════ CARD DEMO ═══════════════════ */
+  .card-demo {
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-divider);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 28px;
+  }
+  .card-demo .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--theme-text);
+  }
+  .card-demo .card-desc {
+    font-size: var(--font-size-small);
+    color: var(--theme-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════ PILL / TAG ═══════════════════ */
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--theme-text-secondary);
+    border: 1px solid var(--theme-divider);
+    background: #fff;
+    transition: all var(--transition-base);
+  }
+  .pill:hover { border-color: var(--theme-accent); color: var(--theme-accent); }
+  .pill.active { background: var(--theme-accent); color: #fff; border-color: var(--theme-accent); }
+
+  /* ═══════════════════ NAV LINK LIST ═══════════════════ */
+  .nav-link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 28px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--theme-divider);
+    border-radius: var(--radius);
+    padding: 8px;
+  }
+  .nav-link-list a {
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: var(--font-size-small);
+    color: var(--theme-text);
+    transition: all var(--transition-base);
+  }
+  .nav-link-list a:hover { background: rgba(166, 124, 82, 0.06); color: var(--theme-accent); }
+
+  /* ═══════════════════ FOOTER ═══════════════════ */
+  footer {
+    margin-top: 64px;
+    border-top: 1px solid var(--theme-divider);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: var(--font-size-small);
+    color: var(--theme-text-secondary);
+  }
+  footer a { color: var(--theme-accent); }
+  footer a:hover { color: var(--theme-accent-hover); }
+
+  /* ═══════════════════ DARK MODE ═══════════════════ */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --theme-bg: #21262b;
+      --theme-accent: #e8a15a;
+      --theme-text: #e7e9ea;
+      --theme-text-secondary: #9ca3af;
+      --theme-divider: #555555;
+      --theme-card-bg: #2a2f35;
+      --theme-code-bg: #161b22;
+      --link-blue: #58a6ff;
+    }
+    .swatch .color-label { background: #2a2f35; }
+    .card-demo, .do, .dont { background: #2a2f35; }
+    .pill { background: #2a2f35; }
+    .sidebar a:hover, .sidebar a.active { background: rgba(232, 161, 90, 0.12); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ═══════════════════ MASTHEAD ═══════════════════ -->
+  <div class="masthead">
+    <div class="masthead-logo">潮</div>
+    <div>
+      <h1>潮流周刊 Design System</h1>
+      <div class="sub">Extracted from weekly.tw93.fun · 中文排版优先的设计语言</div>
+    </div>
+    <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <a href="../index.html" class="back-home-link">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        返回主页
+      </a>
+      <button id="copy-md-btn" onclick="copyMarkdownSpec()">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        复制 Markdown 规范
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ TWO-COLUMN ═══════════════════ -->
+  <div class="layout-grid">
+    <nav class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Design Tokens</div>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#color">Color</a>
+        <a href="#typography">Typography</a>
+        <a href="#spacing">Spacing</a>
+        <a href="#layout">Layout</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Components</div>
+        <a href="#cards">Cards & Pills</a>
+        <a href="#navigation">Navigation</a>
+        <a href="#motion">Motion</a>
+        <a href="#dark-mode">Dark Mode</a>
+        <a href="#anti-patterns">Anti-Patterns</a>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- ═══════════════════ 01 PHILOSOPHY ═══════════════════ -->
+      <div id="philosophy" class="sec-head"><span class="idx">01</span><h2>Design Philosophy</h2></div>
+      <div class="dos-donts">
+        <div class="do">
+          <h4>This System Is</h4>
+          <p>Typography-first: a custom KaiTi (楷体) typeface defines the visual identity.</p>
+          <p>Chinese-native: CJK-aware spacing, punctuation, and line-breaking via 赫蹏 (heti).</p>
+          <p>Clean reading: high contrast, generous 1.7 line-height, 864px max-width on content.</p>
+          <p>Quietly warm: a single brown/copper accent (#a67c52) on white — no loud colors.</p>
+          <p>Dark mode native: full light/dark scheme using @media (prefers-color-scheme: dark).</p>
+          <p>Utility-powered: built on Tailwind CSS, extended with custom properties.</p>
+        </div>
+        <div class="dont">
+          <h4>This System Is Not</h4>
+          <p>No Latin serif fonts — KaiTi serves as the distinctive voice for both Latin and CJK.</p>
+          <p>No heavy shadows — shadow-md is the maximum. Cards use borders, not elevation.</p>
+          <p>No color beyond the warm brown accent + blue links (#1d9bf0).</p>
+          <p>No animations over 0.2s — snappy transitions only.</p>
+          <p>No external icon fonts — all icons are inline SVGs.</p>
+          <p>No pure black text — #262626 is the darkest tone used.</p>
+        </div>
+      </div>
+
+      <!-- ═══════════════════ 02 COLOR ═══════════════════ -->
+      <div id="color" class="sec-head"><span class="idx">02</span><h2>Color Palette</h2></div>
+      <div class="swatches">
+        <div class="swatch"><div class="color-block" style="background:#fff;border-bottom:1px solid var(--theme-divider)"></div><div class="color-label"><div class="name">theme-bg</div><div class="hex">#ffffff</div></div></div>
+        <div class="swatch"><div class="color-block" style="background:#a67c52"></div><div class="color-label"><div class="name">theme-accent</div><div class="hex">#a67c52</div></div></div>
+        <div class="swatch"><div class="color-block" style="background:#262626"></div><div class="color-label"><div class="name">theme-text</div><div class="hex">#262626</div></div></div>
+        <div class="swatch"><div class="color-block" style="background:#e6e6e6"></div><div class="color-label"><div class="name">theme-divider</div><div class="hex">#e6e6e6</div></div></div>
+        <div class="swatch"><div class="color-block" style="background:#1d9bf0"></div><div class="color-label"><div class="name">link-blue</div><div class="hex">#1d9bf0</div></div></div>
+        <div class="swatch"><div class="color-block" style="background:#6b7280"></div><div class="color-label"><div class="name">text-secondary</div><div class="hex">#6b7280</div></div></div>
+        <div class="swatch"><div class="color-block" style="background:#1f2937"></div><div class="color-label"><div class="name">code-bg</div><div class="hex">#1f2937</div></div></div>
+        <div class="swatch"><div class="color-block" style="background:#e8a15a"></div><div class="color-label"><div class="name">accent (dark)</div><div class="hex">#e8a15a</div></div></div>
+      </div>
+
+      <table>
+        <tr><th>Token</th><th>Light</th><th>Dark</th><th>Role</th></tr>
+        <tr><td>--theme-bg</td><td>#ffffff</td><td>#21262b</td><td>Page background</td></tr>
+        <tr><td>--theme-accent</td><td>#a67c52</td><td>#e8a15a</td><td>Accent, links on hover</td></tr>
+        <tr><td>--theme-text</td><td>#262626</td><td>#e7e9ea</td><td>Primary text</td></tr>
+        <tr><td>--theme-divider</td><td>#e6e6e6</td><td>#555555</td><td>Borders, hr</td></tr>
+        <tr><td>link</td><td>#1d9bf0</td><td>#58a6ff</td><td>Hyperlinks in prose</td></tr>
+        <tr><td>text-secondary</td><td>#6b7280</td><td>#9ca3af</td><td>Muted text, captions</td></tr>
+        <tr><td>code-bg</td><td>#1f2937</td><td>#161b22</td><td>Code block background</td></tr>
+        <tr><td>code-text</td><td>#e5e7eb</td><td>#e5e7eb</td><td>Code block text</td></tr>
+      </table>
+
+      <!-- ═══════════════════ 03 TYPOGRAPHY ═══════════════════ -->
+      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography</h2></div>
+      <div class="type-spec">
+        <div class="type-h1">潮流周刊第268期 — 小河公园</div>
+        <div class="type-caption">h1 · 2.25em · weight 800 · line-height 1.11</div>
+        <div class="type-h2">产品发布 · 潮流工具</div>
+        <div class="type-caption">h2 · 1.5em · weight 700 · line-height 1.33</div>
+        <div class="type-h3">随便看看 · 每周精选</div>
+        <div class="type-caption">h3 · 1.25em · weight 600 · line-height 1.6</div>
+        <p class="type-body">
+          封面图拍摄于上一个周末在小河公园拍到的一座有质感的建筑，刚好阳光非常好，绿树搭一起很好看。
+          这是正文段落的样张，<a href="#">超链接为蓝色</a>，字间距 0.5px，行高 1.75。
+        </p>
+        <div class="type-caption">body · 1rem (16px) · weight 400 · line-height 1.75 · letter-spacing 0.5px</div>
+        <p class="type-small">这是辅助文字 · 14px · #6b7280 · 用于描述、注释、侧边栏链接。</p>
+      </div>
+
+      <table>
+        <tr><th>Element</th><th>Font</th><th>Size</th><th>Weight</th><th>Line-height</th></tr>
+        <tr><td>Body</td><td>LXGW WenKai</td><td>16px</td><td>400</td><td>1.7</td></tr>
+        <tr><td>Small / Sidebar</td><td>LXGW WenKai</td><td>14px</td><td>400</td><td>1.6</td></tr>
+        <tr><td>h1 (prose)</td><td>LXGW WenKai</td><td>2.25em</td><td>800</td><td>1.11</td></tr>
+        <tr><td>h2 (prose)</td><td>LXGW WenKai</td><td>1.5em</td><td>700</td><td>1.33</td></tr>
+        <tr><td>h3 (prose)</td><td>LXGW WenKai</td><td>1.25em</td><td>600</td><td>1.6</td></tr>
+        <tr><td>Code</td><td>SF Mono / Consolas</td><td>14px</td><td>400</td><td>1.6</td></tr>
+      </table>
+
+      <div class="card-demo">
+        <p style="font-size:14px;margin-bottom:12px;color:var(--theme-text-secondary);">
+          <strong>核心字体：</strong>霞鹜文楷 (LXGW WenKai) — 从 CDN (jsDelivr) 分片加载 WOFF2 Web Font，回退至 STKaiti → KaiTi → system-ui。
+          字体渲染使用 <code>subpixel-antialiased</code>（非 macOS 默认的 antialiased），在中低分辨率屏幕上文字更清晰锐利。
+        </p>
+      </div>
+
+      <!-- ═══════════════════ 04 SPACING ═══════════════════ -->
+      <div id="spacing" class="sec-head"><span class="idx">04</span><h2>Spacing</h2></div>
+      <div class="spacing-demo">
+        <div class="spacing-row"><span class="spacing-label">--space-1</span><span class="spacing-bar" style="width:4px"></span>4px</div>
+        <div class="spacing-row"><span class="spacing-label">--space-2</span><span class="spacing-bar" style="width:8px"></span>8px</div>
+        <div class="spacing-row"><span class="spacing-label">--space-3</span><span class="spacing-bar" style="width:12px"></span>12px</div>
+        <div class="spacing-row"><span class="spacing-label">--space-4</span><span class="spacing-bar" style="width:16px"></span>16px</div>
+        <div class="spacing-row"><span class="spacing-label">--space-5</span><span class="spacing-bar" style="width:20px"></span>20px</div>
+        <div class="spacing-row"><span class="spacing-label">--space-6</span><span class="spacing-bar" style="width:24px"></span>24px</div>
+        <div class="spacing-row"><span class="spacing-label">--space-8</span><span class="spacing-bar" style="width:32px"></span>32px</div>
+        <div class="spacing-row"><span class="spacing-label">Content width</span><span class="spacing-bar" style="width:86px"></span>864px max</div>
+        <div class="spacing-row"><span class="spacing-label">Prose margin</span><span class="spacing-bar" style="width:28px"></span>28px (p, hr)</div>
+      </div>
+
+      <table>
+        <tr><th>Token</th><th>Value</th><th>Equivalent Tailwind Class</th></tr>
+        <tr><td>--space-1</td><td>4px</td><td>p-1 / gap-1</td></tr>
+        <tr><td>--space-2</td><td>8px</td><td>p-2 / gap-2</td></tr>
+        <tr><td>--space-3</td><td>12px</td><td>— (custom)</td></tr>
+        <tr><td>--space-4</td><td>16px</td><td>p-4 / gap-4</td></tr>
+        <tr><td>--space-5</td><td>20px</td><td>p-5 / gap-5</td></tr>
+        <tr><td>--space-6</td><td>24px</td><td>p-6 / gap-6</td></tr>
+        <tr><td>--space-8</td><td>32px</td><td>p-8 / gap-8</td></tr>
+        <tr><td>--doc-padding</td><td>32px</td><td>px-8</td></tr>
+        <tr><td>p margin-block</td><td>28px</td><td>my-7</td></tr>
+      </table>
+
+      <!-- ═══════════════════ 05 LAYOUT ═══════════════════ -->
+      <div id="layout" class="sec-head"><span class="idx">05</span><h2>Layout</h2></div>
+      <table>
+        <tr><th>Pattern</th><th>Approach</th><th>Details</th></tr>
+        <tr>
+          <td>Page shell</td>
+          <td>CSS Grid two-column</td>
+          <td>Sidebar (240px) + Main content. Stacks at 768px.</td>
+        </tr>
+        <tr>
+          <td>Sidebar</td>
+          <td>position: sticky</td>
+          <td>Full-height navigation, dense issue archive (268 links)</td>
+        </tr>
+        <tr>
+          <td>Content area</td>
+          <td>max-width: 864px</td>
+          <td>Centered, 16px mobile padding</td>
+        </tr>
+        <tr>
+          <td>Navbar</td>
+          <td>96px height</td>
+          <td>Logo, search, navigation groups</td>
+        </tr>
+        <tr>
+          <td>Prose</td>
+          <td>max-width: 65ch</td>
+          <td>Tailwind .prose class with CJK enhancements</td>
+        </tr>
+        <tr>
+          <td>Card grid</td>
+          <td>CSS Grid 2-4 cols</td>
+          <td>Responsive: 2@md, 3@lg, 4@xl</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr><th>Breakpoint</th><th>Min-width</th><th>Behavior</th></tr>
+        <tr><td>sm</td><td>640px</td><td>Sidebar collapses, content gets mobile padding</td></tr>
+        <tr><td>md</td><td>768px</td><td>Two-column layout, card grids (2 cols)</td></tr>
+        <tr><td>lg</td><td>1080px</td><td>Wider content (64rem), card grids (3 cols)</td></tr>
+        <tr><td>xl</td><td>1412px</td><td>Max width 80rem, card grids (4 cols)</td></tr>
+      </table>
+
+      <!-- ═══════════════════ 06 CARDS & PILLS ═══════════════════ -->
+      <div id="cards" class="sec-head"><span class="idx">06</span><h2>Cards &amp; Pills</h2></div>
+      <div class="card-demo">
+        <div class="card-title">周刊第 268 期 — 小河公园</div>
+        <div class="card-desc">封面图拍摄于上一个周末在小河公园拍到的一座有质感的建筑，刚好阳光非常好，绿树搭一起很好看。</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--theme-text-secondary);font-family:var(--font-mono);">2026/05/25 · 阅读约 8 分钟</div>
+      </div>
+
+      <p style="font-size:14px;margin-bottom:12px;color:var(--theme-text-secondary);">Pills / Tags:</p>
+      <div class="pills">
+        <span class="pill">产品发布</span>
+        <span class="pill">潮流工具</span>
+        <span class="pill active">随便看看</span>
+        <span class="pill">前端开发</span>
+        <span class="pill">macOS</span>
+        <span class="pill">设计</span>
+      </div>
+
+      <!-- ═══════════════════ 07 NAVIGATION ═══════════════════ -->
+      <div id="navigation" class="sec-head"><span class="idx">07</span><h2>Navigation Patterns</h2></div>
+      <p style="font-size:14px;margin-bottom:12px;color:var(--theme-text-secondary);">Dense sidebar nav (simulating the 268-issue archive):</p>
+      <div class="nav-link-list">
+        <a href="#">第268期 — 小河公园</a>
+        <a href="#" style="background:rgba(166,124,82,0.08);color:var(--theme-accent);">第267期 — 夏日庭院</a>
+        <a href="#">第266期 — 湖边落日</a>
+        <a href="#">第265期 — 老街咖啡</a>
+        <a href="#">第264期 — 樱花季节</a>
+        <a href="#">第263期 — 雪山脚下</a>
+        <a href="#">第262期 — 城市夜景</a>
+        <a href="#">第261期 — 秋日公园</a>
+      </div>
+
+      <!-- ═══════════════════ 08 MOTION ═══════════════════ -->
+      <div id="motion" class="sec-head"><span class="idx">08</span><h2>Motion &amp; Transitions</h2></div>
+      <table>
+        <tr><th>Element</th><th>Property</th><th>Duration</th><th>Easing</th></tr>
+        <tr><td>All links</td><td>color</td><td>0.2s</td><td>ease</td></tr>
+        <tr><td>Sidebar nav links</td><td>color, background</td><td>0.2s</td><td>ease</td></tr>
+        <tr><td>Pills</td><td>border-color, color</td><td>0.2s</td><td>ease</td></tr>
+        <tr><td>Tailwind utilities</td><td>color, bg, border, shadow, opacity</td><td>150ms</td><td>cubic-bezier(.4,0,.2,1)</td></tr>
+        <tr><td>Page scroll</td><td>scroll-behavior: smooth</td><td>—</td><td>smooth</td></tr>
+      </table>
+      <p style="font-size:14px;color:var(--theme-text-secondary);margin-top:12px;">
+        <strong>Rule:</strong> Transitions are fast (0.15–0.2s) and limited to color/background/border changes.
+        No opacity fades, no transform animations, no motion for motion's sake.
+      </p>
+
+      <!-- ═══════════════════ 09 DARK MODE ═══════════════════ -->
+      <div id="dark-mode" class="sec-head"><span class="idx">09</span><h2>Dark Mode</h2></div>
+      <p style="font-size:14px;color:var(--theme-text-secondary);margin-bottom:16px;max-width:65ch;">
+        This page renders differently depending on your OS setting. Toggle between light and dark mode
+        in your system preferences to see the full palette. Key changes:
+      </p>
+      <table>
+        <tr><th>Property</th><th>Light</th><th>Dark</th></tr>
+        <tr><td>Background</td><td>#ffffff</td><td>#21262b</td></tr>
+        <tr><td>Text</td><td>#262626</td><td>#e7e9ea</td></tr>
+        <tr><td>Accent</td><td>#a67c52</td><td>#e8a15a (warmer, brighter)</td></tr>
+        <tr><td>Dividers</td><td>#e6e6e6</td><td>#555555</td></tr>
+        <tr><td>Links</td><td>#1d9bf0</td><td>#58a6ff</td></tr>
+        <tr><td>Card bg</td><td>#f9f9f9</td><td>#2a2f35</td></tr>
+        <tr><td>Code bg</td><td>#1f2937</td><td>#161b22</td></tr>
+      </table>
+
+      <!-- ═══════════════════ 10 ANTI-PATTERNS ═══════════════════ -->
+      <div id="anti-patterns" class="sec-head"><span class="idx">10</span><h2>Anti-Patterns</h2></div>
+      <div class="dos-donts">
+        <div class="do">
+          <h4>Use When</h4>
+          <p>Chinese-first content websites, personal blogs, weekly newsletters</p>
+          <p>Projects that want a literary, refined reading experience</p>
+          <p>Static sites that need light/dark mode without a JS toggle</p>
+          <p>Content-heavy pages with sidebar navigation and dense archives</p>
+        </div>
+        <div class="dont">
+          <h4>Avoid When</h4>
+          <p>Data-dense dashboards or admin panels (wrong font, wrong density)</p>
+          <p>English-only content (KaiTi Latin glyphs are unconventional for body text)</p>
+          <p>Projects that can't load external font files (8MB+ total across subsets)</p>
+          <p>Highly interactive web apps needing rich component libraries</p>
+        </div>
+      </div>
+      <table>
+        <tr><th>Avoid</th><th>Use Instead</th></tr>
+        <tr><td>Pure black (#000) text</td><td>#262626 (light) or #e7e9ea (dark)</td></tr>
+        <tr><td>Bold weight on body text</td><td>400 throughout; headings scale to 800</td></tr>
+        <tr><td>Heavy box shadows</td><td>Subtle Tailwind shadow / shadow-md, or none</td></tr>
+        <tr><td>More than 2 accent colors</td><td>Warm brown for hover/accent + blue for links</td></tr>
+        <tr><td>Transitions over 0.2s</td><td>150-200ms max; color-only transitions</td></tr>
+        <tr><td>External icon fonts</td><td>Inline SVG or Unicode characters</td></tr>
+        <tr><td>JavaScript-dependent dark mode toggle</td><td>@media (prefers-color-scheme: dark)</td></tr>
+        <tr><td>System sans-serif for Chinese body text</td><td>KaiTi (楷体) for a literary, refined voice</td></tr>
+      </table>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer>
+    <div><strong>Design System — 潮流周刊</strong> · Extracted May 2026</div>
+    <div>
+      <a href="https://weekly.tw93.fun/posts/268">Source</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/tw93/weekly">GitHub</a>
+    </div>
+  </footer>
+
+</div>
+<textarea id="markdown-spec-content" style="display:none;"># Design System — 潮流周刊 (Trendy Weekly) by Tw93
+
+Extracted from [weekly.tw93.fun/posts/268](https://weekly.tw93.fun/posts/268).
+A Chinese typography-first, clean reading design with warm accents and dark mode.
+
+---
+
+## 1. Design Philosophy
+
+- **Typography-first** — the open-source "LXGW WenKai" (霞鹜文楷) font defines the visual identity
+- **Clean reading** — high contrast, generous spacing, prose-optimized layout
+- **Quiet warmth** — warm brown accent on white; no flashy colors
+- **Dark mode native** — full light/dark color scheme built in
+- **Utility-powered** — Tailwind CSS + custom properties, Astro-generated static site
+- **Chinese-aware** — uses 赫蹏 (heti) library for CJK punctuation and spacing
+
+---
+
+## 2. Color Palette
+
+### Light Mode
+
+| Token | Value | Role |
+|-------|-------|------|
+| `--theme-bg` | `#ffffff` | Page background |
+| `--theme-accent` | `#a67c52` | Accent (warm brown/copper) |
+| `--theme-text` | `#262626` | Primary text |
+| `--theme-divider` | `#e6e6e6` | Borders, dividers |
+| Link blue | `#1d9bf0` | Hyperlinks in content |
+| Gray muted | `#6b7280` | Secondary text (Tailwind gray-500) |
+| Gray light | `#9ca3af` | Placeholder text (Tailwind gray-400) |
+
+### Dark Mode
+
+| Token | Value | Role |
+|-------|-------|------|
+| `--theme-bg` | `#21262b` | Page background |
+| `--theme-accent` | `#e8a15a` | Accent (lighter warm) |
+| `--theme-text` | `#e7e9ea` | Primary text |
+| `--theme-divider` | `#555555` | Borders, dividers |
+
+### Tailwind Prose (Light)
+
+| Token | Value |
+|-------|-------|
+| `--tw-prose-body` | `#374151` |
+| `--tw-prose-headings` | `#111827` |
+| `--tw-prose-links` | `#111827` |
+| `--tw-prose-code` | `#111827` |
+| `--tw-prose-pre-bg` | `#1f2937` |
+| `--tw-prose-pre-code` | `#e5e7eb` |
+
+---
+
+## 3. Typography
+
+### Font Stack
+
+| Role | Stack |
+|------|-------|
+| Body / headings | `LXGW WenKai`, `STKaiti`, `KaiTi`, system-ui fallback |
+| Mono / code | `SF Mono`, Consolas, Monaco, `Courier New`, monospace |
+
+**Key detail:** The primary font is **LXGW WenKai** (霞鹜文楷), an open-source Chinese font loaded via jsDelivr CDN. It evokes a refined, literary magazine aesthetic.
+
+### Type Scale
+
+| Element | Size | Weight | Line-height |
+|---------|------|--------|-------------|
+| Base | 16px (`--font-size-base`) | 400 | 1.7 (`--line-height-normal`) |
+| Small | 14px (`--font-size-small`) | 400 | 1.6 |
+| `.prose` body | 1rem (16px) | 400 | 1.75 |
+| h1 (prose) | 2.25em | 800 | 1.11 |
+| h2 (prose) | 1.5em | 700 | 1.33 |
+| h3 (prose) | 1.25em | 600 | 1.6 |
+| Nav links | 14px | 500 | — |
+| Sidebar titles | 14px | 500 | — |
+
+### Rendering
+- `-webkit-font-smoothing: subpixel-antialiased` (light mode)
+- `letter-spacing: 0.5px` on body text (CJK optimization)
+- `text-autospace: normal` (CJK punctuation spacing)
+- `hyphens: auto` with `overflow-wrap: break-word`
+
+---
+
+## 4. Spacing System
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--space-1` | 4px | Tight gaps |
+| `--space-2` | 8px | Icon/text gaps |
+| `--space-3` | 12px | Internal padding |
+| `--space-4` | 16px | Standard padding |
+| `--space-5` | 20px | Card padding |
+| `--space-6` | 24px | Section gaps |
+| `--space-8` | 32px | Large section gaps |
+| `--doc-padding` | 32px | Document-level padding |
+| `--gutter` | 8px | Grid gutters |
+
+Content max-width: **864px** (on large screens), `calc(100% - 16px)` on mobile.
+
+---
+
+## 5. Borders & Radius
+
+- **Border radius:** `8px` (`--radius`) — consistent across images, cards, pre blocks
+- **Dividers:** 1px `--theme-divider` (`#e6e6e6` light / `#555` dark)
+- **Tailwind defaults:** `rounded-lg` (8px), `rounded-full` (9999px), `rounded` (4px)
+
+---
+
+## 6. Shadows
+
+Tailwind utility shadows:
+- `shadow` — `0 1px 3px 0 rgb(0,0,0,.1)` (card/button default)
+- `shadow-md` — `0 4px 6px -1px rgb(0,0,0,.1)` (elevated elements)
+- No custom shadow tokens defined
+
+---
+
+## 7. Layout Patterns
+
+### Page Shell
+```
+.layout (CSS Grid)
+  ├── Sidebar (left, sticky/fixed)
+  │     ├── Logo + site title
+  │     ├── Nav groups with links
+  │     └── 268 issue archive list
+  └── Main content (right)
+        ├── Cover image (full-width)
+        ├── Article title
+        ├── .heti (prose content)
+        └── Footer (prev/next, social links)
+```
+
+### Responsive Breakpoints (Tailwind)
+
+| Prefix | Min-width | Usage |
+|--------|-----------|-------|
+| `sm` | 640px | Sidebar collapses |
+| `md` | 768px | Two-column layout, card grids (2-col) |
+| `lg` | 1080px | Wider content, card grids (3-col) |
+| `xl` | 1412px | Max-width 80rem, card grids (4-col) |
+
+### Grid Layout
+- `grid-sidebar` class for the sidebar + main two-column layout
+- `.nav-groups` — flex column for sidebar navigation
+- `.nav-group` — each nav section with heading + links
+- `.nav-link` — individual issue links
+
+---
+
+## 8. Component Patterns
+
+### Sidebar
+```
+nav (sticky, full-height)
+  ├── .sidebar-header
+  │     ├── Logo image (36-48px)
+  │     └── Site title
+  ├── Search (Pagefind UI)
+  └── .nav-groups
+        └── .nav-group
+              ├── Nav heading
+              └── .nav-link × N (dense list, min line-height)
+```
+
+### Article Content
+```
+article
+  ├── Cover image (full-width, rounded, WebP via Alibaba OSS)
+  ├── h1 (article title)
+  ├── [En] toggle link
+  ├── .heti (prose content with CJK typography)
+  │     ├── h2 section headings
+  │     ├── p body text (28px margin-block)
+  │     ├── img (max-width, rounded, gray bg placeholder)
+  │     ├── pre > code (dark bg #1f2937, light text)
+  │     └── hr (1px theme-divider, 28px margins)
+  └── .post-footer
+        ├── Prev / Next navigation
+        ├── Social icons (Twitter, GitHub, RSS)
+        └── "Buy me a cola" CTA
+```
+
+### Navigation Pills (TOC/Archive)
+- Dense vertical list with min line-height
+- Font: 14px, weight 400
+- Active item gets accent color highlight
+- Hover: color shift to accent
+
+---
+
+## 9. Transitions & Motion
+
+- **Base transition:** `0.2s ease` (`--transition-base`)
+- Applied to: link colors, hover states
+- Tailwind default: `transition-colors` (150ms) on interactive elements
+- No heavy animations; design trusts content over motion
+
+---
+
+## 10. Images
+
+- **Format:** WebP via Alibaba Cloud OSS on-the-fly processing (`x-oss-process=image/...`)
+- **Max-width:** 100% with auto height; max 2000px wide
+- **Border-radius:** 8px (`--radius`)
+- **Placeholder:** Gray background (`#f3f4f6` light / `#262626` dark) while loading
+- **Lightense:** Click-to-zoom via lightense.js with `rgba(230,230,230,.85)` backdrop
+
+---
+
+## 11. Anti-Patterns (What This System Avoids)
+
+- No serif Latin fonts — LXGW WenKai serves as the distinctive voice for both Latin and CJK
+- No bold weights on body — 400 throughout; headings go up to 800
+- No box-shadow heavy cards — shadows are subtle Tailwind defaults
+- No color outside the warm brown + blue link palette
+- No animation beyond 0.2s
+- No external icon fonts — inline SVGs only
+</textarea>
+<script>
+  function copyMarkdownSpec() {
+    const mdText = document.getElementById('markdown-spec-content').value;
+    navigator.clipboard.writeText(mdText).then(() => {
+      const btn = document.getElementById('copy-md-btn');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 已复制`;
+      btn.style.borderColor = 'var(--theme-accent)';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.borderColor = '';
+      }, 2000);
+    }).catch(err => {
+      console.error(err);
+      alert('复制失败: ' + err);
+    });
+  }
+</script>
+</body>
+</html>

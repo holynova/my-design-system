@@ -2,9 +2,9 @@
   "name": "my-design-system",
   "version": "1.0.0",
   "description": "A functional-minimalist design system extracted from The Unreasonable Effectiveness of HTML",
-  "main": "DESIGN_SYSTEM.html",
+  "main": "index.html",
   "scripts": {
-    "screenshot": "npx playwright screenshot file://$(pwd)/DESIGN_SYSTEM.html screenshot.png"
+    "screenshot": "npx playwright screenshot file://$(pwd)/pages/html-effectiveness.html screenshot.png"
   },
   "keywords": ["design-system", "css", "html", "functional-minimalist"],
   "author": "holynova",

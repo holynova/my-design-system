@@ -1,0 +1,810 @@
+<!-- Design System — Apple.com by holynova -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System — Apple.com</title>
+<style>
+  /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
+  :root {
+    --font-sf-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    --font-sf-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: SF Mono, ui-monospace, Menlo, Monaco, monospace;
+    
+    --bg-base: #f5f5f7;
+    --bg-surface: #ffffff;
+    --border-color: #d2d2d7;
+    --border-light: #e5e5ea;
+    
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --accent-blue: #0066cc;
+    --accent-blue-hover: #0077ed;
+    
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --radius-pill: 999px;
+    
+    --transition-base: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  /* ═══════════════════ RESET & BASE ═══════════════════ */
+  *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sf-text);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    line-height: 1.47;
+    letter-spacing: -0.022em;
+    padding-bottom: 120px;
+  }
+
+  a { color: var(--accent-blue); text-decoration: none; transition: color var(--transition-base); }
+  a:hover { color: var(--accent-blue-hover); text-decoration: underline; }
+  hr { height: 1px; border: 0; background: var(--border-light); margin: 40px 0; }
+  pre, code { font-family: var(--font-mono); }
+  code { font-size: 0.85em; background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px; color: #111; }
+  
+  pre {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin: 24px 0;
+  }
+
+  /* ═══════════════════ STICKY GLOBAL NAV ═══════════════════ */
+  .global-nav {
+    position: sticky;
+    top: 0;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.76);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .global-nav .wrap-nav {
+    max-width: 1024px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+  .global-nav-title {
+    font-family: var(--font-sf-display);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .global-nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  .global-nav-links a {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  .global-nav-links a:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  /* ═══════════════════ LAYOUT ═══════════════════ */
+  .wrap { max-width: 1024px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    padding: 80px 0 48px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .masthead .badge {
+    font-family: var(--font-sf-display);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--text-secondary);
+  }
+  .masthead h1 {
+    font-family: var(--font-sf-display);
+    font-size: clamp(32px, 6vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    color: var(--text-primary);
+  }
+  .masthead .sub {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.4;
+  }
+
+  /* TWO-COLUMN GRID */
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .layout-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .sidebar-section { display: flex; flex-direction: column; gap: 4px; }
+  .sidebar-heading {
+    font-family: var(--font-sf-display);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+  }
+  .sidebar a {
+    display: block;
+    font-size: 13px;
+    color: var(--text-primary);
+    padding: 4px 0;
+    transition: color var(--transition-base);
+  }
+  .sidebar a:hover, .sidebar a.active {
+    color: var(--accent-blue);
+    text-decoration: none;
+  }
+
+  /* ═══════════════════ COMPONENTS & SECTIONS ═══════════════════ */
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 56px;
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-head .idx {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .sec-head h2 {
+    font-family: var(--font-sf-display);
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  /* COLOR SWATCHES */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .swatch {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .swatch .color-block { height: 64px; }
+  .swatch .color-label {
+    padding: 10px;
+    font-size: 12px;
+    background: #ffffff;
+  }
+  .swatch .color-label .name { font-weight: 600; color: var(--text-primary); }
+  .swatch .color-label .hex { color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-bottom: 32px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  th {
+    font-family: var(--font-sf-display);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    font-weight: 600;
+    background: #fcfcfd;
+  }
+  td { color: var(--text-secondary); }
+  td:first-child { font-weight: 600; color: var(--text-primary); }
+
+  /* PRODUCT CARD DEMO */
+  .product-showcase {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 640px) { .product-showcase { grid-template-columns: 1fr; } }
+  .product-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 240px;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+  .product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+  }
+  .product-card .card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .product-card .card-badge {
+    font-family: var(--font-sf-display);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--text-secondary);
+  }
+  .product-card h3 {
+    font-family: var(--font-sf-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.15;
+  }
+  .product-card p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+  }
+  .product-card .card-link {
+    font-size: 14px;
+    color: var(--accent-blue);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+  }
+
+  /* DO / DON'T */
+  .dos-donts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 640px) { .dos-donts { grid-template-columns: 1fr; } }
+  .do, .dont {
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-surface);
+  }
+  .do h4, .dont h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    font-family: var(--font-sf-display);
+    font-weight: 700;
+  }
+  .do h4 { color: #00802b; }
+  .dont h4 { color: #d82b2b; }
+  .do p, .dont p { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 8px; }
+
+  /* TYPE SPECIMEN */
+  .type-spec { margin-bottom: 32px; }
+  .type-title { font-family: var(--font-sf-display); font-size: 48px; font-weight: 700; line-height: 1.07; letter-spacing: -0.015em; margin-bottom: 8px; }
+  .type-h2 { font-family: var(--font-sf-display); font-size: 32px; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; margin: 24px 0 8px; }
+  .type-body { font-size: 17px; line-height: 1.47; color: var(--text-primary); max-width: 600px; }
+  .type-caption { font-family: var(--font-sf-text); font-size: 14px; color: var(--text-secondary); margin-top: 4px; margin-bottom: 16px; }
+
+  /* SPACING DEMO */
+  .spacing-demo { margin-bottom: 32px; }
+  .spacing-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; font-size: 13.5px; }
+  .spacing-bar { height: 8px; border-radius: 4px; background: var(--text-primary); opacity: 0.15; flex-shrink: 0; }
+  .spacing-label { font-family: var(--font-sf-text); font-size: 12px; color: var(--text-secondary); width: 120px; flex-shrink: 0; }
+
+  /* PILLS / BUTTONS */
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    transition: all var(--transition-base);
+  }
+  .pill:hover { border-color: var(--text-primary); }
+  .pill.active { background: var(--text-primary); border-color: var(--text-primary); color: #ffffff; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+  }
+  footer a { color: var(--text-primary); }
+
+  #copy-md-btn, .back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sf-text);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  #copy-md-btn:hover, .back-home-btn:hover {
+    border-color: var(--text-primary);
+    background: var(--bg-base);
+  }
+  #copy-md-btn svg, .back-home-btn svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+  }
+  .back-home-btn svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ═══════════════════ GLOBAL NAV ═══════════════════ -->
+  <div class="global-nav">
+    <div class="wrap-nav">
+      <a href="../index.html" class="global-nav-title" style="text-decoration: none; color: var(--text-primary); display: inline-flex; align-items: center; gap: 6px;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Apple Design
+      </a>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="global-nav-links">
+          <a href="#philosophy">Guidelines</a>
+          <a href="#color">Colors</a>
+          <a href="#typography">Typography</a>
+        </div>
+        <a href="../index.html" class="back-home-btn">
+          <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Hub
+        </a>
+        <button id="copy-md-btn" onclick="copyMarkdownSpec()">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          Copy Spec
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- ═══════════════════ MASTHEAD ═══════════════════ -->
+    <div class="masthead">
+      <div class="badge">Human Interface Guidelines</div>
+      <h1>Apple.com Web Style</h1>
+      <div class="sub">Product-forward, clear typography, airy whitespace, and dynamic type hierarchy</div>
+    </div>
+
+    <!-- ═══════════════════ TWO-COLUMN LAYOUT ═══════════════════ -->
+    <div class="layout-grid">
+      <nav class="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Guidelines</div>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#color">Colors</a>
+          <a href="#typography">Typography</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Structure</div>
+          <a href="#spacing">Spacing</a>
+          <a href="#borders">Borders & Radius</a>
+          <a href="#components">Showcase Cards</a>
+          <a href="#motion">Motion rules</a>
+        </div>
+      </nav>
+
+      <main>
+
+        <!-- 01 PHILOSOPHY -->
+        <div id="philosophy" class="sec-head"><span class="idx">01</span><h2>Design Philosophy</h2></div>
+        <div class="dos-donts">
+          <div class="do">
+            <h4>Do</h4>
+            <p>Clarity: Text should be extremely legible at all sizes, dynamic type enabled.</p>
+            <p>Deference: Minimal framing so that product photos and specifications stand out.</p>
+            <p>Depth: Use frosted overlays and clean elevation scales to map contexts.</p>
+          </div>
+          <div class="dont">
+            <h4>Don't</h4>
+            <p>No solid black: Use slate-black `#1d1d1f` for high legibility reading blocks.</p>
+            <p>No heavy card shadows: Cards are defined by borders or light surface contrast.</p>
+            <p>No pure decorative color blocks: Color communicates meaning, not decoration.</p>
+          </div>
+        </div>
+
+        <!-- 02 COLOR PALETTE -->
+        <div id="color" class="sec-head"><span class="idx">02</span><h2>Color Palette</h2></div>
+        <div class="swatches">
+          <div class="swatch"><div class="color-block" style="background:#f5f5f7"></div><div class="color-label"><div class="name">bg-base</div><div class="hex">#f5f5f7</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#ffffff; border-bottom:1px solid var(--border-light)"></div><div class="color-label"><div class="name">bg-surface</div><div class="hex">#ffffff</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#1d1d1f"></div><div class="color-label"><div class="name">text-primary</div><div class="hex">#1d1d1f</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#86868b"></div><div class="color-label"><div class="name">text-secondary</div><div class="hex">#86868b</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#0066cc"></div><div class="color-label"><div class="name">accent-blue</div><div class="hex">#0066cc</div></div></div>
+          <div class="swatch"><div class="color-block" style="background:#e5e5ea"></div><div class="color-label"><div class="name">apple-gray</div><div class="hex">#e5e5ea</div></div></div>
+        </div>
+        
+        <table>
+          <tr><th>Token</th><th>Light Mode Hex</th><th>Dark Mode Equivalent</th><th>Role</th></tr>
+          <tr><td>--bg-base</td><td>#f5f5f7</td><td>#000000</td><td>Main canvas background</td></tr>
+          <tr><td>--bg-surface</td><td>#ffffff</td><td>#1d1d1f</td><td>Card panel layers</td></tr>
+          <tr><td>--text-primary</td><td>#1d1d1f</td><td>#f5f5f7</td><td>Primary reading blocks</td></tr>
+          <tr><td>--text-secondary</td><td>#86868b</td><td>#86868b</td><td>Labels, secondary captions</td></tr>
+          <tr><td>--accent-blue</td><td>#0066cc</td><td>#2997ff</td><td>Call-to-action, text links</td></tr>
+        </table>
+
+        <!-- 03 TYPOGRAPHY -->
+        <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography</h2></div>
+        <div class="type-spec">
+          <div class="type-title">iPhone 15 Pro</div>
+          <div class="type-caption">SF Pro Display · 48px · weight 700 · line-height 1.07</div>
+          <div class="type-h2">Titanium. So strong. So light. So Pro.</div>
+          <div class="type-caption">SF Pro Display · 32px · weight 600 · line-height 1.1</div>
+          <p class="type-body">
+            This is system body text. San Francisco is the primary system typeface. It is sized and spaced dynamically for high readability.
+          </p>
+          <div class="type-caption">SF Pro Text · 17px · weight 400 · line-height 1.47</div>
+        </div>
+
+        <table>
+          <tr><th>Usage</th><th>Font Class</th><th>Size</th><th>Weight</th><th>Line-height</th></tr>
+          <tr><td>Display Titles</td><td>SF Pro Display</td><td>40px - 64px</td><td>700</td><td>1.07</td></tr>
+          <tr><td>Subheadings</td><td>SF Pro Display</td><td>32px</td><td>600</td><td>1.1</td></tr>
+          <tr><td>Card Titles</td><td>SF Pro Display</td><td>24px</td><td>600</td><td>1.15</td></tr>
+          <tr><td>Body Text</td><td>SF Pro Text</td><td>17px</td><td>400</td><td>1.47</td></tr>
+          <tr><td>Captions</td><td>SF Pro Text</td><td>14px</td><td>400</td><td>1.42</td></tr>
+        </table>
+
+        <!-- 04 SPACING SYSTEM -->
+        <div id="spacing" class="sec-head"><span class="idx">04</span><h2>Spacing System</h2></div>
+        <div class="spacing-demo">
+          <div class="spacing-row"><span class="spacing-label">Section gap</span><span class="spacing-bar" style="width:80px"></span>80px</div>
+          <div class="spacing-row"><span class="spacing-label">Card padding</span><span class="spacing-bar" style="width:32px"></span>32px</div>
+          <div class="spacing-row"><span class="spacing-label">Button padding</span><span class="spacing-bar" style="width:16px"></span>16px</div>
+          <div class="spacing-row"><span class="spacing-label">Navbar height</span><span class="spacing-bar" style="width:44px"></span>44px</div>
+        </div>
+
+        <!-- 05 BORDERS & RADIUS -->
+        <div id="borders" class="sec-head"><span class="idx">05</span><h2>Borders &amp; Radius</h2></div>
+        <table>
+          <tr><th>Element</th><th>Border Rule</th><th>Border Radius</th></tr>
+          <tr><td>Hero banners</td><td>none</td><td>28px</td></tr>
+          <tr><td>Standard cards</td><td>1px solid #d2d2d7</td><td>18px</td></tr>
+          <tr><td>Small components</td><td>1px solid #e5e5ea</td><td>12px</td></tr>
+          <tr><td>Pill buttons</td><td>none</td><td>999px</td></tr>
+        </table>
+
+        <!-- 06 SHOWCASE CARDS -->
+        <div id="components" class="sec-head"><span class="idx">06</span><h2>Showcase Cards</h2></div>
+        <div class="product-showcase">
+          <div class="product-card">
+            <div class="card-header">
+              <span class="card-badge">Apple Design</span>
+              <h3>MacBook Pro</h3>
+              <p>Mind-blowing M3 chips. Up to 22 hours battery life.</p>
+            </div>
+            <a href="#" class="card-link">Learn more &rarr;</a>
+          </div>
+          <div class="product-card">
+            <div class="card-header">
+              <span class="card-badge">New</span>
+              <h3>Apple Watch Ultra 2</h3>
+              <p>The ultimate sports watch is back in black.</p>
+            </div>
+            <a href="#" class="card-link">Buy &rarr;</a>
+          </div>
+        </div>
+        
+        <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:12px;">Pill buttons:</p>
+        <div class="pills">
+          <span class="pill active">Overview</span>
+          <span class="pill">Tech Specs</span>
+          <span class="pill">Compare</span>
+        </div>
+
+        <!-- 07 MOTION RULES -->
+        <div id="motion" class="sec-head"><span class="idx">07</span><h2>Motion Rules</h2></div>
+        <table>
+          <tr><th>Interactive Element</th><th>Transition Trigger</th><th>Easing &amp; Speed</th></tr>
+          <tr><td>Cards &amp; Banners</td><td>Scale up on hover (`1.02`)</td><td>cubic-bezier(0.25, 0.1, 0.25, 1) · 400ms</td></tr>
+          <tr><td>Pill Buttons</td><td>Background &amp; Text color shift</td><td>linear · 200ms</td></tr>
+          <tr><td>Action Links</td><td>Underline fades in</td><td>linear · 200ms</td></tr>
+        </table>
+
+      </main>
+    </div>
+
+    <!-- ═══════════════════ FOOTER ═══════════════════ -->
+    <footer>
+      <div><strong>Design System — Apple.com</strong> · Extracted May 2026</div>
+      <div>
+        <a href="https://www.apple.com">Apple Website</a>
+      </div>
+    </footer>
+
+  </div>
+<textarea id="markdown-spec-content" style="display:none;"># Design System — Apple.com (Clean Premium Light)
+
+Extracted and adapted from [apple.com](https://www.apple.com).
+An elegant, product-forward, light-themed design language optimized for dynamic typography and editorial clarity.
+
+---
+
+## 1. Design Philosophy
+
+- **Clarity & Readability** — content is king; typography is sized and spaced to be immediately understandable
+- **Deference to content** — visual styling behaves as a clean stage for high-resolution product showcase
+- **Layered depth** — frosted glass overlays, subtle margins, and smooth scale transitions create physical layers
+- **Adaptive layout** — fluid layouts that adapt gracefully to viewport widths, orientations, and fonts
+- **Semantic colors** — clean color tokens representing status and structure; absolutely no decorative clutter
+
+---
+
+## 2. Color Palette
+
+| Token | Hex | Role |
+|-------|-----|------|
+| `--bg-base` | `#f5f5f7` | Page body background |
+| `--bg-surface` | `#ffffff` | Card / main section background |
+| `--text-primary` | `#1d1d1f` | Bold black for primary text |
+| `--text-secondary`| `#86868b` | Muted gray for subtitles and captions |
+| `--accent-blue` | `#0066cc` | Classic interactive link blue |
+| `--accent-blue-hover`| `#0077ed` | Brightened link hover variant |
+| `--border-light` | `#d2d2d7` | Muted card border |
+| `--border-dark` | `#86868b` | Stronger divider / focus border |
+| `--apple-gray` | `#e5e5ea` | Light tag background |
+
+**Usage rules:**
+- Pure white surfaces overlaid on light gray backgrounds
+- Near-black text (`#1d1d1f`) to maintain high contrast without the harshness of pure black (`#000000`)
+- Accent blue used exclusively for text links, navigation points, and call-to-action (CTA) buttons
+- Color is adaptive: transitions to dark mode variants (`#000000` body, `#1d1d1f` card surfaces) automatically
+
+---
+
+## 3. Typography
+
+### Font Stack
+
+| Token | Stack |
+|-------|-------|
+| `--sf-display` | `SF Pro Display, -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif` |
+| `--sf-text` | `SF Pro Text, -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif` |
+| `--mono` | `SF Mono, ui-monospace, Menlo, Monaco, Consolas, monospace` |
+
+### Type Scale
+
+| Element | Font | Size | Weight | Line-height | Letter-spacing | Notes |
+|---------|------|------|--------|-------------|----------------|-------|
+| Hero Title | sf-display | `clamp(40px, 7vw, 64px)` | 700 | 1.07 | -0.015em | Very prominent |
+| Subsection Head | sf-display | 40px | 600 | 1.1 | -0.009em | Product blocks |
+| Card Title | sf-display | 24px | 600 | 1.15 | 0.007em | Standard cards |
+| Body Text | sf-text | 17px | 400 | 1.47 | -0.022em | Highly readable |
+| Caption / Small | sf-text | 14px | 400 | 1.42 | -0.016em | Sub-text, labels |
+| Micro Badge | sf-text | 11px | 600 | 1.3 | 0.04em | Badges, pills |
+| Code | mono | 13.5px | 400 | 1.5 | — | Developer examples |
+
+**Rules:**
+- `SF Pro Display` used for headings size 20px and above
+- `SF Pro Text` used for sizes below 20px
+- High line-height (`1.47` on body) ensures text blocks do not feel squeezed
+- Subtitles are styled with secondary gray text to establish clear reading order
+
+---
+
+## 4. Spacing System
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| Content max-width | 1024px | Standard section grid wrapper |
+| Section gap | 80px | Space between major product blocks |
+| Card internal padding | 32px | Grid cell padding |
+| Button padding | 8px 16px | CTA button padding |
+| Navbar height | 44px | Sticky top header height |
+
+**Rules:**
+- Layout emphasizes open space (whitespace is a key graphic element)
+- Margins scale proportionally with screen widths using viewport sizing
+- Columns collapse gracefully into stacked grids on tablet/mobile screens
+
+---
+
+## 5. Borders & Dividers
+
+- **Border width:** 1px (thin, clean lines)
+- **Border colors:** `#e5e5ea` or `#d2d2d7` (light slate-gray)
+- **Separators:** Highly transparent borders dividing header zones
+
+---
+
+## 6. Border Radius
+
+| Element | Value |
+|---------|-------|
+| Large hero elements | 28px |
+| Standard cards | 18px |
+| Small panels | 12px |
+| Pill buttons / badges | 999px (fully rounded) |
+
+---
+
+## 7. Shadows
+
+- **Static cards:** No box shadow; borders or color blocks define edges.
+- **Floating overlays / drop-downs:** `0 15px 30px rgba(0, 0, 0, 0.08)` (very faint, soft, natural shadows).
+
+---
+
+## 8. Layout Patterns
+
+### Product Grid
+Grid showing features or accessories side-by-side:
+```css
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+```
+
+### Frosted Header Bar
+```css
+.global-nav {
+  position: sticky;
+  top: 0;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+```
+
+---
+
+## 9. Component Patterns
+
+### Product Card
+```
+.product-card
+  ├── .card-image (occupies background or top zone)
+  └── .card-overlay-text (absolute overlay, positioned at top/bottom)
+        ├── .badge (micro category label)
+        ├── h3 (card title, 24px)
+        └── p (muted description text, 14px)
+```
+
+---
+
+## 10. Transitions & Motion
+
+- **Speed:** `400ms` for page transitions, `200ms` for interactive buttons.
+- **Easing:** Apple standard ease (`cubic-bezier(0.25, 0.1, 0.25, 1.0)`).
+- **Scale:** Cards scale up very slightly (`1.02`) on hover to express tactile depth.
+
+---
+
+## 11. Responsive Breakpoints
+
+| Viewport | Behavior |
+|----------|----------|
+| 1068px | Global container locks width |
+| 734px | Grid cards stack vertically; typography sizes scale down |
+
+---
+
+## 12. Iconography
+
+- Simple, geometric strokes matching **SF Symbols** line weights
+- Icons align centered to text blocks
+- Fills/strokes are dynamic, shifting automatically to represent disabled, active, or hover states
+
+---
+
+## 13. Code & Inline Elements
+
+- Inline code wraps inside light gray chips `#e5e5ea`
+- Links have a solid accent blue color; they display a solid underline on hover
+- Buttons are styled as text links with a trailing arrow `→` or as pill-shaped solid buttons
+
+---
+
+## 14. Anti-Patterns (What This System Avoids)
+
+- No harsh black text on pure white background — use slate-black `#1d1d1f`
+- No complex gradients — solid flat colors only
+- No heavy box shadows on cards — borders define shapes
+- No cluttered grids — cards have massive internal padding and margins
+- No bold weights above 700 for display typography
+- No non-dynamic typography sizes
+</textarea>
+<script>
+  function copyMarkdownSpec() {
+    const mdText = document.getElementById('markdown-spec-content').value;
+    navigator.clipboard.writeText(mdText).then(() => {
+      const btn = document.getElementById('copy-md-btn');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+      btn.style.borderColor = 'var(--text-primary)';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.borderColor = '';
+      }, 2000);
+    }).catch(err => {
+      console.error(err);
+      alert('Failed to copy: ' + err);
+    });
+  }
+</script>
+</body>
+</html>
