@@ -1,6 +1,6 @@
 # Design System Catalog Hub (设计系统目录库)
 
-一个高品质、内容优先、自包含且零依赖的网页设计规范与排版引擎目录库。本仓库收集并整理了六种不同美学风格的现代设计规范，点击即可直接预览其排版、间距、色板和核心组件。
+一个高品质、内容优先、自包含且零依赖的网页设计规范与排版引擎目录库。本仓库收集并整理了七种不同美学风格的现代设计规范，点击即可直接预览其排版、间距、色板和核心组件。
 
 ![Screenshot](screenshot.png)
 
@@ -11,7 +11,7 @@
 
 ## 目录中收录的设计系统
 
-本目录库收录了以下六种极具代表性的设计规范：
+本目录库收录了以下七种极具代表性的设计规范：
 
 1. **HTML Effectiveness Spec** ([html-effectiveness.html](pages/html-effectiveness.html))
    - **特点**: 秉持温暖极简主义的文档级阅读设计系统，采用经典的 Serif / Sans / Mono 字体定位与 1.5px 极细实线修饰。
@@ -36,6 +36,10 @@
 6. **Notion Spec** ([notion.html](pages/notion.html))
    - **特点**: 秉持无干扰极极简原则的块状文档搭建系统，强调单色黑白灰与温和的马卡龙色标。
    - **美学风格**: 块状组装结构、无干扰极简、温暖素雅。
+
+7. **Vue.js Spec** ([vue.html](pages/vue.html))
+   - **特点**: 基于 VitePress 驱动的现代渐进式文档设计系统，融合翡翠绿与深邃碳灰，以及标志性的提示框容器。
+   - **美学风格**: 翡翠绿与深灰色搭配，极简且高强度的阅读感。
 
 ---
 
@@ -65,12 +69,14 @@
 │   ├── linear.html
 │   ├── apple.html
 │   ├── tailwindcss.html
-│   └── notion.html
+│   ├── notion.html
+│   └── vue.html
 └── specs/                      # 原始设计系统规范 (Markdown 纯文本)
     ├── html-effectiveness.md
     ├── tw93.md
     ├── linear.md
     ├── apple.md
     ├── tailwindcss.md
-    └── notion.md
+    ├── notion.md
+    └── vue.md
 ```

@@ -32,6 +32,8 @@
       --accent-tailwind-glow: rgba(99, 102, 241, 0.08);
       --accent-notion: #37352f; /* Notion charcoal */
       --accent-notion-glow: rgba(55, 53, 47, 0.06);
+      --accent-vue: #42b883; /* Vue green */
+      --accent-vue-glow: rgba(66, 184, 131, 0.08);
       
       --radius-lg: 16px;
       --radius-md: 10px;
@@ -233,6 +235,16 @@
       transform: translateY(-8px);
     }
 
+    /* Vue Card Variant */
+    .card.vue::before {
+      background: linear-gradient(90deg, var(--accent-vue), #35495e);
+    }
+    .card.vue:hover {
+      border-color: var(--accent-vue);
+      box-shadow: 0 20px 40px var(--accent-vue-glow);
+      transform: translateY(-8px);
+    }
+
     /* Card Preview (Increased height to 380px for prominence) */
     .card-preview {
       height: 380px;
@@ -260,6 +272,9 @@
     }
     .card.notion .card-preview {
       background: #fbfbfa;
+    }
+    .card.vue .card-preview {
+      background: #1b1b1f;
     }
 
     /* Visual Mockup inside card preview */
@@ -471,6 +486,34 @@
       font-size: 10px;
       padding: 3px 8px;
       border-radius: 3px;
+      align-self: flex-start;
+    }
+
+    /* Vue Mockup Styles */
+    .card.vue .mockup-container {
+      background: #1b1b1f;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 30px rgba(66, 184, 131, 0.15);
+    }
+    .card.vue .mockup-dot {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .card.vue .mockup-line {
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .card.vue .mockup-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #42b883;
+    }
+    .card.vue .mockup-tag {
+      background: rgba(66, 184, 131, 0.12);
+      border: 1px solid var(--accent-vue);
+      color: #42b883;
+      font-size: 9px;
+      padding: 3px 8px;
+      border-radius: 4px;
       align-self: flex-start;
     }
 
@@ -887,6 +930,51 @@
             <span class="meta-tag">无干扰黑白灰</span>
             <span class="meta-tag">块状组装结构</span>
             <span class="meta-tag">马卡龙高亮</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 7: Vue.js Design System -->
+      <a href="pages/vue.html" target="_blank" class="card vue">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">⚡ Progressive Docs</div>
+              <div class="mockup-tag">custom-block tip</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#42b883" title="vue-green"></div>
+                <div class="mockup-swatch-chip" style="background:#35495e" title="vue-navy"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff" title="canvas-light"></div>
+                <div class="mockup-swatch-chip" style="background:#1b1b1f" title="canvas-dark"></div>
+                <div class="mockup-swatch-chip" style="background:#f6f6f7" title="surface-alt"></div>
+              </div>
+              <div class="mockup-line" style="width: 82%; border-left: 3px solid #42b883; padding-left: 8px;"></div>
+              <div class="mockup-line" style="width: 50%; border-left: 3px solid #42b883; padding-left: 8px;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Vue.js Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            基于 VitePress 驱动的现代渐进式文档设计系统，融合翡翠绿与深邃碳灰，以及标志性的提示框容器。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">Vue 翡翠绿</span>
+            <span class="meta-tag">渐进式提示框</span>
+            <span class="meta-tag">系统字阶</span>
           </div>
         </div>
       </a>
