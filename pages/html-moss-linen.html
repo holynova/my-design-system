@@ -1,0 +1,981 @@
+<!-- Design System 鈥?"The unreasonable effectiveness of HTML" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System 鈥?The unreasonable effectiveness of HTML - Moss Linen</title>
+<style>
+  :root {
+    --ivory:  #F7F6EE;
+    --paper:  #FFFDF7;
+    --slate:  #202119;
+    --clay:   #8D7F5D;
+    --clay-d: #72684B;
+    --oat:    #E2DECA;
+    --olive:  #6F7D61;
+    --g100:   #EEECDF;
+    --g200:   #E0DDCB;
+    --g300:   #CBC7B2;
+    --g500:   #817F70;
+    --g700:   #414238;
+    --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--slate);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px 140px; }
+
+  /* 鈹€鈹€ masthead 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  header.masthead {
+    padding: 80px 0 56px;
+    border-bottom: 1.5px solid var(--g300);
+    margin-bottom: 12px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--g500);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 24px; height: 1.5px;
+    background: var(--clay);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(38px, 5.4vw, 62px);
+    line-height: 1.06;
+    letter-spacing: -0.018em;
+    margin: 0 0 8px;
+    max-width: 20ch;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--clay);
+  }
+  .intro {
+    font-size: 16.5px;
+    color: var(--g700);
+    margin: 22px 0 0;
+    max-width: 620px;
+  }
+  .intro a { color: var(--clay); text-decoration-color: var(--oat); text-underline-offset: 3px; }
+  .intro a:hover { text-decoration-color: var(--clay); }
+
+  /* 鈹€鈹€ toc pills 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 26px 0 0;
+  }
+  nav.toc a {
+    font-size: 12.5px;
+    padding: 7px 14px;
+    border: 1.5px solid var(--g300);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--g700);
+    background: var(--paper);
+    transition: border-color 120ms, color 120ms, background 120ms;
+  }
+  nav.toc a:hover { border-color: var(--slate); color: var(--slate); }
+  #copy-md-btn:hover { border-color: var(--slate) !important; background: var(--g100) !important; color: var(--slate) !important; }
+  .back-home-link:hover { border-color: var(--slate) !important; background: var(--g100) !important; color: var(--slate) !important; }
+
+  /* 鈹€鈹€ sections 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  section {
+    margin-top: 72px;
+    scroll-margin-top: 28px;
+  }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .sec-head .idx {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--clay);
+    font-weight: 600;
+    width: 34px;
+    flex-shrink: 0;
+  }
+  .sec-head h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 27px;
+    margin: 0;
+    letter-spacing: -0.012em;
+  }
+
+  /* 鈹€鈹€ spec tables 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  .spec-block {
+    margin-left: 50px;
+  }
+  @media (max-width: 640px) { .spec-block { margin-left: 0; } }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-bottom: 32px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--g200);
+  }
+  th {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--g500);
+    font-weight: 500;
+    background: var(--g100);
+  }
+  td {
+    color: var(--g700);
+    vertical-align: top;
+  }
+  td:first-child {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--slate);
+  }
+  td code {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: var(--g100);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  /* 鈹€鈹€ swatch strip 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  .swatches {
+    display: flex;
+    gap: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1.5px solid var(--g300);
+    margin-bottom: 32px;
+  }
+  .swatch {
+    flex: 1;
+    height: 72px;
+    position: relative;
+  }
+  .swatch .label {
+    position: absolute;
+    bottom: 6px;
+    left: 8px;
+    right: 8px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.04em;
+    color: var(--slate);
+  }
+  .swatch.dark .label { color: var(--ivory); }
+
+  /* 鈹€鈹€ color table 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  .color-table td:first-child {
+    width: 130px;
+  }
+  .chip {
+    display: inline-block;
+    width: 18px; height: 18px;
+    border-radius: 4px;
+    border: 1px solid var(--g300);
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  /* 鈹€鈹€ type specimen 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  .type-spec { margin-bottom: 32px; }
+  .type-spec .h1-spec {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(38px, 5.4vw, 62px);
+    line-height: 1.06;
+    letter-spacing: -0.018em;
+    margin: 0 0 4px;
+  }
+  .type-spec .h1-spec em { font-style: italic; color: var(--clay); }
+  .type-spec .h2-spec {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 27px;
+    letter-spacing: -0.012em;
+    margin: 24px 0 4px;
+  }
+  .type-spec .meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--g500);
+    margin-bottom: 16px;
+  }
+
+  /* 鈹€鈹€ code block 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  pre {
+    background: var(--paper);
+    border: 1.5px solid var(--g300);
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--g700);
+    margin-bottom: 32px;
+  }
+
+  /* 鈹€鈹€ spacing viz 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  .spacing-demo {
+    margin-bottom: 32px;
+  }
+  .spacing-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+    font-size: 13.5px;
+    color: var(--g700);
+  }
+  .spacing-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: var(--clay);
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+  .spacing-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--g500);
+    width: 100px;
+    flex-shrink: 0;
+  }
+
+  /* 鈹€鈹€ dos / donts 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  .dos-donts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 640px) { .dos-donts { grid-template-columns: 1fr; } }
+  .do, .dont {
+    border-radius: 10px;
+    padding: 20px;
+    border: 1.5px solid var(--g300);
+    background: var(--paper);
+  }
+  .do h4 { color: var(--olive); margin: 0 0 8px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .dont h4 { color: var(--clay); margin: 0 0 8px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* 鈹€鈹€ footer 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€ */
+  footer {
+    margin-top: 100px;
+    border-top: 1.5px solid var(--g300);
+    padding-top: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--g500);
+  }
+  footer .k { font-family: var(--serif); font-style: italic; color: var(--g700); font-size: 15px; }
+  footer a { color: var(--clay); text-decoration-color: var(--oat); text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?MASTHEAD 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <header class="masthead">
+    <div class="eyebrow">Extracted from a single .html file</div>
+    <h1>Design System &mdash; The unreasonable <em>effectiveness</em> of HTML <span style="font-style:normal;color:var(--g500);">/ Moss Linen</span></h1>
+    <p class="intro">
+      A functional-minimalist, content-forward design language with editorial warmth, recolored in a low-saturation linen, moss, and antique parchment neutrals palette.
+      Extracted from <a href="https://thariqs.github.io/html-effectiveness/">thariqs.github.io/html-effectiveness</a>.
+      Warm neutrals, serif headings, mono metadata, and subtle delight &mdash; all in a single self-contained file.
+    </p>
+    <div style="margin: 20px 0 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <a href="../index.html" class="back-home-link" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 14px; border: 1.5px solid var(--g300); border-radius: 6px; color: var(--slate); background: var(--paper); cursor: pointer; text-decoration: none; transition: all 120ms;">
+        <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Home
+      </a>
+      <button id="copy-md-btn" onclick="copyMarkdownSpec()" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 14px; border: 1.5px solid var(--g300); border-radius: 6px; color: var(--slate); background: var(--paper); cursor: pointer; transition: all 120ms;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy Spec as Markdown
+      </button>
+    </div>
+    <nav class="toc">
+      <a href="#philosophy">Philosophy</a>
+      <a href="#color">Color</a>
+      <a href="#typography">Typography</a>
+      <a href="#spacing">Spacing</a>
+      <a href="#borders">Borders &amp; Radius</a>
+      <a href="#layout">Layout</a>
+      <a href="#components">Components</a>
+      <a href="#motion">Motion</a>
+      <a href="#anti-patterns">Anti-Patterns</a>
+    </nav>
+  </header>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?01 PHILOSOPHY 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <section id="philosophy">
+    <div class="sec-head"><span class="idx">01</span><h2>Design Philosophy</h2></div>
+    <div class="spec-block">
+      <div class="dos-donts">
+        <div class="do">
+          <h4>Do</h4>
+          <p>Use serif for headings, sans for body, mono for metadata 鈥?three fonts, clear roles.</p>
+          <p>Warm neutrals only 鈥?ivory, paper, oat. Never pure white or pure black.</p>
+          <p>Single accent color (clay) used sparingly. Olive is a cool counterpoint for diagrams.</p>
+          <p>Generous whitespace. Content breathes. Borders are thin (1.5px) and warm.</p>
+          <p>Subtle delight: gentle rotations, hover lifts, fast transitions. Never gaudy.</p>
+        </div>
+        <div class="dont">
+          <h4>Don't</h4>
+          <p>No bold weights above 600 鈥?use weight 500 for emphasis.</p>
+          <p>No box shadows on static elements 鈥?only on hover or depth-establishing moments.</p>
+          <p>No background blur, glassmorphism, or gradient backgrounds.</p>
+          <p>No opacity-based hover states 鈥?shift color or position instead.</p>
+          <p>No external fonts, icon libraries, or CSS frameworks. Fully self-contained.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?02 COLOR 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <section id="color">
+    <div class="sec-head"><span class="idx">02</span><h2>Color Palette</h2></div>
+    <div class="spec-block">
+      <div class="swatches">
+        <div class="swatch" style="background:var(--ivory)"><span class="label">ivory #F7F6EE</span></div>
+        <div class="swatch" style="background:var(--paper)"><span class="label">paper #FFFDF7</span></div>
+        <div class="swatch dark" style="background:var(--slate)"><span class="label">slate #202119</span></div>
+        <div class="swatch" style="background:var(--clay)"><span class="label">clay #8D7F5D</span></div>
+        <div class="swatch" style="background:var(--oat)"><span class="label">oat #E2DECA</span></div>
+        <div class="swatch" style="background:var(--olive)"><span class="label">olive #6F7D61</span></div>
+      </div>
+      <div class="swatches" style="margin-top:2px">
+        <div class="swatch" style="background:var(--g100)"><span class="label">g100 #EEECDF</span></div>
+        <div class="swatch" style="background:var(--g200)"><span class="label">g200 #E0DDCB</span></div>
+        <div class="swatch" style="background:var(--g300)"><span class="label">g300 #CBC7B2</span></div>
+        <div class="swatch dark" style="background:var(--g500)"><span class="label">g500 #817F70</span></div>
+        <div class="swatch dark" style="background:var(--g700)"><span class="label">g700 #414238</span></div>
+        <div class="swatch" style="background:var(--clay-d)"><span class="label">clay-d #72684B</span></div>
+      </div>
+      <table class="color-table">
+        <tr><th>Token</th><th>Hex</th><th>Role</th></tr>
+        <tr><td><span class="chip" style="background:var(--ivory)"></span>--ivory</td><td>#F7F6EE</td><td>Page background</td></tr>
+        <tr><td><span class="chip" style="background:var(--paper)"></span>--paper</td><td>#FFFDF7</td><td>Card / surface background</td></tr>
+        <tr><td><span class="chip" style="background:var(--slate)"></span>--slate</td><td>#202119</td><td>Primary text (near-black)</td></tr>
+        <tr><td><span class="chip" style="background:var(--clay)"></span>--clay</td><td>#8D7F5D</td><td>Primary accent, links, highlights</td></tr>
+        <tr><td><span class="chip" style="background:var(--clay-d)"></span>--clay-d</td><td>#72684B</td><td>Darker accent (hover variant)</td></tr>
+        <tr><td><span class="chip" style="background:var(--oat)"></span>--oat</td><td>#E2DECA</td><td>Secondary surface, decorative</td></tr>
+        <tr><td><span class="chip" style="background:var(--olive)"></span>--olive</td><td>#6F7D61</td><td>Secondary accent (diagrams only)</td></tr>
+        <tr><td><span class="chip" style="background:var(--g100)"></span>--g100</td><td>#EEECDF</td><td>Light surface, thumbnail bg</td></tr>
+        <tr><td><span class="chip" style="background:var(--g200)"></span>--g200</td><td>#E0DDCB</td><td>Light border</td></tr>
+        <tr><td><span class="chip" style="background:var(--g300)"></span>--g300</td><td>#CBC7B2</td><td>Default border</td></tr>
+        <tr><td><span class="chip" style="background:var(--g500)"></span>--g500</td><td>#817F70</td><td>Secondary / muted text</td></tr>
+        <tr><td><span class="chip" style="background:var(--g700)"></span>--g700</td><td>#414238</td><td>Body text</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?03 TYPOGRAPHY 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <section id="typography">
+    <div class="sec-head"><span class="idx">03</span><h2>Typography</h2></div>
+    <div class="spec-block">
+      <div class="type-spec">
+        <div class="h1-spec">The unreasonable <em>effectiveness</em> of HTML</div>
+        <div class="meta">h1 &middot; serif &middot; clamp(38px, 5.4vw, 62px) &middot; weight 500 &middot; line-height 1.06 &middot; letter-spacing -0.018em</div>
+        <div class="h2-spec">Exploration &amp; Planning</div>
+        <div class="meta">h2 &middot; serif &middot; 27px &middot; weight 500 &middot; letter-spacing -0.012em</div>
+        <p style="font-size:16.5px;color:var(--g700);max-width:620px;">
+          This is <code>.intro</code> body copy 鈥?16.5px sans on g700. Twenty self-contained files an agent produced instead of a wall of markdown.
+        </p>
+        <p style="font-size:14.5px;color:var(--g700);max-width:700px;">
+          This is <code>.sec-intro</code> 鈥?14.5px sans, used for section descriptions. Slightly smaller, still highly readable.
+        </p>
+        <p style="font-size:13.5px;color:var(--g700);">
+          This is <code>.desc</code> 鈥?13.5px sans, used for card body text at 1.5 line-height.
+        </p>
+      </div>
+      <table>
+        <tr><th>Token</th><th>Font Stack</th></tr>
+        <tr><td>--serif</td><td style="font-family:var(--serif);font-size:16px">ui-serif, Georgia, "Times New Roman", Times, serif</td></tr>
+        <tr><td>--sans</td><td style="font-family:var(--sans)">system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif</td></tr>
+        <tr><td>--mono</td><td style="font-family:var(--mono)">ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace</td></tr>
+      </table>
+      <table>
+        <tr><th>Element</th><th>Font</th><th>Size</th><th>Weight</th><th>Line-height</th><th>Letter-spacing</th></tr>
+        <tr><td>h1</td><td>serif</td><td>clamp(38px, 5.4vw, 62px)</td><td>500</td><td>1.06</td><td>-0.018em</td></tr>
+        <tr><td>h1 em</td><td>serif</td><td>inherit</td><td>italic</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>h2</td><td>serif</td><td>27px</td><td>500</td><td>&mdash;</td><td>-0.012em</td></tr>
+        <tr><td>.intro</td><td>sans</td><td>16.5px</td><td>400</td><td>1.55</td><td>&mdash;</td></tr>
+        <tr><td>.sec-intro</td><td>sans</td><td>14.5px</td><td>400</td><td>1.55</td><td>&mdash;</td></tr>
+        <tr><td>.title (card)</td><td>serif</td><td>19px</td><td>500</td><td>1.22</td><td>-0.008em</td></tr>
+        <tr><td>.desc (card)</td><td>sans</td><td>13.5px</td><td>400</td><td>1.5</td><td>&mdash;</td></tr>
+        <tr><td>.eyebrow</td><td>mono</td><td>12px</td><td>400</td><td>&mdash;</td><td>0.12em</td></tr>
+        <tr><td>.file</td><td>mono</td><td>11px</td><td>400</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>.idx</td><td>mono</td><td>13px</td><td>600</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>nav.toc a</td><td>sans</td><td>12.5px</td><td>400</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>.tag</td><td>mono</td><td>9.5px</td><td>400</td><td>&mdash;</td><td>0.08em</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?04 SPACING 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <section id="spacing">
+    <div class="sec-head"><span class="idx">04</span><h2>Spacing</h2></div>
+    <div class="spec-block">
+      <div class="spacing-demo">
+        <div class="spacing-row"><span class="spacing-label">Page max-width</span><span class="spacing-bar" style="width:112px"></span>1120px</div>
+        <div class="spacing-row"><span class="spacing-label">Page h-padding</span><span class="spacing-bar" style="width:32px"></span>32px</div>
+        <div class="spacing-row"><span class="spacing-label">Page b-padding</span><span class="spacing-bar" style="width:140px"></span>140px</div>
+        <div class="spacing-row"><span class="spacing-label">Section top</span><span class="spacing-bar" style="width:72px"></span>72px</div>
+        <div class="spacing-row"><span class="spacing-label">Card gap</span><span class="spacing-bar" style="width:20px"></span>20px</div>
+        <div class="spacing-row"><span class="spacing-label">Masthead top</span><span class="spacing-bar" style="width:80px"></span>80px</div>
+        <div class="spacing-row"><span class="spacing-label">Masthead bot</span><span class="spacing-bar" style="width:56px"></span>56px</div>
+        <div class="spacing-row"><span class="spacing-label">Card body pad</span><span class="spacing-bar" style="width:18px;opacity:0.3"></span>18px 20px 16px</div>
+      </div>
+      <table>
+        <tr><th>Token</th><th>Value</th><th>Usage</th></tr>
+        <tr><td>max-width</td><td>1120px</td><td>.wrap container</td></tr>
+        <tr><td>h-padding</td><td>32px</td><td>.wrap left/right</td></tr>
+        <tr><td>b-padding</td><td>140px</td><td>.wrap bottom</td></tr>
+        <tr><td>section gap</td><td>72px</td><td>margin-top between sections</td></tr>
+        <tr><td>card gap</td><td>20px</td><td>grid gap between cards</td></tr>
+        <tr><td>card body</td><td>18px 20px 16px</td><td>internal card padding</td></tr>
+        <tr><td>nav pill</td><td>7px 14px</td><td>toc link internal padding</td></tr>
+        <tr><td>sec-head gap</td><td>16px</td><td>flex gap in section header</td></tr>
+        <tr><td>sec indent</td><td>50px</td><td>left margin on .spec-block / .grid / .sec-intro</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?05 BORDERS & RADIUS 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <section id="borders">
+    <div class="sec-head"><span class="idx">05</span><h2>Borders &amp; Radius</h2></div>
+    <div class="spec-block">
+      <table>
+        <tr><th>Element</th><th>Border</th><th>Border-radius</th></tr>
+        <tr><td>Cards</td><td>1.5px solid g300</td><td>14px</td></tr>
+        <tr><td>Hero panes</td><td>1.5px solid g300</td><td>10px</td></tr>
+        <tr><td>Tags / badges</td><td>1.5px solid g300</td><td>6px</td></tr>
+        <tr><td>Nav pills</td><td>1.5px solid g300</td><td>999px (fully rounded)</td></tr>
+        <tr><td>Count badges</td><td>none</td><td>999px (fully rounded)</td></tr>
+        <tr><td>Code blocks / pre</td><td>1.5px solid g300</td><td>10px</td></tr>
+        <tr><td>SVG rects</td><td>varies</td><td>3&ndash;5px</td></tr>
+        <tr><td>Section dividers</td><td>1.5px solid g300 (border-bottom)</td><td>&mdash;</td></tr>
+      </table>
+      <p style="font-size:13.5px;color:var(--g700);">
+        <strong>Rule:</strong> Every border in the system is <strong>1.5px</strong>. Never thicker, never thinner.
+        This consistency is a defining characteristic. Border colors shift contextually (g300 default, g200 light, slate for emphasis/hover).
+      </p>
+    </div>
+  </section>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?06 SHADOWS 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <section id="shadows">
+    <div class="sec-head"><span class="idx">06</span><h2>Shadows</h2></div>
+    <div class="spec-block">
+      <table>
+        <tr><th>Context</th><th>Value</th></tr>
+        <tr><td>Card hover</td><td><code>0 10px 30px rgba(20, 20, 19, 0.10)</code></td></tr>
+        <tr><td>Hero HTML pane</td><td><code>0 12px 32px rgba(20, 20, 19, 0.10)</code></td></tr>
+      </table>
+      <p style="font-size:13.5px;color:var(--g700);">
+        Shadows are used <strong>only</strong> on hover or to establish depth hierarchy. Static cards have no shadow 鈥?the border alone defines them.
+        Shadows are always warm-tinted (slate-based) with subtle 0.10 opacity.
+      </p>
+    </div>
+  </section>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?07 LAYOUT 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <section id="layout">
+    <div class="sec-head"><span class="idx">07</span><h2>Layout Patterns</h2></div>
+    <div class="spec-block">
+      <table>
+        <tr><th>Pattern</th><th>CSS</th><th>Notes</th></tr>
+        <tr>
+          <td>Page wrapper</td>
+          <td><code>max-width: 1120px; margin: 0 auto; padding: 0 32px 140px</code></td>
+          <td>Generous bottom padding</td>
+        </tr>
+        <tr>
+          <td>Card grid</td>
+          <td><code>grid-template-columns: repeat(auto-fill, minmax(316px, 1fr)); gap: 20px</code></td>
+          <td>Fluid, no breakpoints needed</td>
+        </tr>
+        <tr>
+          <td>Hero grid</td>
+          <td><code>grid-template-columns: 1fr 340px; gap: 48px</code></td>
+          <td>Stacks at 880px</td>
+        </tr>
+        <tr>
+          <td>Section layout</td>
+          <td>sec-head (flex row) &rarr; sec-intro &rarr; grid (50px left indent)</td>
+          <td>Indent drops at 640px</td>
+        </tr>
+        <tr>
+          <td>Nav (TOC)</td>
+          <td><code>display: flex; flex-wrap: wrap; gap: 8px</code></td>
+          <td>Pills wrap naturally</td>
+        </tr>
+        <tr>
+          <td>Footer</td>
+          <td><code>display: flex; justify-content: space-between; flex-wrap: wrap</code></td>
+          <td>Two sections, stacks on narrow</td>
+        </tr>
+      </table>
+      <table>
+        <tr><th>Breakpoint</th><th>Behavior</th></tr>
+        <tr><td>880px</td><td>Hero grid stacks to single column</td></tr>
+        <tr><td>640px</td><td>Section intro + card grid lose 50px left indent</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?08 COMPONENTS 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <section id="components">
+    <div class="sec-head"><span class="idx">08</span><h2>Component Patterns</h2></div>
+    <div class="spec-block">
+
+      <!-- Card demo -->
+      <p style="font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Card (static)</p>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:32px;max-width:360px;">
+        <div style="background:var(--paper);border:1.5px solid var(--g300);border-radius:14px;overflow:hidden;width:100%;">
+          <div style="height:132px;background:var(--g100);border-bottom:1.5px solid var(--g200);display:flex;align-items:center;justify-content:center;padding:16px;">
+            <svg viewBox="0 0 120 80" style="width:100%;height:100%;overflow:visible">
+              <rect x="6" y="10" width="50" height="60" rx="5" fill="var(--paper)" stroke="var(--g500)" stroke-width="2.5"/>
+              <rect x="64" y="10" width="50" height="60" rx="5" fill="var(--oat)" stroke="var(--g500)" stroke-width="2.5"/>
+              <circle cx="89" cy="40" r="8" fill="var(--clay)"/>
+            </svg>
+          </div>
+          <div style="padding:18px 20px 16px;">
+            <div style="font-family:var(--serif);font-size:19px;font-weight:500;line-height:1.22;margin-bottom:7px;">Card title</div>
+            <div style="font-size:13.5px;color:var(--g700);line-height:1.5;margin-bottom:16px;">Description text that explains what this card links to. Two lines is typical.</div>
+            <div style="font-family:var(--mono);font-size:11px;color:var(--g500);border-top:1px solid var(--g100);padding-top:11px;display:flex;justify-content:space-between;"><span>filename.html</span><span>&rarr;</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav pills -->
+      <p style="font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Navigation Pills</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;">
+        <span style="font-size:12.5px;padding:7px 14px;border:1.5px solid var(--g300);border-radius:999px;color:var(--g700);background:var(--paper);">Exploration &amp; Planning</span>
+        <span style="font-size:12.5px;padding:7px 14px;border:1.5px solid var(--g300);border-radius:999px;color:var(--g700);background:var(--paper);">Code Review</span>
+        <span style="font-size:12.5px;padding:7px 14px;border:1.5px solid var(--slate);border-radius:999px;color:var(--slate);background:var(--paper);">Design (hover)</span>
+      </div>
+
+      <!-- Section header -->
+      <p style="font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Section Header</p>
+      <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:32px;">
+        <span style="font-family:var(--mono);font-size:13px;color:var(--clay);font-weight:600;width:34px;">01</span>
+        <span style="font-family:var(--serif);font-weight:500;font-size:27px;letter-spacing:-0.012em;">Section Title</span>
+        <span style="font-family:var(--mono);font-size:11px;color:var(--g500);background:var(--g100);padding:2px 8px;border-radius:999px;">3 demos</span>
+      </div>
+
+      <!-- Eyebrow -->
+      <p style="font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Eyebrow</p>
+      <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--g500);display:flex;align-items:center;gap:12px;margin-bottom:32px;">
+        <span style="width:24px;height:1.5px;background:var(--clay);display:inline-block;"></span>
+        Companion to the blog post
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?09 MOTION 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <section id="motion">
+    <div class="sec-head"><span class="idx">09</span><h2>Motion &amp; Transitions</h2></div>
+    <div class="spec-block">
+      <table>
+        <tr><th>Element</th><th>Properties</th><th>Duration</th><th>Easing</th></tr>
+        <tr><td>Nav pills</td><td>border-color, color, background</td><td>120ms</td><td>ease (default)</td></tr>
+        <tr><td>Cards</td><td>transform, box-shadow, border-color</td><td>150ms</td><td>ease</td></tr>
+        <tr><td>Card thumb bg</td><td>background</td><td>150ms</td><td>ease</td></tr>
+        <tr><td>Card arrow</td><td>transform (translateX 3px)</td><td>150ms</td><td>ease</td></tr>
+        <tr><td>Page scroll</td><td>scroll-behavior</td><td>&mdash;</td><td>smooth</td></tr>
+      </table>
+      <p style="font-size:13.5px;color:var(--g700);">
+        <strong>Rule:</strong> Transitions are fast (120&ndash;150ms) and snappy. No opacity fades &mdash; changes are positional or color-shift based.
+        The card hover lift (3px translateY) combined with shadow and border-color change creates a subtle-but-clear interactive signal.
+      </p>
+    </div>
+  </section>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?10 ANTI-PATTERNS 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <section id="anti-patterns">
+    <div class="sec-head"><span class="idx">10</span><h2>Anti-Patterns</h2></div>
+    <div class="spec-block">
+      <div class="dos-donts">
+        <div class="do">
+          <h4>This system is right for</h4>
+          <p>Content-heavy documentation, portfolios, blogs, companion pages, technical writing</p>
+          <p>Projects that value self-contained single-file HTML with zero dependencies</p>
+          <p>Interfaces where readability and scanability are the primary goals</p>
+        </div>
+        <div class="dont">
+          <h4>This system is wrong for</h4>
+          <p>Data-dense dashboards, complex forms, real-time apps</p>
+          <p>Projects requiring dark mode (no dark palette defined)</p>
+          <p>Brand work that needs loud, high-energy visual language</p>
+        </div>
+      </div>
+      <table>
+        <tr><th>Avoid</th><th>Use Instead</th></tr>
+        <tr><td>Pure black (#000) or pure gray</td><td>Warm-tinted neutrals (slate, g700, g500)</td></tr>
+        <tr><td>Bold weights above 600</td><td>Weight 500 for emphasis</td></tr>
+        <tr><td>Box shadows on static elements</td><td>Borders only; shadows reserved for hover/depth</td></tr>
+        <tr><td>Background blur / glassmorphism</td><td>Solid paper or g100 backgrounds</td></tr>
+        <tr><td>Gradient backgrounds</td><td>Solid colors (one exception: hero SVG decorative)</td></tr>
+        <tr><td>Border-radius above 14px (except pills)</td><td>14px max for cards; 999px only for pill-shaped elements</td></tr>
+        <tr><td>Animations over 150ms</td><td>120-150ms snappy transitions</td></tr>
+        <tr><td>External font loads (Google Fonts, etc.)</td><td>System font stacks (ui-serif, system-ui, ui-monospace)</td></tr>
+        <tr><td>Icon libraries (Font Awesome, Lucide, etc.)</td><td>Inline SVG using design tokens</td></tr>
+        <tr><td>CSS frameworks (Tailwind, Bootstrap, etc.)</td><td>Hand-rolled CSS with custom properties</td></tr>
+        <tr><td>Opacity-based hover states</td><td>Color shifts or positional changes</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?FOOTER 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?-->
+  <footer>
+    <div>
+      <span class="k">Design System</span> &mdash; extracted May 2026
+    </div>
+    <div>
+      Source: <a href="https://thariqs.github.io/html-effectiveness/">thariqs.github.io/html-effectiveness</a>
+      &nbsp;&middot;&nbsp; <a href="https://github.com/holynova/my-design-system">GitHub</a>
+    </div>
+  </footer>
+
+</div>
+<textarea id="markdown-spec-content" style="display:none;"># Design System 鈥?"The unreasonable effectiveness of HTML"
+
+Extracted from [thariqs.github.io/html-effectiveness](https://thariqs.github.io/html-effectiveness).
+A functional-minimalist, content-forward design language with editorial warmth, recolored in a low-saturation linen, moss, and antique parchment neutrals palette.
+
+---
+
+## 1. Design Philosophy
+
+- **Content-forward & readable** 鈥?trades walls of markdown for spatial, scannable layouts
+- **Warm minimalism** 鈥?clean but not cold; moss linen low-saturation palette
+- **Editorial typography** 鈥?serif headings, sans body, mono labels create clear hierarchy
+- **Self-contained** 鈥?single-file HTML, no frameworks, system fonts only
+- **Subtle delight** 鈥?gentle rotations, hover lifts, smooth transitions (never gaudy)
+
+---
+
+## 2. Color Palette
+
+| Token     | Hex       | Role |
+|-----------|-----------|------|
+| `--ivory` | `#F7F6EE` | Page background |
+| `--paper` | `#FFFDF7` | Card / surface background |
+| `--slate` | `#202119` | Primary text (near-black) |
+| `--clay`  | `#8D7F5D` | Primary accent, links, highlights |
+| `--clay-d`| `#72684B` | Darker accent (hover) |
+| `--oat`   | `#E2DECA` | Secondary surface, decorative, hover thumb bg |
+| `--olive` | `#6F7D61` | Secondary accent (charts, diagrams) |
+| `--g100`  | `#EEECDF` | Light gray surface, thumb bg |
+| `--g200`  | `#E0DDCB` | Light border |
+| `--g300`  | `#CBC7B2` | Default border |
+| `--g500`  | `#817F70` | Secondary / muted text |
+| `--g700`  | `#414238` | Body text |
+
+**Usage rules:**
+- Warm neutrals throughout; never pure black or pure gray
+- Clay is the only warm accent 鈥?used sparingly for emphasis
+- Olive is a cool counterpoint, used only in decorative SVG graphics
+- Text hierarchy: slate (headings) 鈫?g700 (body) 鈫?g500 (muted/captions)
+
+---
+
+## 3. Typography
+
+### Font Stack
+
+| Token     | Stack |
+|-----------|-------|
+| `--serif` | `ui-serif, Georgia, "Times New Roman", Times, serif` |
+| `--sans`  | `system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif` |
+| `--mono`  | `ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace` |
+
+### Type Scale
+
+| Element | Font | Size | Weight | Line-height | Letter-spacing | Notes |
+|---------|------|------|--------|-------------|----------------|-------|
+| h1 | serif | `clamp(38px, 5.4vw, 62px)` | 500 | 1.06 | -0.018em | Max 17ch width |
+| h1 em | serif | inherit | italic | 鈥?| 鈥?| Clay color |
+| h2 | serif | 27px | 500 | 鈥?| -0.012em | Section headings |
+| .intro | sans | 16.5px | 400 | 鈥?| 鈥?| Max 620px width |
+| .sec-intro | sans | 14.5px | 400 | 鈥?| 鈥?| Max 700px width |
+| .title (card) | serif | 19px | 500 | 1.22 | -0.008em | Card heading |
+| .desc (card) | sans | 13.5px | 400 | 1.5 | 鈥?| Card description |
+| .eyebrow | mono | 12px | 400 | 鈥?| 0.12em | Uppercase |
+| .file | mono | 11px | 400 | 鈥?| 鈥?| File path label |
+| .idx | mono | 13px | 600 | 鈥?| 鈥?| Section number |
+| nav.toc a | sans | 12.5px | 400 | 鈥?| 鈥?| Nav pills |
+| .tag | mono | 9.5px | 400 | 鈥?| 0.08em | Uppercase badges |
+
+**Rules:**
+- Serif for headings and editorial moments only
+- Sans for all body copy
+- Mono for metadata, labels, file names, section numbers
+- Never bold; use weight 500鈥?00 for emphasis
+- Body line-height: 1.55
+
+---
+
+## 4. Spacing System
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| Page max-width | 1120px | `.wrap` |
+| Page horizontal padding | 32px | `.wrap` |
+| Page bottom padding | 140px | `.wrap` |
+| Section top margin | 72px | `section` |
+| Card grid gap | 20px | `.grid` |
+| Card internal padding | 18px 20px 16px | `.body` |
+| Hero pane padding | 14px | `.pane` |
+| Nav pill padding | 7px 14px | `nav.toc a` |
+| Masthead top padding | 80px | `header.masthead` |
+| Masthead bottom padding | 56px | `header.masthead` |
+
+**Rules:**
+- Generous whitespace; never cramped
+- Section dividers are 1.5px borders + margin (not heavy rules)
+- Cards use 14px border-radius with overflow hidden for consistent padding
+
+---
+
+## 5. Borders & Dividers
+
+- **Border width:** 1.5px (consistent everywhere 鈥?borders, dividers, strokes)
+- **Border colors:** `--g300` (default), `--g200` (light), `--slate` (emphasis/hover)
+- **No heavy rules or thick separators**
+
+---
+
+## 6. Border Radius
+
+| Element | Value |
+|---------|-------|
+| Cards | 14px |
+| Hero panes | 10px |
+| Tags / badges | 6px |
+| Nav pills, count badges | 999px (pill) |
+| SVG internal rects | 3鈥?px |
+
+---
+
+## 7. Shadows
+
+| Context | Value |
+|---------|-------|
+| Card hover | `0 10px 30px rgba(20, 20, 19, 0.10)` |
+| Hero HTML pane | `0 12px 32px rgba(20, 20, 19, 0.10)` |
+
+**Rules:**
+- Shadows only on hover or to establish depth hierarchy
+- Single shadow, warm tint (slate-based), subtle opacity (0.10)
+- No shadows on static cards 鈥?border alone defines them
+
+---
+
+## 8. Layout Patterns
+
+### Page Wrapper
+```css
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px 140px; }
+```
+
+### Hero Grid
+```css
+.hero-grid { display: grid; grid-template-columns: 1fr 340px; gap: 48px; }
+```
+Stacks to single column at 880px.
+
+### Card Grid
+```css
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(316px, 1fr)); gap: 20px; }
+```
+Fluid cards, 316px minimum. No media queries needed for most widths.
+
+### Section Layout
+```
+[section#id]
+  鈹斺攢鈹€ .sec-head (flex row, baseline aligned)
+  鈹?    鈹溾攢鈹€ .idx      (mono number, clay color, 34px fixed width)
+  鈹?    鈹溾攢鈹€ h2        (serif heading)
+  鈹?    鈹斺攢鈹€ .count    (pill badge)
+  鈹斺攢鈹€ .sec-intro      (sans paragraph, max 700px, 50px left indent)
+  鈹斺攢鈹€ .grid           (card grid, 50px left indent)
+```
+Left indent (50px) drops at 640px.
+
+### Navigation (TOC)
+```css
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+```
+
+---
+
+## 9. Component Patterns
+
+### Card
+```
+a.card (block-level link)
+  鈹溾攢鈹€ .thumb         (132px tall, g100 bg, centered SVG)
+  鈹斺攢鈹€ .body          (flex column)
+        鈹溾攢鈹€ .title   (serif, 19px)
+        鈹溾攢鈹€ .desc    (sans, 13.5px)
+        鈹斺攢鈹€ .file    (mono, 11px, top-bordered, filename + 鈫?arrow)
+```
+
+Hover behavior: card lifts 3px, gains shadow, border darkens to slate, thumb bg shifts to oat, file text turns clay, arrow slides right 3px.
+
+### Nav Pill
+```
+nav.toc a
+  display: inline-flex
+  border: 1.5px solid g300
+  border-radius: 999px
+  padding: 7px 14px
+  transition: border-color 120ms, color 120ms, background 120ms
+```
+
+### Section Header
+```
+.sec-head (flex, baseline, gap 16px)
+  .idx    鈥?"01", "02", etc. (mono, clay, 34px width)
+  h2      鈥?section title
+  .count  鈥?"N demos" pill (mono, g500 on g100, 999px radius)
+```
+
+### Eyebrow
+```
+.eyebrow (mono, 12px, uppercase, g500)
+  ::before 鈥?24px 脳 1.5px clay accent line
+```
+
+### Hero Figure (Decorative)
+Two overlapping "panes" (.md and .html) rotated slightly:
+- `.md` 鈥?g100 bg, rotated -2.5deg, pushed down 6px
+- `.html` 鈥?paper bg, rotated 1.5deg, slate border, shadow
+- Each has a `.tag` badge positioned absolutely at top
+
+---
+
+## 10. Transitions & Motion
+
+| Element | Property | Duration | Easing |
+|---------|----------|----------|--------|
+| Nav pills | border-color, color, background | 120ms | (default) |
+| Cards | transform, box-shadow, border-color | 150ms | ease |
+| Card thumb bg | background | 150ms | ease |
+| Card arrow | transform | 150ms | ease |
+| Page scroll | scroll-behavior | 鈥?| smooth |
+
+**Rules:**
+- Fast transitions (120鈥?50ms) 鈥?snappy, not sluggish
+- No opacity fades; changes are immediate or positional
+- Scroll is smooth between anchor links
+
+---
+
+## 11. Responsive Breakpoints
+
+| Width | Behavior |
+|-------|----------|
+| 880px | Hero grid stacks to single column |
+| 640px | Section intro + card grid lose 50px left indent |
+
+No breakpoint for the card grid itself 鈥?`auto-fill, minmax(316px, 1fr)` handles it.
+
+---
+
+## 12. Iconography
+
+- **No icon font or library** 鈥?all decorative elements are inline SVGs
+- SVG illustrations use the same design tokens (clay, olive, oat, slate fills/strokes)
+- `stroke-width: 2.5` consistently
+- Simple geometric shapes: rects, circles, lines with rounded caps
+- Dashed lines use `stroke-dasharray: 4 4`
+- SVGs change color on card hover (fills shift, clay becomes more prominent)
+
+---
+
+## 13. Code & Inline Elements
+
+- `<code>` uses the system mono stack (inherited from body or explicit)
+- Links: clay color with oat underline; on hover underline shifts to clay
+- `text-underline-offset: 3px` for better readability
+- No syntax highlighting 鈥?plain mono text
+
+---
+
+## 14. Anti-Patterns (What This System Avoids)
+
+- No pure black (`#000`) or pure gray 鈥?always warm-tinted
+- No bold weights above 600
+- No box shadows on static elements
+- No background blur or glassmorphism
+- No gradient backgrounds (only one subtle gradient in hero SVG)
+- No large border-radius (>14px) except for pills
+- No animations over 150ms
+- No external font loads 鈥?fully self-contained
+- No opacity-based hover states 鈥?use color shifts or positional changes instead
+</textarea>
+<script>
+  function copyMarkdownSpec() {
+    const mdText = document.getElementById('markdown-spec-content').value;
+    navigator.clipboard.writeText(mdText).then(() => {
+      const btn = document.getElementById('copy-md-btn');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+      btn.style.borderColor = 'var(--olive)';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.borderColor = '';
+      }, 2000);
+    }).catch(err => {
+      console.error(err);
+      alert('Failed to copy: ' + err);
+    });
+  }
+</script>
+</body>
+</html>
+
