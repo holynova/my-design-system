@@ -1,0 +1,1345 @@
+<!-- Design System — Coinbase Design System -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System — Coinbase Design System</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
+  :root {
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-serif: Georgia, serif;
+    --font-mono: ui-monospace, monospace;
+    
+    --bg-base: #ffffff;
+    --bg-surface: #ffffff;
+    --border-color: #dee1e6;
+    --border-dark: #cbd5e1;
+    
+    --text-primary: #0a0b0d;
+    --text-secondary: #5b616e;
+    --text-muted: #7c828a;
+    
+    --accent-vue: #0052ff;
+    --accent-vue-hover: #003ecc;
+    --accent-vue-glow: rgba(0, 82, 255, 0.08);
+    
+    --radius-lg: 8px;
+    --radius-md: 6px;
+    --radius-sm: 4px;
+    --radius-pill: 999px;
+    
+    --shadow-flat: none;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    
+    --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ═══════════════════ RESET & BASE ═══════════════════ */
+  *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    line-height: 1.6;
+    padding-bottom: 120px;
+  }
+
+  a { color: var(--accent-vue); text-decoration: none; transition: color var(--transition-base); }
+  a:hover { color: var(--accent-vue-hover); }
+  hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
+  pre, code { font-family: var(--font-mono); }
+  code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
+  
+  pre {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 16px 20px;
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 20px 0;
+    position: relative;
+  }
+  pre::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════ LAYOUT ═══════════════════ */
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    padding: 80px 0 48px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .masthead-logo {
+    width: 48px; height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--accent-vue);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px var(--accent-vue-glow);
+  }
+  .masthead-logo svg { width: 26px; height: 26px; fill: currentColor; }
+  .masthead h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+  .masthead .sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .back-home-link, #copy-md-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    background: var(--bg-base);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  .back-home-link:hover, #copy-md-btn:hover {
+    border-color: var(--accent-vue);
+    box-shadow: 0 0 12px var(--accent-vue-glow);
+    background: var(--bg-surface);
+  }
+
+  /* TWO-COLUMN GRID */
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .layout-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    position: sticky;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .sidebar-section { display: flex; flex-direction: column; gap: 6px; }
+  .sidebar-heading {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .sidebar a {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+  }
+  .sidebar a:hover, .sidebar a.active {
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    box-shadow: inset 0 0 0 1px var(--border-color);
+  }
+
+  /* ═══════════════════ COMPONENTS & SECTIONS ═══════════════════ */
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-top: 64px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-head .idx {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-vue);
+    font-weight: 600;
+  }
+  .sec-head h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  /* COLOR SWATCHES */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .swatch {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color var(--transition-base);
+  }
+  .swatch:hover { border-color: var(--border-dark); }
+  .swatch .color-block { height: 72px; }
+  .swatch .color-label {
+    padding: 12px;
+    font-size: 12px;
+    background: var(--bg-surface);
+  }
+  .swatch .color-label .name { font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+  .swatch .color-label .hex { color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-bottom: 32px;
+  }
+  th, td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  th {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.01);
+  }
+  td { color: var(--text-secondary); }
+  tr:hover td { color: var(--text-primary); }
+  td:first-child { font-weight: 600; color: var(--text-primary); }
+
+  /* TYPE SPECIMEN */
+  .type-spec { margin-bottom: 32px; }
+  .type-title { font-size: 38px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .type-h2 { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: -0.015em; margin: 24px 0 8px; }
+  .type-body { font-size: 16px; line-height: 1.6; color: var(--text-primary); }
+  .type-caption { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 4px; margin-bottom: 16px; }
+
+  /* COMPONENT DEMOS */
+  .product-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    max-width: 420px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-dark);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  }
+  .product-card h3 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .product-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px; }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    background: var(--bg-base);
+    transition: all var(--transition-base);
+  }
+  .pill:hover { border-color: var(--border-dark); color: var(--text-primary); }
+  .pill.active { background: var(--accent-vue-glow); border-color: var(--accent-vue); color: var(--accent-vue); }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+  }
+  footer a { color: var(--text-primary); }
+
+  
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ═══════════════════ MASTHEAD ═══════════════════ -->
+  <div class="masthead">
+    <div class="masthead-logo">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" style="fill:currentColor;"/></svg>
+    </div>
+    <div>
+      <h1>Coinbase Design System</h1>
+      <div class="sub">Crypto exchange · High-trust institutional layout with solid blue accents...</div>
+    </div>
+    <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <a href="../index.html" class="back-home-link">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Home
+      </a>
+      <button id="copy-md-btn" onclick="copyMarkdownSpec()">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy Spec
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ TWO-COLUMN LAYOUT ═══════════════════ -->
+  <div class="layout-grid">
+    <nav class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Guidelines</div>
+        <a href="#visual-theme">01 Theme & Atmosphere</a>
+        <a href="#color-palette">02 Color Palette</a>
+        <a href="#typography">03 Typography Rules</a>
+        <a href="#layout">04 Layout Principles</a>
+        <a href="#depth-elevation">05 Depth & Elevation</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Showcase & Guardrails</div>
+        <a href="#components">06 Component Showcase</a>
+        <a href="#dos-donts">07 Do's and Don'ts</a>
+        <a href="#responsive">08 Responsive Behavior</a>
+        <a href="#prompt-guide">09 Agent Prompt Guide</a>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- 01 Visual Theme & Atmosphere -->
+      <div id="visual-theme" class="sec-head"><span class="idx">01</span><h2>Visual Theme & Atmosphere</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>Coinbase reads like an institutional financial brand that happens to trade crypto — the marketing surfaces are quiet, white-canvas, editorially-spaced, and almost monochromatic. The single brand voltage is <strong>Coinbase Blue</strong> (<code>{colors.primary}</code> — #0052ff), used scarcely: every primary CTA pill, the brand wordmark, and inline emphasis links. Beyond that one blue, the system is white canvas + ink + soft gray elevation bands + a deep near-black editorial canvas (<code>{colors.surface-dark}</code> — #0a0b0d) for full-bleed product-mockup heroes.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>Type pairs <strong>CoinbaseDisplay</strong> for hero headlines with <strong>CoinbaseSans</strong> for body, captions, and navigation. Display sits at <strong>weight 400</strong> — not the 700+ typical of trading platforms. The choice signals editorial calm and institutional trust rather than fintech urgency.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>...</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong>Key Characteristics:</strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Single accent color: <code>{colors.primary}</code> (#0052ff Coinbase Blue) carries every primary CTA, wordmark, and inline brand link. Used scarcely.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Live Visual Theme Representation:</p>
+        <p>Visual Theme Example</p>
+      </div>
+
+      <!-- 02 Color Palette & Roles -->
+      <div id="color-palette" class="sec-head"><span class="idx">02</span><h2>Color Palette & Roles</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Brand & Accent</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Coinbase Blue</strong> (<code>{colors.primary}</code> — #0052ff): The single brand color. Every primary CTA pill, the Coinbase wordmark, and inline brand links.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Coinbase Blue Active</strong> (<code>{colors.primary-active}</code> — #003ecc): Press-state darken on the primary pill.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Surface</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Canvas</strong> (<code>{colors.canvas}</code> — #ffffff): The default page floor.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Surface Soft</strong> (<code>{colors.surface-soft}</code> — #f7f7f7): Subtle alternating band surface.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Hairlines</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Hairline</strong> (<code>{colors.hairline}</code> — #dee1e6): Default 1px divider on white surfaces.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Hairline Soft</strong> (<code>{colors.hairline-soft}</code> — #eef0f3): Lighter divider — same hex as <code>{colors.surface-strong}</code>.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Text</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Ink</strong> (<code>{colors.ink}</code> — #0a0b0d): Display headings, primary nav, body emphasis.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Body</strong> (<code>{colors.body}</code> — #5b616e): Default running-text — slightly cool gray.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Trading Semantics</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Semantic Up</strong> (<code>{colors.semantic-up}</code> — #05b169): "Price up" green, text color only.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Semantic Down</strong> (<code>{colors.semantic-down}</code> — #cf202f): "Price down" red, text color only.</li></ul>
+      <div class="swatches" style="margin-top:20px;">
+        
+            <div class="swatch" onclick="copyColor('#0052ff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0052ff; "></div>
+                <div class="color-label">
+                    <div class="name">primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0052ff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#003ecc', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#003ecc; "></div>
+                <div class="color-label">
+                    <div class="name">primary-active</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#003ecc</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#a8b8cc', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#a8b8cc; "></div>
+                <div class="color-label">
+                    <div class="name">primary-disabled</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#a8b8cc</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#0a0b0d', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0a0b0d; "></div>
+                <div class="color-label">
+                    <div class="name">ink</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0a0b0d</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#5b616e', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#5b616e; "></div>
+                <div class="color-label">
+                    <div class="name">body</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#5b616e</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#0a0b0d', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0a0b0d; "></div>
+                <div class="color-label">
+                    <div class="name">body-strong</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0a0b0d</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#7c828a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#7c828a; "></div>
+                <div class="color-label">
+                    <div class="name">muted</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#7c828a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#a8acb3', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#a8acb3; "></div>
+                <div class="color-label">
+                    <div class="name">muted-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#a8acb3</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#dee1e6', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#dee1e6; "></div>
+                <div class="color-label">
+                    <div class="name">hairline</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#dee1e6</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#eef0f3', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#eef0f3; "></div>
+                <div class="color-label">
+                    <div class="name">hairline-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#eef0f3</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">canvas</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f7f7f7', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f7f7f7; "></div>
+                <div class="color-label">
+                    <div class="name">surface-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f7f7f7</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">surface-card</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#eef0f3', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#eef0f3; "></div>
+                <div class="color-label">
+                    <div class="name">surface-strong</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#eef0f3</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#0a0b0d', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0a0b0d; "></div>
+                <div class="color-label">
+                    <div class="name">surface-dark</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0a0b0d</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#16181c', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#16181c; "></div>
+                <div class="color-label">
+                    <div class="name">surface-dark-elevated</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#16181c</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">on-primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">on-dark</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#a8acb3', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#a8acb3; "></div>
+                <div class="color-label">
+                    <div class="name">on-dark-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#a8acb3</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#05b169', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#05b169; "></div>
+                <div class="color-label">
+                    <div class="name">semantic-up</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#05b169</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#cf202f', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#cf202f; "></div>
+                <div class="color-label">
+                    <div class="name">semantic-down</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#cf202f</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f4b000', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f4b000; "></div>
+                <div class="color-label">
+                    <div class="name">accent-yellow</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f4b000</div>
+                </div>
+            </div>
+            
+      </div>
+
+      <!-- 03 Typography Rules -->
+      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography Rules</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Font Family</h3>
+The system runs <strong>CoinbaseDisplay</strong> (display headlines), <strong>CoinbaseSans</strong> (body, navigation, captions, buttons), <strong>CoinbaseIcons</strong> (icon font), and <strong>CoinbaseMono</strong> for tabular numerical data. Fallback stack: <code>-apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif</code>.
+<p style='margin-bottom:16px; line-height:1.6;'>The display/body split is functional: CoinbaseDisplay carries hero headlines only; CoinbaseSans carries everything else.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Hierarchy</h3>
+<table><tr><th>Token</th><th>Size</th><th>Weight</th><th>Line Height</th><th>Letter Spacing</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Principles</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Display weight stays at 400.</strong> The single most distinctive typographic choice — signals "calm institutional brand" rather than "trading-platform urgency."</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Negative letter-spacing on display only.</strong> Display uses -1px to -2px tracking; body stays at 0.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Note on Font Substitutes</h3>
+...
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>CoinbaseDisplay → Inter</strong> at weight 400, letter-spacing -1.5%.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>CoinbaseSans → Inter</strong> at weight 400/600.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      
+        <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
+            <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
+            <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+        
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-mega</span>
+                        <span>size: 80px | weight: 400 | height: 1.0 | spacing: -2px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:80px; font-weight:400; line-height:1.0; letter-spacing:-2px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-xl</span>
+                        <span>size: 64px | weight: 400 | height: 1.0 | spacing: -1.6px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:64px; font-weight:400; line-height:1.0; letter-spacing:-1.6px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-lg</span>
+                        <span>size: 52px | weight: 400 | height: 1.0 | spacing: -1.3px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:52px; font-weight:400; line-height:1.0; letter-spacing:-1.3px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-md</span>
+                        <span>size: 44px | weight: 400 | height: 1.09 | spacing: -1px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:44px; font-weight:400; line-height:1.09; letter-spacing:-1px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-sm</span>
+                        <span>size: 36px | weight: 400 | height: 1.11 | spacing: -0.5px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:36px; font-weight:400; line-height:1.11; letter-spacing:-0.5px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">title-lg</span>
+                        <span>size: 32px | weight: 400 | height: 1.13 | spacing: -0.4px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:32px; font-weight:400; line-height:1.13; letter-spacing:-0.4px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">title-md</span>
+                        <span>size: 18px | weight: 600 | height: 1.33 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:600; line-height:1.33; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">title-sm</span>
+                        <span>size: 16px | weight: 600 | height: 1.25 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:600; line-height:1.25; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-md</span>
+                        <span>size: 16px | weight: 400 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-strong</span>
+                        <span>size: 16px | weight: 700 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:700; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-sm</span>
+                        <span>size: 14px | weight: 400 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">caption</span>
+                        <span>size: 13px | weight: 400 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:13px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">caption-strong</span>
+                        <span>size: 12px | weight: 600 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:12px; font-weight:600; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">number-display</span>
+                        <span>size: 18px | weight: 500 | height: 1.4 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:500; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">button</span>
+                        <span>size: 16px | weight: 600 | height: 1.15 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:600; line-height:1.15; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">nav-link</span>
+                        <span>size: 14px | weight: 500 | height: 1.4 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:500; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                </div>
+
+      <!-- 04 Layout Principles -->
+      <div id="layout" class="sec-head"><span class="idx">04</span><h2>Layout Principles</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Spacing System</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Base unit:</strong> 4px.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Tokens:</strong> <code>{spacing.xxs}</code> 4px · <code>{spacing.xs}</code> 8px · <code>{spacing.sm}</code> 12px · <code>{spacing.base}</code> 16px · <code>{spacing.md}</code> 20px · <code>{spacing.lg}</code> 24px · <code>{spacing.xl}</code> 32px · <code>{spacing.xxl}</code> 48px · <code>{spacing.section}</code> 96px.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Grid & Container</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Max content width:</strong> ~1200px centered. Hero photography full-bleed.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Editorial body:</strong> Single 12-column grid.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Whitespace Philosophy</h3>
+Generous editorial pacing — closer to Bloomberg or the Financial Times than to a trading dashboard. 96px between bands; cards inside bands sit 24px apart. Density lives behind login walls, not on marketing.
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
+        <p>Layout Grid Example</p>
+        
+    <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
+        <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
+        
+        <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">3</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">4</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">5</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">6</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">7</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">8</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">9</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">10</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
+        </div>
+        
+        <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
+            <div>Gutter spacing: 16px / 24px</div>
+            <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
+            <div>Max Container Width: 1200px</div>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 05 Depth & Elevation -->
+      <div id="depth-elevation" class="sec-head"><span class="idx">05</span><h2>Depth & Elevation</h2></div>
+      <table><tr><th>Level</th><th>Treatment</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Decorative Depth</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Layered product-UI cards inside dark heroes</strong> is the most distinctive decorative pattern — a <code>{component.product-ui-card-dark}</code> floats above a darker base canvas, often with a second smaller card overlapping at an angle.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Geometric brand illustrations</strong> carry illustrative depth where shadows would otherwise.</li></ul>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
+        <p>Elevation Level Example</p>
+        
+    <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for background layers, sidebar headers, or baseline borders.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-md);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Low Elevation (Level 1 / Card)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for floating product elements, cards, and hover states.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-lg);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">High Elevation (Level 2 / Popover & Dropdown)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
+        </div>
+    </div>
+    
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
+        
+    <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-sm</span>
+            <span style="color:var(--text-muted); margin-top:4px;">4px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-md</span>
+            <span style="color:var(--text-muted); margin-top:4px;">6px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-lg</span>
+            <span style="color:var(--text-muted); margin-top:4px;">8px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-pill); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-pill</span>
+            <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 06 Component Stylings -->
+      <div id="components" class="sec-head"><span class="idx">06</span><h2>Component Stylings</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Border Radius Scale</h3>
+<table><tr><th>Token</th><th>Value</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table>Pill for interactive, card-radius (24px) for containers, full circle for icons. Sharp corners absent.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Top Navigation</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>top-nav-light</code></strong> — Default top nav on white pages. Background <code>{colors.canvas}</code>, text <code>{colors.ink}</code>, height 64px. Layout: Coinbase wordmark left, primary horizontal menu (Cryptocurrencies / Individuals / Businesses / Institutions / Developers / Company), search-icon + globe + Sign In + Sign Up CTAs right.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>top-nav-on-dark</code></strong> — Top nav over a dark hero band. Background <code>{colors.surface-dark}</code>, text <code>{colors.on-dark}</code>. Same layout.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Buttons</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary</code></strong> — The signature Coinbase Blue pill. Background <code>{colors.primary}</code>, text <code>{colors.on-primary}</code>, type <code>{typography.button}</code> (16px / 600), padding 12px × 20px, height 44px, rounded <code>{rounded.pill}</code> (100px).</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary-active</code></strong> — Press state. Background <code>{colors.primary-active}</code>, deeper blue.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary-disabled</code></strong> — Faded blue tint. Background <code>{colors.primary-disabled}</code>. Cursor not-allowed.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-secondary-light</code></strong> — Soft-gray secondary on white surfaces. Background <code>{colors.surface-strong}</code>, text <code>{colors.ink}</code>, same pill geometry.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-secondary-dark</code></strong> — Used on dark heroes. Background <code>{colors.surface-dark-elevated}</code>, text <code>{colors.on-dark}</code>, same pill geometry.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-outline-on-dark</code></strong> — Transparent pill with white outline. Background transparent, text <code>{colors.on-dark}</code>, 1px white border.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-tertiary-text</code></strong> — Inline text link. Background transparent, text <code>{colors.primary}</code>, type <code>{typography.button}</code>.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-pill-cta</code></strong> — Larger pill CTA used on the homepage hero ("Get started"). Same Coinbase Blue palette but with 56px height and 16px × 32px padding for a prouder stance.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Hero Bands</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>hero-band-dark</code></strong> — The signature full-bleed dark hero. Background <code>{colors.surface-dark}</code>, text <code>{colors.on-dark}</code>, full-bleed layered product-UI mockup cards. Display headline left in <code>{typography.display-mega}</code> (80px / 400), subhead in <code>{typography.body-md}</code>, two CTAs.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>hero-band-light</code></strong> — White-canvas variant used on Wealth and Explore. Background <code>{colors.canvas}</code>, text <code>{colors.ink}</code>. Same skeleton, light palette.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Cards</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>product-ui-card-dark</code></strong> — The floating product-UI mockup. Background <code>{colors.surface-dark-elevated}</code>, text <code>{colors.on-dark}</code>, rounded <code>{rounded.xl}</code> (24px), padding 32px. Often shown as 2-3 stacked cards at slight rotation, mimicking a layered dashboard.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>product-ui-card-light</code></strong> — Light-canvas variant used on Explore for asset cards. Background <code>{colors.canvas}</code>, text <code>{colors.ink}</code>, same geometry, 1px hairline border.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>feature-card</code></strong> — Used in 3-up and 2-up grids. Background <code>{colors.canvas}</code>, text <code>{colors.ink}</code>, type <code>{typography.title-md}</code>, rounded <code>{rounded.xl}</code>, padding 32px.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Trading Surfaces</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>asset-row</code></strong> — Horizontal row in asset lists (Explore, Wealth). Background transparent, 1px hairline divider. Layout: 32px circular asset icon left, asset name + ticker, price column in <code>{typography.number-display}</code>, 24h change column with <code>{component.price-up-cell}</code> or <code>{component.price-down-cell}</code>.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>price-up-cell</code></strong> + <strong><code>price-down-cell</code></strong> — Inline price-change cells. Color only — green or red text in <code>{typography.number-display}</code>, no background fill.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>asset-icon-circular</code></strong> — Circular plate behind asset glyphs. Background <code>{colors.surface-strong}</code>, rounded <code>{rounded.full}</code>, 32px diameter.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Pricing</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>pricing-tier-card</code></strong> — Standard pricing tier on Developer Platform. Background <code>{colors.canvas}</code>, rounded <code>{rounded.xl}</code>, padding 32px, 1px hairline border. Layout: tier name + price + feature checklist + CTA pill.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>pricing-tier-featured</code></strong> — The featured tier. Background <code>{colors.surface-dark}</code>, text <code>{colors.on-dark}</code>. Same skeleton, dark palette — visual inversion signals "highlighted choice" without colored ribbons.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Forms</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>text-input</code></strong> — Standard text input. Background <code>{colors.canvas}</code>, text <code>{colors.ink}</code>, rounded <code>{rounded.md}</code> (12px), padding 14px × 16px, height 48px, 1px hairline border. On focus, border thickens to 2px Coinbase Blue.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>search-input-pill</code></strong> — Pill-shaped search bar. Background <code>{colors.surface-strong}</code>, rounded <code>{rounded.pill}</code>, padding 12px × 20px, height 44px.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Tags & Badges</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>badge-pill</code></strong> — Small uppercase pill used as section labels ("INSTITUTIONAL", "REGULATED"). Background <code>{colors.surface-strong}</code>, text <code>{colors.ink}</code>, type <code>{typography.caption-strong}</code>, rounded <code>{rounded.pill}</code>.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">CTA / Footer</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>cta-band-dark</code></strong> — Pre-footer "Take control of your money" band. Background <code>{colors.surface-dark}</code>, text <code>{colors.on-dark}</code>, vertical padding 96px. Centered headline + two CTAs.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>footer-light</code></strong> — Closing white-canvas footer. Background <code>{colors.canvas}</code>, text <code>{colors.body}</code>. 6-column link list.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>footer-link</code></strong> — Individual footer link. Background transparent, text <code>{colors.body}</code>.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>legal-band</code></strong> — Bottom strip beneath footer columns. All text <code>{colors.muted}</code> at <code>{typography.caption}</code>.</p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; font-family:var(--font-mono);">Interactive Component Demonstrations:</p>
+        <p>Component Interactive Example</p>
+      </div>
+
+      <!-- 07 Do's and Don'ts -->
+      <div id="dos-donts" class="sec-head"><span class="idx">07</span><h2>Do's and Don'ts</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Do</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{colors.primary}</code> (Coinbase Blue) for primary CTAs, wordmark, brand-glyph illustrations, inline accent links.</li><li style='margin-left:20px; margin-bottom:6px;'>Set every CTA as <code>{rounded.pill}</code> (100px); every asset glyph as <code>{rounded.full}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce a secondary brand color. Coinbase Blue is the only action color; trading green/red are semantic-only.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't bold display copy — display sits at weight 400; bolding shifts the brand voice.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
+        <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
+            <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                <p style='margin-bottom:16px; line-height:1.6;'>n't
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce a secondary brand color. Coinbase Blue is the only action color; trading green/red are semantic-only.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't bold display copy — display sits at weight 400; bolding shifts the brand voice.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+            </div>
+        </div>
+        <div style="border:1px solid #ef4444; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(239, 68, 68, 0.015); position:relative;">
+            <span style="background:#ef4444; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">❌ Discouraged / Don't</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                
+            </div>
+        </div>
+    </div>
+    
+
+      <!-- 08 Responsive Behavior -->
+      <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Breakpoints</h3>
+<table><tr><th>Name</th><th>Width</th><th>Key Changes</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Touch Targets</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Primary CTA pill at 44px height — at WCAG AAA.</li><li style='margin-left:20px; margin-bottom:6px;'>Larger hero pill (<code>{component.button-pill-cta}</code>) at 56px — well above AAA.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Collapsing Strategy</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Top nav switches to hamburger sheet below 768px. Sign Up CTA stays visible.</li><li style='margin-left:20px; margin-bottom:6px;'>Hero h1 steps down: 80 → 64 → 52 → 44 → 36px on smallest screens.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
+        <p>Responsive Behavior Example</p>
+        
+    <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
+        <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
+            <div style="display:flex; gap:6px;">
+                <button id="btn-sim-mobile" onclick="setSimWidth('mobile')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Mobile</button>
+                <button id="btn-sim-tablet" onclick="setSimWidth('tablet')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Tablet</button>
+                <button id="btn-sim-desktop" onclick="setSimWidth('desktop')" style="padding:4px 10px; border:1px solid var(--accent-vue); background:var(--accent-vue-glow); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--accent-vue); transition:all var(--transition-base);">Desktop</button>
+            </div>
+        </div>
+        <div style="padding:28px 16px; display:flex; justify-content:center; background:rgba(0,0,0,0.005); overflow:hidden;">
+            <div id="viewport-sim-container" style="width:100%; max-width:800px; transition:max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1); border:1.5px dashed var(--border-dark); border-radius:var(--radius-md); background:var(--bg-base); padding:20px; overflow:hidden; box-sizing:border-box;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                    <span id="sim-width-indicator" style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); text-transform:uppercase;">Width: 800px (Desktop Mode)</span>
+                    <span style="font-size:11px; font-weight:700; color:var(--accent-vue); font-family:var(--font-sans);">Grid Container</span>
+                </div>
+                <div id="sim-layout-columns" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; transition:all 0.3s;">
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Primary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Adjusts layout width</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Secondary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Folds on viewport change</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Sidebar Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Stacks to bottom on mobile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 09 Agent Prompt Guide -->
+      <div id="prompt-guide" class="sec-head"><span class="idx">09</span><h2>Agent Prompt Guide</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>1. Focus on a single component at a time. Reference YAML keys directly.
+2. New CTAs default to <code>{rounded.pill}</code> (100px); new icon plates default to <code>{rounded.full}</code>. Cards use <code>{rounded.xl}</code>.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Copyable Agent Integration Prompt:</p>
+        <p>Prompt Guide Copy Box</p>
+      </div>
+
+      <!-- 10 Design Tokens Table -->
+      <div id="tokens-table" class="sec-head"><span class="idx">10</span><h2>Full System Design Tokens</h2></div>
+      <p style="margin-bottom:20px;">The parsed design tokens extracted from the core stylesheet of this design system:</p>
+      <table>
+        <tr><th>Design Token</th><th>Hex Value</th><th>System Palette Role</th></tr>
+        <tr><td>--primary</td><td>#0052ff</td><td>System color representation for primary</td></tr><tr><td>--primary-active</td><td>#003ecc</td><td>System color representation for primary-active</td></tr><tr><td>--primary-disabled</td><td>#a8b8cc</td><td>System color representation for primary-disabled</td></tr><tr><td>--ink</td><td>#0a0b0d</td><td>System color representation for ink</td></tr><tr><td>--body</td><td>#5b616e</td><td>System color representation for body</td></tr><tr><td>--body-strong</td><td>#0a0b0d</td><td>System color representation for body-strong</td></tr><tr><td>--muted</td><td>#7c828a</td><td>System color representation for muted</td></tr><tr><td>--muted-soft</td><td>#a8acb3</td><td>System color representation for muted-soft</td></tr><tr><td>--hairline</td><td>#dee1e6</td><td>System color representation for hairline</td></tr><tr><td>--hairline-soft</td><td>#eef0f3</td><td>System color representation for hairline-soft</td></tr><tr><td>--canvas</td><td>#ffffff</td><td>System color representation for canvas</td></tr><tr><td>--surface-soft</td><td>#f7f7f7</td><td>System color representation for surface-soft</td></tr><tr><td>--surface-card</td><td>#ffffff</td><td>System color representation for surface-card</td></tr><tr><td>--surface-strong</td><td>#eef0f3</td><td>System color representation for surface-strong</td></tr><tr><td>--surface-dark</td><td>#0a0b0d</td><td>System color representation for surface-dark</td></tr><tr><td>--surface-dark-elevated</td><td>#16181c</td><td>System color representation for surface-dark-elevated</td></tr><tr><td>--on-primary</td><td>#ffffff</td><td>System color representation for on-primary</td></tr><tr><td>--on-dark</td><td>#ffffff</td><td>System color representation for on-dark</td></tr><tr><td>--on-dark-soft</td><td>#a8acb3</td><td>System color representation for on-dark-soft</td></tr><tr><td>--semantic-up</td><td>#05b169</td><td>System color representation for semantic-up</td></tr><tr><td>--semantic-down</td><td>#cf202f</td><td>System color representation for semantic-down</td></tr><tr><td>--accent-yellow</td><td>#f4b000</td><td>System color representation for accent-yellow</td></tr>
+      </table>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer>
+    <div><strong>Coinbase Design System Spec</strong> · Extracted from awesome-design-md</div>
+    <div>
+      <a href="../index.html">Design System Hub</a>
+    </div>
+  </footer>
+
+</div>
+
+<textarea id="markdown-spec-content" style="display:none;">## Overview
+
+Coinbase reads like an institutional financial brand that happens to trade crypto — the marketing surfaces are quiet, white-canvas, editorially-spaced, and almost monochromatic. The single brand voltage is **Coinbase Blue** (`{colors.primary}` — #0052ff), used scarcely: every primary CTA pill, the brand wordmark, and inline emphasis links. Beyond that one blue, the system is white canvas + ink + soft gray elevation bands + a deep near-black editorial canvas (`{colors.surface-dark}` — #0a0b0d) for full-bleed product-mockup heroes.
+
+Type pairs **CoinbaseDisplay** for hero headlines with **CoinbaseSans** for body, captions, and navigation. Display sits at **weight 400** — not the 700+ typical of trading platforms. The choice signals editorial calm and institutional trust rather than fintech urgency.
+
+The page rhythm rotates three modes: bright white editorial sections, soft-gray elevation bands, and **full-bleed dark editorial heroes** carrying layered product-UI mockup cards. The dark hero with floating dashboard mockups is the single most distinctive component.
+
+**Key Characteristics:**
+- Single accent color: `{colors.primary}` (#0052ff Coinbase Blue) carries every primary CTA, wordmark, and inline brand link. Used scarcely.
+- Modest display weights — CoinbaseDisplay at weight 400, never 700+.
+- Editorial pill geometry: every CTA is `{rounded.pill}` (100px), every asset glyph is `{rounded.full}`, every card is `{rounded.xl}` (24px). Sharp corners absent.
+- Full-bleed dark heroes with floating product-UI cards: `{component.hero-band-dark}` plus inline `{component.product-ui-card-dark}` mockups is the brand's strongest signature pattern.
+- Trading semantics: `{colors.semantic-up}` (#05b169) and `{colors.semantic-down}` (#cf202f) — text color only, never background fills.
+- 96px section rhythm — generous editorial pacing.
+
+## Colors
+
+### Brand & Accent
+- **Coinbase Blue** (`{colors.primary}` — #0052ff): The single brand color. Every primary CTA pill, the Coinbase wordmark, and inline brand links.
+- **Coinbase Blue Active** (`{colors.primary-active}` — #003ecc): Press-state darken on the primary pill.
+- **Coinbase Blue Disabled** (`{colors.primary-disabled}` — #a8b8cc): Faded-blue tint for disabled CTAs.
+- **Accent Yellow** (`{colors.accent-yellow}` — #f4b000): A small sub-brand accent used very sparingly on Bitcoin/asset glyph fills inside feature cards. Illustrative-only, not an action color.
+
+### Surface
+- **Canvas** (`{colors.canvas}` — #ffffff): The default page floor.
+- **Surface Soft** (`{colors.surface-soft}` — #f7f7f7): Subtle alternating band surface.
+- **Surface Strong** (`{colors.surface-strong}` — #eef0f3): The light-gray fill behind secondary buttons, search pills, asset-icon plates.
+- **Surface Dark** (`{colors.surface-dark}` — #0a0b0d): Deep near-black canvas for full-bleed dark heroes, CTA bands. Same hex as `{colors.ink}` — page-floor and text-color share the value.
+- **Surface Dark Elevated** (`{colors.surface-dark-elevated}` — #16181c): One step lighter, used for floating product-UI mockup cards inside dark heroes.
+
+### Hairlines
+- **Hairline** (`{colors.hairline}` — #dee1e6): Default 1px divider on white surfaces.
+- **Hairline Soft** (`{colors.hairline-soft}` — #eef0f3): Lighter divider — same hex as `{colors.surface-strong}`.
+
+### Text
+- **Ink** (`{colors.ink}` — #0a0b0d): Display headings, primary nav, body emphasis.
+- **Body** (`{colors.body}` — #5b616e): Default running-text — slightly cool gray.
+- **Body Strong** (`{colors.body-strong}` — #0a0b0d): Same as ink, used for stronger emphasis.
+- **Muted** (`{colors.muted}` — #7c828a): Sub-titles, breadcrumbs, footer secondary.
+- **Muted Soft** (`{colors.muted-soft}` — #a8acb3): Disabled link text.
+- **On Primary** (`{colors.on-primary}` — #ffffff): White text on Coinbase Blue CTAs.
+- **On Dark** (`{colors.on-dark}` — #ffffff): White text on dark heroes.
+- **On Dark Soft** (`{colors.on-dark-soft}` — #a8acb3): Muted off-white for secondary text on dark.
+
+### Trading Semantics
+- **Semantic Up** (`{colors.semantic-up}` — #05b169): "Price up" green, text color only.
+- **Semantic Down** (`{colors.semantic-down}` — #cf202f): "Price down" red, text color only.
+
+## Typography
+
+### Font Family
+The system runs **CoinbaseDisplay** (display headlines), **CoinbaseSans** (body, navigation, captions, buttons), **CoinbaseIcons** (icon font), and **CoinbaseMono** for tabular numerical data. Fallback stack: `-apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`.
+
+The display/body split is functional: CoinbaseDisplay carries hero headlines only; CoinbaseSans carries everything else.
+
+### Hierarchy
+
+| Token | Size | Weight | Line Height | Letter Spacing | Use |
+|---|---|---|---|---|---|
+| `{typography.display-mega}` | 80px | 400 | 1.0 | -2px | Homepage hero h1 |
+| `{typography.display-xl}` | 64px | 400 | 1.0 | -1.6px | Subsidiary heroes |
+| `{typography.display-lg}` | 52px | 400 | 1.0 | -1.3px | Section heads |
+| `{typography.display-md}` | 44px | 400 | 1.09 | -1px | CTA-band headlines |
+| `{typography.display-sm}` | 36px | 400 | 1.11 | -0.5px | Sub-section heads — CoinbaseSans |
+| `{typography.title-lg}` | 32px | 400 | 1.13 | -0.4px | Card group titles |
+| `{typography.title-md}` | 18px | 600 | 1.33 | 0 | Component titles, asset row primary |
+| `{typography.title-sm}` | 16px | 600 | 1.25 | 0 | List labels |
+| `{typography.body-md}` | 16px | 400 | 1.5 | 0 | Default body |
+| `{typography.body-strong}` | 16px | 700 | 1.5 | 0 | Emphasized body |
+| `{typography.body-sm}` | 14px | 400 | 1.5 | 0 | Footer body |
+| `{typography.caption}` | 13px | 400 | 1.5 | 0 | Photo captions |
+| `{typography.caption-strong}` | 12px | 600 | 1.5 | 0 | Badge pill labels |
+| `{typography.number-display}` | 18px | 500 | 1.4 | 0 | Asset prices, percent changes — CoinbaseMono |
+| `{typography.button}` | 16px | 600 | 1.15 | 0 | Standard CTA pill |
+| `{typography.nav-link}` | 14px | 500 | 1.4 | 0 | Top-nav menu items |
+
+### Principles
+- **Display weight stays at 400.** The single most distinctive typographic choice — signals "calm institutional brand" rather than "trading-platform urgency."
+- **Negative letter-spacing on display only.** Display uses -1px to -2px tracking; body stays at 0.
+- **CoinbaseMono on every number.** Asset prices, percent changes — anything tabular renders in CoinbaseMono.
+
+### Note on Font Substitutes
+CoinbaseDisplay, CoinbaseSans, and CoinbaseMono are licensed Coinbase typefaces.
+- **CoinbaseDisplay → Inter** at weight 400, letter-spacing -1.5%.
+- **CoinbaseSans → Inter** at weight 400/600.
+- **CoinbaseMono → JetBrains Mono** or **Geist Mono** at weight 500.
+
+## Layout
+
+### Spacing System
+- **Base unit:** 4px.
+- **Tokens:** `{spacing.xxs}` 4px · `{spacing.xs}` 8px · `{spacing.sm}` 12px · `{spacing.base}` 16px · `{spacing.md}` 20px · `{spacing.lg}` 24px · `{spacing.xl}` 32px · `{spacing.xxl}` 48px · `{spacing.section}` 96px.
+- **Section padding:** `{spacing.section}` (96px) for every major editorial band.
+- **Card internal padding:** `{spacing.xl}` (32px) for feature cards and product-UI mockups.
+
+### Grid & Container
+- **Max content width:** ~1200px centered. Hero photography full-bleed.
+- **Editorial body:** Single 12-column grid.
+- **Feature card grids:** 2-up at desktop for hero splits, 3-up for benefit grids.
+- **Footer:** 6-column link list at desktop.
+
+### Whitespace Philosophy
+Generous editorial pacing — closer to Bloomberg or the Financial Times than to a trading dashboard. 96px between bands; cards inside bands sit 24px apart. Density lives behind login walls, not on marketing.
+
+## Elevation & Depth
+
+| Level | Treatment | Use |
+|---|---|---|
+| Flat | No shadow, no border | 80% of surfaces |
+| Hairline border | 1px `{colors.hairline}` | Feature card outlines on white |
+| Soft drop | `0 4px 12px rgba(0, 0, 0, 0.04)` | Single shadow tier — hovered cards |
+| Photographic | Full-bleed product-UI mockups | Hero depth |
+
+### Decorative Depth
+- **Layered product-UI cards inside dark heroes** is the most distinctive decorative pattern — a `{component.product-ui-card-dark}` floats above a darker base canvas, often with a second smaller card overlapping at an angle.
+- **Geometric brand illustrations** carry illustrative depth where shadows would otherwise.
+
+## Shapes
+
+### Border Radius Scale
+
+| Token | Value | Use |
+|---|---|---|
+| `{rounded.none}` | 0px | Reserved (essentially unused) |
+| `{rounded.xs}` | 4px | Inline tags |
+| `{rounded.sm}` | 8px | Compact rows |
+| `{rounded.md}` | 12px | Form inputs |
+| `{rounded.lg}` | 16px | Mid-size cards |
+| `{rounded.xl}` | 24px | Feature cards, product-UI mockups, pricing tiers |
+| `{rounded.pill}` | 100px | All CTA buttons, search pills, badges |
+| `{rounded.full}` | 9999px | Asset icon circles, avatars |
+
+Pill for interactive, card-radius (24px) for containers, full circle for icons. Sharp corners absent.
+
+## Components
+
+### Top Navigation
+
+**`top-nav-light`** — Default top nav on white pages. Background `{colors.canvas}`, text `{colors.ink}`, height 64px. Layout: Coinbase wordmark left, primary horizontal menu (Cryptocurrencies / Individuals / Businesses / Institutions / Developers / Company), search-icon + globe + Sign In + Sign Up CTAs right.
+
+**`top-nav-on-dark`** — Top nav over a dark hero band. Background `{colors.surface-dark}`, text `{colors.on-dark}`. Same layout.
+
+### Buttons
+
+**`button-primary`** — The signature Coinbase Blue pill. Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button}` (16px / 600), padding 12px × 20px, height 44px, rounded `{rounded.pill}` (100px).
+
+**`button-primary-active`** — Press state. Background `{colors.primary-active}`, deeper blue.
+
+**`button-primary-disabled`** — Faded blue tint. Background `{colors.primary-disabled}`. Cursor not-allowed.
+
+**`button-secondary-light`** — Soft-gray secondary on white surfaces. Background `{colors.surface-strong}`, text `{colors.ink}`, same pill geometry.
+
+**`button-secondary-dark`** — Used on dark heroes. Background `{colors.surface-dark-elevated}`, text `{colors.on-dark}`, same pill geometry.
+
+**`button-outline-on-dark`** — Transparent pill with white outline. Background transparent, text `{colors.on-dark}`, 1px white border.
+
+**`button-tertiary-text`** — Inline text link. Background transparent, text `{colors.primary}`, type `{typography.button}`.
+
+**`button-pill-cta`** — Larger pill CTA used on the homepage hero ("Get started"). Same Coinbase Blue palette but with 56px height and 16px × 32px padding for a prouder stance.
+
+### Hero Bands
+
+**`hero-band-dark`** — The signature full-bleed dark hero. Background `{colors.surface-dark}`, text `{colors.on-dark}`, full-bleed layered product-UI mockup cards. Display headline left in `{typography.display-mega}` (80px / 400), subhead in `{typography.body-md}`, two CTAs.
+
+**`hero-band-light`** — White-canvas variant used on Wealth and Explore. Background `{colors.canvas}`, text `{colors.ink}`. Same skeleton, light palette.
+
+### Cards
+
+**`product-ui-card-dark`** — The floating product-UI mockup. Background `{colors.surface-dark-elevated}`, text `{colors.on-dark}`, rounded `{rounded.xl}` (24px), padding 32px. Often shown as 2-3 stacked cards at slight rotation, mimicking a layered dashboard.
+
+**`product-ui-card-light`** — Light-canvas variant used on Explore for asset cards. Background `{colors.canvas}`, text `{colors.ink}`, same geometry, 1px hairline border.
+
+**`feature-card`** — Used in 3-up and 2-up grids. Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.title-md}`, rounded `{rounded.xl}`, padding 32px.
+
+### Trading Surfaces
+
+**`asset-row`** — Horizontal row in asset lists (Explore, Wealth). Background transparent, 1px hairline divider. Layout: 32px circular asset icon left, asset name + ticker, price column in `{typography.number-display}`, 24h change column with `{component.price-up-cell}` or `{component.price-down-cell}`.
+
+**`price-up-cell`** + **`price-down-cell`** — Inline price-change cells. Color only — green or red text in `{typography.number-display}`, no background fill.
+
+**`asset-icon-circular`** — Circular plate behind asset glyphs. Background `{colors.surface-strong}`, rounded `{rounded.full}`, 32px diameter.
+
+### Pricing
+
+**`pricing-tier-card`** — Standard pricing tier on Developer Platform. Background `{colors.canvas}`, rounded `{rounded.xl}`, padding 32px, 1px hairline border. Layout: tier name + price + feature checklist + CTA pill.
+
+**`pricing-tier-featured`** — The featured tier. Background `{colors.surface-dark}`, text `{colors.on-dark}`. Same skeleton, dark palette — visual inversion signals "highlighted choice" without colored ribbons.
+
+### Forms
+
+**`text-input`** — Standard text input. Background `{colors.canvas}`, text `{colors.ink}`, rounded `{rounded.md}` (12px), padding 14px × 16px, height 48px, 1px hairline border. On focus, border thickens to 2px Coinbase Blue.
+
+**`search-input-pill`** — Pill-shaped search bar. Background `{colors.surface-strong}`, rounded `{rounded.pill}`, padding 12px × 20px, height 44px.
+
+### Tags & Badges
+
+**`badge-pill`** — Small uppercase pill used as section labels ("INSTITUTIONAL", "REGULATED"). Background `{colors.surface-strong}`, text `{colors.ink}`, type `{typography.caption-strong}`, rounded `{rounded.pill}`.
+
+### CTA / Footer
+
+**`cta-band-dark`** — Pre-footer "Take control of your money" band. Background `{colors.surface-dark}`, text `{colors.on-dark}`, vertical padding 96px. Centered headline + two CTAs.
+
+**`footer-light`** — Closing white-canvas footer. Background `{colors.canvas}`, text `{colors.body}`. 6-column link list.
+
+**`footer-link`** — Individual footer link. Background transparent, text `{colors.body}`.
+
+**`legal-band`** — Bottom strip beneath footer columns. All text `{colors.muted}` at `{typography.caption}`.
+
+## Do's and Don'ts
+
+### Do
+- Reserve `{colors.primary}` (Coinbase Blue) for primary CTAs, wordmark, brand-glyph illustrations, inline accent links.
+- Set every CTA as `{rounded.pill}` (100px); every asset glyph as `{rounded.full}`.
+- Keep CoinbaseDisplay headlines at weight 400.
+- Use the dark/light band rotation as page rhythm.
+- Render every numerical value in CoinbaseMono via `{typography.number-display}`.
+- Pair every dark hero with a layered product-UI mockup card stack.
+
+### Don't
+- Don't introduce a secondary brand color. Coinbase Blue is the only action color; trading green/red are semantic-only.
+- Don't bold display copy — display sits at weight 400; bolding shifts the brand voice.
+- Don't add drop shadow tiers — system has one shadow tier.
+- Don't use sharp `{rounded.none}` (0px) on CTAs.
+- Don't mix CoinbaseDisplay and CoinbaseSans inside the same headline.
+- Don't use trading green/red as a button background.
+- Don't extract a CTA color from a third-party widget (cookie consent, OneTrust). The brand's CTA color is what appears on actual product CTAs, not on injected modals.
+
+## Responsive Behavior
+
+### Breakpoints
+
+| Name | Width | Key Changes |
+|---|---|---|
+| Mobile | < 640px | Hero h1 80→40px; feature card grid 1-up; asset row stacks; nav collapses to hamburger; layered product-UI cards collapse to single card. |
+| Tablet | 640–1024px | Hero h1 64px; feature card grid 2-up; asset rows stay horizontal but compress columns. |
+| Desktop | 1024–1280px | Full hero h1 80px; feature card grid 3-up; full asset row layout. |
+| Wide | > 1280px | Content caps at 1200px; hero photography full-bleed. |
+
+### Touch Targets
+- Primary CTA pill at 44px height — at WCAG AAA.
+- Larger hero pill (`{component.button-pill-cta}`) at 56px — well above AAA.
+- Asset icon circles at 32px — borderline; padded 8px row creates effective 48px tap zone.
+- Search pill at 44px height — at AAA.
+
+### Collapsing Strategy
+- Top nav switches to hamburger sheet below 768px. Sign Up CTA stays visible.
+- Hero h1 steps down: 80 → 64 → 52 → 44 → 36px on smallest screens.
+- Layered product-UI mockup cards collapse from 2-3 stacked into a single card on mobile.
+- Pricing tier rows: 3-up → 2-up → 1-up.
+- Asset rows on mobile stack vertically: ticker line on top, price + change line beneath.
+
+## Iteration Guide
+
+1. Focus on a single component at a time. Reference YAML keys directly.
+2. New CTAs default to `{rounded.pill}` (100px); new icon plates default to `{rounded.full}`. Cards use `{rounded.xl}`.
+3. Variants live as separate entries inside the `components:` block.
+4. Use `{token.refs}` everywhere — never inline hex.
+5. Hover state never documented. Only Default and Active/Pressed.
+6. CoinbaseDisplay 400 for display, CoinbaseSans 400/600/700 for body. CoinbaseMono on every number.
+7. Coinbase Blue stays scarce — one or two blue moments per band.
+
+## Known Gaps
+
+- CoinbaseDisplay, CoinbaseSans, CoinbaseMono are licensed; Inter and JetBrains Mono are documented substitutes.
+- In-product trading surfaces (order book, charts, order forms) are behind login walls — this document covers marketing only.
+- Animation timings out of scope.
+- Form validation states beyond focus not visible on captured surfaces.
+- Accent yellow appears only inside Bitcoin asset glyph illustrations; documented as illustrative-only.
+</textarea>
+
+<script>
+  function copyMarkdownSpec() {
+    const mdText = document.getElementById('markdown-spec-content').value;
+    navigator.clipboard.writeText(mdText).then(() => {
+      const btn = document.getElementById('copy-md-btn');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+      btn.style.borderColor = 'var(--accent-vue)';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.borderColor = '';
+      }, 2000);
+    }).catch(err => {
+      console.error(err);
+      alert('Failed to copy: ' + err);
+    });
+  }
+
+  function copyColor(hex, el) {
+    navigator.clipboard.writeText(hex).then(() => {
+      const hexEl = el.querySelector('.hex');
+      const originalText = hexEl.innerText;
+      hexEl.innerText = 'Copied!';
+      hexEl.style.color = 'var(--accent-vue)';
+      hexEl.style.fontWeight = 'bold';
+      setTimeout(() => {
+        hexEl.innerText = originalText;
+        hexEl.style.color = '';
+        hexEl.style.fontWeight = '';
+      }, 1000);
+    });
+  }
+
+  function updateTypoPreviews(val) {
+    const previews = document.querySelectorAll('.typo-preview-text');
+    previews.forEach(p => {
+      p.innerText = val.trim() || 'The quick brown fox jumps over the lazy dog';
+    });
+  }
+
+  function setSimWidth(mode) {
+    const container = document.getElementById('viewport-sim-container');
+    const indicator = document.getElementById('sim-width-indicator');
+    const cols = document.getElementById('sim-layout-columns');
+    const btnMobile = document.getElementById('btn-sim-mobile');
+    const btnTablet = document.getElementById('btn-sim-tablet');
+    const btnDesktop = document.getElementById('btn-sim-desktop');
+    
+    // Reset button styles
+    [btnMobile, btnTablet, btnDesktop].forEach(btn => {
+      if (btn) {
+        btn.style.background = 'var(--bg-base)';
+        btn.style.borderColor = 'var(--border-color)';
+        btn.style.color = 'var(--text-primary)';
+      }
+    });
+    
+    const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
+    if (activeBtn) {
+      activeBtn.style.background = 'var(--accent-vue-glow)';
+      activeBtn.style.borderColor = 'var(--accent-vue)';
+      activeBtn.style.color = 'var(--accent-vue)';
+    }
+    
+    if (mode === 'mobile') {
+      container.style.maxWidth = '375px';
+      indicator.innerText = 'Width: 375px (Mobile < 768px)';
+      cols.style.gridTemplateColumns = '1fr';
+    } else if (mode === 'tablet') {
+      container.style.maxWidth = '600px';
+      indicator.innerText = 'Width: 600px (Tablet 768px-1024px)';
+      cols.style.gridTemplateColumns = '1fr 1fr';
+    } else {
+      container.style.maxWidth = '800px';
+      indicator.innerText = 'Width: 800px (Desktop > 1024px)';
+      cols.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,1494 @@
+<!-- Design System — PlayStation Design System -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System — PlayStation Design System</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
+  :root {
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-serif: Georgia, serif;
+    --font-mono: ui-monospace, monospace;
+    
+    --bg-base: #0f0f12;
+    --bg-surface: #f5f7fa;
+    --border-color: #e2e8f0;
+    --border-dark: #cbd5e1;
+    
+    --text-primary: #ffffff;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    
+    --accent-vue: #003087;
+    --accent-vue-hover: #004d8d;
+    --accent-vue-glow: rgba(0, 48, 135, 0.08);
+    
+    --radius-lg: 8px;
+    --radius-md: 6px;
+    --radius-sm: 4px;
+    --radius-pill: 999px;
+    
+    --shadow-flat: none;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    
+    --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ═══════════════════ RESET & BASE ═══════════════════ */
+  *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    line-height: 1.6;
+    padding-bottom: 120px;
+  }
+
+  a { color: var(--accent-vue); text-decoration: none; transition: color var(--transition-base); }
+  a:hover { color: var(--accent-vue-hover); }
+  hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
+  pre, code { font-family: var(--font-mono); }
+  code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
+  
+  pre {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 16px 20px;
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 20px 0;
+    position: relative;
+  }
+  pre::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════ LAYOUT ═══════════════════ */
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    padding: 80px 0 48px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .masthead-logo {
+    width: 48px; height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--accent-vue);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px var(--accent-vue-glow);
+  }
+  .masthead-logo svg { width: 26px; height: 26px; fill: currentColor; }
+  .masthead h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+  .masthead .sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .back-home-link, #copy-md-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    background: var(--bg-base);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  .back-home-link:hover, #copy-md-btn:hover {
+    border-color: var(--accent-vue);
+    box-shadow: 0 0 12px var(--accent-vue-glow);
+    background: var(--bg-surface);
+  }
+
+  /* TWO-COLUMN GRID */
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .layout-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    position: sticky;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .sidebar-section { display: flex; flex-direction: column; gap: 6px; }
+  .sidebar-heading {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .sidebar a {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+  }
+  .sidebar a:hover, .sidebar a.active {
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    box-shadow: inset 0 0 0 1px var(--border-color);
+  }
+
+  /* ═══════════════════ COMPONENTS & SECTIONS ═══════════════════ */
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-top: 64px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-head .idx {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-vue);
+    font-weight: 600;
+  }
+  .sec-head h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  /* COLOR SWATCHES */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .swatch {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color var(--transition-base);
+  }
+  .swatch:hover { border-color: var(--border-dark); }
+  .swatch .color-block { height: 72px; }
+  .swatch .color-label {
+    padding: 12px;
+    font-size: 12px;
+    background: var(--bg-surface);
+  }
+  .swatch .color-label .name { font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+  .swatch .color-label .hex { color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-bottom: 32px;
+  }
+  th, td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  th {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.01);
+  }
+  td { color: var(--text-secondary); }
+  tr:hover td { color: var(--text-primary); }
+  td:first-child { font-weight: 600; color: var(--text-primary); }
+
+  /* TYPE SPECIMEN */
+  .type-spec { margin-bottom: 32px; }
+  .type-title { font-size: 38px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .type-h2 { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: -0.015em; margin: 24px 0 8px; }
+  .type-body { font-size: 16px; line-height: 1.6; color: var(--text-primary); }
+  .type-caption { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 4px; margin-bottom: 16px; }
+
+  /* COMPONENT DEMOS */
+  .product-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    max-width: 420px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-dark);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  }
+  .product-card h3 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .product-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px; }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    background: var(--bg-base);
+    transition: all var(--transition-base);
+  }
+  .pill:hover { border-color: var(--border-dark); color: var(--text-primary); }
+  .pill.active { background: var(--accent-vue-glow); border-color: var(--accent-vue); color: var(--accent-vue); }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+  }
+  footer a { color: var(--text-primary); }
+
+  
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ═══════════════════ MASTHEAD ═══════════════════ -->
+  <div class="masthead">
+    <div class="masthead-logo">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" style="fill:currentColor;"/></svg>
+    </div>
+    <div>
+      <h1>PlayStation Design System</h1>
+      <div class="sub">Gaming console interface · Saturated cyan action highlights on dark chrome...</div>
+    </div>
+    <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <a href="../index.html" class="back-home-link">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Home
+      </a>
+      <button id="copy-md-btn" onclick="copyMarkdownSpec()">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy Spec
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ TWO-COLUMN LAYOUT ═══════════════════ -->
+  <div class="layout-grid">
+    <nav class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Guidelines</div>
+        <a href="#visual-theme">01 Theme & Atmosphere</a>
+        <a href="#color-palette">02 Color Palette</a>
+        <a href="#typography">03 Typography Rules</a>
+        <a href="#layout">04 Layout Principles</a>
+        <a href="#depth-elevation">05 Depth & Elevation</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Showcase & Guardrails</div>
+        <a href="#components">06 Component Showcase</a>
+        <a href="#dos-donts">07 Do's and Don'ts</a>
+        <a href="#responsive">08 Responsive Behavior</a>
+        <a href="#prompt-guide">09 Agent Prompt Guide</a>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- 01 Visual Theme & Atmosphere -->
+      <div id="visual-theme" class="sec-head"><span class="idx">01</span><h2>Visual Theme & Atmosphere</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>PlayStation's marketing system reads like a console launch trailer scrolling past the viewer in chapters. Each section is a full-bleed band — pure black <code>{colors.canvas-dark}</code>, true white <code>{colors.canvas-light}</code>, or PlayStation Blue <code>{colors.primary}</code> — and each chapter owns one editorial moment: hero console photography, a games-coming-soon strip, the PlayStation Plus tier banner, the "30 Years of PlayStation" anniversary band, the news strip from the PlayStation Blog. There is no decorative chrome between chapters; the section background change IS the divider. Sections stack at <code>{spacing.section}</code> (96px) rhythm with the next band's color taking over the page edge-to-edge.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>The system has two distinct surface modes that alternate down the page: a <strong>dark canvas mode</strong> for editorial product moments (hero, "ON PLAYSTATION" band, marathon game pages) and a <strong>light canvas mode</strong> for utility surfaces (PS5 games listing, support pages, news index). Both modes use the same chrome vocabulary — fully-rounded <code>{rounded.full}</code> pill buttons, 8px-radius <code>{rounded.md}</code> cards, the proprietary PlayStation SST face — only the surface and on-surface colors change. The third surface mode is the <strong>PlayStation Blue band</strong> (<code>{colors.primary}</code> — <code>#0070d1</code>) reserved for the highest-priority moments: the Marathon launch CTA strip, the footer, and any "Action Required" banner.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>...</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong>Key Characteristics:</strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Three-canvas chapter system: <code>{colors.canvas-dark}</code> (black), <code>{colors.canvas-light}</code> (white), <code>{colors.primary}</code> (PlayStation Blue) alternating down the page</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Live Visual Theme Representation:</p>
+        <p>Visual Theme Example</p>
+      </div>
+
+      <!-- 02 Color Palette & Roles -->
+      <div id="color-palette" class="sec-head"><span class="idx">02</span><h2>Color Palette & Roles</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>&gt; <strong>Source pages:</strong> <code>/en-tr/</code> (home), <code>/en-tr/ps5/games/</code> (PS5 games listing), <code>/en-tr/games/marathon/</code> (single game page), <code>/tr-tr/support/account/</code> (support center). The chrome palette is identical across all four pages; the support page uses the light-canvas mode exclusively while marketing pages alternate.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Brand & Accent</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>PlayStation Blue</strong> (<code>{colors.primary}</code> — <code>#0070d1</code>): the brand's universal primary. Every primary CTA pill, the active filter chip, the footer surface, badge fills, and inline link color on dark surfaces.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>PlayStation Blue Pressed</strong> (<code>{colors.primary-pressed}</code> — <code>#0064b7</code>): pressed state for the primary pill — also doubles as the inline link color on light surfaces.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Surface</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Canvas Dark</strong> (<code>{colors.canvas-dark}</code> — <code>#000000</code>): pure black hero band, primary nav background, footer base. The dominant surface for editorial product moments.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Surface Dark Elevated</strong> (<code>{colors.surface-dark-elevated}</code> — <code>#121314</code>): inset dark panels, PS Plus tier banner background, "ON PLAYSTATION" gradient end.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Text</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Ink</strong> (<code>{colors.ink}</code> — <code>#000000</code>): primary text on <code>{colors.canvas-light}</code>. Headlines, button text, support body.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Ink Deep</strong> (<code>{colors.ink-deep}</code> — <code>#121314</code>): warmer near-black for in-card titles on dark surfaces and deep-shadow gradients.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Semantic</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Warning</strong> (<code>{colors.warning}</code> — <code>#c81b3a</code>): validation errors and destructive confirmation copy.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Link Light</strong> (<code>{colors.link-light}</code> — <code>#0064b7</code>): inline body-prose anchor link on light canvas — same hex as <code>{colors.primary-pressed}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Brand Gradient</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>PlayStation Plus Gold Gradient</strong> — a horizontal three-stop gold gradient <code>{colors.ps-plus-gold-start}</code> (<code>#ffce21</code>) → <code>{colors.ps-plus-gold-mid}</code> (<code>#f5a623</code>) → <code>{colors.ps-plus-gold-end}</code> (<code>#ee8e00</code>) that anchors the PS Plus banner on the home page. The only gradient in the system; reserved exclusively for PS Plus chrome.</li></ul>
+      <div class="swatches" style="margin-top:20px;">
+        
+            <div class="swatch" onclick="copyColor('#0070d1', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0070d1; "></div>
+                <div class="color-label">
+                    <div class="name">primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0070d1</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#0064b7', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0064b7; "></div>
+                <div class="color-label">
+                    <div class="name">primary-pressed</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0064b7</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#004d8d', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#004d8d; "></div>
+                <div class="color-label">
+                    <div class="name">primary-active</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#004d8d</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">on-primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#0064b7', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0064b7; "></div>
+                <div class="color-label">
+                    <div class="name">link-light</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0064b7</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#53b1ff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#53b1ff; "></div>
+                <div class="color-label">
+                    <div class="name">link-dark</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#53b1ff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#d53b00', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#d53b00; "></div>
+                <div class="color-label">
+                    <div class="name">commerce</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#d53b00</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#aa2f00', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#aa2f00; "></div>
+                <div class="color-label">
+                    <div class="name">commerce-pressed</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#aa2f00</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#d63d00', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#d63d00; "></div>
+                <div class="color-label">
+                    <div class="name">commerce-link-base</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#d63d00</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">on-commerce</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#000000', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#000000; "></div>
+                <div class="color-label">
+                    <div class="name">ink</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#000000</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#121314', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#121314; "></div>
+                <div class="color-label">
+                    <div class="name">ink-deep</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#121314</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#181818', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#181818; "></div>
+                <div class="color-label">
+                    <div class="name">ink-elevated</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#181818</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#1f2024', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#1f2024; "></div>
+                <div class="color-label">
+                    <div class="name">charcoal</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1f2024</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#6b6b6b', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#6b6b6b; "></div>
+                <div class="color-label">
+                    <div class="name">mute-light</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#6b6b6b</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#cccccc', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#cccccc; "></div>
+                <div class="color-label">
+                    <div class="name">ash-light</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#cccccc</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">canvas-light</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f3f3f3', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f3f3f3; "></div>
+                <div class="color-label">
+                    <div class="name">surface-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f3f3f3</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f5f7fa', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f5f7fa; "></div>
+                <div class="color-label">
+                    <div class="name">surface-card</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f5f7fa</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#000000', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#000000; "></div>
+                <div class="color-label">
+                    <div class="name">canvas-dark</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#000000</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#121314', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#121314; "></div>
+                <div class="color-label">
+                    <div class="name">surface-dark-elevated</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#121314</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#181818', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#181818; "></div>
+                <div class="color-label">
+                    <div class="name">surface-dark-card</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#181818</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f3f3f3', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f3f3f3; "></div>
+                <div class="color-label">
+                    <div class="name">hairline-light</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f3f3f3</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">on-dark</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#cccccc', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#cccccc; "></div>
+                <div class="color-label">
+                    <div class="name">on-dark-mute</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#cccccc</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#c81b3a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#c81b3a; "></div>
+                <div class="color-label">
+                    <div class="name">warning</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#c81b3a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffce21', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffce21; "></div>
+                <div class="color-label">
+                    <div class="name">ps-plus-gold-start</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffce21</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f5a623', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f5a623; "></div>
+                <div class="color-label">
+                    <div class="name">ps-plus-gold-mid</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f5a623</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ee8e00', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ee8e00; "></div>
+                <div class="color-label">
+                    <div class="name">ps-plus-gold-end</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ee8e00</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#deff20', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#deff20; "></div>
+                <div class="color-label">
+                    <div class="name">marathon-yellow</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#deff20</div>
+                </div>
+            </div>
+            
+      </div>
+
+      <!-- 03 Typography Rules -->
+      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography Rules</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Font Family</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>PlayStation SST</strong> is the proprietary brand sans-serif used across every text role on the site. It carries weights 300 (light), 400 (regular), 500 (medium), 600 (semibold), and 700 (bold), and falls back through <code>sst</code> → <code>Arial</code> → <code>Helvetica</code>. The brand's distinctive choice is using <strong>weight 300 (light) for display headlines</strong> — unusual for a gaming brand and the source of the system's editorial, airy character.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>SST</strong> appears as a secondary cut for in-product surfaces, falling back to Helvetica → Arial.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Hierarchy</h3>
+<table><tr><th>Token</th><th>Size</th><th>Weight</th><th>Line Height</th><th>Letter Spacing</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Principles</h3>
+The hierarchy works on a 1.25-line-height ladder almost exclusively — even body sits at 1.5 instead of the typical 1.6 — which keeps long-form support pages tight and console showcases efficient. The weight contrast between display (300) and button (700) is dramatic: a single 18px chrome line might host a heavyweight CTA next to a feather-light 22px headline, giving the system its editorial gaming-magazine feel.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Note on Font Substitutes</h3>
+PlayStation SST is proprietary. The closest open-source substitutes:
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Roboto Light (300)</strong> for the display tier — its slightly looser letter-spacing matches SST's display optical fit.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Inter</strong> at weights 400/500/600 for body and chrome — the closest geometric sans match for SST's body cut.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+...
+      
+        <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
+            <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
+            <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+        
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-xl</span>
+                        <span>size: 54px | weight: 300 | height: 1.25 | spacing: -0.1px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:54px; font-weight:300; line-height:1.25; letter-spacing:-0.1px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-lg</span>
+                        <span>size: 44px | weight: 300 | height: 1.25 | spacing: 0.1px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:44px; font-weight:300; line-height:1.25; letter-spacing:0.1px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-md</span>
+                        <span>size: 35px | weight: 300 | height: 1.25 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:35px; font-weight:300; line-height:1.25; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">heading-xl</span>
+                        <span>size: 28px | weight: 300 | height: 1.25 | spacing: 0.1px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:28px; font-weight:300; line-height:1.25; letter-spacing:0.1px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">heading-lg</span>
+                        <span>size: 22px | weight: 300 | height: 1.25 | spacing: 0.1px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:22px; font-weight:300; line-height:1.25; letter-spacing:0.1px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">heading-md</span>
+                        <span>size: 18px | weight: 600 | height: 1 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:600; line-height:1; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-md</span>
+                        <span>size: 18px | weight: 400 | height: 1.5 | spacing: 0.1px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:400; line-height:1.5; letter-spacing:0.1px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-strong</span>
+                        <span>size: 18px | weight: 500 | height: 1.25 | spacing: 0.4px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:500; line-height:1.25; letter-spacing:0.4px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-sm</span>
+                        <span>size: 16px | weight: 400 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">caption-md</span>
+                        <span>size: 14px | weight: 400 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">caption-sm</span>
+                        <span>size: 12px | weight: 500 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:12px; font-weight:500; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">link-md</span>
+                        <span>size: 18px | weight: 400 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">button-lg</span>
+                        <span>size: 18px | weight: 700 | height: 1.25 | spacing: 0.45px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:700; line-height:1.25; letter-spacing:0.45px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">button-md</span>
+                        <span>size: 14px | weight: 700 | height: 1.25 | spacing: 0.324px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:700; line-height:1.25; letter-spacing:0.324px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                </div>
+
+      <!-- 04 Layout Principles -->
+      <div id="layout" class="sec-head"><span class="idx">04</span><h2>Layout Principles</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Spacing System</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Base unit:</strong> 8px (with finer 4/12px steps for tight inline gaps).</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Tokens (front matter):</strong> <code>{spacing.xxs}</code> (4px) · <code>{spacing.xs}</code> (8px) · <code>{spacing.sm}</code> (12px) · <code>{spacing.md}</code> (16px) · <code>{spacing.lg}</code> (24px) · <code>{spacing.xl}</code> (32px) · <code>{spacing.xxl}</code> (48px) · <code>{spacing.section}</code> (96px).</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Grid & Container</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Max width:</strong> ~1280px content area for body text on desktop with 24px gutters that expand to ~48px at ultrawide. Hero bands and game-tile rails go full-bleed with no max-width constraint on imagery.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Game tile carousel:</strong> 4-up at desktop with horizontal scroll on the same row, collapsing to 3-up at 1024px and 2-up at 768px. Each tile uses 16:9 cover art at <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Whitespace Philosophy</h3>
+Whitespace is structural and band-defined. The 96px <code>{spacing.section}</code> between chapters reads as silence between trailer cuts — there's no decorative wash, no gradient transition, no mid-section divider. Inside a section, content is left-aligned in a tight column with the imagery breathing in the right 60-70% of the band. Paragraph text is comfortable at 1.5 line-height but column widths stay narrow (~520px at desktop) to keep long-form copy readable.
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
+        <p>Layout Grid Example</p>
+        
+    <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
+        <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
+        
+        <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">3</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">4</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">5</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">6</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">7</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">8</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">9</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">10</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
+        </div>
+        
+        <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
+            <div>Gutter spacing: 16px / 24px</div>
+            <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
+            <div>Max Container Width: 1200px</div>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 05 Depth & Elevation -->
+      <div id="depth-elevation" class="sec-head"><span class="idx">05</span><h2>Depth & Elevation</h2></div>
+      <table><tr><th>Level</th><th>Treatment</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table>The system has effectively no resting shadow on cards; depth is built from surface-color contrast across band chapters. Cards lift only on press.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Decorative Depth</h3>
+Depth comes from the alternating-band rhythm and from the imagery itself:
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Console product photography</strong> — DualSense controller and PS5 console renders shot on neutral white with crisp edge lighting, full-bleed inside the light-canvas band.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Game key art</strong> — full-bleed cinematic stills (Marathon, the latest blockbuster releases) inside dark-canvas bands with title lockup overlaid in the lower-left.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
+        <p>Elevation Level Example</p>
+        
+    <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for background layers, sidebar headers, or baseline borders.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-md);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Low Elevation (Level 1 / Card)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for floating product elements, cards, and hover states.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-lg);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">High Elevation (Level 2 / Popover & Dropdown)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
+        </div>
+    </div>
+    
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
+        
+    <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-sm</span>
+            <span style="color:var(--text-muted); margin-top:4px;">4px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-md</span>
+            <span style="color:var(--text-muted); margin-top:4px;">6px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-lg</span>
+            <span style="color:var(--text-muted); margin-top:4px;">8px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-pill); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-pill</span>
+            <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 06 Component Stylings -->
+      <div id="components" class="sec-head"><span class="idx">06</span><h2>Component Stylings</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Border Radius Scale</h3>
+<table><tr><th>Token</th><th>Value</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table>The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural surfaces staying flat at 0px.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Photography Geometry</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Hero console render:</strong> large centered console + DualSense composition on white, ~70% width of the band, with copy slot to the left.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Game tiles:</strong> 16:9 key art at <code>{rounded.md}</code> (8px), 4-up rail at desktop with horizontal carousel.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+&gt; <strong>No hover states documented</strong> per system policy. Each spec covers Default and Active/Pressed only.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Buttons</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary</code></strong> — the universal PlayStation CTA
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.primary}</code> (PlayStation Blue), text <code>{colors.on-primary}</code>, type <code>{typography.button-lg}</code>, padding <code>12px 28px</code>, height ~48px, rounded <code>{rounded.full}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>button-commerce</code></strong> — orange store CTA
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.commerce}</code> (<code>#d53b00</code>), text <code>{colors.on-commerce}</code>, type <code>{typography.button-lg}</code>, padding <code>12px 28px</code>, height ~48px, rounded <code>{rounded.full}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>button-secondary-light</code></strong> — outline variant on light canvas
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background transparent, text <code>{colors.ink}</code>, 1px solid <code>{colors.ash-light}</code> border, type <code>{typography.button-lg}</code>, padding <code>12px 28px</code>, height ~48px, rounded <code>{rounded.full}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>button-secondary-dark</code></strong> — outline variant on dark canvas
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background transparent, text <code>{colors.on-dark}</code>, 1px solid <code>{colors.hairline-dark}</code>, type <code>{typography.button-lg}</code>, padding <code>12px 28px</code>, height ~48px, rounded <code>{rounded.full}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>button-disabled</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-soft}</code>, text <code>{colors.ash-light}</code>, rounded <code>{rounded.full}</code> — flat soft gray.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Filter & Tab Chips</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>filter-pill</code></strong> + <strong><code>filter-pill-active</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Default: background <code>{colors.surface-filter}</code> (translucent), text <code>{colors.ink}</code>, type <code>{typography.button-md}</code>, padding <code>8px 16px</code>, rounded <code>{rounded.full}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Inputs & Forms</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>text-input</code></strong> + <strong><code>text-input-focused</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Default: background <code>{colors.canvas-light}</code>, text <code>{colors.ink}</code>, 1px solid <code>{colors.ash-light}</code>, type <code>{typography.body-md}</code>, padding <code>12px 16px</code>, height ~48px, rounded <code>{rounded.sm}</code> (4px).</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>support-search-bar</code></strong> — the support-page signature search field
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas-light}</code>, text <code>{colors.ink}</code>, type <code>{typography.body-md}</code>, padding <code>12px 24px</code>, height ~56px, rounded <code>{rounded.full}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Cards & Containers</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>product-card</code></strong> — light-canvas product/feature card
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Container: background <code>{colors.surface-card}</code> (<code>#f5f7fa</code> cool-blue-tinted), 1px solid <code>{colors.hairline-light}</code> (rare; usually borderless), padding <code>{spacing.lg}</code> (24px), rounded <code>{rounded.md}</code> (8px).</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>product-card-dark</code></strong> — dark-canvas product card
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Container: background <code>{colors.surface-dark-card}</code> (<code>#181818</code>), padding <code>{spacing.lg}</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>game-tile</code></strong> — game/console thumbnail tile
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Container: background <code>{colors.surface-dark-elevated}</code>, padding 0, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>feature-card</code></strong> — light-canvas marketing card
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Container: background <code>{colors.canvas-light}</code>, padding <code>{spacing.xl}</code> (32px), rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>hero-band-blue</code></strong> — the PlayStation Blue full-bleed band
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.primary}</code>, text <code>{colors.on-primary}</code> in <code>{typography.display-md}</code>, padding <code>96px 48px</code>, rounded <code>{rounded.none}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>hero-band-dark</code></strong> — full-bleed dark hero
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas-dark}</code> (with optional gradient end at <code>{colors.surface-dark-elevated}</code>), text <code>{colors.on-dark}</code> in <code>{typography.display-xl}</code>, padding <code>96px 48px</code>, rounded <code>{rounded.none}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>hero-band-light</code></strong> — full-bleed white hero
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas-light}</code>, text <code>{colors.ink}</code> in <code>{typography.display-xl}</code>, padding <code>96px 48px</code>, rounded <code>{rounded.none}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>ps-plus-banner</code></strong> — PlayStation Plus tier callout
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-dark-elevated}</code> with the <code>{colors.ps-plus-gold-start}</code> → <code>{colors.ps-plus-gold-end}</code> gold gradient as a horizontal accent bar across the top, text <code>{colors.on-dark}</code> in <code>{typography.heading-xl}</code>, padding <code>48px 32px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>carousel-paddle</code></strong> — circular carousel control
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>rgba(255,255,255,0.16)</code>, icon <code>{colors.on-dark}</code>, rounded <code>{rounded.full}</code>, size 48px.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>pagination-dot</code></strong> + <strong><code>pagination-dot-active</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>8px circle at <code>{rounded.full}</code>. Default fill <code>{colors.ash-dark}</code>; active fill <code>{colors.on-dark}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Inline</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>badge-info</code></strong> — small info tag
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.primary}</code>, text <code>{colors.on-primary}</code> in <code>{typography.caption-sm}</code>, padding <code>4px 10px</code>, rounded <code>{rounded.full}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>link-inline</code></strong> — body-prose anchor link
+<ul><li style='margin-left:20px; margin-bottom:6px;'><code>{colors.link-light}</code> text on light canvas / <code>{colors.link-dark}</code> on dark canvas, no underline by default. Inline body links inside support article paragraphs.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Navigation</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>primary-nav</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas-dark}</code>, text <code>{colors.on-dark}</code>, height ~48px, type <code>{typography.body-strong}</code>, rounded <code>{rounded.none}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>sub-nav</code></strong> — secondary nav strip
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas-dark}</code>, text <code>{colors.on-dark}</code> in <code>{typography.caption-md}</code>, height ~40px, rounded <code>{rounded.none}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong>Top Nav (Mobile)</strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Hamburger menu icon at left, P-logo at center, search + cart icons at right. Primary nav collapses into a full-screen dark drawer that slides from the left.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Footer</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>footer-section</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.primary}</code> (PlayStation Blue), text <code>{colors.on-primary}</code> in <code>{typography.caption-md}</code>, padding <code>{spacing.xxl}</code> (48px) vertical.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Support-page-specific</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>support-row</code></strong> — support article-list row
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas-light}</code>, text <code>{colors.ink}</code> in <code>{typography.body-md}</code>, padding <code>16px 0</code>, with a 1px <code>{colors.hairline-light}</code> bottom rule.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; font-family:var(--font-mono);">Interactive Component Demonstrations:</p>
+        <p>Component Interactive Example</p>
+      </div>
+
+      <!-- 07 Do's and Don'ts -->
+      <div id="dos-donts" class="sec-head"><span class="idx">07</span><h2>Do's and Don'ts</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Do</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{colors.primary}</code> (PlayStation Blue) for primary CTAs and the footer surface only. The blue band is precious — at most one full-bleed blue band per page.</li><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{colors.commerce}</code> (orange) for store/buy/pre-order CTAs only. It is never used on marketing chrome or hero pills.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce drop shadows on resting cards. The system is flat-on-canvas; cards lift only on press.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't replace <code>{colors.primary}</code> with another shade of blue. The brand blue is precise — <code>#0070d1</code> for default and <code>#0064b7</code> for pressed.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
+        <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
+            <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                <p style='margin-bottom:16px; line-height:1.6;'>n't
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce drop shadows on resting cards. The system is flat-on-canvas; cards lift only on press.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't replace <code>{colors.primary}</code> with another shade of blue. The brand blue is precise — <code>#0070d1</code> for default and <code>#0064b7</code> for pressed.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+            </div>
+        </div>
+        <div style="border:1px solid #ef4444; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(239, 68, 68, 0.015); position:relative;">
+            <span style="background:#ef4444; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">❌ Discouraged / Don't</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                
+            </div>
+        </div>
+    </div>
+    
+
+      <!-- 08 Responsive Behavior -->
+      <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Breakpoints</h3>
+<table><tr><th>Name</th><th>Width</th><th>Key Changes</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Touch Targets</h3>
+All interactive elements meet WCAG AAA (≥ 44×44px). <code>{component.button-primary}</code> and <code>{component.button-commerce}</code> sit at 48px height with 28px horizontal padding (effective ~48×100px tappable). <code>{component.text-input}</code> sits at 48px. <code>{component.support-search-bar}</code> sits at 56px. <code>{component.filter-pill}</code> is ~36–40px height with 16px padding extending to 44px tappable via inline padding. <code>{component.carousel-paddle}</code> is exactly 48×48 circular.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Collapsing Strategy</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Primary nav:</strong> desktop horizontal cluster → tablet hamburger drawer at 768px. The right-cluster icons (search, cart, account) stay visible at every breakpoint.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Sub-nav:</strong> desktop horizontal anchor row → tablet horizontal scroll → mobile select dropdown.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Image Behavior</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Hero imagery (console renders, game key art) uses art-direction crops on mobile so the central subject stays centered when the band collapses to single-column.</li><li style='margin-left:20px; margin-bottom:6px;'>Game tile cover art preserves 16:9 ratio at every breakpoint; only the column count changes.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
+        <p>Responsive Behavior Example</p>
+        
+    <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
+        <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
+            <div style="display:flex; gap:6px;">
+                <button id="btn-sim-mobile" onclick="setSimWidth('mobile')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Mobile</button>
+                <button id="btn-sim-tablet" onclick="setSimWidth('tablet')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Tablet</button>
+                <button id="btn-sim-desktop" onclick="setSimWidth('desktop')" style="padding:4px 10px; border:1px solid var(--accent-vue); background:var(--accent-vue-glow); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--accent-vue); transition:all var(--transition-base);">Desktop</button>
+            </div>
+        </div>
+        <div style="padding:28px 16px; display:flex; justify-content:center; background:rgba(0,0,0,0.005); overflow:hidden;">
+            <div id="viewport-sim-container" style="width:100%; max-width:800px; transition:max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1); border:1.5px dashed var(--border-dark); border-radius:var(--radius-md); background:var(--bg-base); padding:20px; overflow:hidden; box-sizing:border-box;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                    <span id="sim-width-indicator" style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); text-transform:uppercase;">Width: 800px (Desktop Mode)</span>
+                    <span style="font-size:11px; font-weight:700; color:var(--accent-vue); font-family:var(--font-sans);">Grid Container</span>
+                </div>
+                <div id="sim-layout-columns" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; transition:all 0.3s;">
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Primary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Adjusts layout width</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Secondary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Folds on viewport change</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Sidebar Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Stacks to bottom on mobile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 09 Agent Prompt Guide -->
+      <div id="prompt-guide" class="sec-head"><span class="idx">09</span><h2>Agent Prompt Guide</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>1. Focus on ONE component at a time. Pull its YAML entry and verify every property resolves.
+2. Reference component names and tokens directly (<code>{colors.primary}</code>, <code>{component.button-primary-pressed}</code>, <code>{rounded.full}</code>) — do not paraphrase.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Copyable Agent Integration Prompt:</p>
+        <p>Prompt Guide Copy Box</p>
+      </div>
+
+      <!-- 10 Design Tokens Table -->
+      <div id="tokens-table" class="sec-head"><span class="idx">10</span><h2>Full System Design Tokens</h2></div>
+      <p style="margin-bottom:20px;">The parsed design tokens extracted from the core stylesheet of this design system:</p>
+      <table>
+        <tr><th>Design Token</th><th>Hex Value</th><th>System Palette Role</th></tr>
+        <tr><td>--primary</td><td>#0070d1</td><td>System color representation for primary</td></tr><tr><td>--primary-pressed</td><td>#0064b7</td><td>System color representation for primary-pressed</td></tr><tr><td>--primary-active</td><td>#004d8d</td><td>System color representation for primary-active</td></tr><tr><td>--on-primary</td><td>#ffffff</td><td>System color representation for on-primary</td></tr><tr><td>--link-light</td><td>#0064b7</td><td>System color representation for link-light</td></tr><tr><td>--link-dark</td><td>#53b1ff</td><td>System color representation for link-dark</td></tr><tr><td>--commerce</td><td>#d53b00</td><td>System color representation for commerce</td></tr><tr><td>--commerce-pressed</td><td>#aa2f00</td><td>System color representation for commerce-pressed</td></tr><tr><td>--commerce-link-base</td><td>#d63d00</td><td>System color representation for commerce-link-base</td></tr><tr><td>--on-commerce</td><td>#ffffff</td><td>System color representation for on-commerce</td></tr><tr><td>--ink</td><td>#000000</td><td>System color representation for ink</td></tr><tr><td>--ink-deep</td><td>#121314</td><td>System color representation for ink-deep</td></tr><tr><td>--ink-elevated</td><td>#181818</td><td>System color representation for ink-elevated</td></tr><tr><td>--charcoal</td><td>#1f2024</td><td>System color representation for charcoal</td></tr><tr><td>--body-light</td><td>rgba(0,0,0,0.6)</td><td>System color representation for body-light</td></tr><tr><td>--mute-light</td><td>#6b6b6b</td><td>System color representation for mute-light</td></tr><tr><td>--ash-light</td><td>#cccccc</td><td>System color representation for ash-light</td></tr><tr><td>--body-dark</td><td>rgba(255,255,255,0.7)</td><td>System color representation for body-dark</td></tr><tr><td>--mute-dark</td><td>rgba(229,229,229,0.55)</td><td>System color representation for mute-dark</td></tr><tr><td>--ash-dark</td><td>rgba(229,229,229,0.2)</td><td>System color representation for ash-dark</td></tr><tr><td>--canvas-light</td><td>#ffffff</td><td>System color representation for canvas-light</td></tr><tr><td>--surface-soft</td><td>#f3f3f3</td><td>System color representation for surface-soft</td></tr><tr><td>--surface-card</td><td>#f5f7fa</td><td>System color representation for surface-card</td></tr><tr><td>--surface-filter</td><td>rgba(245,247,250,0.3)</td><td>System color representation for surface-filter</td></tr><tr><td>--canvas-dark</td><td>#000000</td><td>System color representation for canvas-dark</td></tr><tr><td>--surface-dark-elevated</td><td>#121314</td><td>System color representation for surface-dark-elevated</td></tr><tr><td>--surface-dark-card</td><td>#181818</td><td>System color representation for surface-dark-card</td></tr><tr><td>--hairline-light</td><td>#f3f3f3</td><td>System color representation for hairline-light</td></tr><tr><td>--hairline-dark</td><td>rgba(229,229,229,0.2)</td><td>System color representation for hairline-dark</td></tr><tr><td>--on-dark</td><td>#ffffff</td><td>System color representation for on-dark</td></tr><tr><td>--on-dark-mute</td><td>#cccccc</td><td>System color representation for on-dark-mute</td></tr><tr><td>--warning</td><td>#c81b3a</td><td>System color representation for warning</td></tr><tr><td>--ps-plus-gold-start</td><td>#ffce21</td><td>System color representation for ps-plus-gold-start</td></tr><tr><td>--ps-plus-gold-mid</td><td>#f5a623</td><td>System color representation for ps-plus-gold-mid</td></tr><tr><td>--ps-plus-gold-end</td><td>#ee8e00</td><td>System color representation for ps-plus-gold-end</td></tr><tr><td>--marathon-yellow</td><td>#deff20</td><td>System color representation for marathon-yellow</td></tr>
+      </table>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer>
+    <div><strong>PlayStation Design System Spec</strong> · Extracted from awesome-design-md</div>
+    <div>
+      <a href="../index.html">Design System Hub</a>
+    </div>
+  </footer>
+
+</div>
+
+<textarea id="markdown-spec-content" style="display:none;">## Overview
+
+PlayStation's marketing system reads like a console launch trailer scrolling past the viewer in chapters. Each section is a full-bleed band — pure black `{colors.canvas-dark}`, true white `{colors.canvas-light}`, or PlayStation Blue `{colors.primary}` — and each chapter owns one editorial moment: hero console photography, a games-coming-soon strip, the PlayStation Plus tier banner, the "30 Years of PlayStation" anniversary band, the news strip from the PlayStation Blog. There is no decorative chrome between chapters; the section background change IS the divider. Sections stack at `{spacing.section}` (96px) rhythm with the next band's color taking over the page edge-to-edge.
+
+The system has two distinct surface modes that alternate down the page: a **dark canvas mode** for editorial product moments (hero, "ON PLAYSTATION" band, marathon game pages) and a **light canvas mode** for utility surfaces (PS5 games listing, support pages, news index). Both modes use the same chrome vocabulary — fully-rounded `{rounded.full}` pill buttons, 8px-radius `{rounded.md}` cards, the proprietary PlayStation SST face — only the surface and on-surface colors change. The third surface mode is the **PlayStation Blue band** (`{colors.primary}` — `#0070d1`) reserved for the highest-priority moments: the Marathon launch CTA strip, the footer, and any "Action Required" banner.
+
+The typography is the system's most distinctive choice. PlayStation SST renders display headlines at **weight 300** (light) — unusual for a gaming brand that could easily reach for bold geometric display faces. The light weight gives the chrome an airy, almost editorial quality that lets the imagery speak; copy is information rather than decoration. Heading sizes drop in tight increments (54 → 44 → 35 → 28 → 22 → 18) and body settles at 18px with 1.5 line-height for comfortable long-form reading on support and games pages.
+
+**Key Characteristics:**
+- Three-canvas chapter system: `{colors.canvas-dark}` (black), `{colors.canvas-light}` (white), `{colors.primary}` (PlayStation Blue) alternating down the page
+- PlayStation Blue (`{colors.primary}` — `#0070d1`) is the universal primary CTA — fully-rounded pill at `{rounded.full}` (9999px)
+- Commerce orange (`{colors.commerce}` — `#d53b00`) is the secondary CTA reserved for "Buy now" / "Pre-order" / store actions
+- PlayStation SST display tier renders at **weight 300** with -0.1px to +0.4px tracking — the brand's signature airy editorial voice
+- 8px-radius (`{rounded.md}`) for product cards and feature panels; 4px-radius (`{rounded.sm}`) for inputs; pills (`{rounded.full}`) for every CTA
+- Game tiles, console renders, and PS Plus tier illustrations occupy 60-90% of each section — imagery does the storytelling
+- Color-block page rhythm (one observed band sequence): dark hero → light console showcase → dark "Great PS4 & PS5 games" rail → light "Discover PlayStation Plus" tier band → light "30 years of PlayStation" callout → dark "ON PLAYSTATION" band → light news strip → blue footer
+
+## Colors
+
+> **Source pages:** `/en-tr/` (home), `/en-tr/ps5/games/` (PS5 games listing), `/en-tr/games/marathon/` (single game page), `/tr-tr/support/account/` (support center). The chrome palette is identical across all four pages; the support page uses the light-canvas mode exclusively while marketing pages alternate.
+
+### Brand & Accent
+- **PlayStation Blue** (`{colors.primary}` — `#0070d1`): the brand's universal primary. Every primary CTA pill, the active filter chip, the footer surface, badge fills, and inline link color on dark surfaces.
+- **PlayStation Blue Pressed** (`{colors.primary-pressed}` — `#0064b7`): pressed state for the primary pill — also doubles as the inline link color on light surfaces.
+- **PlayStation Blue Active** (`{colors.primary-active}` — `#004d8d`): deeply-pressed state for the primary button.
+- **Commerce Orange** (`{colors.commerce}` — `#d53b00`): the secondary CTA reserved for store/buy/pre-order actions. The only warm color in the system.
+- **Commerce Orange Pressed** (`{colors.commerce-pressed}` — `#aa2f00`): pressed state for commerce buttons.
+- **Marathon Yellow** (`{colors.marathon-yellow}` — `#deff20`): a single high-saturation game-page accent extracted from Marathon's product palette — used only inside the dedicated `/marathon/` game page chrome and not part of the system's general accent vocabulary.
+
+### Surface
+- **Canvas Dark** (`{colors.canvas-dark}` — `#000000`): pure black hero band, primary nav background, footer base. The dominant surface for editorial product moments.
+- **Surface Dark Elevated** (`{colors.surface-dark-elevated}` — `#121314`): inset dark panels, PS Plus tier banner background, "ON PLAYSTATION" gradient end.
+- **Surface Dark Card** (`{colors.surface-dark-card}` — `#181818`): game tile fill, dark product card background.
+- **Canvas Light** (`{colors.canvas-light}` — `#ffffff`): true white console-showcase band, support page body, news strip background.
+- **Soft Surface** (`{colors.surface-soft}` — `#f3f3f3`): hairline-soft band fill on light pages, divider rule on light surfaces.
+- **Surface Card** (`{colors.surface-card}` — `#f5f7fa`): cool-blue-tinted product card and tier-card background on light canvas.
+- **Surface Filter** (`{colors.surface-filter}` — `rgba(245,247,250,0.3)`): translucent fill for filter-pill default state on light canvas.
+- **Hairline Light** (`{colors.hairline-light}` — `#f3f3f3`): 1px divider rule on light pages.
+- **Hairline Dark** (`{colors.hairline-dark}` — `rgba(229,229,229,0.2)`): translucent 1px divider on dark canvas.
+
+### Text
+- **Ink** (`{colors.ink}` — `#000000`): primary text on `{colors.canvas-light}`. Headlines, button text, support body.
+- **Ink Deep** (`{colors.ink-deep}` — `#121314`): warmer near-black for in-card titles on dark surfaces and deep-shadow gradients.
+- **Ink Elevated** (`{colors.ink-elevated}` — `#181818`): the lightest of the dark-canvas inks, used for elevated card backgrounds.
+- **Body Light** (`{colors.body-light}` — `rgba(0,0,0,0.6)`): translucent body text on light canvas — the system's default paragraph color.
+- **Mute Light** (`{colors.mute-light}` — `#6b6b6b`): metadata text and footer link captions on light canvas.
+- **Ash Light** (`{colors.ash-light}` — `#cccccc`): disabled-state text and lowest-emphasis utility on light surfaces.
+- **On Dark** (`{colors.on-dark}` — `#ffffff`): primary text on `{colors.canvas-dark}` — headlines, button text on dark hero bands.
+- **Body Dark** (`{colors.body-dark}` — `rgba(255,255,255,0.7)`): translucent body text on dark canvas.
+- **On Dark Mute** (`{colors.on-dark-mute}` — `#cccccc`): secondary text and disabled state on dark surfaces.
+- **Mute Dark** (`{colors.mute-dark}` — `rgba(229,229,229,0.55)`): captions and metadata on dark canvas.
+
+### Semantic
+- **Warning** (`{colors.warning}` — `#c81b3a`): validation errors and destructive confirmation copy.
+- **Link Light** (`{colors.link-light}` — `#0064b7`): inline body-prose anchor link on light canvas — same hex as `{colors.primary-pressed}`.
+- **Link Dark** (`{colors.link-dark}` — `#53b1ff`): inline body-prose anchor link on dark canvas — a brightened blue for dark-mode legibility.
+
+### Brand Gradient
+- **PlayStation Plus Gold Gradient** — a horizontal three-stop gold gradient `{colors.ps-plus-gold-start}` (`#ffce21`) → `{colors.ps-plus-gold-mid}` (`#f5a623`) → `{colors.ps-plus-gold-end}` (`#ee8e00`) that anchors the PS Plus banner on the home page. The only gradient in the system; reserved exclusively for PS Plus chrome.
+
+## Typography
+
+### Font Family
+- **PlayStation SST** is the proprietary brand sans-serif used across every text role on the site. It carries weights 300 (light), 400 (regular), 500 (medium), 600 (semibold), and 700 (bold), and falls back through `sst` → `Arial` → `Helvetica`. The brand's distinctive choice is using **weight 300 (light) for display headlines** — unusual for a gaming brand and the source of the system's editorial, airy character.
+- **SST** appears as a secondary cut for in-product surfaces, falling back to Helvetica → Arial.
+
+### Hierarchy
+
+| Token | Size | Weight | Line Height | Letter Spacing | Use |
+|---|---|---|---|---|---|
+| `{typography.display-xl}` | 54px | 300 | 1.25 | -0.1px | Hero headline ("Discover all PS5 consoles and accessories") |
+| `{typography.display-lg}` | 44px | 300 | 1.25 | 0.1px | Section headline ("Great PS4 & PS5 games out now or coming soon") |
+| `{typography.display-md}` | 35px | 300 | 1.25 | 0 | Mid-section headline, game-page sub-hero |
+| `{typography.heading-xl}` | 28px | 300 | 1.25 | 0.1px | "30 Years of PlayStation" callout, in-band sub-heading |
+| `{typography.heading-lg}` | 22px | 300 | 1.25 | 0.1px | News card title, support category title |
+| `{typography.heading-md}` | 18px | 600 | 1 | 0 | Card label, navigation menu heading, in-product strong title |
+| `{typography.body-md}` | 18px | 400 | 1.5 | 0.1px | Body copy, paragraph text, support article body |
+| `{typography.body-strong}` | 18px | 500 | 1.25 | 0.4px | Inline emphasis, primary nav link, button label (large) |
+| `{typography.body-sm}` | 16px | 400 | 1.5 | 0 | Card description, secondary body |
+| `{typography.caption-md}` | 14px | 400 | 1.5 | 0 | Footer link, metadata, sub-nav text |
+| `{typography.caption-sm}` | 12px | 500 | 1.5 | 0 | Smallest utility text, badge label |
+| `{typography.link-md}` | 18px | 400 | 1.5 | 0 | Inline body-prose anchor link |
+| `{typography.button-lg}` | 18px | 700 | 1.25 | 0.45px | Primary CTA pill |
+| `{typography.button-md}` | 14px | 700 | 1.25 | 0.324px | Compact pill, filter chip, secondary CTA |
+
+### Principles
+The hierarchy works on a 1.25-line-height ladder almost exclusively — even body sits at 1.5 instead of the typical 1.6 — which keeps long-form support pages tight and console showcases efficient. The weight contrast between display (300) and button (700) is dramatic: a single 18px chrome line might host a heavyweight CTA next to a feather-light 22px headline, giving the system its editorial gaming-magazine feel.
+
+### Note on Font Substitutes
+PlayStation SST is proprietary. The closest open-source substitutes:
+- **Roboto Light (300)** for the display tier — its slightly looser letter-spacing matches SST's display optical fit.
+- **Inter** at weights 400/500/600 for body and chrome — the closest geometric sans match for SST's body cut.
+- **Source Sans Pro Light (300)** as an alternative for the display tier when Roboto reads too utilitarian.
+
+When substituting, preserve the +0.1px to +0.45px tracking on display and button tiers — the spacing is part of what makes PlayStation SST feel premium at the light weight.
+
+## Layout
+
+### Spacing System
+- **Base unit:** 8px (with finer 4/12px steps for tight inline gaps).
+- **Tokens (front matter):** `{spacing.xxs}` (4px) · `{spacing.xs}` (8px) · `{spacing.sm}` (12px) · `{spacing.md}` (16px) · `{spacing.lg}` (24px) · `{spacing.xl}` (32px) · `{spacing.xxl}` (48px) · `{spacing.section}` (96px).
+- **Universal section rhythm:** every page in the set uses `{spacing.section}` (96px) as the vertical gap between major content blocks. Card grids use `{spacing.lg}` (24px) gutters; in-card padding sits at `{spacing.lg}` to `{spacing.xl}` depending on density.
+- **Hero band padding:** 96px vertical / 48px horizontal — the largest spacing in the system, reserved for full-bleed surface chapters.
+
+### Grid & Container
+- **Max width:** ~1280px content area for body text on desktop with 24px gutters that expand to ~48px at ultrawide. Hero bands and game-tile rails go full-bleed with no max-width constraint on imagery.
+- **Game tile carousel:** 4-up at desktop with horizontal scroll on the same row, collapsing to 3-up at 1024px and 2-up at 768px. Each tile uses 16:9 cover art at `{rounded.md}`.
+- **Console showcase grid:** desktop 5-column thumbnail strip below the main hero render, collapsing to 3-up + horizontal scroll at tablet.
+- **Support page:** desktop 2-column 30/70 split (sidebar nav + article body), collapsing to single-column with the sidebar promoted to a top accordion at mobile.
+- **News strip:** 3-up card grid at desktop, 2-up at tablet, 1-up at mobile.
+
+### Whitespace Philosophy
+Whitespace is structural and band-defined. The 96px `{spacing.section}` between chapters reads as silence between trailer cuts — there's no decorative wash, no gradient transition, no mid-section divider. Inside a section, content is left-aligned in a tight column with the imagery breathing in the right 60-70% of the band. Paragraph text is comfortable at 1.5 line-height but column widths stay narrow (~520px at desktop) to keep long-form copy readable.
+
+## Elevation & Depth
+
+| Level | Treatment | Use |
+|---|---|---|
+| 0 — Flat | No border, no shadow | Default for hero bands, footer, full-bleed sections — the dominant treatment |
+| 1 — Hairline divider | 1px solid `{colors.hairline-light}` or `{colors.hairline-dark}` | Card borders, support row dividers, footer column rules |
+| 2 — Soft active shadow | `0 4px 12px rgba(0,0,0,0.16)` | Active/pressed CTAs, lifted product card |
+| 3 — Section gradient | Soft top-to-bottom darkening from `{colors.surface-dark-elevated}` to `{colors.canvas-dark}` | "ON PLAYSTATION" band — only place a gradient appears on chrome |
+
+The system has effectively no resting shadow on cards; depth is built from surface-color contrast across band chapters. Cards lift only on press.
+
+### Decorative Depth
+Depth comes from the alternating-band rhythm and from the imagery itself:
+- **Console product photography** — DualSense controller and PS5 console renders shot on neutral white with crisp edge lighting, full-bleed inside the light-canvas band.
+- **Game key art** — full-bleed cinematic stills (Marathon, the latest blockbuster releases) inside dark-canvas bands with title lockup overlaid in the lower-left.
+- **PS Plus tier banner** — a subtle horizontal gold gradient (`{colors.ps-plus-gold-start}` → `{colors.ps-plus-gold-end}`) sits as the only chrome gradient in the system, anchoring the "Discover PlayStation Plus" CTA.
+- **"ON PLAYSTATION" gradient band** — top-to-bottom deepening from `{colors.surface-dark-elevated}` (`#121314`) to `{colors.canvas-dark}` (`#000000`) creates a cinematic dimming effect under the anniversary callout.
+
+## Shapes
+
+### Border Radius Scale
+
+| Token | Value | Use |
+|---|---|---|
+| `{rounded.none}` | 0px | Hero bands, primary nav, footer, sub-nav, support article body — every full-bleed structural surface |
+| `{rounded.sm}` | 4px | Text inputs, support search field utilities |
+| `{rounded.md}` | 8px | Game tiles, product cards, feature cards, PS Plus banner |
+| `{rounded.lg}` | 16px | Rare large container with extra-soft corners (e.g., dialog cards) |
+| `{rounded.full}` | 9999px | Every CTA pill (primary / commerce / secondary), filter chips, pagination dots, carousel paddles |
+
+The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural surfaces staying flat at 0px.
+
+### Photography Geometry
+- **Hero console render:** large centered console + DualSense composition on white, ~70% width of the band, with copy slot to the left.
+- **Game tiles:** 16:9 key art at `{rounded.md}` (8px), 4-up rail at desktop with horizontal carousel.
+- **Marathon game page hero:** full-bleed cinematic 16:9 still with the "MARATHON" wordmark in the lower-left at light weight, brand yellow `{colors.marathon-yellow}` accent on a few small UI tags.
+- **News card thumbnails:** 16:9 imagery at `{rounded.md}` with a small text block below.
+- **Avatar / brand icons:** 32–40px circles for sub-nav social row.
+
+## Components
+
+> **No hover states documented** per system policy. Each spec covers Default and Active/Pressed only.
+
+### Buttons
+
+**`button-primary`** — the universal PlayStation CTA
+- Background `{colors.primary}` (PlayStation Blue), text `{colors.on-primary}`, type `{typography.button-lg}`, padding `12px 28px`, height ~48px, rounded `{rounded.full}`.
+- Used for "Add to bag", "Sign up", "Learn more", "Subscribe" — every primary action across both light and dark canvases.
+- Pressed state lives in `button-primary-pressed` — background drops to `{colors.primary-pressed}` (`#0064b7`).
+
+**`button-commerce`** — orange store CTA
+- Background `{colors.commerce}` (`#d53b00`), text `{colors.on-commerce}`, type `{typography.button-lg}`, padding `12px 28px`, height ~48px, rounded `{rounded.full}`.
+- Reserved for "Buy now", "Pre-order", "Add to cart" — store actions only. The only warm color in the system.
+- Pressed state lives in `button-commerce-pressed` — background drops to `{colors.commerce-pressed}`.
+
+**`button-secondary-light`** — outline variant on light canvas
+- Background transparent, text `{colors.ink}`, 1px solid `{colors.ash-light}` border, type `{typography.button-lg}`, padding `12px 28px`, height ~48px, rounded `{rounded.full}`.
+- Lower-emphasis CTA on white surfaces ("Learn more →", "Watch trailer").
+
+**`button-secondary-dark`** — outline variant on dark canvas
+- Background transparent, text `{colors.on-dark}`, 1px solid `{colors.hairline-dark}`, type `{typography.button-lg}`, padding `12px 28px`, height ~48px, rounded `{rounded.full}`.
+- Same role as the light variant but inverted for use on `{colors.canvas-dark}` hero bands.
+
+**`button-disabled`**
+- Background `{colors.surface-soft}`, text `{colors.ash-light}`, rounded `{rounded.full}` — flat soft gray.
+
+### Filter & Tab Chips
+
+**`filter-pill`** + **`filter-pill-active`**
+- Default: background `{colors.surface-filter}` (translucent), text `{colors.ink}`, type `{typography.button-md}`, padding `8px 16px`, rounded `{rounded.full}`.
+- Active: background flips to `{colors.canvas-light}` (opaque white) — the chip "lifts" from the translucent default.
+- Used in the PS5 games filter strip ("All", "Coming Soon", "PlayStation VR2", "Recently Released").
+
+### Inputs & Forms
+
+**`text-input`** + **`text-input-focused`**
+- Default: background `{colors.canvas-light}`, text `{colors.ink}`, 1px solid `{colors.ash-light}`, type `{typography.body-md}`, padding `12px 16px`, height ~48px, rounded `{rounded.sm}` (4px).
+- Focused: 2px solid `{colors.primary}` border, no halo (relies on the border weight increase as the focus signal).
+
+**`support-search-bar`** — the support-page signature search field
+- Background `{colors.canvas-light}`, text `{colors.ink}`, type `{typography.body-md}`, padding `12px 24px`, height ~56px, rounded `{rounded.full}`.
+- Sits at the top of the support page hero with a magnifier icon at the left edge and "Search the support center" placeholder.
+
+### Cards & Containers
+
+**`product-card`** — light-canvas product/feature card
+- Container: background `{colors.surface-card}` (`#f5f7fa` cool-blue-tinted), 1px solid `{colors.hairline-light}` (rare; usually borderless), padding `{spacing.lg}` (24px), rounded `{rounded.md}` (8px).
+- Used for the "PlayStation Store" sale callout, news cards, and PS Plus tier comparison cards on light canvas.
+
+**`product-card-dark`** — dark-canvas product card
+- Container: background `{colors.surface-dark-card}` (`#181818`), padding `{spacing.lg}`, rounded `{rounded.md}`.
+- Used for game-detail cards and dark-canvas feature panels.
+
+**`game-tile`** — game/console thumbnail tile
+- Container: background `{colors.surface-dark-elevated}`, padding 0, rounded `{rounded.md}`.
+- Layout: 16:9 cover art at full bleed inside the radius, with title + platform tag overlaid at the bottom-left in `{typography.body-sm}`.
+- Used in the "Great PS4 & PS5 games" rail and the PS5 games listing grid.
+
+**`feature-card`** — light-canvas marketing card
+- Container: background `{colors.canvas-light}`, padding `{spacing.xl}` (32px), rounded `{rounded.md}`.
+- Used for the "PlayStation Store" hero card and similar feature panels with a small product icon, title, body, and CTA.
+
+**`hero-band-blue`** — the PlayStation Blue full-bleed band
+- Background `{colors.primary}`, text `{colors.on-primary}` in `{typography.display-md}`, padding `96px 48px`, rounded `{rounded.none}`.
+- The Marathon launch CTA strip and the footer surface use this band. The band's defining purpose is "this is the action moment of the page."
+
+**`hero-band-dark`** — full-bleed dark hero
+- Background `{colors.canvas-dark}` (with optional gradient end at `{colors.surface-dark-elevated}`), text `{colors.on-dark}` in `{typography.display-xl}`, padding `96px 48px`, rounded `{rounded.none}`.
+- The home-page hero, the game-detail page hero, and the "ON PLAYSTATION" anniversary band.
+
+**`hero-band-light`** — full-bleed white hero
+- Background `{colors.canvas-light}`, text `{colors.ink}` in `{typography.display-xl}`, padding `96px 48px`, rounded `{rounded.none}`.
+- The console showcase band ("Discover all PS5 consoles and accessories") and the support page top.
+
+**`ps-plus-banner`** — PlayStation Plus tier callout
+- Background `{colors.surface-dark-elevated}` with the `{colors.ps-plus-gold-start}` → `{colors.ps-plus-gold-end}` gold gradient as a horizontal accent bar across the top, text `{colors.on-dark}` in `{typography.heading-xl}`, padding `48px 32px`, rounded `{rounded.md}`.
+- The "Discover PlayStation Plus" full-width banner on the home page.
+
+**`carousel-paddle`** — circular carousel control
+- Background `rgba(255,255,255,0.16)`, icon `{colors.on-dark}`, rounded `{rounded.full}`, size 48px.
+- Anchored to the left/right edge of the game tile carousel.
+
+**`pagination-dot`** + **`pagination-dot-active`**
+- 8px circle at `{rounded.full}`. Default fill `{colors.ash-dark}`; active fill `{colors.on-dark}`.
+- Carousel position indicator below the game tile rail.
+
+### Inline
+
+**`badge-info`** — small info tag
+- Background `{colors.primary}`, text `{colors.on-primary}` in `{typography.caption-sm}`, padding `4px 10px`, rounded `{rounded.full}`.
+- "New", "Pre-order", "Coming Soon" labels overlaid on game tiles.
+
+**`link-inline`** — body-prose anchor link
+- `{colors.link-light}` text on light canvas / `{colors.link-dark}` on dark canvas, no underline by default. Inline body links inside support article paragraphs.
+
+### Navigation
+
+**`primary-nav`**
+- Background `{colors.canvas-dark}`, text `{colors.on-dark}`, height ~48px, type `{typography.body-strong}`, rounded `{rounded.none}`.
+- Layout (desktop): PlayStation P-logo at far-left, centered nav row ("Games · PS5 · PS4 · PS VR2 · Subscriptions · Hardware · Mobile · News · Shop · Support"), right cluster (search-glyph + locale + cart icon + user-avatar circle).
+
+**`sub-nav`** — secondary nav strip
+- Background `{colors.canvas-dark}`, text `{colors.on-dark}` in `{typography.caption-md}`, height ~40px, rounded `{rounded.none}`.
+- Sits directly below the primary nav on PS5 games / single game / PS Plus pages with section-specific anchor links.
+
+**Top Nav (Mobile)**
+- Hamburger menu icon at left, P-logo at center, search + cart icons at right. Primary nav collapses into a full-screen dark drawer that slides from the left.
+
+### Footer
+
+**`footer-section`**
+- Background `{colors.primary}` (PlayStation Blue), text `{colors.on-primary}` in `{typography.caption-md}`, padding `{spacing.xxl}` (48px) vertical.
+- Layout: large PlayStation wordmark at top-left, multi-column link grid (locale selector, store links, account, support, social), bottom row with terms / privacy fine-print in `{typography.caption-sm}`.
+- The footer's blue surface is the system's "we're done — return to the brand" anchor.
+
+### Support-page-specific
+
+**`support-row`** — support article-list row
+- Background `{colors.canvas-light}`, text `{colors.ink}` in `{typography.body-md}`, padding `16px 0`, with a 1px `{colors.hairline-light}` bottom rule.
+- Used for FAQ / category-listing rows on the support page with a small chevron-right icon at the right edge.
+
+## Do's and Don'ts
+
+### Do
+- Reserve `{colors.primary}` (PlayStation Blue) for primary CTAs and the footer surface only. The blue band is precious — at most one full-bleed blue band per page.
+- Reserve `{colors.commerce}` (orange) for store/buy/pre-order CTAs only. It is never used on marketing chrome or hero pills.
+- Use PlayStation SST at weight 300 for display headings (54 / 44 / 35 / 28 / 22). The light weight is the brand voice.
+- Stack content sections at `{spacing.section}` (96px) rhythm with the next band's surface color taking over the page edge-to-edge — no decorative dividers between bands.
+- Use `{rounded.full}` (9999px) on every CTA pill and `{rounded.md}` (8px) on every product card. The two-radius vocabulary is the entire shape system aside from inputs.
+- Pair full-bleed game key art and console renders inside dark or light bands; let imagery occupy 60-90% of the band's vertical height.
+- Use `{component.ps-plus-banner}` with the gold gradient exclusively for the PlayStation Plus tier callout — never decorate other components with the gold.
+
+### Don't
+- Don't introduce drop shadows on resting cards. The system is flat-on-canvas; cards lift only on press.
+- Don't replace `{colors.primary}` with another shade of blue. The brand blue is precise — `#0070d1` for default and `#0064b7` for pressed.
+- Don't use `{colors.commerce}` (orange) on marketing/hero CTAs. It's reserved exclusively for store actions.
+- Don't introduce a sans-serif body font, italic, or monospace style. PlayStation SST carries every text role.
+- Don't soften pill geometry. CTAs are always `{rounded.full}` — no medium-radius buttons.
+- Don't use the gold PS Plus gradient on anything that isn't the PS Plus banner. It is a tier-specific brand asset.
+- Don't put a gradient on chrome. The only allowed gradient is the gold PS Plus accent and the soft top-to-bottom darkening of the "ON PLAYSTATION" band.
+
+## Responsive Behavior
+
+### Breakpoints
+
+| Name | Width | Key Changes |
+|---|---|---|
+| ultrawide | 1920px+ | Hero band stays at content max-width 1280px; outer gutters grow to ~80px |
+| desktop-large | 1440px | Default desktop — 4-up game tile carousel, full primary nav |
+| desktop | 1280px | Same layout with narrower outer gutters |
+| desktop-small | 1024px | Game tile rail collapses to 3-up; sub-nav remains horizontal |
+| tablet | 768px | Game tiles → 2-up; primary nav becomes hamburger drawer |
+| mobile | 480px | Single-column everything; hero `{typography.display-xl}` scales 54px → ~32px |
+| mobile-narrow | 320px | Section padding tightens to 32px; hero further scales to ~28px |
+
+### Touch Targets
+All interactive elements meet WCAG AAA (≥ 44×44px). `{component.button-primary}` and `{component.button-commerce}` sit at 48px height with 28px horizontal padding (effective ~48×100px tappable). `{component.text-input}` sits at 48px. `{component.support-search-bar}` sits at 56px. `{component.filter-pill}` is ~36–40px height with 16px padding extending to 44px tappable via inline padding. `{component.carousel-paddle}` is exactly 48×48 circular.
+
+### Collapsing Strategy
+- **Primary nav:** desktop horizontal cluster → tablet hamburger drawer at 768px. The right-cluster icons (search, cart, account) stay visible at every breakpoint.
+- **Sub-nav:** desktop horizontal anchor row → tablet horizontal scroll → mobile select dropdown.
+- **Game tile carousel:** 4-up → 3-up → 2-up at 1024 and 768px; carousel paddles stay visible at every desktop breakpoint, hide on mobile in favor of touch-swipe.
+- **Hero bands:** stay full-bleed at every breakpoint; only the internal content column reflows from 2-column (text-left + image-right) to single-column (text above image).
+- **Console showcase:** desktop 5-up thumbnail strip → tablet 3-up + horizontal scroll → mobile 1-up with paddle.
+- **Support page:** desktop 30/70 split (sidebar + body) → tablet sidebar promoted to top accordion → mobile fully collapsed accordion.
+- **Section padding:** `{spacing.section}` (96px) desktop → 64px tablet → 48px mobile.
+- **Hero headline:** `{typography.display-xl}` (54px) at desktop, scaling 44px / 32px / 28px down the breakpoint stack.
+
+### Image Behavior
+- Hero imagery (console renders, game key art) uses art-direction crops on mobile so the central subject stays centered when the band collapses to single-column.
+- Game tile cover art preserves 16:9 ratio at every breakpoint; only the column count changes.
+- Console showcase thumbnails maintain their natural aspect (~1:1 product render) across breakpoints.
+- All non-critical imagery is lazy-loaded as the user scrolls into the next chapter.
+
+## Iteration Guide
+
+1. Focus on ONE component at a time. Pull its YAML entry and verify every property resolves.
+2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-pressed}`, `{rounded.full}`) — do not paraphrase.
+3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
+4. Add new variants as separate component entries (`-pressed`, `-disabled`) — do not bury them inside prose.
+5. Default body to `{typography.body-md}` (18px / 400 / 1.5); reach for `{typography.display-xl}` strictly for the page-top hero headline; use `{typography.body-strong}` for primary nav links.
+6. Keep `{colors.primary}` scarce per viewport — at most one full-bleed PlayStation Blue band per page.
+7. When introducing a new component, ask whether it can be expressed with the existing pill + 8px-radius card + full-bleed-band vocabulary before adding new tokens. The system's strength is that it almost never needs new ones.
+
+## Known Gaps
+
+- **Mobile screenshots not captured** — responsive behavior synthesizes PlayStation's known mobile pattern (hamburger drawer, single-column band reflow, hero downscale) from desktop evidence and the breakpoint stack.
+- **Hover states not documented** by system policy.
+- **Sign-in / authentication chrome** (login modal, account dashboard, profile pages) not in the captured pages.
+- **PlayStation Store** in-store browsing surfaces (PDP / cart / checkout) are not in the captured set — those use a more dense data-table layout that this document does not describe.
+- **Game-page-specific theming** — the `/marathon/` page uses `{colors.marathon-yellow}` as a chapter accent. Other game pages may pull in their own per-title brand colors that vary outside the documented system.
+- **Form validation states** (success / error inline messages) not present in the captured surfaces beyond the `{colors.warning}` color token.
+</textarea>
+
+<script>
+  function copyMarkdownSpec() {
+    const mdText = document.getElementById('markdown-spec-content').value;
+    navigator.clipboard.writeText(mdText).then(() => {
+      const btn = document.getElementById('copy-md-btn');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+      btn.style.borderColor = 'var(--accent-vue)';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.borderColor = '';
+      }, 2000);
+    }).catch(err => {
+      console.error(err);
+      alert('Failed to copy: ' + err);
+    });
+  }
+
+  function copyColor(hex, el) {
+    navigator.clipboard.writeText(hex).then(() => {
+      const hexEl = el.querySelector('.hex');
+      const originalText = hexEl.innerText;
+      hexEl.innerText = 'Copied!';
+      hexEl.style.color = 'var(--accent-vue)';
+      hexEl.style.fontWeight = 'bold';
+      setTimeout(() => {
+        hexEl.innerText = originalText;
+        hexEl.style.color = '';
+        hexEl.style.fontWeight = '';
+      }, 1000);
+    });
+  }
+
+  function updateTypoPreviews(val) {
+    const previews = document.querySelectorAll('.typo-preview-text');
+    previews.forEach(p => {
+      p.innerText = val.trim() || 'The quick brown fox jumps over the lazy dog';
+    });
+  }
+
+  function setSimWidth(mode) {
+    const container = document.getElementById('viewport-sim-container');
+    const indicator = document.getElementById('sim-width-indicator');
+    const cols = document.getElementById('sim-layout-columns');
+    const btnMobile = document.getElementById('btn-sim-mobile');
+    const btnTablet = document.getElementById('btn-sim-tablet');
+    const btnDesktop = document.getElementById('btn-sim-desktop');
+    
+    // Reset button styles
+    [btnMobile, btnTablet, btnDesktop].forEach(btn => {
+      if (btn) {
+        btn.style.background = 'var(--bg-base)';
+        btn.style.borderColor = 'var(--border-color)';
+        btn.style.color = 'var(--text-primary)';
+      }
+    });
+    
+    const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
+    if (activeBtn) {
+      activeBtn.style.background = 'var(--accent-vue-glow)';
+      activeBtn.style.borderColor = 'var(--accent-vue)';
+      activeBtn.style.color = 'var(--accent-vue)';
+    }
+    
+    if (mode === 'mobile') {
+      container.style.maxWidth = '375px';
+      indicator.innerText = 'Width: 375px (Mobile < 768px)';
+      cols.style.gridTemplateColumns = '1fr';
+    } else if (mode === 'tablet') {
+      container.style.maxWidth = '600px';
+      indicator.innerText = 'Width: 600px (Tablet 768px-1024px)';
+      cols.style.gridTemplateColumns = '1fr 1fr';
+    } else {
+      container.style.maxWidth = '800px';
+      indicator.innerText = 'Width: 800px (Desktop > 1024px)';
+      cols.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    }
+  }
+</script>
+</body>
+</html>

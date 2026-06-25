@@ -1,81 +1,91 @@
-<!-- Design System — Linear.app by holynova -->
+<!-- Design System — Linear Design System -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design System — Linear.app</title>
-<!-- Google Fonts: Inter & Outfit -->
+<title>Design System — Linear Design System</title>
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
   :root {
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-display: 'Outfit', 'Inter', sans-serif;
-    --font-mono: ui-monospace, SF Mono, Consolas, monospace;
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-serif: Georgia, serif;
+    --font-mono: ui-monospace, monospace;
     
-    --bg: #000212;
-    --surface-base: #080a10;
-    --surface-raised: #12131e;
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-hover: rgba(255, 255, 255, 0.2);
+    --bg-base: #0b0c10;
+    --bg-surface: #f8fafc;
+    --border-color: #23252a;
+    --border-dark: #34343a;
     
     --text-primary: #f0f3f6;
-    --text-secondary: #8b949e;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
     
-    --accent-purple: #5e6ad2;
-    --accent-purple-glow: rgba(94, 106, 210, 0.15);
+    --accent-vue: #5e6ad2;
+    --accent-vue-hover: #2563eb;
+    --accent-vue-glow: rgba(94, 106, 210, 0.08);
     
-    --success: #4cad6b;
-    --warning: #f5a623;
-    --danger: #f44336;
+    --radius-lg: 8px;
+    --radius-md: 6px;
+    --radius-sm: 4px;
+    --radius-pill: 999px;
     
-    --radius-lg: 12px;
-    --radius-md: 8px;
-    --radius-sm: 6px;
-    --transition-base: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-flat: none;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    
+    --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* ═══════════════════ RESET & BASE ═══════════════════ */
   *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
   
   html {
-    background: var(--bg);
+    background: var(--bg-base);
     color: var(--text-primary);
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: 15px;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
   }
   
   body {
     line-height: 1.6;
-    background-image: 
-      radial-gradient(circle at top, rgba(94, 106, 210, 0.12) 0%, transparent 60%),
-      linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-    background-size: 100% 100%, 40px 40px, 40px 40px;
-    background-position: top center, center center, center center;
     padding-bottom: 120px;
   }
 
-  a { color: var(--accent-purple); text-decoration: none; transition: color var(--transition-base); }
-  a:hover { color: #8792e2; }
-  hr { height: 1px; border: 0; background: var(--border-subtle); margin: 32px 0; }
+  a { color: var(--accent-vue); text-decoration: none; transition: color var(--transition-base); }
+  a:hover { color: var(--accent-vue-hover); }
+  hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
   pre, code { font-family: var(--font-mono); }
-  code { font-size: 0.9em; background: var(--surface-raised); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border-subtle); }
+  code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
   
   pre {
-    background: var(--surface-base);
-    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
     padding: 16px 20px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     overflow-x: auto;
-    font-size: 13px;
+    font-size: 13.5px;
     line-height: 1.6;
+    color: var(--text-primary);
     margin: 20px 0;
+    position: relative;
+  }
+  pre::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
   }
 
   /* ═══════════════════ LAYOUT ═══════════════════ */
@@ -84,7 +94,7 @@
   /* MASTHEAD */
   .masthead {
     padding: 80px 0 48px;
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 48px;
     display: flex;
     align-items: center;
@@ -92,29 +102,28 @@
   }
   .masthead-logo {
     width: 48px; height: 48px;
-    border-radius: var(--radius-md);
-    background: linear-gradient(135deg, var(--accent-purple), #98a2eb);
+    border-radius: var(--radius-lg);
+    background: var(--accent-vue);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 20px rgba(94, 106, 210, 0.4);
+    box-shadow: 0 4px 14px var(--accent-vue-glow);
   }
-  .masthead-logo svg { width: 24px; height: 24px; fill: #fff; }
+  .masthead-logo svg { width: 26px; height: 26px; fill: currentColor; }
   .masthead h1 {
-    font-family: var(--font-display);
     font-size: 28px;
     font-weight: 800;
-    letter-spacing: -0.02em;
-    background: linear-gradient(to right, #fff, #8b949e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
   }
   .masthead .sub {
     font-size: 13px;
     color: var(--text-secondary);
     margin-top: 4px;
   }
-  .back-home-link {
+
+  .back-home-link, #copy-md-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -122,38 +131,18 @@
     font-size: 12.5px;
     font-weight: 600;
     padding: 8px 16px;
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
     color: var(--text-primary);
-    background: var(--surface-base);
+    background: var(--bg-base);
     cursor: pointer;
     text-decoration: none;
     transition: all var(--transition-base);
   }
-  .back-home-link:hover {
-    border-color: var(--accent-purple);
-    box-shadow: 0 0 12px var(--accent-purple-glow);
-    background: var(--surface-raised);
-  }
-  #copy-md-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-sans);
-    font-size: 12.5px;
-    font-weight: 600;
-    padding: 8px 16px;
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    color: var(--text-primary);
-    background: var(--surface-base);
-    cursor: pointer;
-    transition: all var(--transition-base);
-  }
-  #copy-md-btn:hover {
-    border-color: var(--accent-purple);
-    box-shadow: 0 0 12px var(--accent-purple-glow);
-    background: var(--surface-raised);
+  .back-home-link:hover, #copy-md-btn:hover {
+    border-color: var(--accent-vue);
+    box-shadow: 0 0 12px var(--accent-vue-glow);
+    background: var(--bg-surface);
   }
 
   /* TWO-COLUMN GRID */
@@ -177,12 +166,11 @@
   }
   .sidebar-section { display: flex; flex-direction: column; gap: 6px; }
   .sidebar-heading {
-    font-family: var(--font-display);
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--text-secondary);
+    color: var(--text-muted);
     margin-bottom: 6px;
   }
   .sidebar a {
@@ -195,8 +183,8 @@
   }
   .sidebar a:hover, .sidebar a.active {
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.04);
-    box-shadow: inset 0 0 0 1px var(--border-subtle);
+    background: var(--bg-surface);
+    box-shadow: inset 0 0 0 1px var(--border-color);
   }
 
   /* ═══════════════════ COMPONENTS & SECTIONS ═══════════════════ */
@@ -207,17 +195,16 @@
     margin-top: 64px;
     margin-bottom: 24px;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-color);
   }
   .sec-head:first-child { margin-top: 0; }
   .sec-head .idx {
     font-family: var(--font-mono);
     font-size: 12px;
-    color: var(--accent-purple);
+    color: var(--accent-vue);
     font-weight: 600;
   }
   .sec-head h2 {
-    font-family: var(--font-display);
     font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.015em;
@@ -231,17 +218,18 @@
     margin-bottom: 32px;
   }
   .swatch {
-    background: var(--surface-base);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
     overflow: hidden;
     transition: border-color var(--transition-base);
   }
-  .swatch:hover { border-color: var(--border-hover); }
+  .swatch:hover { border-color: var(--border-dark); }
   .swatch .color-block { height: 72px; }
   .swatch .color-label {
     padding: 12px;
     font-size: 12px;
+    background: var(--bg-surface);
   }
   .swatch .color-label .name { font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
   .swatch .color-label .hex { color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
@@ -250,120 +238,71 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
+    font-size: 13.5px;
     margin-bottom: 32px;
   }
   th, td {
     text-align: left;
     padding: 12px 16px;
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-color);
   }
   th {
-    font-family: var(--font-display);
     font-size: 11px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--text-muted);
     font-weight: 700;
-    background: rgba(255, 255, 255, 0.01);
+    background: rgba(0, 0, 0, 0.01);
   }
   td { color: var(--text-secondary); }
   tr:hover td { color: var(--text-primary); }
   td:first-child { font-weight: 600; color: var(--text-primary); }
 
-  /* BENTO / CARD DEMO */
-  .bento-showcase {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-  @media (max-width: 640px) { .bento-showcase { grid-template-columns: 1fr; } }
-  .bento-card {
-    background: var(--surface-base);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--transition-base), border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-  }
-  .bento-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(94, 106, 210, 0.06), transparent 40%);
-    z-index: 1;
-    pointer-events: none;
-  }
-  .bento-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: 0 10px 30px var(--accent-purple-glow);
-    transform: translateY(-2px);
-  }
-  .bento-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 8px; z-index: 2; position: relative; }
-  .bento-card p { color: var(--text-secondary); font-size: 13.5px; z-index: 2; position: relative; }
-
-  /* DO / DON'T */
-  .dos-donts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-  @media (max-width: 640px) { .dos-donts { grid-template-columns: 1fr; } }
-  .do, .dont {
-    border-radius: var(--radius-md);
-    padding: 24px;
-    border: 1px solid var(--border-subtle);
-    background: var(--surface-base);
-  }
-  .do h4, .dont h4 {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 12px;
-    font-family: var(--font-mono);
-  }
-  .do h4 { color: var(--success); }
-  .dont h4 { color: var(--danger); }
-  .do p, .dont p { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
-
   /* TYPE SPECIMEN */
   .type-spec { margin-bottom: 32px; }
-  .type-title { font-family: var(--font-display); font-size: 38px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 8px; }
-  .type-h2 { font-family: var(--font-display); font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; margin: 24px 0 8px; }
-  .type-body { font-size: 14px; line-height: 1.6; color: var(--text-primary); max-width: 600px; }
-  .type-caption { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); margin-top: 4px; margin-bottom: 16px; }
+  .type-title { font-size: 38px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .type-h2 { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: -0.015em; margin: 24px 0 8px; }
+  .type-body { font-size: 16px; line-height: 1.6; color: var(--text-primary); }
+  .type-caption { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 4px; margin-bottom: 16px; }
 
-  /* SPACING DEMO */
-  .spacing-demo { margin-bottom: 32px; }
-  .spacing-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; font-size: 13px; }
-  .spacing-bar { height: 8px; border-radius: 4px; background: var(--accent-purple); opacity: 0.6; flex-shrink: 0; box-shadow: 0 0 10px rgba(94, 106, 210, 0.4); }
-  .spacing-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); width: 100px; flex-shrink: 0; }
+  /* COMPONENT DEMOS */
+  .product-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    max-width: 420px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-dark);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  }
+  .product-card h3 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .product-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px; }
 
-  /* PILLS / BADGES */
   .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
   .pill {
     display: inline-flex;
     align-items: center;
     padding: 4px 10px;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-pill);
     font-size: 11.5px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-secondary);
-    border: 1px solid var(--border-subtle);
-    background: var(--surface-base);
+    border: 1px solid var(--border-color);
+    background: var(--bg-base);
     transition: all var(--transition-base);
   }
-  .pill:hover { border-color: var(--border-hover); color: var(--text-primary); }
-  .pill.active { background: rgba(94, 106, 210, 0.1); border-color: var(--accent-purple); color: var(--text-primary); box-shadow: 0 0 12px rgba(94, 106, 210, 0.2); }
-  .pill .status { width: 6px; height: 6px; border-radius: 50%; margin-right: 6px; }
+  .pill:hover { border-color: var(--border-dark); color: var(--text-primary); }
+  .pill.active { background: var(--accent-vue-glow); border-color: var(--accent-vue); color: var(--accent-vue); }
 
   /* FOOTER */
   footer {
     margin-top: 80px;
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1px solid var(--border-color);
     padding-top: 32px;
     display: flex;
     justify-content: space-between;
@@ -372,6 +311,8 @@
     color: var(--text-secondary);
   }
   footer a { color: var(--text-primary); }
+
+  
 </style>
 </head>
 <body>
@@ -380,11 +321,11 @@
   <!-- ═══════════════════ MASTHEAD ═══════════════════ -->
   <div class="masthead">
     <div class="masthead-logo">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" style="fill:currentColor;"/></svg>
     </div>
     <div>
-      <h1>Linear.app Design System</h1>
-      <div class="sub">Engineer-centric, high-performance, dark-mode design language</div>
+      <h1>Linear Design System</h1>
+      <div class="sub">Project management tool · Premium high-density dark mode with purple accents...</div>
     </div>
     <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
       <a href="../index.html" class="back-home-link">
@@ -393,7 +334,7 @@
       </a>
       <button id="copy-md-btn" onclick="copyMarkdownSpec()">
         <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-        Copy Spec as Markdown
+        Copy Spec
       </button>
     </div>
   </div>
@@ -402,129 +343,621 @@
   <div class="layout-grid">
     <nav class="sidebar">
       <div class="sidebar-section">
-        <div class="sidebar-heading">Tokens</div>
-        <a href="#philosophy">Philosophy</a>
-        <a href="#color">Color Palette</a>
-        <a href="#typography">Typography</a>
-        <a href="#spacing">Spacing System</a>
+        <div class="sidebar-heading">Guidelines</div>
+        <a href="#visual-theme">01 Theme & Atmosphere</a>
+        <a href="#color-palette">02 Color Palette</a>
+        <a href="#typography">03 Typography Rules</a>
+        <a href="#layout">04 Layout Principles</a>
+        <a href="#depth-elevation">05 Depth & Elevation</a>
       </div>
       <div class="sidebar-section">
-        <div class="sidebar-heading">Layout & Components</div>
-        <a href="#borders">Borders & Radius</a>
-        <a href="#bento">Bento Layout</a>
-        <a href="#motion">Motion & Anti-Patterns</a>
+        <div class="sidebar-heading">Showcase & Guardrails</div>
+        <a href="#components">06 Component Showcase</a>
+        <a href="#dos-donts">07 Do's and Don'ts</a>
+        <a href="#responsive">08 Responsive Behavior</a>
+        <a href="#prompt-guide">09 Agent Prompt Guide</a>
       </div>
     </nav>
 
     <main>
 
-      <!-- 01 PHILOSOPHY -->
-      <div id="philosophy" class="sec-head"><span class="idx">01</span><h2>Design Philosophy</h2></div>
-      <div class="dos-donts">
-        <div class="do">
-          <h4>Linear Is</h4>
-          <p>Dark-mode first: optimized deep backgrounds with high-contrast text layers.</p>
-          <p>Calm UI: neutral spaces with low noise and very subtle borders.</p>
-          <p>Glow & Focus: signature neon purple accents directing user task flows.</p>
-          <p>Structured Bento: unified grids holding dense components cleanly.</p>
-        </div>
-        <div class="dont">
-          <h4>Linear Is Not</h4>
-          <p>No plain grays: gray layers are space-navy tinted to maintain a premium feel.</p>
-          <p>No round elements: card corners lock strictly at 12px for a precise structure.</p>
-          <p>No slow animations: transitions are snappy (<300ms) to feel highly responsive.</p>
-        </div>
+      <!-- 01 Visual Theme & Atmosphere -->
+      <div id="visual-theme" class="sec-head"><span class="idx">01</span><h2>Visual Theme & Atmosphere</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>Linear's marketing canvas is the deepest dark surface in this collection — <code>{colors.canvas}</code> is #010102, essentially pure black with a faint blue tint. On top sits a four-step surface ladder (<code>{colors.surface-1}</code> through <code>{colors.surface-4}</code>) for cards, panels, and lifted tiles, with hairline borders running from <code>{colors.hairline}</code> (#23252a) up through <code>{colors.hairline-strong}</code> and <code>{colors.hairline-tertiary}</code>. Light gray text (<code>{colors.ink}</code> #f7f8f8) carries the body and headlines.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>The single chromatic accent is <strong>Linear lavender-blue</strong> <code>{colors.primary}</code> (#5e6ad2) — used on the brand mark, focus rings, and the primary CTA button. A lighter hover state (<code>{colors.primary-hover}</code> #828fff) and a focus-tinted variant (<code>{colors.primary-focus}</code> #5e69d1) extend the same hue. Linear avoids saturated greens, oranges, reds, etc. on the marketing canvas — the only semantic color is <code>{colors.semantic-success}</code> (#27a644) for status pills and the rare success indicator.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>...</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong>Key Characteristics:</strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Dark-canvas marketing system</strong> — <code>{colors.canvas}</code> (#010102) is the deepest dark in this collection.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Live Visual Theme Representation:</p>
+        <p>Visual Theme Example</p>
       </div>
 
-      <!-- 02 COLOR PALETTE -->
-      <div id="color" class="sec-head"><span class="idx">02</span><h2>Color Palette</h2></div>
-      <div class="swatches">
-        <div class="swatch"><div class="color-block" style="background:#000212;border-bottom:1px solid var(--border-subtle)"></div><div class="color-label"><div class="name">bg</div><div class="hex">#000212</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#080a10"></div><div class="color-label"><div class="name">surface-base</div><div class="hex">#080a10</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#12131e"></div><div class="color-label"><div class="name">surface-raised</div><div class="hex">#12131e</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#5e6ad2"></div><div class="color-label"><div class="name">accent-purple</div><div class="hex">#5e6ad2</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#f0f3f6"></div><div class="color-label"><div class="name">text-primary</div><div class="hex">#f0f3f6</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#8b949e"></div><div class="color-label"><div class="name">text-muted</div><div class="hex">#8b949e</div></div></div>
+      <!-- 02 Color Palette & Roles -->
+      <div id="color-palette" class="sec-head"><span class="idx">02</span><h2>Color Palette & Roles</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>&gt; Source pages: linear.app (home), /intake, /pricing, /contact/sales, /build.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Brand & Accent</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Lavender-Blue</strong> ({colors.primary}): The signature Linear accent — primary CTA, brand mark, link emphasis.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Lavender Hover</strong> ({colors.primary-hover}): Lighter lavender (#828fff) — hovered state of the primary CTA.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Surface</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Canvas</strong> ({colors.canvas}): Default page background — #010102, near-pure black with a faint blue tint.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Surface 1</strong> ({colors.surface-1}): One step above canvas — feature cards, pricing cards, product screenshot panels.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Text</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Ink</strong> ({colors.ink}): All headlines and emphasized body type — light gray #f7f8f8.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Ink Muted</strong> ({colors.ink-muted}): Secondary type at #d0d6e0 — meta info on hero panels.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Semantic</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Success Green</strong> ({colors.semantic-success}): Status pills, success indicators. The only semantic color on marketing.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Overlay</strong> ({colors.semantic-overlay}): Pure black overlay scrim for modals.</li></ul>
+      <div class="swatches" style="margin-top:20px;">
+        
+            <div class="swatch" onclick="copyColor('#5e6ad2', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#5e6ad2; "></div>
+                <div class="color-label">
+                    <div class="name">primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#5e6ad2</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">on-primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#828fff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#828fff; "></div>
+                <div class="color-label">
+                    <div class="name">primary-hover</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#828fff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#5e69d1', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#5e69d1; "></div>
+                <div class="color-label">
+                    <div class="name">primary-focus</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#5e69d1</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f7f8f8', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f7f8f8; "></div>
+                <div class="color-label">
+                    <div class="name">ink</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f7f8f8</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#d0d6e0', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#d0d6e0; "></div>
+                <div class="color-label">
+                    <div class="name">ink-muted</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#d0d6e0</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#8a8f98', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#8a8f98; "></div>
+                <div class="color-label">
+                    <div class="name">ink-subtle</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#8a8f98</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#62666d', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#62666d; "></div>
+                <div class="color-label">
+                    <div class="name">ink-tertiary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#62666d</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#010102', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#010102; "></div>
+                <div class="color-label">
+                    <div class="name">canvas</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#010102</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#0f1011', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0f1011; "></div>
+                <div class="color-label">
+                    <div class="name">surface-1</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0f1011</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#141516', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#141516; "></div>
+                <div class="color-label">
+                    <div class="name">surface-2</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#141516</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#18191a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#18191a; "></div>
+                <div class="color-label">
+                    <div class="name">surface-3</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#18191a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#191a1b', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#191a1b; "></div>
+                <div class="color-label">
+                    <div class="name">surface-4</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#191a1b</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#23252a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#23252a; "></div>
+                <div class="color-label">
+                    <div class="name">hairline</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#23252a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#34343a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#34343a; "></div>
+                <div class="color-label">
+                    <div class="name">hairline-strong</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#34343a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#3e3e44', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#3e3e44; "></div>
+                <div class="color-label">
+                    <div class="name">hairline-tertiary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#3e3e44</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">inverse-canvas</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f5f6f6', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f5f6f6; "></div>
+                <div class="color-label">
+                    <div class="name">inverse-surface-1</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f5f6f6</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f6f7f7', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f6f7f7; "></div>
+                <div class="color-label">
+                    <div class="name">inverse-surface-2</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f6f7f7</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#000000', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#000000; "></div>
+                <div class="color-label">
+                    <div class="name">inverse-ink</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#000000</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#7a7fad', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#7a7fad; "></div>
+                <div class="color-label">
+                    <div class="name">brand-secure</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#7a7fad</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#27a644', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#27a644; "></div>
+                <div class="color-label">
+                    <div class="name">semantic-success</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#27a644</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#000000', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#000000; "></div>
+                <div class="color-label">
+                    <div class="name">semantic-overlay</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#000000</div>
+                </div>
+            </div>
+            
       </div>
+
+      <!-- 03 Typography Rules -->
+      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography Rules</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Font Family</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Linear Display</strong> — Linear's custom display sans; fallback <code>SF Pro Display, -apple-system, system-ui, Segoe UI, Roboto</code>. Carries display-xl through subhead.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Linear Text</strong> — Linear's custom text sans (a slightly different cut tuned for body sizes); same fallback stack. Carries body sizes, button labels, captions.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+The marketing surface treats Display and Text as one continuous voice; the family change is silent.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Hierarchy</h3>
+<table><tr><th>Token</th><th>Size</th><th>Weight</th><th>Line Height</th><th>Letter Spacing</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Principles</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Aggressive negative tracking on display</strong> (-3.0px at 80px ≈ 4% of size).</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Single voice from display to body.</strong> Display-xl at 600 → body at 400 — same family, narrower weights.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Note on Font Substitutes</h3>
+<p style='margin-bottom:16px; line-height:1.6;'>Linear's custom typeface isn't publicly distributed; the documented fallback <code>SF Pro Display, -apple-system, system-ui</code> is the recommended substitute on macOS. For cross-platform implementation, <strong>Inter</strong> at weight 500 / 600 / 700 is the closest free substitute. <strong>Geist Sans</strong> is also viable. For mono, <strong>JetBrains Mono</strong> or <strong>Geist Mono</strong> at weight 400 closely approximates Linear Mono.</p>
       
-      <table>
-        <tr><th>Token</th><th>Hex Value</th><th>Usage</th></tr>
-        <tr><td>--bg</td><td>#000212</td><td>Deep space-navy background</td></tr>
-        <tr><td>--surface-base</td><td>#080a10</td><td>Standard card / surface container</td></tr>
-        <tr><td>--surface-raised</td><td>#12131e</td><td>Popovers, modal overlays, hover cards</td></tr>
-        <tr><td>--accent-purple</td><td>#5e6ad2</td><td>Brand focus indicator, active buttons</td></tr>
-        <tr><td>--border-subtle</td><td>rgba(255,255,255,0.08)</td><td>Thin card outlines</td></tr>
-        <tr><td>--success</td><td>#4cad6b</td><td>Completed task status color</td></tr>
-      </table>
-
-      <!-- 03 TYPOGRAPHY -->
-      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography</h2></div>
-      <div class="type-spec">
-        <div class="type-title">Linear Features &amp; Cycles</div>
-        <div class="type-caption">Inter Display · 38px · weight 800 · line-height 1.1</div>
-        <div class="type-h2">Issue tracking built for speed</div>
-        <div class="type-caption">Inter Display · 24px · weight 700 · line-height 1.2</div>
-        <p class="type-body">
-          Linear helps software teams streamline projects, tasks, and bug tracking. It's built for high-density reading and operates at extreme speeds.
-        </p>
-        <div class="type-caption">Inter · 14px · weight 400 · line-height 1.6</div>
-      </div>
-
-      <table>
-        <tr><th>Element</th><th>Font Stack</th><th>Size</th><th>Weight</th><th>Line-height</th></tr>
-        <tr><td>Hero Titles</td><td>Inter Display</td><td>32px - 48px</td><td>800</td><td>1.1</td></tr>
-        <tr><td>Subheadings</td><td>Inter Display</td><td>24px</td><td>700</td><td>1.2</td></tr>
-        <tr><td>Body Text</td><td>Inter</td><td>14px</td><td>400</td><td>1.6</td></tr>
-        <tr><td>Meta / Badges</td><td>Inter</td><td>11px</td><td>600</td><td>1.4</td></tr>
-        <tr><td>Code block</td><td>SF Mono / ui-monospace</td><td>12.5px</td><td>400</td><td>1.6</td></tr>
-      </table>
-
-      <!-- 04 SPACING SYSTEM -->
-      <div id="spacing" class="sec-head"><span class="idx">04</span><h2>Spacing System</h2></div>
-      <div class="spacing-demo">
-        <div class="spacing-row"><span class="spacing-label">Bento gap</span><span class="spacing-bar" style="width:24px"></span>24px</div>
-        <div class="spacing-row"><span class="spacing-label">Card padding</span><span class="spacing-bar" style="width:24px; opacity: 0.6"></span>24px</div>
-        <div class="spacing-row"><span class="spacing-label">Button padding</span><span class="spacing-bar" style="width:16px"></span>16px</div>
-        <div class="spacing-row"><span class="spacing-label">Tag padding</span><span class="spacing-bar" style="width:8px"></span>8px</div>
-      </div>
-
-      <!-- 05 BORDERS & RADIUS -->
-      <div id="borders" class="sec-head"><span class="idx">05</span><h2>Borders &amp; Radius</h2></div>
-      <table>
-        <tr><th>Element</th><th>Border Rule</th><th>Border Radius</th></tr>
-        <tr><td>Bento cards</td><td>1px solid rgba(255, 255, 255, 0.08)</td><td>12px</td></tr>
-        <tr><td>Buttons &amp; Inputs</td><td>1px solid rgba(255, 255, 255, 0.12)</td><td>8px</td></tr>
-        <tr><td>Badges &amp; Tags</td><td>1px solid rgba(255, 255, 255, 0.08)</td><td>6px</td></tr>
-      </table>
-
-      <!-- 06 BENTO LAYOUT -->
-      <div id="bento" class="sec-head"><span class="idx">06</span><h2>Bento Grid Layout</h2></div>
-      <div class="bento-showcase">
-        <div class="bento-card">
-          <h3>Built for the future</h3>
-          <p>High performance rendering engine ensures a lag-free experience across huge issue cycles.</p>
+        <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
+            <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
+            <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
         </div>
-        <div class="bento-card">
-          <h3>Cycles</h3>
-          <p>Plan sprints easily with automatic backlog carryovers.</p>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+        
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-xl</span>
+                        <span>size: 80px | weight: 600 | height: 1.05 | spacing: -3.0px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:80px; font-weight:600; line-height:1.05; letter-spacing:-3.0px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-lg</span>
+                        <span>size: 56px | weight: 600 | height: 1.10 | spacing: -1.8px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:56px; font-weight:600; line-height:1.10; letter-spacing:-1.8px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-md</span>
+                        <span>size: 40px | weight: 600 | height: 1.15 | spacing: -1.0px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:40px; font-weight:600; line-height:1.15; letter-spacing:-1.0px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">headline</span>
+                        <span>size: 28px | weight: 600 | height: 1.20 | spacing: -0.6px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:28px; font-weight:600; line-height:1.20; letter-spacing:-0.6px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">card-title</span>
+                        <span>size: 22px | weight: 500 | height: 1.25 | spacing: -0.4px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:22px; font-weight:500; line-height:1.25; letter-spacing:-0.4px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">subhead</span>
+                        <span>size: 20px | weight: 400 | height: 1.40 | spacing: -0.2px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:20px; font-weight:400; line-height:1.40; letter-spacing:-0.2px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-lg</span>
+                        <span>size: 18px | weight: 400 | height: 1.50 | spacing: -0.1px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:400; line-height:1.50; letter-spacing:-0.1px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body</span>
+                        <span>size: 16px | weight: 400 | height: 1.50 | spacing: -0.05px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.50; letter-spacing:-0.05px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-sm</span>
+                        <span>size: 14px | weight: 400 | height: 1.50 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:400; line-height:1.50; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">caption</span>
+                        <span>size: 12px | weight: 400 | height: 1.40 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:12px; font-weight:400; line-height:1.40; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">button</span>
+                        <span>size: 14px | weight: 500 | height: 1.20 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:500; line-height:1.20; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">eyebrow</span>
+                        <span>size: 13px | weight: 500 | height: 1.30 | spacing: 0.4px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:13px; font-weight:500; line-height:1.30; letter-spacing:0.4px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">mono</span>
+                        <span>size: 13px | weight: 400 | height: 1.50 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-mono); font-size:13px; font-weight:400; line-height:1.50; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                </div>
+
+      <!-- 04 Layout Principles -->
+      <div id="layout" class="sec-head"><span class="idx">04</span><h2>Layout Principles</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Spacing System</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Base unit</strong>: 4px.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Tokens (front matter)</strong>: <code>{spacing.xxs}</code> 4px · <code>{spacing.xs}</code> 8px · <code>{spacing.sm}</code> 12px · <code>{spacing.md}</code> 16px · <code>{spacing.lg}</code> 24px · <code>{spacing.xl}</code> 32px · <code>{spacing.xxl}</code> 48px · <code>{spacing.section}</code> 96px.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Grid & Container</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Max content width sits around 1280px.</li><li style='margin-left:20px; margin-bottom:6px;'>Card grids are 3-up at desktop, 2-up at tablet, 1-up at mobile.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Whitespace Philosophy</h3>
+<p style='margin-bottom:16px; line-height:1.6;'>The dark canvas IS the whitespace. Sections separate by lift onto surface-1 panels, not by gaps in white. Within a panel, generous <code>{spacing.lg}</code> 24px gaps between content blocks; <code>{spacing.section}</code> 96px between sections.</p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
+        <p>Layout Grid Example</p>
+        
+    <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
+        <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
+        
+        <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">3</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">4</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">5</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">6</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">7</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">8</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">9</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">10</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
         </div>
+        
+        <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
+            <div>Gutter spacing: 16px / 24px</div>
+            <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
+            <div>Max Container Width: 1200px</div>
+        </div>
+    </div>
+    
       </div>
+
+      <!-- 05 Depth & Elevation -->
+      <div id="depth-elevation" class="sec-head"><span class="idx">05</span><h2>Depth & Elevation</h2></div>
+      <table><tr><th>Level</th><th>Treatment</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table>Linear's depth is carried by surface ladder + hairline borders. The brand resists drop shadows on dark almost entirely.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Decorative Depth</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Product UI screenshots</strong> dominate as decorative depth.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>No atmospheric gradients, no spotlight cards.</strong></li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
+        <p>Elevation Level Example</p>
+        
+    <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for background layers, sidebar headers, or baseline borders.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-md);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Low Elevation (Level 1 / Card)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for floating product elements, cards, and hover states.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-lg);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">High Elevation (Level 2 / Popover & Dropdown)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
+        </div>
+    </div>
+    
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
+        
+    <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-sm</span>
+            <span style="color:var(--text-muted); margin-top:4px;">4px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-md</span>
+            <span style="color:var(--text-muted); margin-top:4px;">6px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-lg</span>
+            <span style="color:var(--text-muted); margin-top:4px;">8px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-pill); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-pill</span>
+            <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 06 Component Stylings -->
+      <div id="components" class="sec-head"><span class="idx">06</span><h2>Component Stylings</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Border Radius Scale</h3>
+<table><tr><th>Token</th><th>Value</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Photography & Illustration Geometry</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Product UI screenshots dominate; they sit in <code>{rounded.xl}</code> 16px tiles with <code>{spacing.lg}</code> 24px outer padding.</li><li style='margin-left:20px; margin-bottom:6px;'>Customer logo tiles render at small sizes (~24px logo height) on <code>{colors.canvas}</code> with no border.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Buttons</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary</code></strong> — Lavender CTA. The default primary CTA across all pages.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.primary}</code>, text <code>{colors.on-primary}</code>, type <code>{typography.button}</code>, padding 8px 14px, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>button-secondary</code></strong> — Charcoal button. Used for secondary CTAs ("Sign in", "Read changelog").
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-1}</code>, text <code>{colors.ink}</code>, type <code>{typography.button}</code>, padding 8px 14px, rounded <code>{rounded.md}</code>. 1px <code>{colors.hairline}</code> border.</li></ul>
+<strong><code>button-tertiary</code></strong> — Plain text button.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas}</code>, text <code>{colors.ink}</code>, type <code>{typography.button}</code>, rounded <code>{rounded.md}</code>, padding 8px 14px.</li></ul>
+<strong><code>button-inverse</code></strong> — White-on-dark inverse CTA.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.inverse-canvas}</code>, text <code>{colors.inverse-ink}</code>, type <code>{typography.button}</code>, rounded <code>{rounded.md}</code>, padding 8px 14px.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Pricing Tabs</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>pricing-tab-default</code></strong> + <strong><code>pricing-tab-selected</code></strong> — Pill-toggle on <code>/pricing</code>.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Default: <code>{colors.canvas}</code> background, <code>{colors.ink-subtle}</code> text, rounded <code>{rounded.pill}</code>, padding 6px 14px.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Cards & Containers</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>pricing-card</code></strong> — Each tier on <code>/pricing</code>.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-1}</code>, text <code>{colors.ink}</code>, type <code>{typography.body}</code>, rounded <code>{rounded.lg}</code>, padding 24px. 1px <code>{colors.hairline}</code> border.</li></ul>
+<strong><code>pricing-card-featured</code></strong> — Recommended tier — surface lift to surface-2.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-2}</code>, otherwise identical structure.</li></ul>
+<strong><code>feature-card</code></strong> — Generic feature highlight tile.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-1}</code>, text <code>{colors.ink}</code>, type <code>{typography.body}</code>, rounded <code>{rounded.lg}</code>, padding 24px.</li></ul>
+<strong><code>product-screenshot-card</code></strong> — The dominant card type — frames a high-fidelity Linear app UI screenshot.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-1}</code>, text <code>{colors.ink}</code>, type <code>{typography.body}</code>, rounded <code>{rounded.xl}</code>, padding 24px.</li></ul>
+<strong><code>testimonial-card</code></strong> — Customer quote with avatar + name + role.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-1}</code>, text <code>{colors.ink}</code>, type <code>{typography.body-lg}</code>, rounded <code>{rounded.lg}</code>, padding 32px.</li></ul>
+<strong><code>customer-logo-tile</code></strong> — Small tile in the customer marquee.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas}</code>, text <code>{colors.ink-subtle}</code>, type <code>{typography.caption}</code>, rounded <code>{rounded.xs}</code>, padding 16px.</li></ul>
+<strong><code>cta-banner</code></strong> — Closing CTA panel near page bottom.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-1}</code>, text <code>{colors.ink}</code>, type <code>{typography.headline}</code>, rounded <code>{rounded.lg}</code>, padding 48px.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Inputs & Forms</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>text-input</code></strong> + <strong><code>text-input-focused</code></strong> — Form fields on <code>/contact/sales</code> and signup overlays.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-1}</code>, text <code>{colors.ink}</code>, type <code>{typography.body}</code>, rounded <code>{rounded.md}</code>, padding 8px 12px.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Status & Build Page</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>changelog-row</code></strong> — Each row in <code>/build</code> (changelog page) listing version, date, and changes.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas}</code>, text <code>{colors.ink}</code>, type <code>{typography.body}</code>, rounded <code>{rounded.xs}</code>, padding 24px 0. 1px <code>{colors.hairline}</code> bottom rule.</li></ul>
+<strong><code>status-badge</code></strong> — Small status pill.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-2}</code>, text <code>{colors.ink-muted}</code>, type <code>{typography.caption}</code>, rounded <code>{rounded.pill}</code>, padding 2px 8px.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Navigation</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>top-nav</code></strong> — Sticky dark bar with the Linear wordmark left, primary nav links centered, and a <code>button-secondary</code> ("Sign in") + <code>button-primary</code> ("Get started") pair right.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas}</code>, text <code>{colors.ink}</code>, type <code>{typography.body-sm}</code>, height 56px.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Footer</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>footer</code></strong> — Dense link grid on <code>{colors.canvas}</code> with the Linear wordmark left.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas}</code>, text <code>{colors.ink-subtle}</code>, type <code>{typography.caption}</code>, padding 64px 32px.</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; font-family:var(--font-mono);">Interactive Component Demonstrations:</p>
+        <p>Component Interactive Example</p>
+      </div>
+
+      <!-- 07 Do's and Don'ts -->
+      <div id="dos-donts" class="sec-head"><span class="idx">07</span><h2>Do's and Don'ts</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Do</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{colors.canvas}</code> (#010102) as the system's anchor surface — the faint blue tint is intentional.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{colors.primary}</code> lavender ONLY for: brand mark, primary CTA, focus ring, link emphasis.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't ship a light-mode marketing page.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use lavender as a section background or card fill.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
       
-      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">Interactive status badges:</p>
-      <div class="pills">
-        <span class="pill active"><span class="status" style="background:var(--success)"></span>Completed</span>
-        <span class="pill"><span class="status" style="background:var(--warning)"></span>In Progress</span>
-        <span class="pill"><span class="status" style="background:var(--danger)"></span>High Priority</span>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
+        <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
+            <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                <p style='margin-bottom:16px; line-height:1.6;'>n't
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't ship a light-mode marketing page.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use lavender as a section background or card fill.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+            </div>
+        </div>
+        <div style="border:1px solid #ef4444; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(239, 68, 68, 0.015); position:relative;">
+            <span style="background:#ef4444; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">❌ Discouraged / Don't</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                
+            </div>
+        </div>
+    </div>
+    
+
+      <!-- 08 Responsive Behavior -->
+      <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Breakpoints</h3>
+<table><tr><th>Name</th><th>Width</th><th>Key Changes</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Touch Targets</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>CTAs hold ≥40px tap height across viewports.</li><li style='margin-left:20px; margin-bottom:6px;'>Pricing tab pills hold ≥36px tap height; touch viewports grow to ≥44px.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Collapsing Strategy</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Top nav</strong>: links collapse to hamburger below 768px.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Card grids</strong>: 3-up → 2-up at 1024px → 1-up below 768px.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Image Behavior</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Product UI screenshots maintain aspect ratio and never crop.</li><li style='margin-left:20px; margin-bottom:6px;'>Customer logos in the marquee may collapse from 6-up to 3-up below 768px.</li></ul>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
+        <p>Responsive Behavior Example</p>
+        
+    <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
+        <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
+            <div style="display:flex; gap:6px;">
+                <button id="btn-sim-mobile" onclick="setSimWidth('mobile')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Mobile</button>
+                <button id="btn-sim-tablet" onclick="setSimWidth('tablet')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Tablet</button>
+                <button id="btn-sim-desktop" onclick="setSimWidth('desktop')" style="padding:4px 10px; border:1px solid var(--accent-vue); background:var(--accent-vue-glow); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--accent-vue); transition:all var(--transition-base);">Desktop</button>
+            </div>
+        </div>
+        <div style="padding:28px 16px; display:flex; justify-content:center; background:rgba(0,0,0,0.005); overflow:hidden;">
+            <div id="viewport-sim-container" style="width:100%; max-width:800px; transition:max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1); border:1.5px dashed var(--border-dark); border-radius:var(--radius-md); background:var(--bg-base); padding:20px; overflow:hidden; box-sizing:border-box;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                    <span id="sim-width-indicator" style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); text-transform:uppercase;">Width: 800px (Desktop Mode)</span>
+                    <span style="font-size:11px; font-weight:700; color:var(--accent-vue); font-family:var(--font-sans);">Grid Container</span>
+                </div>
+                <div id="sim-layout-columns" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; transition:all 0.3s;">
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Primary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Adjusts layout width</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Secondary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Folds on viewport change</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Sidebar Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Stacks to bottom on mobile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
       </div>
 
-      <!-- 07 MOTION & ANTI-PATTERNS -->
-      <div id="motion" class="sec-head"><span class="idx">07</span><h2>Motion &amp; Anti-Patterns</h2></div>
+      <!-- 09 Agent Prompt Guide -->
+      <div id="prompt-guide" class="sec-head"><span class="idx">09</span><h2>Agent Prompt Guide</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>1. Focus on ONE component at a time and reference it by its <code>components:</code> token name.
+2. When introducing a section, decide first which surface lift it lives on.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Copyable Agent Integration Prompt:</p>
+        <p>Prompt Guide Copy Box</p>
+      </div>
+
+      <!-- 10 Design Tokens Table -->
+      <div id="tokens-table" class="sec-head"><span class="idx">10</span><h2>Full System Design Tokens</h2></div>
+      <p style="margin-bottom:20px;">The parsed design tokens extracted from the core stylesheet of this design system:</p>
       <table>
-        <tr><th>Avoid</th><th>Use Instead</th></tr>
-        <tr><td>Pure black `#000` panels</td><td>Tinted space-navy grays `#080a10`</td></tr>
-        <tr><td>Large borders (>2px)</td><td>1px thin borders with high transparency</td></tr>
-        <tr><td>Bouncy animations</td><td>Subtle, linear-ease transitions under 250ms</td></tr>
-        <tr><td>Heavy box shadows</td><td>Neon purple radial glows on hover</td></tr>
+        <tr><th>Design Token</th><th>Hex Value</th><th>System Palette Role</th></tr>
+        <tr><td>--primary</td><td>#5e6ad2</td><td>System color representation for primary</td></tr><tr><td>--on-primary</td><td>#ffffff</td><td>System color representation for on-primary</td></tr><tr><td>--primary-hover</td><td>#828fff</td><td>System color representation for primary-hover</td></tr><tr><td>--primary-focus</td><td>#5e69d1</td><td>System color representation for primary-focus</td></tr><tr><td>--ink</td><td>#f7f8f8</td><td>System color representation for ink</td></tr><tr><td>--ink-muted</td><td>#d0d6e0</td><td>System color representation for ink-muted</td></tr><tr><td>--ink-subtle</td><td>#8a8f98</td><td>System color representation for ink-subtle</td></tr><tr><td>--ink-tertiary</td><td>#62666d</td><td>System color representation for ink-tertiary</td></tr><tr><td>--canvas</td><td>#010102</td><td>System color representation for canvas</td></tr><tr><td>--surface-1</td><td>#0f1011</td><td>System color representation for surface-1</td></tr><tr><td>--surface-2</td><td>#141516</td><td>System color representation for surface-2</td></tr><tr><td>--surface-3</td><td>#18191a</td><td>System color representation for surface-3</td></tr><tr><td>--surface-4</td><td>#191a1b</td><td>System color representation for surface-4</td></tr><tr><td>--hairline</td><td>#23252a</td><td>System color representation for hairline</td></tr><tr><td>--hairline-strong</td><td>#34343a</td><td>System color representation for hairline-strong</td></tr><tr><td>--hairline-tertiary</td><td>#3e3e44</td><td>System color representation for hairline-tertiary</td></tr><tr><td>--inverse-canvas</td><td>#ffffff</td><td>System color representation for inverse-canvas</td></tr><tr><td>--inverse-surface-1</td><td>#f5f6f6</td><td>System color representation for inverse-surface-1</td></tr><tr><td>--inverse-surface-2</td><td>#f6f7f7</td><td>System color representation for inverse-surface-2</td></tr><tr><td>--inverse-ink</td><td>#000000</td><td>System color representation for inverse-ink</td></tr><tr><td>--brand-secure</td><td>#7a7fad</td><td>System color representation for brand-secure</td></tr><tr><td>--semantic-success</td><td>#27a644</td><td>System color representation for semantic-success</td></tr><tr><td>--semantic-overlay</td><td>#000000</td><td>System color representation for semantic-overlay</td></tr>
       </table>
 
     </main>
@@ -532,239 +965,315 @@
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer>
-    <div><strong>Design System — Linear.app</strong> · Extracted May 2026</div>
+    <div><strong>Linear Design System Spec</strong> · Extracted from awesome-design-md</div>
     <div>
-      <a href="https://linear.app">Linear Website</a>
+      <a href="../index.html">Design System Hub</a>
     </div>
   </footer>
 
 </div>
 
-<script>
-  // Mouse movement glow tracker on bento cards
-  document.querySelectorAll('.bento-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--x', `${x}px`);
-      card.style.setProperty('--y', `${y}px`);
-    });
-  });
-</script>
-<textarea id="markdown-spec-content" style="display:none;"># Design System — Linear.app (Sleek Dark Mode)
+<textarea id="markdown-spec-content" style="display:none;">## Overview
 
-Extracted and adapted from [linear.app](https://linear.app).
-A developer-centric, dark-mode-first, high-density design language with neon accent glows.
+Linear's marketing canvas is the deepest dark surface in this collection — `{colors.canvas}` is #010102, essentially pure black with a faint blue tint. On top sits a four-step surface ladder (`{colors.surface-1}` through `{colors.surface-4}`) for cards, panels, and lifted tiles, with hairline borders running from `{colors.hairline}` (#23252a) up through `{colors.hairline-strong}` and `{colors.hairline-tertiary}`. Light gray text (`{colors.ink}` #f7f8f8) carries the body and headlines.
 
----
+The single chromatic accent is **Linear lavender-blue** `{colors.primary}` (#5e6ad2) — used on the brand mark, focus rings, and the primary CTA button. A lighter hover state (`{colors.primary-hover}` #828fff) and a focus-tinted variant (`{colors.primary-focus}` #5e69d1) extend the same hue. Linear avoids saturated greens, oranges, reds, etc. on the marketing canvas — the only semantic color is `{colors.semantic-success}` (#27a644) for status pills and the rare success indicator.
 
-## 1. Design Philosophy
+Display type runs Linear's custom sans (with `SF Pro Display` fallback) at weight 500–700 with negative letter-spacing scaling from -3.0px at 80px down to 0 at body. The body family is Linear's text cut, and a Linear Mono is reserved for code snippets in product screenshots.
 
-- **Dark-mode first** — primary visuals optimized for low-light, high-focus engineering environments
-- **Bento box grid** — structured, clean, card-based containers grouping dense information cleanly
-- **High legibility & clarity** — sharp typography, clear state colors, minimal decoration ("no chrome")
-- **Dynamic accents** — signature glowing purple and neon details directing focus to key interactive paths
-- **Snappy micro-interactions** — fast, highly responsive hover states and animations to feel performant
+The page rhythm is **dense product screenshots** — Linear's marketing leads with high-fidelity captures of the product UI (issue list, project view, dashboard) framed in `{colors.surface-1}` panels with `{rounded.xl}` 16px corners. The chrome is intentionally minimal so the app screenshots can do the heavy lifting.
 
----
+**Key Characteristics:**
+- **Dark-canvas marketing system** — `{colors.canvas}` (#010102) is the deepest dark in this collection.
+- **Lavender-blue brand accent** (`{colors.primary}` #5e6ad2) — used scarcely on brand mark, focus, and the primary CTA.
+- Four-step surface ladder (canvas → surface-1 → surface-2 → surface-3 → surface-4) carries hierarchy without shadow.
+- Display tracking pulls aggressively negative (-3.0px at 80px); body holds at -0.05px.
+- Cards use `{rounded.lg}` 12px corners with 1px hairline borders — never pill, rarely 16px.
+- **Product UI screenshots** dominate the page. The marketing chrome is a dark frame for the app.
+- No second chromatic color. No atmospheric gradients. No spotlight cards.
 
-## 2. Color Palette
+## Colors
 
-| Token | Hex | Role |
-|-------|-----|------|
-| `--bg` | `#000212` | Deep space-navy background |
-| `--surface-base` | `#080a10` | Default card / surface background |
-| `--surface-raised` | `#12131e` | Raised card / hover background |
-| `--text-primary` | `#f0f3f6` | High contrast primary text |
-| `--text-secondary`| `#8b949e` | Muted descriptions and secondary text |
-| `--accent-purple` | `#5e6ad2` | Signature brand purple accent |
-| `--accent-purple-glow` | `rgba(94, 106, 210, 0.15)` | Glowing shadow color |
-| `--border-subtle` | `rgba(255, 255, 255, 0.08)` | Thin overlay border |
-| `--border-hover` | `rgba(255, 255, 255, 0.2)` | Highlighted card border |
-| `--success` | `#4cad6b` | Done / Completed indicator |
-| `--warning` | `#f5a623` | In-progress / Medium priority indicator |
-| `--danger` | `#f44336` | Backlog / High priority / Alert indicator |
+> Source pages: linear.app (home), /intake, /pricing, /contact/sales, /build.
 
-**Usage rules:**
-- Backgrounds are always very dark, near-black space-navy
-- Accents (purple, teal) used strictly for interactive focus, hover states, and critical actions
-- Low contrast grays for grids and borders to prevent cluttering the content
-- Perceptually uniform theme generation based on the LCH space
+### Brand & Accent
+- **Lavender-Blue** ({colors.primary}): The signature Linear accent — primary CTA, brand mark, link emphasis.
+- **Lavender Hover** ({colors.primary-hover}): Lighter lavender (#828fff) — hovered state of the primary CTA.
+- **Lavender Focus** ({colors.primary-focus}): Focus-ring tint (#5e69d1) — focused inputs, focused buttons.
+- **Brand Secure** ({colors.brand-secure}): Muted lavender-gray (#7a7fad) — used in "Linear Security" surfaces.
 
----
+### Surface
+- **Canvas** ({colors.canvas}): Default page background — #010102, near-pure black with a faint blue tint.
+- **Surface 1** ({colors.surface-1}): One step above canvas — feature cards, pricing cards, product screenshot panels.
+- **Surface 2** ({colors.surface-2}): Two steps above — featured pricing card, hovered cards.
+- **Surface 3** ({colors.surface-3}): Three steps above — line-tertiary backgrounds, sub-nav.
+- **Surface 4** ({colors.surface-4}): Four steps above — bg-level-3, deepest lifted surface.
+- **Hairline** ({colors.hairline}): 1px borders on cards and dividers.
+- **Hairline Strong** ({colors.hairline-strong}): Stronger 1px borders — input focus rings.
+- **Hairline Tertiary** ({colors.hairline-tertiary}): Tertiary borders for nested surfaces.
+- **Inverse Canvas** ({colors.inverse-canvas}): Pure white — surface of the inverse pill CTA on a small set of section openers.
+- **Inverse Surface 1** ({colors.inverse-surface-1}): One step above inverse canvas.
+- **Inverse Surface 2** ({colors.inverse-surface-2}): Two steps above inverse canvas.
 
-## 3. Typography
+### Text
+- **Ink** ({colors.ink}): All headlines and emphasized body type — light gray #f7f8f8.
+- **Ink Muted** ({colors.ink-muted}): Secondary type at #d0d6e0 — meta info on hero panels.
+- **Ink Subtle** ({colors.ink-subtle}): Tertiary type at #8a8f98 — deselected pricing tabs, footer columns.
+- **Ink Tertiary** ({colors.ink-tertiary}): Quaternary at #62666d — disabled, footnotes.
 
-### Font Stack
+### Semantic
+- **Success Green** ({colors.semantic-success}): Status pills, success indicators. The only semantic color on marketing.
+- **Overlay** ({colors.semantic-overlay}): Pure black overlay scrim for modals.
 
-| Token | Stack |
-|-------|-------|
-| `--sans-display` | `Inter Display, system-ui, -apple-system, sans-serif` |
-| `--sans-text` | `Inter, system-ui, -apple-system, sans-serif` |
-| `--mono` | `ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace` |
+## Typography
 
-### Type Scale
+### Font Family
 
-| Element | Font | Size | Weight | Line-height | Letter-spacing | Notes |
-|---------|------|------|--------|-------------|----------------|-------|
-| Title (Display) | sans-display | `clamp(32px, 4.5vw, 48px)` | 800 | 1.1 | -0.02em | High visual weight |
-| Heading 2 | sans-display | 24px | 700 | 1.2 | -0.015em | Section headings |
-| Subheading 3 | sans-text | 18px | 600 | 1.3 | -0.01em | Subsections |
-| Body text | sans-text | 14px | 400 | 1.6 | — | High density reading |
-| Secondary text | sans-text | 13px | 400 | 1.5 | — | Captions, sidebars |
-| Micro labels | sans-text | 11px | 600 | 1.4 | 0.05em | Uppercase badges |
-| Code block | mono | 12.5px | 400 | 1.6 | — | Tables, data lines |
+- **Linear Display** — Linear's custom display sans; fallback `SF Pro Display, -apple-system, system-ui, Segoe UI, Roboto`. Carries display-xl through subhead.
+- **Linear Text** — Linear's custom text sans (a slightly different cut tuned for body sizes); same fallback stack. Carries body sizes, button labels, captions.
+- **Linear Mono** — Linear's custom mono; fallback `ui-monospace, SF Mono, Menlo`. Used for code snippets in product screenshots and for status / ID tokens.
 
-**Rules:**
-- Use Inter Display for large bold typography to capture brand expression
-- UI controls and body text use standard Inter at small sizes
-- Tabular figures utilized for status indicators and numbers
-- Font smoothing: `-webkit-font-smoothing: antialiased`
+The marketing surface treats Display and Text as one continuous voice; the family change is silent.
 
----
+### Hierarchy
 
-## 4. Spacing System
+| Token | Size | Weight | Line Height | Letter Spacing | Use |
+|---|---|---|---|---|---|
+| `{typography.display-xl}` | 80px | 600 | 1.05 | -3.0px | Largest hero headline |
+| `{typography.display-lg}` | 56px | 600 | 1.10 | -1.8px | Section opener headlines |
+| `{typography.display-md}` | 40px | 600 | 1.15 | -1.0px | Sub-section headlines |
+| `{typography.headline}` | 28px | 600 | 1.20 | -0.6px | Pricing tier titles, CTA banner heading |
+| `{typography.card-title}` | 22px | 500 | 1.25 | -0.4px | Feature card title |
+| `{typography.subhead}` | 20px | 400 | 1.40 | -0.2px | Lead body, intro paragraphs |
+| `{typography.body-lg}` | 18px | 400 | 1.50 | -0.1px | Hero subhead, lead paragraphs |
+| `{typography.body}` | 16px | 400 | 1.50 | -0.05px | Default body |
+| `{typography.body-sm}` | 14px | 400 | 1.50 | 0 | Card body, footer columns |
+| `{typography.caption}` | 12px | 400 | 1.40 | 0 | Captions, meta, status |
+| `{typography.button}` | 14px | 500 | 1.20 | 0 | All button labels |
+| `{typography.eyebrow}` | 13px | 500 | 1.30 | 0.4px | Section eyebrow (slight positive tracking) |
+| `{typography.mono}` | 13px | 400 | 1.50 | 0 | Linear Mono for code in product screenshots |
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| Container max-width | 1200px | Main page wrapper |
-| Section top margin | 64px | Space between main blocks |
-| Bento grid gap | 24px | Layout spacing |
-| Card internal padding | 24px | Internal card gutters |
-| Tag padding | 4px 8px | Status badge spacing |
-| Button padding | 10px 16px | UI controls padding |
+### Principles
 
-**Rules:**
-- Layout follows a strict 4px/8px incremental grid
-- Clean spacing prevents dense components from feeling overcrowded
-- Bento elements are aligned dynamically to construct unified blocks
+- **Aggressive negative tracking on display** (-3.0px at 80px ≈ 4% of size).
+- **Single voice from display to body.** Display-xl at 600 → body at 400 — same family, narrower weights.
+- **Eyebrow uses positive tracking** (+0.4px) — contrast against the negative-tracked display marks the eyebrow as taxonomy.
+- **Mono only in code contexts.** Linear Mono lives inside product screenshots — not on marketing chrome.
 
----
+### Note on Font Substitutes
 
-## 5. Borders & Dividers
+Linear's custom typeface isn't publicly distributed; the documented fallback `SF Pro Display, -apple-system, system-ui` is the recommended substitute on macOS. For cross-platform implementation, **Inter** at weight 500 / 600 / 700 is the closest free substitute. **Geist Sans** is also viable. For mono, **JetBrains Mono** or **Geist Mono** at weight 400 closely approximates Linear Mono.
 
-- **Border width:** 1px (thin, crisp borders to fit the high-precision feel)
-- **Border colors:** `rgba(255, 255, 255, 0.08)` (subtle) to `rgba(255, 255, 255, 0.2)` (hover highlight)
-- **Separators:** Dotted or thin solid rules dividing headers from cards
+## Layout
 
----
+### Spacing System
 
-## 6. Border Radius
+- **Base unit**: 4px.
+- **Tokens (front matter)**: `{spacing.xxs}` 4px · `{spacing.xs}` 8px · `{spacing.sm}` 12px · `{spacing.md}` 16px · `{spacing.lg}` 24px · `{spacing.xl}` 32px · `{spacing.xxl}` 48px · `{spacing.section}` 96px.
+- Card interior padding: `{spacing.lg}` 24px on feature/pricing cards; `{spacing.xl}` 32px on testimonial cards; `{spacing.xxl}` 48px on CTA banners.
+- Pill button padding: 8px vertical · 14px horizontal — Linear's compact button spec.
+- Form input padding: 8px vertical · 12px horizontal.
 
-| Element | Value |
-|---------|-------|
-| Bento cards | 12px |
-| Inner panes | 8px |
-| Buttons / inputs | 8px |
-| Badges / tags | 6px |
+### Grid & Container
 
----
+- Max content width sits around 1280px.
+- Card grids are 3-up at desktop, 2-up at tablet, 1-up at mobile.
+- Pricing tier grid is 3-up; comparison strip below shows checkmarks per tier.
+- Product screenshot panels span full content width — they're the protagonist.
 
-## 7. Shadows
+### Whitespace Philosophy
 
-| Context | Value |
-|---------|-------|
-| Card hover glow | `0 0 30px rgba(94, 106, 210, 0.12)` |
-| Spotlight banner | `radial-gradient(circle at top, rgba(94,106,210,0.15) 0%, transparent 60%)` |
+The dark canvas IS the whitespace. Sections separate by lift onto surface-1 panels, not by gaps in white. Within a panel, generous `{spacing.lg}` 24px gaps between content blocks; `{spacing.section}` 96px between sections.
 
-**Rules:**
-- Shadows are neon, glowing, and dynamic, representing light sources
-- Used to signify card elevation and interactive feedback on hover
-- Backdrop filters (`blur(12px)`) used on navigation bars and floating cards
+## Elevation & Depth
 
----
+| Level | Treatment | Use |
+|---|---|---|
+| 0 (flat) | No shadow, no border | Default for body type, hero text, footer |
+| 1 (charcoal lift) | `{colors.surface-1}` background on canvas, 1px `{colors.hairline}` | Default cards, product panels |
+| 2 (surface-2 lift) | `{colors.surface-2}` background, 1px `{colors.hairline-strong}` | Featured pricing card, hovered cards |
+| 3 (surface-3 lift) | `{colors.surface-3}` background | Sub-nav, dropdown menus |
+| 4 (focus ring) | 2px `{colors.primary-focus}` outline at 50% opacity | Focused input, focused button |
 
-## 8. Layout Patterns
+Linear's depth is carried by surface ladder + hairline borders. The brand resists drop shadows on dark almost entirely.
 
-### Bento Grid
-```css
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-```
-Adapts dynamically on tablet (2 columns) and mobile (1 column).
+### Decorative Depth
+
+- **Product UI screenshots** dominate as decorative depth.
+- **No atmospheric gradients, no spotlight cards.**
+- **Subtle white edge highlight** on the top edge of lifted panels — gives the dark surface a faint "pixel rendered" feel.
+
+## Shapes
+
+### Border Radius Scale
+
+| Token | Value | Use |
+|---|---|---|
+| `{rounded.xs}` | 4px | Small chips, status badges |
+| `{rounded.sm}` | 6px | Inline tags |
+| `{rounded.md}` | 8px | All buttons, form inputs |
+| `{rounded.lg}` | 12px | Pricing cards, feature cards, testimonial cards |
+| `{rounded.xl}` | 16px | Product screenshot panels |
+| `{rounded.xxl}` | 24px | Oversized CTA banners (rare) |
+| `{rounded.pill}` | 9999px | Pricing tab toggles, status pills |
+| `{rounded.full}` | 9999px | Avatar circles |
+
+### Photography & Illustration Geometry
+
+- Product UI screenshots dominate; they sit in `{rounded.xl}` 16px tiles with `{spacing.lg}` 24px outer padding.
+- Customer logo tiles render at small sizes (~24px logo height) on `{colors.canvas}` with no border.
+- Avatar circles in testimonial cards use `{rounded.full}` at 32–40px sizes.
+
+## Components
+
+### Buttons
+
+**`button-primary`** — Lavender CTA. The default primary CTA across all pages.
+- Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button}`, padding 8px 14px, rounded `{rounded.md}`.
+- Pressed state lives in `button-primary-pressed` (background shifts to `{colors.primary-focus}`).
+- Hover state lives in `button-primary-hover` (background shifts to `{colors.primary-hover}` lighter lavender).
+
+**`button-secondary`** — Charcoal button. Used for secondary CTAs ("Sign in", "Read changelog").
+- Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.button}`, padding 8px 14px, rounded `{rounded.md}`. 1px `{colors.hairline}` border.
+
+**`button-tertiary`** — Plain text button.
+- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.button}`, rounded `{rounded.md}`, padding 8px 14px.
+
+**`button-inverse`** — White-on-dark inverse CTA.
+- Background `{colors.inverse-canvas}`, text `{colors.inverse-ink}`, type `{typography.button}`, rounded `{rounded.md}`, padding 8px 14px.
+
+### Pricing Tabs
+
+**`pricing-tab-default`** + **`pricing-tab-selected`** — Pill-toggle on `/pricing`.
+- Default: `{colors.canvas}` background, `{colors.ink-subtle}` text, rounded `{rounded.pill}`, padding 6px 14px.
+- Selected: `{colors.surface-2}` background, `{colors.ink}` text — selected = surface lift.
+
+### Cards & Containers
+
+**`pricing-card`** — Each tier on `/pricing`.
+- Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.lg}`, padding 24px. 1px `{colors.hairline}` border.
+
+**`pricing-card-featured`** — Recommended tier — surface lift to surface-2.
+- Background `{colors.surface-2}`, otherwise identical structure.
+
+**`feature-card`** — Generic feature highlight tile.
+- Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.lg}`, padding 24px.
+
+**`product-screenshot-card`** — The dominant card type — frames a high-fidelity Linear app UI screenshot.
+- Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.xl}`, padding 24px.
+
+**`testimonial-card`** — Customer quote with avatar + name + role.
+- Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body-lg}`, rounded `{rounded.lg}`, padding 32px.
+
+**`customer-logo-tile`** — Small tile in the customer marquee.
+- Background `{colors.canvas}`, text `{colors.ink-subtle}`, type `{typography.caption}`, rounded `{rounded.xs}`, padding 16px.
+
+**`cta-banner`** — Closing CTA panel near page bottom.
+- Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.headline}`, rounded `{rounded.lg}`, padding 48px.
+
+### Inputs & Forms
+
+**`text-input`** + **`text-input-focused`** — Form fields on `/contact/sales` and signup overlays.
+- Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.md}`, padding 8px 12px.
+- Focused state retains the same surface; the focus ring is a 2px `{colors.primary-focus}` outline at 50% opacity.
+
+### Status & Build Page
+
+**`changelog-row`** — Each row in `/build` (changelog page) listing version, date, and changes.
+- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.xs}`, padding 24px 0. 1px `{colors.hairline}` bottom rule.
+
+**`status-badge`** — Small status pill.
+- Background `{colors.surface-2}`, text `{colors.ink-muted}`, type `{typography.caption}`, rounded `{rounded.pill}`, padding 2px 8px.
 
 ### Navigation
-Frosted glass top navigation bar:
-```css
-.nav-bar {
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(12px);
-  background: rgba(8, 10, 16, 0.8);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-```
 
----
+**`top-nav`** — Sticky dark bar with the Linear wordmark left, primary nav links centered, and a `button-secondary` ("Sign in") + `button-primary` ("Get started") pair right.
+- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-sm}`, height 56px.
 
-## 9. Component Patterns
+### Footer
 
-### Bento Card
-```
-.bento-card
-  ├── .card-body (padded content)
-  │     ├── .badge (micro uppercase tag)
-  │     ├── h3 (subheading, 18px)
-  │     └── p (secondary text, 13px)
-  └── .card-glow-overlay (absolute layer, radial gradient follower)
-```
-On hover, borders transition to high contrast and a subtle background glow follows the cursor.
+**`footer`** — Dense link grid on `{colors.canvas}` with the Linear wordmark left.
+- Background `{colors.canvas}`, text `{colors.ink-subtle}`, type `{typography.caption}`, padding 64px 32px.
 
----
+## Do's and Don'ts
 
-## 10. Transitions & Motion
+### Do
 
-- **Speed:** `200ms` or `300ms` with custom cubic-bezier curves (`cubic-bezier(0.16, 1, 0.3, 1)`).
-- **Transitions:** Applied to border colors, shadows, and transform offsets.
-- **Scroll:** Smooth anchor navigation.
+- Reserve `{colors.canvas}` (#010102) as the system's anchor surface — the faint blue tint is intentional.
+- Use `{colors.primary}` lavender ONLY for: brand mark, primary CTA, focus ring, link emphasis.
+- Use the four-step surface ladder for hierarchy. Avoid skipping levels.
+- Pair display weight 600 with body weight 400 — Linear resists 700+ display weights.
+- Apply negative letter-spacing aggressively on display.
+- Use product UI screenshots as the protagonist of every section.
+- Compose CTAs as `{rounded.md}` 8px corners.
 
----
+### Don't
 
-## 11. Responsive Breakpoints
+- Don't ship a light-mode marketing page.
+- Don't use lavender as a section background or card fill.
+- Don't introduce a second chromatic accent (orange, pink, green for marketing).
+- Don't add atmospheric gradients or spotlight cards.
+- Don't pill-round CTAs.
+- Don't use `#000000` true black as the canvas.
+- Don't combine multiple bright accents in product screenshot mockups.
 
-| Width | Behavior |
-|-------|----------|
-| 1024px | Grid switches from 3 columns to 2 columns |
-| 768px | Grid switches to single column, top navigation collapses |
+## Responsive Behavior
 
----
+### Breakpoints
 
-## 12. Iconography
+| Name | Width | Key Changes |
+|---|---|---|
+| Desktop-XL | 1440px | Default desktop layout |
+| Desktop | 1280px | Card grid 3-up maintained |
+| Tablet | 1024px | Card grid 3-up → 2-up |
+| Mobile-Lg | 768px | Pricing comparison becomes accordion; nav hamburger |
+| Mobile | 480px | Single-column; display-xl scales 80px → ~36px |
 
-- Minimal, wireframe-style icons (`stroke-width: 1.5` or `2`)
-- Colors match text hierarchy (secondary text color by default, switching to primary or accent on hover)
-- SVGs reside inline for optimal loading speeds and style synchronization
+### Touch Targets
 
----
+- CTAs hold ≥40px tap height across viewports.
+- Pricing tab pills hold ≥36px tap height; touch viewports grow to ≥44px.
+- Form inputs hold ≥44px tap target on touch.
 
-## 13. Code & Inline Elements
+### Collapsing Strategy
 
-- Inline code has a deep background `#161b22` and light text `#f0f3f6`
-- Blocks of code are enclosed in thin borders with rounded corners (`8px`)
-- Links are styled with the brand purple accent, shifting to white or glowing underline on hover
+- **Top nav**: links collapse to hamburger below 768px.
+- **Card grids**: 3-up → 2-up at 1024px → 1-up below 768px.
+- **Pricing comparison**: per-tier accordion below 768px.
+- **Display type**: `{typography.display-xl}` 80px scales toward `{typography.display-md}` 40px on mobile.
 
----
+### Image Behavior
 
-## 14. Anti-Patterns (What This System Avoids)
+- Product UI screenshots maintain aspect ratio and never crop.
+- Customer logos in the marquee may collapse from 6-up to 3-up below 768px.
 
-- No standard grays — background and shadows are space-navy tinted
-- No heavy solid boxes — uses gradients and borders to structure layers
-- No massive border-radii — cards are constrained to `12px` for a professional, sharp look
-- No slow animations — transitions are snappy (`<300ms`) to maintain responsiveness
-- No visual clutter — minimal icon count, strict density rules
+## Iteration Guide
+
+1. Focus on ONE component at a time and reference it by its `components:` token name.
+2. When introducing a section, decide first which surface lift it lives on.
+3. Default body to `{typography.body}` at weight 400.
+4. Run `npx @google/design.md lint DESIGN.md` after edits.
+5. Add new variants as separate component entries.
+6. Treat lavender as scarce: brand mark, primary CTA, focus, link emphasis.
+7. Lead every section with a product UI screenshot.
+
+## Known Gaps
+
+- The four-step surface ladder values are extracted directly from Linear's `--color-bg-level-3`, `--color-line-tint`, etc. CSS variables; they are Linear's canonical surface spec.
+- Form-field error and validation styling is not visible on the inspected pages.
+- Light mode is not documented because the marketing site does not ship a light theme.
+- Linear's actual product UI uses a richer color-tag palette (red, orange, yellow, green, blue, purple) for issue priorities and project labels — those colors live in the in-product surfaces shown in mockups.
+- The custom display, text, and mono families are proprietary; an open-source substitute is acceptable.
 </textarea>
+
 <script>
   function copyMarkdownSpec() {
     const mdText = document.getElementById('markdown-spec-content').value;
     navigator.clipboard.writeText(mdText).then(() => {
       const btn = document.getElementById('copy-md-btn');
       const originalHTML = btn.innerHTML;
-      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
-      btn.style.borderColor = 'var(--accent-purple)';
+      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+      btn.style.borderColor = 'var(--accent-vue)';
       setTimeout(() => {
         btn.innerHTML = originalHTML;
         btn.style.borderColor = '';
@@ -773,6 +1282,67 @@ On hover, borders transition to high contrast and a subtle background glow follo
       console.error(err);
       alert('Failed to copy: ' + err);
     });
+  }
+
+  function copyColor(hex, el) {
+    navigator.clipboard.writeText(hex).then(() => {
+      const hexEl = el.querySelector('.hex');
+      const originalText = hexEl.innerText;
+      hexEl.innerText = 'Copied!';
+      hexEl.style.color = 'var(--accent-vue)';
+      hexEl.style.fontWeight = 'bold';
+      setTimeout(() => {
+        hexEl.innerText = originalText;
+        hexEl.style.color = '';
+        hexEl.style.fontWeight = '';
+      }, 1000);
+    });
+  }
+
+  function updateTypoPreviews(val) {
+    const previews = document.querySelectorAll('.typo-preview-text');
+    previews.forEach(p => {
+      p.innerText = val.trim() || 'The quick brown fox jumps over the lazy dog';
+    });
+  }
+
+  function setSimWidth(mode) {
+    const container = document.getElementById('viewport-sim-container');
+    const indicator = document.getElementById('sim-width-indicator');
+    const cols = document.getElementById('sim-layout-columns');
+    const btnMobile = document.getElementById('btn-sim-mobile');
+    const btnTablet = document.getElementById('btn-sim-tablet');
+    const btnDesktop = document.getElementById('btn-sim-desktop');
+    
+    // Reset button styles
+    [btnMobile, btnTablet, btnDesktop].forEach(btn => {
+      if (btn) {
+        btn.style.background = 'var(--bg-base)';
+        btn.style.borderColor = 'var(--border-color)';
+        btn.style.color = 'var(--text-primary)';
+      }
+    });
+    
+    const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
+    if (activeBtn) {
+      activeBtn.style.background = 'var(--accent-vue-glow)';
+      activeBtn.style.borderColor = 'var(--accent-vue)';
+      activeBtn.style.color = 'var(--accent-vue)';
+    }
+    
+    if (mode === 'mobile') {
+      container.style.maxWidth = '375px';
+      indicator.innerText = 'Width: 375px (Mobile < 768px)';
+      cols.style.gridTemplateColumns = '1fr';
+    } else if (mode === 'tablet') {
+      container.style.maxWidth = '600px';
+      indicator.innerText = 'Width: 600px (Tablet 768px-1024px)';
+      cols.style.gridTemplateColumns = '1fr 1fr';
+    } else {
+      container.style.maxWidth = '800px';
+      indicator.innerText = 'Width: 800px (Desktop > 1024px)';
+      cols.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    }
   }
 </script>
 </body>

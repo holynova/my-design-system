@@ -1,0 +1,1340 @@
+<!-- Design System — ClickHouse Design System -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System — ClickHouse Design System</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
+  :root {
+    --font-sans: 'Outfit', system-ui, sans-serif;
+    --font-serif: Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --bg-base: #0a0a0a;
+    --bg-surface: #1a1a1a;
+    --border-color: #2a2a2a;
+    --border-dark: #3a3a3a;
+    
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #888888;
+    
+    --accent-vue: #faff69;
+    --accent-vue-hover: #e6eb52;
+    --accent-vue-glow: rgba(250, 255, 105, 0.08);
+    
+    --radius-lg: 8px;
+    --radius-md: 6px;
+    --radius-sm: 4px;
+    --radius-pill: 999px;
+    
+    --shadow-flat: none;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    
+    --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ═══════════════════ RESET & BASE ═══════════════════ */
+  *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    line-height: 1.6;
+    padding-bottom: 120px;
+  }
+
+  a { color: var(--accent-vue); text-decoration: none; transition: color var(--transition-base); }
+  a:hover { color: var(--accent-vue-hover); }
+  hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
+  pre, code { font-family: var(--font-mono); }
+  code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
+  
+  pre {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 16px 20px;
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 20px 0;
+    position: relative;
+  }
+  pre::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════ LAYOUT ═══════════════════ */
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    padding: 80px 0 48px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .masthead-logo {
+    width: 48px; height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--accent-vue);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px var(--accent-vue-glow);
+  }
+  .masthead-logo svg { width: 26px; height: 26px; fill: currentColor; }
+  .masthead h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+  .masthead .sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .back-home-link, #copy-md-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    background: var(--bg-base);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  .back-home-link:hover, #copy-md-btn:hover {
+    border-color: var(--accent-vue);
+    box-shadow: 0 0 12px var(--accent-vue-glow);
+    background: var(--bg-surface);
+  }
+
+  /* TWO-COLUMN GRID */
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .layout-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    position: sticky;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .sidebar-section { display: flex; flex-direction: column; gap: 6px; }
+  .sidebar-heading {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .sidebar a {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+  }
+  .sidebar a:hover, .sidebar a.active {
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    box-shadow: inset 0 0 0 1px var(--border-color);
+  }
+
+  /* ═══════════════════ COMPONENTS & SECTIONS ═══════════════════ */
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-top: 64px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-head .idx {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-vue);
+    font-weight: 600;
+  }
+  .sec-head h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  /* COLOR SWATCHES */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .swatch {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color var(--transition-base);
+  }
+  .swatch:hover { border-color: var(--border-dark); }
+  .swatch .color-block { height: 72px; }
+  .swatch .color-label {
+    padding: 12px;
+    font-size: 12px;
+    background: var(--bg-surface);
+  }
+  .swatch .color-label .name { font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+  .swatch .color-label .hex { color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-bottom: 32px;
+  }
+  th, td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  th {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.01);
+  }
+  td { color: var(--text-secondary); }
+  tr:hover td { color: var(--text-primary); }
+  td:first-child { font-weight: 600; color: var(--text-primary); }
+
+  /* TYPE SPECIMEN */
+  .type-spec { margin-bottom: 32px; }
+  .type-title { font-size: 38px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .type-h2 { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: -0.015em; margin: 24px 0 8px; }
+  .type-body { font-size: 16px; line-height: 1.6; color: var(--text-primary); }
+  .type-caption { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 4px; margin-bottom: 16px; }
+
+  /* COMPONENT DEMOS */
+  .product-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    max-width: 420px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-dark);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  }
+  .product-card h3 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .product-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px; }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    background: var(--bg-base);
+    transition: all var(--transition-base);
+  }
+  .pill:hover { border-color: var(--border-dark); color: var(--text-primary); }
+  .pill.active { background: var(--accent-vue-glow); border-color: var(--accent-vue); color: var(--accent-vue); }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+  }
+  footer a { color: var(--text-primary); }
+
+  body { font-family: var(--font-sans); background-color: var(--bg-base); color: var(--text-primary); } td { color: #cccccc !important; } tr:hover td { color: #ffffff !important; } th { color: #888888 !important; } code { background: #121212 !important; color: #faff69 !important; border: 1px solid #2a2a2a; } pre { background: #121212 !important; border-color: #2a2a2a; } .back-home-link, #copy-md-btn { background: #121212; border-color: #2a2a2a; color: #ffffff; } .back-home-link:hover, #copy-md-btn:hover { background: #1a1a1a; border-color: var(--accent-vue); color: var(--accent-vue); } .swatch .color-label { background: #121212 !important; border-top: 1px solid #2a2a2a; color: #fff; } .swatch .color-label .name { color: #fff !important; } .swatch .color-label .hex { color: #ccc !important; } .product-card { background: #121212 !important; border-color: #2a2a2a !important; } .pill { background: #121212 !important; border-color: #2a2a2a !important; color: #cccccc !important; } .pill.active { background: rgba(250, 255, 105, 0.08) !important; border-color: var(--accent-vue) !important; color: var(--accent-vue) !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ═══════════════════ MASTHEAD ═══════════════════ -->
+  <div class="masthead">
+    <div class="masthead-logo">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="18" rx="1" style="fill:currentColor;"/><rect x="11" y="3" width="6" height="18" rx="1" style="fill:currentColor;"/><rect x="19" y="3" width="2" height="18" rx="0.5" style="fill:currentColor;"/></svg>
+    </div>
+    <div>
+      <h1>ClickHouse Design System</h1>
+      <div class="sub">High-performance SQL analytics · Void-black and electric-yellow contrast...</div>
+    </div>
+    <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <a href="../index.html" class="back-home-link">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Home
+      </a>
+      <button id="copy-md-btn" onclick="copyMarkdownSpec()">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy Spec
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ TWO-COLUMN LAYOUT ═══════════════════ -->
+  <div class="layout-grid">
+    <nav class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Guidelines</div>
+        <a href="#visual-theme">01 Theme & Atmosphere</a>
+        <a href="#color-palette">02 Color Palette</a>
+        <a href="#typography">03 Typography Rules</a>
+        <a href="#layout">04 Layout Principles</a>
+        <a href="#depth-elevation">05 Depth & Elevation</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Showcase & Guardrails</div>
+        <a href="#components">06 Component Showcase</a>
+        <a href="#dos-donts">07 Do's and Don'ts</a>
+        <a href="#responsive">08 Responsive Behavior</a>
+        <a href="#prompt-guide">09 Agent Prompt Guide</a>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- 01 Visual Theme & Atmosphere -->
+      <div id="visual-theme" class="sec-head"><span class="idx">01</span><h2>Visual Theme & Atmosphere</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>ClickHouse's marketing surface is the highest-contrast interface in the database / data-platform category. The base atmosphere is <strong>near-pure black canvas</strong> (<code>{colors.canvas}</code> — #0a0a0a) with <strong>electric yellow</strong> (<code>{colors.primary}</code> — #faff69) as the singular brand voltage. The yellow handles every primary CTA, every stat-callout number, every "GET STARTED" badge — used scarcely on individual elements but generously on full-bleed yellow CTA cards. White typography in confident weight-700 sans-serif anchors the editorial body.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>The yellow + black pairing is what makes ClickHouse instantly recognizable. Where Snowflake uses cool blue gradients and Databricks uses red + slate, ClickHouse leans hard into one electric yellow that does all the brand work. Code blocks, terminal output, and product UI fragments embed directly in dark <code>{colors.surface-card}</code> (#1a1a1a) cards across every page.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>...</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong>Key Characteristics:</strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Near-pure black canvas (<code>{colors.canvas}</code> — #0a0a0a) with white type. The system has no light-mode marketing surface.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Live Visual Theme Representation:</p>
+        <div class="product-card" style="border:1px solid #2a2a2a; background:#121212; padding:20px; font-family:var(--font-mono); color:#faff69; text-align:center; font-size:14px;">SELECT * FROM brand_philosophy LIMIT 1; // High Speed Analytics</div>
+      </div>
+
+      <!-- 02 Color Palette & Roles -->
+      <div id="color-palette" class="sec-head"><span class="idx">02</span><h2>Color Palette & Roles</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Brand & Accent</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Primary (Electric Yellow)</strong> (<code>{colors.primary}</code> — #faff69): The signature brand color. All primary CTA backgrounds, large stat-callout numbers, full-bleed yellow CTA cards. The yellow is the brand.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Primary Active</strong> (<code>{colors.primary-active}</code> — #e6eb52): Press / hover-darker variant.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Surface</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Canvas</strong> (<code>{colors.canvas}</code> — #0a0a0a): The default page floor. Near-pure black.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Surface Soft</strong> (<code>{colors.surface-soft}</code> — #121212): Section dividers, very-soft band tints.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Text</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Ink / On Dark</strong> (<code>{colors.on-dark}</code> — #ffffff): All headline and primary text.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Body</strong> (<code>{colors.body}</code> — #cccccc): Default running-text color.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Semantic / Accent</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Accent Emerald</strong> (<code>{colors.accent-emerald}</code> — #22c55e): Success states, "active" status indicators in product UI.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Accent Rose</strong> (<code>{colors.accent-rose}</code> — #ef4444): Error states, "down" indicators.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      <div class="swatches" style="margin-top:20px;">
+        
+            <div class="swatch" onclick="copyColor('#faff69', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#faff69; "></div>
+                <div class="color-label">
+                    <div class="name">primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#faff69</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#e6eb52', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#e6eb52; "></div>
+                <div class="color-label">
+                    <div class="name">primary-active</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e6eb52</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#3a3a1f', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#3a3a1f; "></div>
+                <div class="color-label">
+                    <div class="name">primary-disabled</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#3a3a1f</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">ink</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#cccccc', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#cccccc; "></div>
+                <div class="color-label">
+                    <div class="name">body</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#cccccc</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#e6e6e6', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#e6e6e6; "></div>
+                <div class="color-label">
+                    <div class="name">body-strong</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e6e6e6</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#888888', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#888888; "></div>
+                <div class="color-label">
+                    <div class="name">muted</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#888888</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#5a5a5a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#5a5a5a; "></div>
+                <div class="color-label">
+                    <div class="name">muted-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#5a5a5a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#2a2a2a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#2a2a2a; "></div>
+                <div class="color-label">
+                    <div class="name">hairline</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#2a2a2a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#3a3a3a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#3a3a3a; "></div>
+                <div class="color-label">
+                    <div class="name">hairline-strong</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#3a3a3a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#0a0a0a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0a0a0a; "></div>
+                <div class="color-label">
+                    <div class="name">canvas</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0a0a0a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#121212', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#121212; "></div>
+                <div class="color-label">
+                    <div class="name">surface-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#121212</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#1a1a1a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#1a1a1a; "></div>
+                <div class="color-label">
+                    <div class="name">surface-card</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1a1a1a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#242424', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#242424; "></div>
+                <div class="color-label">
+                    <div class="name">surface-elevated</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#242424</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#faff69', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#faff69; "></div>
+                <div class="color-label">
+                    <div class="name">surface-yellow-band</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#faff69</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#0a0a0a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0a0a0a; "></div>
+                <div class="color-label">
+                    <div class="name">on-primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0a0a0a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">on-dark</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#0a0a0a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#0a0a0a; "></div>
+                <div class="color-label">
+                    <div class="name">on-yellow</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0a0a0a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#22c55e', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#22c55e; "></div>
+                <div class="color-label">
+                    <div class="name">accent-emerald</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#22c55e</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ef4444', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ef4444; "></div>
+                <div class="color-label">
+                    <div class="name">accent-rose</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ef4444</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#3b82f6', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#3b82f6; "></div>
+                <div class="color-label">
+                    <div class="name">accent-blue</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#3b82f6</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#22c55e', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#22c55e; "></div>
+                <div class="color-label">
+                    <div class="name">success</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#22c55e</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f59e0b', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f59e0b; "></div>
+                <div class="color-label">
+                    <div class="name">warning</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f59e0b</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ef4444', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ef4444; "></div>
+                <div class="color-label">
+                    <div class="name">error</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ef4444</div>
+                </div>
+            </div>
+            
+      </div>
+
+      <!-- 03 Typography Rules -->
+      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography Rules</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Font Family</h3>
+The system runs <strong>Inter</strong> for everything — display, body, navigation, buttons, captions. <strong>JetBrains Mono</strong> handles code blocks. The fallback stack walks <code>-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif</code>.
+<p style='margin-bottom:16px; line-height:1.6;'>The single-family approach is deliberate: Inter at weight 700 + 600 + 400 covers the entire hierarchy without needing a serif or display counter-voice. The geometric humanist character of Inter at confident bold weight gives ClickHouse a precise, engineered feel that matches the database's performance-first positioning.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Hierarchy</h3>
+<table><tr><th>Token</th><th>Size</th><th>Weight</th><th>Line Height</th><th>Letter Spacing</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Principles</h3>
+...
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Note on Font Substitutes</h3>
+      
+        <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
+            <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
+            <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+        
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-xl</span>
+                        <span>size: 72px | weight: 700 | height: 1.05 | spacing: -2.5px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:72px; font-weight:700; line-height:1.05; letter-spacing:-2.5px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-lg</span>
+                        <span>size: 56px | weight: 700 | height: 1.1 | spacing: -2px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:56px; font-weight:700; line-height:1.1; letter-spacing:-2px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-md</span>
+                        <span>size: 40px | weight: 700 | height: 1.15 | spacing: -1.5px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:40px; font-weight:700; line-height:1.15; letter-spacing:-1.5px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-sm</span>
+                        <span>size: 32px | weight: 700 | height: 1.2 | spacing: -1px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:32px; font-weight:700; line-height:1.2; letter-spacing:-1px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">title-lg</span>
+                        <span>size: 24px | weight: 700 | height: 1.3 | spacing: -0.3px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:24px; font-weight:700; line-height:1.3; letter-spacing:-0.3px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">title-md</span>
+                        <span>size: 18px | weight: 600 | height: 1.4 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:600; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">title-sm</span>
+                        <span>size: 16px | weight: 600 | height: 1.4 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:600; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">stat-display</span>
+                        <span>size: 56px | weight: 700 | height: 1.0 | spacing: -1.5px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:56px; font-weight:700; line-height:1.0; letter-spacing:-1.5px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-md</span>
+                        <span>size: 16px | weight: 400 | height: 1.55 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.55; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-sm</span>
+                        <span>size: 14px | weight: 400 | height: 1.55 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:400; line-height:1.55; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">caption</span>
+                        <span>size: 13px | weight: 500 | height: 1.4 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:13px; font-weight:500; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">caption-uppercase</span>
+                        <span>size: 12px | weight: 600 | height: 1.4 | spacing: 1.5px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:12px; font-weight:600; line-height:1.4; letter-spacing:1.5px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">code</span>
+                        <span>size: 14px | weight: 400 | height: 1.55 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-mono); font-size:14px; font-weight:400; line-height:1.55; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">button</span>
+                        <span>size: 14px | weight: 600 | height: 1 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:600; line-height:1; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">nav-link</span>
+                        <span>size: 14px | weight: 500 | height: 1.4 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:500; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                </div>
+
+      <!-- 04 Layout Principles -->
+      <div id="layout" class="sec-head"><span class="idx">04</span><h2>Layout Principles</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Spacing System</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Base unit:</strong> 4px.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Tokens:</strong> <code>{spacing.xxs}</code> 4px · <code>{spacing.xs}</code> 8px · <code>{spacing.sm}</code> 12px · <code>{spacing.md}</code> 16px · <code>{spacing.lg}</code> 24px · <code>{spacing.xl}</code> 32px · <code>{spacing.xxl}</code> 48px · <code>{spacing.section}</code> 96px.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Grid & Container</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Max content width:</strong> ~1280px centered.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Editorial body:</strong> Single 12-column grid; hero often uses 7/5 split (h1 left, code mockup right).</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Whitespace Philosophy</h3>
+ClickHouse uses dense, slightly-compressed whitespace appropriate for a developer-tooling brand — generous enough to read editorially, tight enough to feel "engineering-grade" rather than "marketing-soft." Section rhythm at 96px is standard; card internal padding stays at 32px for feature cards.
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
+        
+                <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; font-family:var(--font-mono); font-size:11px;">
+                    <div style="background:#121212; border:1px solid #2a2a2a; padding:10px; color:#faff69; text-align:center;">Grid Card 1</div>
+                    <div style="background:#121212; border:1px solid #2a2a2a; padding:10px; color:#faff69; text-align:center;">Grid Card 2</div>
+                    <div style="background:#121212; border:1px solid #2a2a2a; padding:10px; color:#faff69; text-align:center;">Grid Card 3</div>
+                </div>
+            
+        
+    <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
+        <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
+        
+        <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">3</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">4</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">5</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">6</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">7</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">8</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">9</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">10</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
+        </div>
+        
+        <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
+            <div>Gutter spacing: 16px / 24px</div>
+            <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
+            <div>Max Container Width: 1200px</div>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 05 Depth & Elevation -->
+      <div id="depth-elevation" class="sec-head"><span class="idx">05</span><h2>Depth & Elevation</h2></div>
+      <table><tr><th>Level</th><th>Treatment</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table>The system uses no drop shadows. Depth comes from the contrast between black canvas and <code>{colors.surface-card}</code> (a barely-lighter-than-canvas tone) — the contrast is subtle, more like an "engineering-grade dim panel" than an "elevated card."
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Decorative Depth</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Code-window cards carry their own internal product chrome — line numbers, syntax highlighting, status bars at the bottom — adding visual density without external shadows.</li><li style='margin-left:20px; margin-bottom:6px;'>The yellow-on-black contrast does most of the elevation work for CTAs.</li></ul>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
+        <div class="product-card" style="border:1px solid #2a2a2a; background:#121212; box-shadow: 0 12px 30px rgba(250, 255, 105, 0.08); padding:20px;"><strong>Glowing Elevation</strong><br/>ClickHouse elevates dark cards by using a subtle yellow glow effect (`rgba(250, 255, 105, 0.08)`).</div>
+        
+    <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for background layers, sidebar headers, or baseline borders.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-md);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Low Elevation (Level 1 / Card)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for floating product elements, cards, and hover states.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-lg);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">High Elevation (Level 2 / Popover & Dropdown)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
+        </div>
+    </div>
+    
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
+        
+    <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-sm</span>
+            <span style="color:var(--text-muted); margin-top:4px;">4px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-md</span>
+            <span style="color:var(--text-muted); margin-top:4px;">6px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-lg</span>
+            <span style="color:var(--text-muted); margin-top:4px;">8px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-pill); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-pill</span>
+            <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 06 Component Stylings -->
+      <div id="components" class="sec-head"><span class="idx">06</span><h2>Component Stylings</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Border Radius Scale</h3>
+<table><tr><th>Token</th><th>Value</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Top Navigation</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>top-nav</code></strong> — Black nav bar pinned to top. 64px tall, <code>{colors.canvas}</code> background. Carries the ClickHouse logo + wordmark at left, primary horizontal menu (Product, Use Cases, Pricing, Resources, Customers) center-left, right-side cluster with "Sign in" + "Get Started" <code>{component.button-primary}</code> (yellow). Menu items in <code>{typography.nav-link}</code> (Inter 14px / 500).</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Buttons</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary</code></strong> — The signature yellow CTA. Background <code>{colors.primary}</code> (#faff69), text <code>{colors.on-primary}</code> (black), type <code>{typography.button}</code> (Inter 14px / 600), padding 12px × 20px, height 40px, rounded <code>{rounded.md}</code> (8px). The yellow + black combination is iconic.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-secondary</code></strong> — Dark surface card button. Background <code>{colors.surface-card}</code>, text <code>{colors.on-dark}</code>, same shape as primary.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-text-link</code></strong> — Inline text button, no background. Used for "Sign in" and inline link CTAs.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>text-link</code></strong> — Inline body links in <code>{colors.primary}</code> (yellow on dark). Underlined.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-icon-circular</code></strong> — 36 × 36 circular icon button on dark.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Cards & Containers</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>hero-band</code></strong> — Black-canvas hero with 7-5 grid: h1 + sub-headline + button row on the left, code-window or product mockup on the right. Vertical padding <code>{spacing.section}</code> (96px).</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>hero-stat-card</code></strong> — Yellow stat-display numbers ("779+", "47k+") inline on the canvas. No card surface — just yellow text in <code>{typography.stat-display}</code> (56px / 700).</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>feature-card-yellow</code></strong> — Full-bleed yellow card ("Built for every modern data challenge"). Background <code>{colors.primary}</code>, text <code>{colors.on-yellow}</code> (black), rounded <code>{rounded.lg}</code> (12px), padding <code>{spacing.xl}</code> (32px). The yellow card IS the visual emphasis.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>feature-card-dark</code></strong> — Standard dark feature card. Background <code>{colors.surface-card}</code>, text <code>{colors.on-dark}</code>, rounded <code>{rounded.lg}</code>, padding <code>{spacing.xl}</code> (32px).</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>code-window-card</code></strong> — Dark card showing a SQL code block. Background <code>{colors.surface-card}</code>, code in JetBrains Mono with syntax highlighting, rounded <code>{rounded.lg}</code>, padding <code>{spacing.lg}</code> (24px). Often the hero's right-side artifact on developer-focused pages.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>product-mockup-card</code></strong> — Card showing actual ClickHouse product UI (query editor, dashboard, monitoring panel). Same shape as <code>{component.feature-card-dark}</code> but with embedded product chrome inside.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>pricing-tier-card</code></strong> — Standard tier card. Background <code>{colors.surface-card}</code>, rounded <code>{rounded.lg}</code>, padding <code>{spacing.xl}</code> (32px).</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>pricing-tier-card-featured</code></strong> — The featured tier flips to <code>{colors.primary}</code> (yellow). The yellow surface IS the featured signal.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>stat-callout</code></strong> — Inline yellow stat numbers ("779+", "2.8k+", "47k+"). Transparent background, text <code>{colors.primary}</code>, type <code>{typography.stat-display}</code>. Used as a flat layout block, not a card with surface.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>events-card</code></strong> — Used on /company/events. Dark card with event title, date in <code>{typography.caption-uppercase}</code>, location, and a "Register" CTA. Rounded <code>{rounded.lg}</code>, padding <code>{spacing.lg}</code>.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>customer-logo-strip</code></strong> — Horizontal monochrome customer-logo strip. Background <code>{colors.canvas}</code>, logos in <code>{colors.muted}</code>, vertical padding <code>{spacing.xl}</code> (32px).</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Inputs & Forms</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>text-input</code></strong> — Dark text input. Background <code>{colors.surface-card}</code>, text <code>{colors.on-dark}</code>, rounded <code>{rounded.md}</code> (8px), padding 10px × 14px, height 40px.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>text-input-focused</code></strong> — Border thickens to <code>{colors.primary}</code> (yellow) for emphasis.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Tags / Badges</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>badge-pill</code></strong> — Small dark pill label. Background <code>{colors.surface-card}</code>, text <code>{colors.on-dark}</code>, type <code>{typography.caption}</code>, rounded <code>{rounded.pill}</code>.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>badge-yellow</code></strong> — Yellow pill for "NEW", "GET STARTED" emphasis. Background <code>{colors.primary}</code>, text <code>{colors.on-primary}</code>, type <code>{typography.caption-uppercase}</code>, rounded <code>{rounded.pill}</code>.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Tab / Filter</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>category-tab</code></strong> + <strong><code>category-tab-active</code></strong> — Dark tab navigation. Inactive: transparent + muted text. Active: surface-card background + on-dark text. Padding 8px × 14px, rounded <code>{rounded.md}</code>.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">CTA / Footer</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>cta-band-yellow</code></strong> — A pre-footer "Deploy your way" CTA band. Full yellow fill, black type, rounded <code>{rounded.lg}</code>, padding 64px. Carries an h2 in <code>{typography.display-md}</code> and a CTA — usually a black-button on the yellow surface.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>footer</code></strong> — Black footer that closes every page. Background <code>{colors.canvas}</code>, text <code>{colors.muted}</code>. 4-column link list at desktop covering Product / Use Cases / Resources / Company. Vertical padding 64px. The ClickHouse wordmark sits at the top in <code>{colors.on-dark}</code>.</p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; font-family:var(--font-mono);">Interactive Component Demonstrations:</p>
+        
+                <div style="display:flex; flex-wrap:wrap; gap:12px;">
+                    <button style="background:#faff69; color:#0a0a0a; border:none; padding:10px 20px; font-family:var(--font-sans); font-size:13px; font-weight:700; border-radius:4px; cursor:pointer;">Electric Yellow Button</button>
+                    <button style="background:transparent; color:#fff; border:1px solid #3a3a3a; padding:10px 20px; font-family:var(--font-sans); font-size:13px; font-weight:700; border-radius:4px; cursor:pointer;">Outlined Secondary</button>
+                </div>
+            
+      </div>
+
+      <!-- 07 Do's and Don'ts -->
+      <div id="dos-donts" class="sec-head"><span class="idx">07</span><h2>Do's and Don'ts</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Do</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Anchor every page on the black canvas. The yellow + black pairing is the brand voltage.</li><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{colors.primary}</code> (yellow) for primary CTAs, stat-callout numbers, and full-bleed yellow CTA bands. The yellow's scarcity at the element level + abundance at the band level is what makes it powerful.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce a second brand color. ClickHouse is monochromatic + yellow.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't bold display weight beyond 700 or use weight 500 for headlines. The hierarchy depends on size, not on weight gradation.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
+        <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
+            <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                <p style='margin-bottom:16px; line-height:1.6;'>n't
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce a second brand color. ClickHouse is monochromatic + yellow.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't bold display weight beyond 700 or use weight 500 for headlines. The hierarchy depends on size, not on weight gradation.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+            </div>
+        </div>
+        <div style="border:1px solid #ef4444; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(239, 68, 68, 0.015); position:relative;">
+            <span style="background:#ef4444; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">❌ Discouraged / Don't</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                
+            </div>
+        </div>
+    </div>
+    
+
+      <!-- 08 Responsive Behavior -->
+      <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Breakpoints</h3>
+<table><tr><th>Name</th><th>Width</th><th>Key Changes</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Touch Targets</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><code>{component.button-primary}</code> at minimum 40 × 40px.</li><li style='margin-left:20px; margin-bottom:6px;'><code>{component.button-icon-circular}</code> at exactly 36 × 36 — slightly under WCAG 44, visually centered.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Collapsing Strategy</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Top nav collapses to hamburger at &lt; 768px.</li><li style='margin-left:20px; margin-bottom:6px;'>Hero 7-5 grid → single-column on mobile.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Image Behavior</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Code blocks inside dark mockups stay at fixed font-size; horizontal scroll on mobile rather than wrapping.</li><li style='margin-left:20px; margin-bottom:6px;'>Customer logos in monochrome strip retain native widths; row wraps on mobile.</li></ul>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
+        <div style="border:1px solid #2a2a2a; border-radius:6px; padding:16px; background:#121212; text-align:center; font-size:13px; color:var(--text-secondary);">📱 Mobile scaling drops card counts to 1-column layout and wraps wide query tables into scroll containers.</div>
+        
+    <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
+        <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
+            <div style="display:flex; gap:6px;">
+                <button id="btn-sim-mobile" onclick="setSimWidth('mobile')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Mobile</button>
+                <button id="btn-sim-tablet" onclick="setSimWidth('tablet')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Tablet</button>
+                <button id="btn-sim-desktop" onclick="setSimWidth('desktop')" style="padding:4px 10px; border:1px solid var(--accent-vue); background:var(--accent-vue-glow); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--accent-vue); transition:all var(--transition-base);">Desktop</button>
+            </div>
+        </div>
+        <div style="padding:28px 16px; display:flex; justify-content:center; background:rgba(0,0,0,0.005); overflow:hidden;">
+            <div id="viewport-sim-container" style="width:100%; max-width:800px; transition:max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1); border:1.5px dashed var(--border-dark); border-radius:var(--radius-md); background:var(--bg-base); padding:20px; overflow:hidden; box-sizing:border-box;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                    <span id="sim-width-indicator" style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); text-transform:uppercase;">Width: 800px (Desktop Mode)</span>
+                    <span style="font-size:11px; font-weight:700; color:var(--accent-vue); font-family:var(--font-sans);">Grid Container</span>
+                </div>
+                <div id="sim-layout-columns" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; transition:all 0.3s;">
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Primary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Adjusts layout width</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Secondary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Folds on viewport change</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Sidebar Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Stacks to bottom on mobile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 09 Agent Prompt Guide -->
+      <div id="prompt-guide" class="sec-head"><span class="idx">09</span><h2>Agent Prompt Guide</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>1. Focus on ONE component at a time. Reference its YAML key (<code>{component.code-window-card}</code>, <code>{component.pricing-tier-card-featured}</code>).
+2. Variants of an existing component (<code>-active</code>, <code>-disabled</code>, <code>-focused</code>) live as separate entries.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Copyable Agent Integration Prompt:</p>
+        <pre style="background:#121212; border-color:#2a2a2a; color:#faff69;"><code>"Build a high-performance DB console mockup: void black base (#0a0a0a), electric yellow actions (#faff69), and monospace tables."</code></pre>
+      </div>
+
+      <!-- 10 Design Tokens Table -->
+      <div id="tokens-table" class="sec-head"><span class="idx">10</span><h2>Full System Design Tokens</h2></div>
+      <p style="margin-bottom:20px;">The parsed design tokens extracted from the core stylesheet of this design system:</p>
+      <table>
+        <tr><th>Design Token</th><th>Hex Value</th><th>System Palette Role</th></tr>
+        <tr><td>--primary</td><td>#faff69</td><td>System color representation for primary</td></tr><tr><td>--primary-active</td><td>#e6eb52</td><td>System color representation for primary-active</td></tr><tr><td>--primary-disabled</td><td>#3a3a1f</td><td>System color representation for primary-disabled</td></tr><tr><td>--ink</td><td>#ffffff</td><td>System color representation for ink</td></tr><tr><td>--body</td><td>#cccccc</td><td>System color representation for body</td></tr><tr><td>--body-strong</td><td>#e6e6e6</td><td>System color representation for body-strong</td></tr><tr><td>--muted</td><td>#888888</td><td>System color representation for muted</td></tr><tr><td>--muted-soft</td><td>#5a5a5a</td><td>System color representation for muted-soft</td></tr><tr><td>--hairline</td><td>#2a2a2a</td><td>System color representation for hairline</td></tr><tr><td>--hairline-strong</td><td>#3a3a3a</td><td>System color representation for hairline-strong</td></tr><tr><td>--canvas</td><td>#0a0a0a</td><td>System color representation for canvas</td></tr><tr><td>--surface-soft</td><td>#121212</td><td>System color representation for surface-soft</td></tr><tr><td>--surface-card</td><td>#1a1a1a</td><td>System color representation for surface-card</td></tr><tr><td>--surface-elevated</td><td>#242424</td><td>System color representation for surface-elevated</td></tr><tr><td>--surface-yellow-band</td><td>#faff69</td><td>System color representation for surface-yellow-band</td></tr><tr><td>--on-primary</td><td>#0a0a0a</td><td>System color representation for on-primary</td></tr><tr><td>--on-dark</td><td>#ffffff</td><td>System color representation for on-dark</td></tr><tr><td>--on-yellow</td><td>#0a0a0a</td><td>System color representation for on-yellow</td></tr><tr><td>--accent-emerald</td><td>#22c55e</td><td>System color representation for accent-emerald</td></tr><tr><td>--accent-rose</td><td>#ef4444</td><td>System color representation for accent-rose</td></tr><tr><td>--accent-blue</td><td>#3b82f6</td><td>System color representation for accent-blue</td></tr><tr><td>--success</td><td>#22c55e</td><td>System color representation for success</td></tr><tr><td>--warning</td><td>#f59e0b</td><td>System color representation for warning</td></tr><tr><td>--error</td><td>#ef4444</td><td>System color representation for error</td></tr>
+      </table>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer>
+    <div><strong>ClickHouse Design System Spec</strong> · Extracted from awesome-design-md</div>
+    <div>
+      <a href="../index.html">Design System Hub</a>
+    </div>
+  </footer>
+
+</div>
+
+<textarea id="markdown-spec-content" style="display:none;">## Overview
+
+ClickHouse's marketing surface is the highest-contrast interface in the database / data-platform category. The base atmosphere is **near-pure black canvas** (`{colors.canvas}` — #0a0a0a) with **electric yellow** (`{colors.primary}` — #faff69) as the singular brand voltage. The yellow handles every primary CTA, every stat-callout number, every "GET STARTED" badge — used scarcely on individual elements but generously on full-bleed yellow CTA cards. White typography in confident weight-700 sans-serif anchors the editorial body.
+
+The yellow + black pairing is what makes ClickHouse instantly recognizable. Where Snowflake uses cool blue gradients and Databricks uses red + slate, ClickHouse leans hard into one electric yellow that does all the brand work. Code blocks, terminal output, and product UI fragments embed directly in dark `{colors.surface-card}` (#1a1a1a) cards across every page.
+
+Type voice runs **Inter** at confident weights — 700 for display headlines (with negative letter-spacing -1 to -2.5px), 600 for sub-titles and buttons, 400 for body. The system has no display-serif counter-voice; everything is one geometric humanist sans, scaled and weighted for hierarchy.
+
+**Key Characteristics:**
+- Near-pure black canvas (`{colors.canvas}` — #0a0a0a) with white type. The system has no light-mode marketing surface.
+- Electric yellow primary (`{colors.primary}` — #faff69). Used on primary CTAs, large stat-callout numbers ("2.8k+", "74k+"), and full-bleed yellow CTA bands.
+- Inter at weight 700 for display, weight 600 for sub-titles + buttons, weight 400 for body. No serif counterpoint.
+- Dark surface cards (`{colors.surface-card}` — #1a1a1a) for feature cards, code windows, and product mockups. Cards barely lighter than canvas — color-block contrast is subtle.
+- Code blocks render in JetBrains Mono inside `{colors.surface-card}`. SQL syntax-highlighted in muted blues / yellows / grays.
+- Stat numbers in yellow + sans-700 + huge size carry the credibility moment ("779+", "2.8k+", "47k+" community / contributor / star counts).
+- Border radius is hierarchical: `{rounded.md}` (8px) for buttons, `{rounded.lg}` (12px) for content cards. No pill except in tag badges.
+- Section rhythm `{spacing.section}` (96px) between major editorial bands.
+
+## Colors
+
+### Brand & Accent
+- **Primary (Electric Yellow)** (`{colors.primary}` — #faff69): The signature brand color. All primary CTA backgrounds, large stat-callout numbers, full-bleed yellow CTA cards. The yellow is the brand.
+- **Primary Active** (`{colors.primary-active}` — #e6eb52): Press / hover-darker variant.
+- **Primary Disabled** (`{colors.primary-disabled}` — #3a3a1f): Desaturated dark-yellow on dark canvas.
+
+### Surface
+- **Canvas** (`{colors.canvas}` — #0a0a0a): The default page floor. Near-pure black.
+- **Surface Soft** (`{colors.surface-soft}` — #121212): Section dividers, very-soft band tints.
+- **Surface Card** (`{colors.surface-card}` — #1a1a1a): Feature cards, code windows, product mockups, pricing tier cards.
+- **Surface Elevated** (`{colors.surface-elevated}` — #242424): Nested cards inside larger dark cards.
+- **Surface Yellow Band** (`{colors.surface-yellow-band}` — #faff69): The yellow CTA card / band fill — same hex as primary.
+- **Hairline** (`{colors.hairline}` — #2a2a2a): 1px borders on cards.
+- **Hairline Strong** (`{colors.hairline-strong}` — #3a3a3a): Heavier divider on input underlines and emphasis.
+
+### Text
+- **Ink / On Dark** (`{colors.on-dark}` — #ffffff): All headline and primary text.
+- **Body** (`{colors.body}` — #cccccc): Default running-text color.
+- **Body Strong** (`{colors.body-strong}` — #e6e6e6): Emphasized paragraphs.
+- **Muted** (`{colors.muted}` — #888888): Footer links, captions, breadcrumbs.
+- **Muted Soft** (`{colors.muted-soft}` — #5a5a5a): Tertiary text — fine print.
+- **On Primary / On Yellow** (`{colors.on-primary}` / `{colors.on-yellow}` — #0a0a0a): Black text on yellow CTAs and yellow CTA bands. The high-contrast yellow + black combo is the brand action signal.
+
+### Semantic / Accent
+- **Accent Emerald** (`{colors.accent-emerald}` — #22c55e): Success states, "active" status indicators in product UI.
+- **Accent Rose** (`{colors.accent-rose}` — #ef4444): Error states, "down" indicators.
+- **Accent Blue** (`{colors.accent-blue}` — #3b82f6): Info states, code-syntax highlighting.
+
+## Typography
+
+### Font Family
+The system runs **Inter** for everything — display, body, navigation, buttons, captions. **JetBrains Mono** handles code blocks. The fallback stack walks `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`.
+
+The single-family approach is deliberate: Inter at weight 700 + 600 + 400 covers the entire hierarchy without needing a serif or display counter-voice. The geometric humanist character of Inter at confident bold weight gives ClickHouse a precise, engineered feel that matches the database's performance-first positioning.
+
+### Hierarchy
+
+| Token | Size | Weight | Line Height | Letter Spacing | Use |
+|---|---|---|---|---|---|
+| `{typography.display-xl}` | 72px | 700 | 1.05 | -2.5px | Homepage h1 ("The leading database for AI") |
+| `{typography.display-lg}` | 56px | 700 | 1.1 | -2px | Section heads |
+| `{typography.display-md}` | 40px | 700 | 1.15 | -1.5px | Sub-section heads, CTA-band heads |
+| `{typography.display-sm}` | 32px | 700 | 1.2 | -1px | Card titles, pricing tier prices |
+| `{typography.title-lg}` | 24px | 700 | 1.3 | -0.3px | Pricing plan names, larger feature titles |
+| `{typography.title-md}` | 18px | 600 | 1.4 | 0 | Card titles, intro paragraphs |
+| `{typography.title-sm}` | 16px | 600 | 1.4 | 0 | Small card titles, list labels |
+| `{typography.stat-display}` | 56px | 700 | 1.0 | -1.5px | Stat callouts ("779+", "47k+") — ALWAYS yellow |
+| `{typography.body-md}` | 16px | 400 | 1.55 | 0 | Default running-text |
+| `{typography.body-sm}` | 14px | 400 | 1.55 | 0 | Footer body, fine-print |
+| `{typography.caption}` | 13px | 500 | 1.4 | 0 | Badge labels, captions |
+| `{typography.caption-uppercase}` | 12px | 600 | 1.4 | 1.5px | Section labels, "NEW" badges |
+| `{typography.code}` | 14px | 400 | 1.55 | 0 | Code blocks — JetBrains Mono |
+| `{typography.button}` | 14px | 600 | 1.0 | 0 | Standard button labels |
+| `{typography.nav-link}` | 14px | 500 | 1.4 | 0 | Top-nav menu items |
+
+### Principles
+Display weights stay at 700 across all sizes. Negative letter-spacing (-1 to -2.5px) is essential — Inter at weight 700 without negative tracking reads as too wide / Apple-marketing. The tightened tracking gives ClickHouse the precise, engineered feel.
+
+Body and labels stay at weights 400 / 500 / 600. The hierarchy is built on size + weight, not on family contrast.
+
+### Note on Font Substitutes
+Inter is open-source and the documented choice. **Söhne** is a close commercial alternative if licensed. **Geist** is another modern alternative.
+
+## Layout
+
+### Spacing System
+- **Base unit:** 4px.
+- **Tokens:** `{spacing.xxs}` 4px · `{spacing.xs}` 8px · `{spacing.sm}` 12px · `{spacing.md}` 16px · `{spacing.lg}` 24px · `{spacing.xl}` 32px · `{spacing.xxl}` 48px · `{spacing.section}` 96px.
+- **Section padding:** `{spacing.section}` (96px) between major bands.
+- **Card internal padding:** `{spacing.xl}` (32px) for feature cards, pricing tiers; `{spacing.lg}` (24px) for code-window cards and event cards.
+
+### Grid & Container
+- **Max content width:** ~1280px centered.
+- **Editorial body:** Single 12-column grid; hero often uses 7/5 split (h1 left, code mockup right).
+- **Feature card grids:** 3-up at desktop, 2-up at tablet, 1-up at mobile.
+- **Pricing grid:** 3-4 up at desktop, 1-up at mobile.
+
+### Whitespace Philosophy
+ClickHouse uses dense, slightly-compressed whitespace appropriate for a developer-tooling brand — generous enough to read editorially, tight enough to feel "engineering-grade" rather than "marketing-soft." Section rhythm at 96px is standard; card internal padding stays at 32px for feature cards.
+
+## Elevation & Depth
+
+| Level | Treatment | Use |
+|---|---|---|
+| Flat | No shadow, no border | Body sections, top nav, hero |
+| Soft hairline | 1px `{colors.hairline}` border | Code-window cards, content cards |
+| Surface card | `{colors.surface-card}` background — no shadow | Feature cards, pricing tiers, event cards |
+| Yellow band | `{colors.primary}` background — no shadow | Full-bleed yellow CTA cards / bands |
+
+The system uses no drop shadows. Depth comes from the contrast between black canvas and `{colors.surface-card}` (a barely-lighter-than-canvas tone) — the contrast is subtle, more like an "engineering-grade dim panel" than an "elevated card."
+
+### Decorative Depth
+- Code-window cards carry their own internal product chrome — line numbers, syntax highlighting, status bars at the bottom — adding visual density without external shadows.
+- The yellow-on-black contrast does most of the elevation work for CTAs.
+
+## Shapes
+
+### Border Radius Scale
+
+| Token | Value | Use |
+|---|---|---|
+| `{rounded.xs}` | 4px | Reserved for badge accents |
+| `{rounded.sm}` | 6px | Small inline buttons |
+| `{rounded.md}` | 8px | Standard CTA buttons, text inputs |
+| `{rounded.lg}` | 12px | Content cards, code-window cards, pricing tiers |
+| `{rounded.pill}` | 9999px | Badge pills |
+| `{rounded.full}` | 9999px / 50% | Avatars, icon buttons |
+
+## Components
+
+### Top Navigation
+
+**`top-nav`** — Black nav bar pinned to top. 64px tall, `{colors.canvas}` background. Carries the ClickHouse logo + wordmark at left, primary horizontal menu (Product, Use Cases, Pricing, Resources, Customers) center-left, right-side cluster with "Sign in" + "Get Started" `{component.button-primary}` (yellow). Menu items in `{typography.nav-link}` (Inter 14px / 500).
+
+### Buttons
+
+**`button-primary`** — The signature yellow CTA. Background `{colors.primary}` (#faff69), text `{colors.on-primary}` (black), type `{typography.button}` (Inter 14px / 600), padding 12px × 20px, height 40px, rounded `{rounded.md}` (8px). The yellow + black combination is iconic.
+
+**`button-secondary`** — Dark surface card button. Background `{colors.surface-card}`, text `{colors.on-dark}`, same shape as primary.
+
+**`button-text-link`** — Inline text button, no background. Used for "Sign in" and inline link CTAs.
+
+**`text-link`** — Inline body links in `{colors.primary}` (yellow on dark). Underlined.
+
+**`button-icon-circular`** — 36 × 36 circular icon button on dark.
+
+### Cards & Containers
+
+**`hero-band`** — Black-canvas hero with 7-5 grid: h1 + sub-headline + button row on the left, code-window or product mockup on the right. Vertical padding `{spacing.section}` (96px).
+
+**`hero-stat-card`** — Yellow stat-display numbers ("779+", "47k+") inline on the canvas. No card surface — just yellow text in `{typography.stat-display}` (56px / 700).
+
+**`feature-card-yellow`** — Full-bleed yellow card ("Built for every modern data challenge"). Background `{colors.primary}`, text `{colors.on-yellow}` (black), rounded `{rounded.lg}` (12px), padding `{spacing.xl}` (32px). The yellow card IS the visual emphasis.
+
+**`feature-card-dark`** — Standard dark feature card. Background `{colors.surface-card}`, text `{colors.on-dark}`, rounded `{rounded.lg}`, padding `{spacing.xl}` (32px).
+
+**`code-window-card`** — Dark card showing a SQL code block. Background `{colors.surface-card}`, code in JetBrains Mono with syntax highlighting, rounded `{rounded.lg}`, padding `{spacing.lg}` (24px). Often the hero's right-side artifact on developer-focused pages.
+
+**`product-mockup-card`** — Card showing actual ClickHouse product UI (query editor, dashboard, monitoring panel). Same shape as `{component.feature-card-dark}` but with embedded product chrome inside.
+
+**`pricing-tier-card`** — Standard tier card. Background `{colors.surface-card}`, rounded `{rounded.lg}`, padding `{spacing.xl}` (32px).
+
+**`pricing-tier-card-featured`** — The featured tier flips to `{colors.primary}` (yellow). The yellow surface IS the featured signal.
+
+**`stat-callout`** — Inline yellow stat numbers ("779+", "2.8k+", "47k+"). Transparent background, text `{colors.primary}`, type `{typography.stat-display}`. Used as a flat layout block, not a card with surface.
+
+**`events-card`** — Used on /company/events. Dark card with event title, date in `{typography.caption-uppercase}`, location, and a "Register" CTA. Rounded `{rounded.lg}`, padding `{spacing.lg}`.
+
+**`customer-logo-strip`** — Horizontal monochrome customer-logo strip. Background `{colors.canvas}`, logos in `{colors.muted}`, vertical padding `{spacing.xl}` (32px).
+
+### Inputs & Forms
+
+**`text-input`** — Dark text input. Background `{colors.surface-card}`, text `{colors.on-dark}`, rounded `{rounded.md}` (8px), padding 10px × 14px, height 40px.
+
+**`text-input-focused`** — Border thickens to `{colors.primary}` (yellow) for emphasis.
+
+### Tags / Badges
+
+**`badge-pill`** — Small dark pill label. Background `{colors.surface-card}`, text `{colors.on-dark}`, type `{typography.caption}`, rounded `{rounded.pill}`.
+
+**`badge-yellow`** — Yellow pill for "NEW", "GET STARTED" emphasis. Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.caption-uppercase}`, rounded `{rounded.pill}`.
+
+### Tab / Filter
+
+**`category-tab`** + **`category-tab-active`** — Dark tab navigation. Inactive: transparent + muted text. Active: surface-card background + on-dark text. Padding 8px × 14px, rounded `{rounded.md}`.
+
+### CTA / Footer
+
+**`cta-band-yellow`** — A pre-footer "Deploy your way" CTA band. Full yellow fill, black type, rounded `{rounded.lg}`, padding 64px. Carries an h2 in `{typography.display-md}` and a CTA — usually a black-button on the yellow surface.
+
+**`footer`** — Black footer that closes every page. Background `{colors.canvas}`, text `{colors.muted}`. 4-column link list at desktop covering Product / Use Cases / Resources / Company. Vertical padding 64px. The ClickHouse wordmark sits at the top in `{colors.on-dark}`.
+
+## Do's and Don'ts
+
+### Do
+- Anchor every page on the black canvas. The yellow + black pairing is the brand voltage.
+- Reserve `{colors.primary}` (yellow) for primary CTAs, stat-callout numbers, and full-bleed yellow CTA bands. The yellow's scarcity at the element level + abundance at the band level is what makes it powerful.
+- Use Inter at weight 700 for every display headline, with -1 to -2.5px letter-spacing.
+- Show actual SQL code blocks inside `{component.code-window-card}` — ClickHouse is a database; show the query, don't paint marketing illustrations of queries.
+- Use `{component.stat-callout}` numbers to establish credibility (community size, contributors, performance benchmarks). The yellow stat numbers are signature.
+- Anchor every band with `{spacing.section}` (96px) vertical rhythm.
+
+### Don't
+- Don't introduce a second brand color. ClickHouse is monochromatic + yellow.
+- Don't bold display weight beyond 700 or use weight 500 for headlines. The hierarchy depends on size, not on weight gradation.
+- Don't use yellow for body text or large surface fills outside of intentional yellow cards.
+- Don't use rounded buttons / pills outside of small badges. The standard button radius is 8px (md).
+- Don't repeat the same surface mode in two consecutive bands. Black canvas → dark feature card → yellow CTA card → black canvas → code-window card.
+- Don't replace SQL code mockups with abstract illustrations. The code IS the marketing voltage.
+- Don't add hover state styling beyond what the system already encodes.
+
+## Responsive Behavior
+
+### Breakpoints
+
+| Name | Width | Key Changes |
+|---|---|---|
+| Mobile | < 768px | Hamburger nav; hero h1 72→36px; code-window-card stacks below; feature grids 1-up; pricing 1-up |
+| Tablet | 768–1024px | Top nav tightens; feature cards 2-up; pricing 2-up |
+| Desktop | 1024–1440px | Full top-nav; 3-up feature cards; 3-4 up pricing tiers |
+| Wide | > 1440px | Same as desktop with more breathing room; max content 1280px |
+
+### Touch Targets
+- `{component.button-primary}` at minimum 40 × 40px.
+- `{component.button-icon-circular}` at exactly 36 × 36 — slightly under WCAG 44, visually centered.
+- `{component.text-input}` height is 40px.
+
+### Collapsing Strategy
+- Top nav collapses to hamburger at < 768px.
+- Hero 7-5 grid → single-column on mobile.
+- Feature card grids reduce columns rather than scaling.
+- Code-window cards retain font-size; horizontal scroll inside the card on mobile.
+- Pricing tier cards collapse 4 → 2 → 1; featured tier yellow stays distinct.
+
+### Image Behavior
+- Code blocks inside dark mockups stay at fixed font-size; horizontal scroll on mobile rather than wrapping.
+- Customer logos in monochrome strip retain native widths; row wraps on mobile.
+
+## Iteration Guide
+
+1. Focus on ONE component at a time. Reference its YAML key (`{component.code-window-card}`, `{component.pricing-tier-card-featured}`).
+2. Variants of an existing component (`-active`, `-disabled`, `-focused`) live as separate entries.
+3. Use `{token.refs}` everywhere — never inline hex.
+4. Never document hover. Default and Active/Pressed states only.
+5. Display headlines stay Inter 700 with negative letter-spacing. Body stays Inter 400.
+6. The yellow + black pairing is the brand contract. Don't soften with secondary accents.
+7. When in doubt about emphasis: bigger Inter 700 before adding color.
+
+## Known Gaps
+
+- The exact yellow hex (#faff69) was sampled from the screenshot; ClickHouse may publish an official brand color slightly differently.
+- Inter weight axis values beyond 400 / 500 / 600 / 700 are not formalized — only the static weights observed are documented.
+- Animation and transition timings (code typewriter effects, stat counter animations) are not in scope.
+- Form validation states beyond `{component.text-input-focused}` are not extracted.
+- The actual ClickHouse Cloud product surface (query console, monitoring dashboards, table browser) shares some tokens with the marketing site but adds many product-specific components that are out of scope.
+- The customer logo strip's exact opacity / treatment varies — the muted gray is approximate.
+</textarea>
+
+<script>
+  function copyMarkdownSpec() {
+    const mdText = document.getElementById('markdown-spec-content').value;
+    navigator.clipboard.writeText(mdText).then(() => {
+      const btn = document.getElementById('copy-md-btn');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+      btn.style.borderColor = 'var(--accent-vue)';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.borderColor = '';
+      }, 2000);
+    }).catch(err => {
+      console.error(err);
+      alert('Failed to copy: ' + err);
+    });
+  }
+
+  function copyColor(hex, el) {
+    navigator.clipboard.writeText(hex).then(() => {
+      const hexEl = el.querySelector('.hex');
+      const originalText = hexEl.innerText;
+      hexEl.innerText = 'Copied!';
+      hexEl.style.color = 'var(--accent-vue)';
+      hexEl.style.fontWeight = 'bold';
+      setTimeout(() => {
+        hexEl.innerText = originalText;
+        hexEl.style.color = '';
+        hexEl.style.fontWeight = '';
+      }, 1000);
+    });
+  }
+
+  function updateTypoPreviews(val) {
+    const previews = document.querySelectorAll('.typo-preview-text');
+    previews.forEach(p => {
+      p.innerText = val.trim() || 'The quick brown fox jumps over the lazy dog';
+    });
+  }
+
+  function setSimWidth(mode) {
+    const container = document.getElementById('viewport-sim-container');
+    const indicator = document.getElementById('sim-width-indicator');
+    const cols = document.getElementById('sim-layout-columns');
+    const btnMobile = document.getElementById('btn-sim-mobile');
+    const btnTablet = document.getElementById('btn-sim-tablet');
+    const btnDesktop = document.getElementById('btn-sim-desktop');
+    
+    // Reset button styles
+    [btnMobile, btnTablet, btnDesktop].forEach(btn => {
+      if (btn) {
+        btn.style.background = 'var(--bg-base)';
+        btn.style.borderColor = 'var(--border-color)';
+        btn.style.color = 'var(--text-primary)';
+      }
+    });
+    
+    const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
+    if (activeBtn) {
+      activeBtn.style.background = 'var(--accent-vue-glow)';
+      activeBtn.style.borderColor = 'var(--accent-vue)';
+      activeBtn.style.color = 'var(--accent-vue)';
+    }
+    
+    if (mode === 'mobile') {
+      container.style.maxWidth = '375px';
+      indicator.innerText = 'Width: 375px (Mobile < 768px)';
+      cols.style.gridTemplateColumns = '1fr';
+    } else if (mode === 'tablet') {
+      container.style.maxWidth = '600px';
+      indicator.innerText = 'Width: 600px (Tablet 768px-1024px)';
+      cols.style.gridTemplateColumns = '1fr 1fr';
+    } else {
+      container.style.maxWidth = '800px';
+      indicator.innerText = 'Width: 800px (Desktop > 1024px)';
+      cols.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    }
+  }
+</script>
+</body>
+</html>

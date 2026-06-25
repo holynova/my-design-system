@@ -1,0 +1,1530 @@
+<!-- Design System — PostHog Design System -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System — PostHog Design System</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
+  :root {
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Space Grotesk', sans-serif;
+    --font-mono: ui-monospace, monospace;
+    
+    --bg-base: #f3f4f6;
+    --bg-surface: #ffffff;
+    --border-color: #bfc1b7;
+    --border-dark: #cbd5e1;
+    
+    --text-primary: #111111;
+    --text-secondary: #4d4f46;
+    --text-muted: #94a3b8;
+    
+    --accent-vue: #f97316;
+    --accent-vue-hover: #b17816;
+    --accent-vue-glow: rgba(249, 115, 22, 0.08);
+    
+    --radius-lg: 8px;
+    --radius-md: 6px;
+    --radius-sm: 4px;
+    --radius-pill: 999px;
+    
+    --shadow-flat: none;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    
+    --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ═══════════════════ RESET & BASE ═══════════════════ */
+  *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    line-height: 1.6;
+    padding-bottom: 120px;
+  }
+
+  a { color: var(--accent-vue); text-decoration: none; transition: color var(--transition-base); }
+  a:hover { color: var(--accent-vue-hover); }
+  hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
+  pre, code { font-family: var(--font-mono); }
+  code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
+  
+  pre {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 16px 20px;
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 20px 0;
+    position: relative;
+  }
+  pre::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════ LAYOUT ═══════════════════ */
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* MASTHEAD */
+  .masthead {
+    padding: 80px 0 48px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .masthead-logo {
+    width: 48px; height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--accent-vue);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px var(--accent-vue-glow);
+  }
+  .masthead-logo svg { width: 26px; height: 26px; fill: currentColor; }
+  .masthead h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+  .masthead .sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .back-home-link, #copy-md-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    background: var(--bg-base);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  .back-home-link:hover, #copy-md-btn:hover {
+    border-color: var(--accent-vue);
+    box-shadow: 0 0 12px var(--accent-vue-glow);
+    background: var(--bg-surface);
+  }
+
+  /* TWO-COLUMN GRID */
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .layout-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    position: sticky;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .sidebar-section { display: flex; flex-direction: column; gap: 6px; }
+  .sidebar-heading {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .sidebar a {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+  }
+  .sidebar a:hover, .sidebar a.active {
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    box-shadow: inset 0 0 0 1px var(--border-color);
+  }
+
+  /* ═══════════════════ COMPONENTS & SECTIONS ═══════════════════ */
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-top: 64px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-head .idx {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-vue);
+    font-weight: 600;
+  }
+  .sec-head h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  /* COLOR SWATCHES */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .swatch {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color var(--transition-base);
+  }
+  .swatch:hover { border-color: var(--border-dark); }
+  .swatch .color-block { height: 72px; }
+  .swatch .color-label {
+    padding: 12px;
+    font-size: 12px;
+    background: var(--bg-surface);
+  }
+  .swatch .color-label .name { font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+  .swatch .color-label .hex { color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-bottom: 32px;
+  }
+  th, td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  th {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.01);
+  }
+  td { color: var(--text-secondary); }
+  tr:hover td { color: var(--text-primary); }
+  td:first-child { font-weight: 600; color: var(--text-primary); }
+
+  /* TYPE SPECIMEN */
+  .type-spec { margin-bottom: 32px; }
+  .type-title { font-size: 38px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .type-h2 { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: -0.015em; margin: 24px 0 8px; }
+  .type-body { font-size: 16px; line-height: 1.6; color: var(--text-primary); }
+  .type-caption { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 4px; margin-bottom: 16px; }
+
+  /* COMPONENT DEMOS */
+  .product-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    max-width: 420px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-dark);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  }
+  .product-card h3 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .product-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px; }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    background: var(--bg-base);
+    transition: all var(--transition-base);
+  }
+  .pill:hover { border-color: var(--border-dark); color: var(--text-primary); }
+  .pill.active { background: var(--accent-vue-glow); border-color: var(--accent-vue); color: var(--accent-vue); }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+  }
+  footer a { color: var(--text-primary); }
+
+  
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ═══════════════════ MASTHEAD ═══════════════════ -->
+  <div class="masthead">
+    <div class="masthead-logo">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" style="fill:currentColor;"/></svg>
+    </div>
+    <div>
+      <h1>PostHog Design System</h1>
+      <div class="sub">Developer-friendly product analytics · Technical layout with bold retro-fun tones...</div>
+    </div>
+    <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <a href="../index.html" class="back-home-link">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Home
+      </a>
+      <button id="copy-md-btn" onclick="copyMarkdownSpec()">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy Spec
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ TWO-COLUMN LAYOUT ═══════════════════ -->
+  <div class="layout-grid">
+    <nav class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Guidelines</div>
+        <a href="#visual-theme">01 Theme & Atmosphere</a>
+        <a href="#color-palette">02 Color Palette</a>
+        <a href="#typography">03 Typography Rules</a>
+        <a href="#layout">04 Layout Principles</a>
+        <a href="#depth-elevation">05 Depth & Elevation</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-heading">Showcase & Guardrails</div>
+        <a href="#components">06 Component Showcase</a>
+        <a href="#dos-donts">07 Do's and Don'ts</a>
+        <a href="#responsive">08 Responsive Behavior</a>
+        <a href="#prompt-guide">09 Agent Prompt Guide</a>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- 01 Visual Theme & Atmosphere -->
+      <div id="visual-theme" class="sec-head"><span class="idx">01</span><h2>Visual Theme & Atmosphere</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>PostHog's marketing system is built on the visual contradiction at the heart of the brand: a serious open-source product analytics platform rendered as if it were a friendly engineering sketchbook. The chrome runs on a warm cream canvas (<code>{colors.canvas}</code> — <code>#eeefe9</code>) — not white — and every page is dotted with hand-drawn hedgehog mascots in lab coats, lounge chairs, terminals, and reading glasses, scattered across the layout like marginalia in a textbook. Type sits in IBM Plex Sans Variable at olive-gray (<code>{colors.body}</code> — <code>#4d4f46</code>) for body and deep olive-charcoal (<code>{colors.ink}</code> — <code>#23251d</code>) for headlines, with weights stepped tightly between 400, 600, 700, and 800 to create hierarchy without color. The single saturated yellow-orange pill (<code>{colors.primary}</code> — <code>#f7a501</code>) is the brand's only loud chromatic moment; everything else is cream, olive, white card, and the occasional pastel callout band.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>The system has a distinctive <strong>two-mode body layout</strong>: marketing pages (home, workflows, pricing) lean on alternating-pastel callout bands and feature tiles in white cards on cream, while documentation pages add a sticky 240px left sidebar with a rounded outline-icon section list. Code samples are full-width dark blocks on <code>{colors.surface-dark}</code> (the same olive-charcoal that carries body ink, used inverted) inside white doc cards, creating the system's most distinctive visual moment: a dark-on-dark code island floating inside a white card on a cream canvas, with a hedgehog mascot doodled in the margin.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>...</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong>Key Characteristics:</strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Warm cream canvas (<code>{colors.canvas}</code> — #eeefe9) end-to-end with no surface alternation between sections — the page is one continuous sheet</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Live Visual Theme Representation:</p>
+        <p>Visual Theme Example</p>
+      </div>
+
+      <!-- 02 Color Palette & Roles -->
+      <div id="color-palette" class="sec-head"><span class="idx">02</span><h2>Color Palette & Roles</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>&gt; <strong>Source pages:</strong> <code>/</code> (home), <code>/pricing</code> (pricing detail), <code>/docs/product-analytics</code> (docs article), <code>/workflows</code> (product feature page). The chrome palette is identical across all four pages — only doc-specific accents (callout-banner pastels, code-block dark surface) appear exclusively inside the docs experience.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Brand & Accent</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>PostHog Yellow</strong> (<code>{colors.primary}</code> — <code>#f7a501</code>): the universal primary CTA. Sticky "Get started — free" pill in the top-right of every nav, hero CTAs, pricing-tier subscribe buttons, footer signup pill. The system's only saturated chromatic moment.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Yellow Pressed</strong> (<code>{colors.primary-pressed}</code> — <code>#dd9001</code>): pressed state for the primary pill.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Surface</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Canvas</strong> (<code>{colors.canvas}</code> — <code>#eeefe9</code>): the warm cream page background. End-to-end on every page; the brand's most distinctive surface choice.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Soft Surface</strong> (<code>{colors.surface-soft}</code> — <code>#e5e7e0</code>): button-secondary fill, sub-nav strip background, inline-code chip background.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Text</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Ink</strong> (<code>{colors.ink}</code> — <code>#23251d</code>): headlines, button text on light, primary nav links — deep olive-charcoal that reads near-black against cream.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Body</strong> (<code>{colors.body}</code> — <code>#4d4f46</code>): default paragraph text, doc article body, inline link color before hover. The brand's most-used text color.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Semantic</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Link Blue</strong> (<code>{colors.link-blue}</code> — <code>#1d4ed8</code>): inline anchor link inside body prose. The system's primary informational link color.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Link Teal</strong> (<code>{colors.link-teal}</code> — <code>#1078a3</code>): doc-article inline link variant, paired with body text.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      <div class="swatches" style="margin-top:20px;">
+        
+            <div class="swatch" onclick="copyColor('#f7a501', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f7a501; "></div>
+                <div class="color-label">
+                    <div class="name">primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f7a501</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#dd9001', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#dd9001; "></div>
+                <div class="color-label">
+                    <div class="name">primary-pressed</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#dd9001</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#b17816', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#b17816; "></div>
+                <div class="color-label">
+                    <div class="name">primary-active</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#b17816</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#23251d', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#23251d; "></div>
+                <div class="color-label">
+                    <div class="name">on-primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#23251d</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#23251d', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#23251d; "></div>
+                <div class="color-label">
+                    <div class="name">ink</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#23251d</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#4d4f46', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#4d4f46; "></div>
+                <div class="color-label">
+                    <div class="name">body</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#4d4f46</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#33342d', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#33342d; "></div>
+                <div class="color-label">
+                    <div class="name">charcoal</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#33342d</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#6c6e63', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#6c6e63; "></div>
+                <div class="color-label">
+                    <div class="name">mute</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#6c6e63</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#9b9c92', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#9b9c92; "></div>
+                <div class="color-label">
+                    <div class="name">ash</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#9b9c92</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#b6b7af', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#b6b7af; "></div>
+                <div class="color-label">
+                    <div class="name">stone</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#b6b7af</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#bfc1b7', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#bfc1b7; "></div>
+                <div class="color-label">
+                    <div class="name">hairline</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#bfc1b7</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#dcdfd2', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#dcdfd2; "></div>
+                <div class="color-label">
+                    <div class="name">hairline-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#dcdfd2</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">on-dark</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#eeefe9', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#eeefe9; "></div>
+                <div class="color-label">
+                    <div class="name">canvas</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#eeefe9</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#e5e7e0', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#e5e7e0; "></div>
+                <div class="color-label">
+                    <div class="name">surface-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e5e7e0</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">surface-card</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#fcfcfa', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#fcfcfa; "></div>
+                <div class="color-label">
+                    <div class="name">surface-doc</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#fcfcfa</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#23251d', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#23251d; "></div>
+                <div class="color-label">
+                    <div class="name">surface-dark</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#23251d</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#1d4ed8', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#1d4ed8; "></div>
+                <div class="color-label">
+                    <div class="name">link-blue</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1d4ed8</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#1078a3', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#1078a3; "></div>
+                <div class="color-label">
+                    <div class="name">link-teal</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1078a3</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#2c84e0', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#2c84e0; "></div>
+                <div class="color-label">
+                    <div class="name">accent-blue</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#2c84e0</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#dceaf6', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#dceaf6; "></div>
+                <div class="color-label">
+                    <div class="name">accent-blue-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#dceaf6</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#cd4239', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#cd4239; "></div>
+                <div class="color-label">
+                    <div class="name">accent-red</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#cd4239</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f7d6d3', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f7d6d3; "></div>
+                <div class="color-label">
+                    <div class="name">accent-red-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f7d6d3</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#2c8c66', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#2c8c66; "></div>
+                <div class="color-label">
+                    <div class="name">accent-green</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#2c8c66</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#d9eddf', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#d9eddf; "></div>
+                <div class="color-label">
+                    <div class="name">accent-green-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#d9eddf</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#7c44a6', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#7c44a6; "></div>
+                <div class="color-label">
+                    <div class="name">accent-purple</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#7c44a6</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#e7d8ee', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#e7d8ee; "></div>
+                <div class="color-label">
+                    <div class="name">accent-purple-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e7d8ee</div>
+                </div>
+            </div>
+            
+      </div>
+
+      <!-- 03 Typography Rules -->
+      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography Rules</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Font Family</h3>
+<strong>IBM Plex Sans Variable</strong> is the system's primary face — used across every text role on every page at weights 400 (regular), 500 (medium), 600 (semibold), 700 (bold), and 800 (extra-bold). Falls back through <code>IBM Plex Sans</code> → <code>-apple-system</code> → <code>system-ui</code> → broad cross-platform sans stack.
+<p style='margin-bottom:16px; line-height:1.6;'><strong>ui-monospace</strong> + <strong>Source Code Pro</strong> carry code samples and inline-code chips at 14px / 1.43 line-height. Source Code Pro is the explicit display monospace; ui-monospace handles inline <code>&lt;code&gt;</code> chips.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>The brand-distinctive choice is the <strong>mixed weight ladder</strong> (400 / 500 / 600 / 700 / 800) — most chrome lives in the 400–700 band, with weight 800 reserved exclusively for the larger display headlines on home and pricing. This gives the system its "engineering blog" feel: hierarchy is built from weight contrast much more than from size.</p>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Hierarchy</h3>
+<table><tr><th>Token</th><th>Size</th><th>Weight</th><th>Line Height</th><th>Letter Spacing</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Principles</h3>
+The hierarchy is explicitly built from weight + size + occasional uppercase transform — there is no italic style, no decorative display variant, no proprietary face. The biggest display moments use weight 800 with -0.6px tracking, and the body settles at 400 with 1.5 line-height; everything else fills the band between. Section eyebrows (<code>{typography.heading-sm}</code> and <code>{typography.utility-xs}</code>) consistently render uppercase, which gives the doc layout its textbook-chapter feel.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Note on Font Substitutes</h3>
+...
+      
+        <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
+            <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
+            <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+        
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-xl</span>
+                        <span>size: 36px | weight: 700 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:36px; font-weight:700; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-lg</span>
+                        <span>size: 24px | weight: 800 | height: 1.33 | spacing: -0.6px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:24px; font-weight:800; line-height:1.33; letter-spacing:-0.6px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">heading-lg</span>
+                        <span>size: 21px | weight: 700 | height: 1.4 | spacing: -0.5px</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:21px; font-weight:700; line-height:1.4; letter-spacing:-0.5px; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">heading-md</span>
+                        <span>size: 20px | weight: 700 | height: 1.4 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:20px; font-weight:700; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">heading-sm</span>
+                        <span>size: 18px | weight: 700 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:700; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">heading-sm-mixed</span>
+                        <span>size: 18px | weight: 600 | height: 1.56 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:600; line-height:1.56; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-md</span>
+                        <span>size: 16px | weight: 400 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-strong</span>
+                        <span>size: 16px | weight: 600 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:600; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-sm</span>
+                        <span>size: 15px | weight: 400 | height: 1.71 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:15px; font-weight:400; line-height:1.71; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-sm-strong</span>
+                        <span>size: 15px | weight: 600 | height: 1.71 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:15px; font-weight:600; line-height:1.71; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-xs</span>
+                        <span>size: 14px | weight: 500 | height: 1.43 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:500; line-height:1.43; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">caption-md</span>
+                        <span>size: 14px | weight: 700 | height: 1.71 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:700; line-height:1.71; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">caption-sm</span>
+                        <span>size: 13px | weight: 500 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:13px; font-weight:500; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">caption-xs</span>
+                        <span>size: 12px | weight: 600 | height: 1.33 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:12px; font-weight:600; line-height:1.33; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">utility-xs</span>
+                        <span>size: 12px | weight: 700 | height: 1.33 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:12px; font-weight:700; line-height:1.33; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">link-md</span>
+                        <span>size: 16px | weight: 400 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">button-md</span>
+                        <span>size: 14px | weight: 700 | height: 1.5 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:700; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">button-sm</span>
+                        <span>size: 13px | weight: 500 | height: 1 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:13px; font-weight:500; line-height:1; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">code-sm</span>
+                        <span>size: 14px | weight: 400 | height: 1.43 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-mono); font-size:14px; font-weight:400; line-height:1.43; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">code-xs</span>
+                        <span>size: 14px | weight: 500 | height: 1.43 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:500; line-height:1.43; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    
+                </div>
+                </div>
+
+      <!-- 04 Layout Principles -->
+      <div id="layout" class="sec-head"><span class="idx">04</span><h2>Layout Principles</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Spacing System</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Base unit:</strong> 8px (with finer 2/4/6px steps for tight inline gaps in callout banners and pill buttons).</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Tokens (front matter):</strong> <code>{spacing.xxs}</code> (2px) · <code>{spacing.xs}</code> (4px) · <code>{spacing.sm}</code> (8px) · <code>{spacing.md}</code> (12px) · <code>{spacing.lg}</code> (16px) · <code>{spacing.xl}</code> (24px) · <code>{spacing.xxl}</code> (32px) · <code>{spacing.section}</code> (80px).</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Grid & Container</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Max width:</strong> ~1280px content area at desktop with 24px gutters (~48px at ultrawide). Doc article body sits at ~720px max width with the 240px sidebar pushing the article column right of center.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Marketing card grid:</strong> 4-up at desktop, 3-up at 1024px, 2-up at 768px, 1-up at 480px. Cards preserve a fixed 1:1 or 4:3 ratio.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Whitespace Philosophy</h3>
+Whitespace is generous on marketing pages and tight on doc pages. The home and workflows pages stack feature tiles with <code>{spacing.lg}</code> (16px) gutters and 24px internal padding, while doc articles tighten internal spacing to <code>{spacing.md}</code> (12px) between paragraphs to maximize information density. The cream canvas runs continuously through every section — there are no decorative dividers, no shaded section bands; only the 1px hairline beneath section eyebrows and footer column rules separate content blocks.
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
+        <p>Layout Grid Example</p>
+        
+    <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
+        <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
+        
+        <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">3</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">4</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">5</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">6</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">7</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">8</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">9</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">10</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
+        </div>
+        
+        <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
+            <div>Gutter spacing: 16px / 24px</div>
+            <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
+            <div>Max Container Width: 1200px</div>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 05 Depth & Elevation -->
+      <div id="depth-elevation" class="sec-head"><span class="idx">05</span><h2>Depth & Elevation</h2></div>
+      <table><tr><th>Level</th><th>Treatment</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table>The system has no drop-shadow elevation in marketing or product chrome. Cards sit flat on cream with thin olive borders. The single inverted moment is the dark code-block surface used inside doc article body cards.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Decorative Depth</h3>
+Depth comes entirely from illustration and the pastel callout band system, not from CSS effects:
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Hand-drawn hedgehog mascots</strong> — characters in various costumes (lab coat, terminal, lounge chair, magnifying glass, hammock, hat) scattered across pages as marginalia. Always rendered as flat color illustrations, never photographs.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Pastel callout banners</strong> — <code>{component.banner-tip-blue}</code> / <code>-green</code> / <code>-red</code> / <code>-purple</code> soft tinted side-rail panels inside doc articles, each prefixed with an emoji icon (💡 ✅ ⚠️ 📘) and carrying tip/warning/note copy.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
+        <p>Elevation Level Example</p>
+        
+    <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for background layers, sidebar headers, or baseline borders.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-md);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Low Elevation (Level 1 / Card)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for floating product elements, cards, and hover states.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-lg);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">High Elevation (Level 2 / Popover & Dropdown)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
+        </div>
+    </div>
+    
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
+        
+    <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-sm</span>
+            <span style="color:var(--text-muted); margin-top:4px;">4px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-md</span>
+            <span style="color:var(--text-muted); margin-top:4px;">6px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-lg</span>
+            <span style="color:var(--text-muted); margin-top:4px;">8px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-pill); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-pill</span>
+            <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 06 Component Stylings -->
+      <div id="components" class="sec-head"><span class="idx">06</span><h2>Component Stylings</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Border Radius Scale</h3>
+<table><tr><th>Token</th><th>Value</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table>The radius vocabulary clusters around 4–6px for nearly everything; the only fully-rounded element is the pill-style sticky nav CTA and inline pill chips.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Photography Geometry</h3>
+There is no photography. Visual elements are limited to:
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Hedgehog character illustrations</strong> — flat-color cartoon hedgehogs ranging from ~80px (in-card mascot) to ~240px (hero illustration). Always at native aspect, never cropped to a frame.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Outline product icons</strong> in the doc sidebar — 20–24px rounded-square illustrations.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+...
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Buttons</h3>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary</code></strong> — the universal PostHog CTA
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.primary}</code> (yellow-orange), text <code>{colors.on-primary}</code> (deep olive), type <code>{typography.button-md}</code>, padding <code>8px 16px</code>, height <code>40px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>button-secondary</code></strong> — soft alternative on cream canvas
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-soft}</code> (<code>#e5e7e0</code>), text <code>{colors.ink}</code>, type <code>{typography.button-md}</code>, padding <code>8px 16px</code>, height <code>40px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>button-tertiary</code></strong> — ghost text button
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background transparent, text <code>{colors.ink}</code>, type <code>{typography.button-md}</code>, padding <code>8px 12px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>button-disabled</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-soft}</code>, text <code>{colors.ash}</code> — flat soft cream-gray.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Tabs & Chips</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>product-tab</code></strong> + <strong><code>product-tab-active</code></strong> — major product section tabs
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Default: transparent background, text <code>{colors.body}</code>, type <code>{typography.body-strong}</code>, padding <code>8px 12px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>pill-tab</code></strong> + <strong><code>pill-tab-active</code></strong> — compact filter pill
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Default: transparent background, text <code>{colors.body}</code>, type <code>{typography.button-sm}</code>, padding <code>6px 14px</code>, rounded <code>{rounded.full}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>badge-uppercase</code></strong> — text-only utility label
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background transparent, text <code>{colors.body}</code> in <code>{typography.utility-xs}</code> (uppercase) — used as in-list category prefix ("FEATURE FLAG", "EXPERIMENT", "HEATMAP").</li></ul>
+<strong><code>badge-promo</code></strong> — small inline pill chip
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.accent-blue-soft}</code>, text <code>{colors.link-blue}</code>, type <code>{typography.caption-xs}</code>, padding <code>2px 8px</code>, rounded <code>{rounded.full}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Inputs & Forms</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>text-input</code></strong> + <strong><code>text-input-focused</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Default: background <code>{colors.surface-card}</code>, text <code>{colors.ink}</code>, 1px solid <code>{colors.hairline}</code>, type <code>{typography.body-md}</code>, padding <code>8px 12px</code>, height <code>36px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>search-input</code></strong> — utility search field (doc sidebar, "Ask PostHog AI")
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Same dimensions as <code>text-input</code> with a magnifier glyph at the left edge in <code>{colors.mute}</code>.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Cards & Containers</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>product-card</code></strong> — marketing tile / feature card
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Container: background <code>{colors.surface-card}</code> (white), 1px solid <code>{colors.hairline}</code>, padding <code>{spacing.xl}</code> (24px), rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>doc-card</code></strong> — doc article body card
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Container: background <code>{colors.surface-doc}</code> (<code>#fcfcfa</code> warm-white), 1px solid <code>{colors.hairline}</code>, padding <code>{spacing.xl}</code> (24px), rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>feature-tile</code></strong> — small marketing feature tile
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Container: background <code>{colors.surface-card}</code>, 1px solid <code>{colors.hairline}</code>, padding <code>{spacing.lg}</code> (20px), rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>pricing-tier-card</code></strong> — pricing plan card
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Container: background <code>{colors.surface-card}</code>, 1px solid <code>{colors.hairline}</code>, padding <code>{spacing.xxl}</code> (32px), rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>hedgehog-mascot-card</code></strong> — feature card with margin-anchored hedgehog
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Same chrome as <code>{component.product-card}</code> but with a hand-drawn hedgehog illustration anchored in the right margin or top-right corner — the brand's signature card variant.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Callout Banners</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>banner-tip-blue</code></strong> + <strong><code>banner-tip-green</code></strong> + <strong><code>banner-tip-red</code></strong> + <strong><code>banner-tip-purple</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.accent-blue-soft}</code> / <code>{colors.accent-green-soft}</code> / <code>{colors.accent-red-soft}</code> / <code>{colors.accent-purple-soft}</code>, text <code>{colors.ink}</code>, type <code>{typography.body-md}</code>, padding <code>16px 20px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Code</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>code-block</code></strong> — dark code sample inside doc card
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Container: background <code>{colors.surface-dark}</code> (deep olive-charcoal), text <code>{colors.on-dark}</code> in <code>{typography.code-sm}</code>, padding <code>16px 20px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>inline-code</code></strong> — small inline <code>&lt;code&gt;</code> chip
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-soft}</code>, text <code>{colors.ink}</code> in <code>{typography.code-xs}</code>, padding <code>2px 6px</code>, rounded <code>{rounded.xs}</code> (2px).</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Navigation</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>primary-nav</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas}</code> (cream — same as the page), text <code>{colors.ink}</code>, height <code>56px</code>, type <code>{typography.body-strong}</code>, rounded <code>{rounded.none}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>sub-nav-strip</code></strong> — secondary nav bar (under primary)
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-soft}</code>, text <code>{colors.body}</code> in <code>{typography.body-xs}</code>, height <code>40px</code>, rounded <code>{rounded.none}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong><code>doc-sidebar</code></strong> — sticky doc-page left sidebar
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas}</code>, text <code>{colors.body}</code> in <code>{typography.body-xs}</code>, width <code>240px</code>, rounded <code>{rounded.none}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<strong>Top Nav (Mobile)</strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Hamburger menu icon at left, PostHog wordmark + hedgehog at center, search + sticky yellow "Get started — free" CTA at right. Primary nav collapses into a full-height drawer that slides from the left.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Footer</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>footer-section</code></strong>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas}</code>, text <code>{colors.body}</code> in <code>{typography.body-xs}</code>, padding <code>32px 24px</code>, rounded <code>{rounded.none}</code>, with a 1px <code>{colors.hairline}</code> top rule.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Inline</h3></p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>link-inline</code></strong> — body-prose anchor link
+<ul><li style='margin-left:20px; margin-bottom:6px;'><code>{colors.link-teal}</code> (<code>#1078a3</code>) in body prose with no underline by default; underline appears on focus. The brand's primary inline link color.</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; font-family:var(--font-mono);">Interactive Component Demonstrations:</p>
+        <p>Component Interactive Example</p>
+      </div>
+
+      <!-- 07 Do's and Don'ts -->
+      <div id="dos-donts" class="sec-head"><span class="idx">07</span><h2>Do's and Don'ts</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Do</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{colors.canvas}</code> (cream — <code>#eeefe9</code>) as the page body. Never substitute pure white as the canvas.</li><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{colors.primary}</code> (yellow-orange) for the primary CTA pill only. The "Get started — free" treatment is the brand's anchor.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce drop shadows on cards. Cards sit flat on cream with thin olive borders only.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add a second saturated chromatic CTA. Yellow-orange is the only loud color in the system.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+      
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
+        <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
+            <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                <p style='margin-bottom:16px; line-height:1.6;'>n't
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce drop shadows on cards. Cards sit flat on cream with thin olive borders only.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add a second saturated chromatic CTA. Yellow-orange is the only loud color in the system.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+            </div>
+        </div>
+        <div style="border:1px solid #ef4444; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(239, 68, 68, 0.015); position:relative;">
+            <span style="background:#ef4444; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">❌ Discouraged / Don't</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                
+            </div>
+        </div>
+    </div>
+    
+
+      <!-- 08 Responsive Behavior -->
+      <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Breakpoints</h3>
+<table><tr><th>Name</th><th>Width</th><th>Key Changes</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Touch Targets</h3>
+All interactive elements meet WCAG AA (≥ 40×40px). <code>{component.button-primary}</code> and <code>{component.button-secondary}</code> sit at 40px height with 16px padding. <code>{component.text-input}</code> sits at 36px (just under AAA but above AA at this size). <code>{component.pill-tab}</code> is ~32–36px height with 14px padding extending to ~44px tappable via inline padding. Doc-sidebar items use 14px text with ~32px line-height + 6px vertical padding for ~44px tap rows.
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Collapsing Strategy</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Primary nav:</strong> desktop horizontal cluster → tablet hamburger drawer at 768px. The yellow "Get started — free" CTA stays visible at every breakpoint.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Sub-nav strip:</strong> desktop horizontal anchor row → tablet horizontal scroll → mobile select dropdown.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Image Behavior</h3>
+The only "imagery" in the system is hand-drawn hedgehog illustrations rendered as inline SVG. They preserve their natural aspect at every breakpoint and scale via CSS <code>width: auto; max-width: 100%</code>. There is no responsive art-direction needed because there is no photography.
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
+        <p>Responsive Behavior Example</p>
+        
+    <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
+        <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
+            <div style="display:flex; gap:6px;">
+                <button id="btn-sim-mobile" onclick="setSimWidth('mobile')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Mobile</button>
+                <button id="btn-sim-tablet" onclick="setSimWidth('tablet')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Tablet</button>
+                <button id="btn-sim-desktop" onclick="setSimWidth('desktop')" style="padding:4px 10px; border:1px solid var(--accent-vue); background:var(--accent-vue-glow); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--accent-vue); transition:all var(--transition-base);">Desktop</button>
+            </div>
+        </div>
+        <div style="padding:28px 16px; display:flex; justify-content:center; background:rgba(0,0,0,0.005); overflow:hidden;">
+            <div id="viewport-sim-container" style="width:100%; max-width:800px; transition:max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1); border:1.5px dashed var(--border-dark); border-radius:var(--radius-md); background:var(--bg-base); padding:20px; overflow:hidden; box-sizing:border-box;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                    <span id="sim-width-indicator" style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); text-transform:uppercase;">Width: 800px (Desktop Mode)</span>
+                    <span style="font-size:11px; font-weight:700; color:var(--accent-vue); font-family:var(--font-sans);">Grid Container</span>
+                </div>
+                <div id="sim-layout-columns" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; transition:all 0.3s;">
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Primary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Adjusts layout width</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Secondary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Folds on viewport change</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Sidebar Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Stacks to bottom on mobile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 09 Agent Prompt Guide -->
+      <div id="prompt-guide" class="sec-head"><span class="idx">09</span><h2>Agent Prompt Guide</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'>1. Focus on ONE component at a time. Pull its YAML entry and verify every property resolves.
+2. Reference component names and tokens directly (<code>{colors.primary}</code>, <code>{component.button-primary-pressed}</code>, <code>{rounded.md}</code>) — do not paraphrase.
+<ul><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Copyable Agent Integration Prompt:</p>
+        <p>Prompt Guide Copy Box</p>
+      </div>
+
+      <!-- 10 Design Tokens Table -->
+      <div id="tokens-table" class="sec-head"><span class="idx">10</span><h2>Full System Design Tokens</h2></div>
+      <p style="margin-bottom:20px;">The parsed design tokens extracted from the core stylesheet of this design system:</p>
+      <table>
+        <tr><th>Design Token</th><th>Hex Value</th><th>System Palette Role</th></tr>
+        <tr><td>--primary</td><td>#f7a501</td><td>System color representation for primary</td></tr><tr><td>--primary-pressed</td><td>#dd9001</td><td>System color representation for primary-pressed</td></tr><tr><td>--primary-active</td><td>#b17816</td><td>System color representation for primary-active</td></tr><tr><td>--on-primary</td><td>#23251d</td><td>System color representation for on-primary</td></tr><tr><td>--ink</td><td>#23251d</td><td>System color representation for ink</td></tr><tr><td>--body</td><td>#4d4f46</td><td>System color representation for body</td></tr><tr><td>--charcoal</td><td>#33342d</td><td>System color representation for charcoal</td></tr><tr><td>--mute</td><td>#6c6e63</td><td>System color representation for mute</td></tr><tr><td>--ash</td><td>#9b9c92</td><td>System color representation for ash</td></tr><tr><td>--stone</td><td>#b6b7af</td><td>System color representation for stone</td></tr><tr><td>--hairline</td><td>#bfc1b7</td><td>System color representation for hairline</td></tr><tr><td>--hairline-soft</td><td>#dcdfd2</td><td>System color representation for hairline-soft</td></tr><tr><td>--on-dark</td><td>#ffffff</td><td>System color representation for on-dark</td></tr><tr><td>--canvas</td><td>#eeefe9</td><td>System color representation for canvas</td></tr><tr><td>--surface-soft</td><td>#e5e7e0</td><td>System color representation for surface-soft</td></tr><tr><td>--surface-card</td><td>#ffffff</td><td>System color representation for surface-card</td></tr><tr><td>--surface-doc</td><td>#fcfcfa</td><td>System color representation for surface-doc</td></tr><tr><td>--surface-dark</td><td>#23251d</td><td>System color representation for surface-dark</td></tr><tr><td>--link-blue</td><td>#1d4ed8</td><td>System color representation for link-blue</td></tr><tr><td>--link-teal</td><td>#1078a3</td><td>System color representation for link-teal</td></tr><tr><td>--accent-blue</td><td>#2c84e0</td><td>System color representation for accent-blue</td></tr><tr><td>--accent-blue-soft</td><td>#dceaf6</td><td>System color representation for accent-blue-soft</td></tr><tr><td>--accent-red</td><td>#cd4239</td><td>System color representation for accent-red</td></tr><tr><td>--accent-red-soft</td><td>#f7d6d3</td><td>System color representation for accent-red-soft</td></tr><tr><td>--accent-green</td><td>#2c8c66</td><td>System color representation for accent-green</td></tr><tr><td>--accent-green-soft</td><td>#d9eddf</td><td>System color representation for accent-green-soft</td></tr><tr><td>--accent-purple</td><td>#7c44a6</td><td>System color representation for accent-purple</td></tr><tr><td>--accent-purple-soft</td><td>#e7d8ee</td><td>System color representation for accent-purple-soft</td></tr><tr><td>--focus-ring</td><td>rgba(59,130,246,0.5)</td><td>System color representation for focus-ring</td></tr>
+      </table>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer>
+    <div><strong>PostHog Design System Spec</strong> · Extracted from awesome-design-md</div>
+    <div>
+      <a href="../index.html">Design System Hub</a>
+    </div>
+  </footer>
+
+</div>
+
+<textarea id="markdown-spec-content" style="display:none;">## Overview
+
+PostHog's marketing system is built on the visual contradiction at the heart of the brand: a serious open-source product analytics platform rendered as if it were a friendly engineering sketchbook. The chrome runs on a warm cream canvas (`{colors.canvas}` — `#eeefe9`) — not white — and every page is dotted with hand-drawn hedgehog mascots in lab coats, lounge chairs, terminals, and reading glasses, scattered across the layout like marginalia in a textbook. Type sits in IBM Plex Sans Variable at olive-gray (`{colors.body}` — `#4d4f46`) for body and deep olive-charcoal (`{colors.ink}` — `#23251d`) for headlines, with weights stepped tightly between 400, 600, 700, and 800 to create hierarchy without color. The single saturated yellow-orange pill (`{colors.primary}` — `#f7a501`) is the brand's only loud chromatic moment; everything else is cream, olive, white card, and the occasional pastel callout band.
+
+The system has a distinctive **two-mode body layout**: marketing pages (home, workflows, pricing) lean on alternating-pastel callout bands and feature tiles in white cards on cream, while documentation pages add a sticky 240px left sidebar with a rounded outline-icon section list. Code samples are full-width dark blocks on `{colors.surface-dark}` (the same olive-charcoal that carries body ink, used inverted) inside white doc cards, creating the system's most distinctive visual moment: a dark-on-dark code island floating inside a white card on a cream canvas, with a hedgehog mascot doodled in the margin.
+
+Sections stack at `{spacing.section}` (80px) rhythm with cream canvas continuing edge-to-edge between them. The only color bands that interrupt the cream are pastel `{component.banner-tip-blue}` / `-green` / `-red` / `-purple` callout panels inside doc articles — soft tinted boxes that carry "💡 Tip", "✅ Success", "⚠️ Warning", "📘 Info" inline annotations. There are no decorative gradients, no atmospheric mesh backgrounds, and no full-bleed dark hero chapters; the cream canvas runs uninterrupted top to bottom and the hedgehogs are the entire visual identity.
+
+**Key Characteristics:**
+- Warm cream canvas (`{colors.canvas}` — #eeefe9) end-to-end with no surface alternation between sections — the page is one continuous sheet
+- Single yellow-orange CTA pill (`{colors.primary}` — #f7a501) with deep olive text (`{colors.on-primary}`) — the brand's only saturated color
+- IBM Plex Sans Variable across every text role with weights 400/500/600/700/800 — no other typeface in the system
+- Hand-drawn hedgehog mascots scattered across the layout as the entire decorative system — no gradients, no mesh, no atmospheric backgrounds
+- 4–8px radius card vocabulary: `{rounded.md}` (6px) for most components, `{rounded.lg}` (8px) for select containers, fully rounded for pill chips
+- Pastel callout banners (`{colors.accent-blue-soft}`, `{colors.accent-green-soft}`, `{colors.accent-red-soft}`, `{colors.accent-purple-soft}`) break up doc article body with soft tinted side rails for tips/warnings/info
+- Documentation pages add a sticky 240px `{component.doc-sidebar}` with rounded outline-icon section nav and an "Ask PostHog AI" CTA at the top
+
+## Colors
+
+> **Source pages:** `/` (home), `/pricing` (pricing detail), `/docs/product-analytics` (docs article), `/workflows` (product feature page). The chrome palette is identical across all four pages — only doc-specific accents (callout-banner pastels, code-block dark surface) appear exclusively inside the docs experience.
+
+### Brand & Accent
+- **PostHog Yellow** (`{colors.primary}` — `#f7a501`): the universal primary CTA. Sticky "Get started — free" pill in the top-right of every nav, hero CTAs, pricing-tier subscribe buttons, footer signup pill. The system's only saturated chromatic moment.
+- **Yellow Pressed** (`{colors.primary-pressed}` — `#dd9001`): pressed state for the primary pill.
+- **Yellow Active** (`{colors.primary-active}` — `#b17816`): deeply-pressed yellow + the system's gold-toned border accent (rare 1px gold rule on inline form elements).
+
+### Surface
+- **Canvas** (`{colors.canvas}` — `#eeefe9`): the warm cream page background. End-to-end on every page; the brand's most distinctive surface choice.
+- **Soft Surface** (`{colors.surface-soft}` — `#e5e7e0`): button-secondary fill, sub-nav strip background, inline-code chip background.
+- **Surface Card** (`{colors.surface-card}` — `#ffffff`): true white card and tile background sitting on top of the cream canvas. The dominant card surface.
+- **Surface Doc** (`{colors.surface-doc}` — `#fcfcfa`): a faintly cream-warm white used inside doc article body cards — slightly softer than pure white to keep the page tonally unified.
+- **Surface Dark** (`{colors.surface-dark}` — `#23251d`): the deep olive-charcoal used inverted as code-block background. The same hex as `{colors.ink}` — the brand uses one olive-near-black for both text and dark code surfaces.
+- **Hairline** (`{colors.hairline}` — `#bfc1b7`): 1px card border, table rule, footer column dividers.
+- **Hairline Soft** (`{colors.hairline-soft}` — `#dcdfd2`): in-card row divider, soft inset rule.
+- **On Dark** (`{colors.on-dark}` — `#ffffff`): primary text on `{colors.surface-dark}` code blocks.
+
+### Text
+- **Ink** (`{colors.ink}` — `#23251d`): headlines, button text on light, primary nav links — deep olive-charcoal that reads near-black against cream.
+- **Body** (`{colors.body}` — `#4d4f46`): default paragraph text, doc article body, inline link color before hover. The brand's most-used text color.
+- **Charcoal** (`{colors.charcoal}` — `#33342d`): emphasized body text where body is too soft.
+- **Mute** (`{colors.mute}` — `#6c6e63`): metadata, footer link text, in-list secondary annotations.
+- **Ash** (`{colors.ash}` — `#9b9c92`): disabled-state text and lowest-emphasis utility.
+- **Stone** (`{colors.stone}` — `#b6b7af`): least-emphasis caption text and disabled icon color.
+
+### Semantic
+- **Link Blue** (`{colors.link-blue}` — `#1d4ed8`): inline anchor link inside body prose. The system's primary informational link color.
+- **Link Teal** (`{colors.link-teal}` — `#1078a3`): doc-article inline link variant, paired with body text.
+- **Accent Blue** (`{colors.accent-blue}` — `#2c84e0`) + **Accent Blue Soft** (`{colors.accent-blue-soft}` — `#dceaf6`): "💡 Tip / Info" callout banner inside docs.
+- **Accent Red** (`{colors.accent-red}` — `#cd4239`) + **Accent Red Soft** (`{colors.accent-red-soft}` — `#f7d6d3`): "⚠️ Warning / Caution" callout banner.
+- **Accent Green** (`{colors.accent-green}` — `#2c8c66`) + **Accent Green Soft** (`{colors.accent-green-soft}` — `#d9eddf`): "✅ Success / Positive" callout banner.
+- **Accent Purple** (`{colors.accent-purple}` — `#7c44a6`) + **Accent Purple Soft** (`{colors.accent-purple-soft}` — `#e7d8ee`): "📘 Note / Reference" callout banner.
+- **Focus Ring** (`{colors.focus-ring}` — `rgba(59,130,246,0.5)`): translucent blue browser-default focus ring around interactive elements.
+
+## Typography
+
+### Font Family
+**IBM Plex Sans Variable** is the system's primary face — used across every text role on every page at weights 400 (regular), 500 (medium), 600 (semibold), 700 (bold), and 800 (extra-bold). Falls back through `IBM Plex Sans` → `-apple-system` → `system-ui` → broad cross-platform sans stack.
+
+**ui-monospace** + **Source Code Pro** carry code samples and inline-code chips at 14px / 1.43 line-height. Source Code Pro is the explicit display monospace; ui-monospace handles inline `<code>` chips.
+
+The brand-distinctive choice is the **mixed weight ladder** (400 / 500 / 600 / 700 / 800) — most chrome lives in the 400–700 band, with weight 800 reserved exclusively for the larger display headlines on home and pricing. This gives the system its "engineering blog" feel: hierarchy is built from weight contrast much more than from size.
+
+### Hierarchy
+
+| Token | Size | Weight | Line Height | Letter Spacing | Use |
+|---|---|---|---|---|---|
+| `{typography.display-xl}` | 36px | 700 | 1.5 | 0 | Hero headline ("The new way to build products") |
+| `{typography.display-lg}` | 24px | 800 | 1.33 | -0.6px | Section headline, pricing tier name |
+| `{typography.heading-lg}` | 21px | 700 | 1.4 | -0.5px | Sub-section heading, doc-article H2 |
+| `{typography.heading-md}` | 20px | 700 | 1.4 | 0 | Card group title, in-grid heading |
+| `{typography.heading-sm}` | 18px | 700 | 1.5 | 0 (uppercase) | Section eyebrow ("UNDERSTAND PRODUCT USAGE") |
+| `{typography.heading-sm-mixed}` | 18px | 600 | 1.56 | 0 | Card title in mixed-case (no uppercase transform) |
+| `{typography.body-md}` | 16px | 400 | 1.5 | 0 | Body copy, default paragraph |
+| `{typography.body-strong}` | 16px | 600 | 1.5 | 0 | Inline emphasis, primary nav link, in-card label |
+| `{typography.body-sm}` | 15px | 400 | 1.71 | 0 | Doc article body, marketing card description |
+| `{typography.body-sm-strong}` | 15px | 600 | 1.71 | 0 | Sub-section emphasis inside doc article |
+| `{typography.body-xs}` | 14px | 500 | 1.43 | 0 | Doc sidebar item, metadata, in-list caption |
+| `{typography.caption-md}` | 14px | 700 | 1.71 | 0 | Card eyebrow, link cluster header |
+| `{typography.caption-sm}` | 13px | 500 | 1.5 | 0 | Compact metadata caption |
+| `{typography.caption-xs}` | 12px | 600 | 1.33 | 0 (uppercase) | Inline badge label |
+| `{typography.utility-xs}` | 12px | 700 | 1.33 | 0 (uppercase) | Section-eyebrow utility text, footer category header |
+| `{typography.link-md}` | 16px | 400 | 1.5 | 0 | Inline body anchor link |
+| `{typography.button-md}` | 14px | 700 | 1.5 | 0 | Standard primary/secondary button label |
+| `{typography.button-sm}` | 13px | 500 | 1 | 0 | Pill chip / compact CTA |
+| `{typography.code-sm}` | 14px | 400 | 1.43 | 0 | Code block content |
+| `{typography.code-xs}` | 14px | 500 | 1.43 | 0 | Inline code chip |
+
+### Principles
+The hierarchy is explicitly built from weight + size + occasional uppercase transform — there is no italic style, no decorative display variant, no proprietary face. The biggest display moments use weight 800 with -0.6px tracking, and the body settles at 400 with 1.5 line-height; everything else fills the band between. Section eyebrows (`{typography.heading-sm}` and `{typography.utility-xs}`) consistently render uppercase, which gives the doc layout its textbook-chapter feel.
+
+### Note on Font Substitutes
+IBM Plex Sans Variable is open-source and Google-Fonts-hosted. There is no need for a substitute — load it directly. If a substitute is genuinely needed, **Inter** is the closest geometric match at all five weights; pair with Inter's letter-spacing -0.5 to -0.6px on display sizes to approximate Plex's display tracking. For monospace, **JetBrains Mono** is a near-perfect substitute for Source Code Pro at body sizes.
+
+## Layout
+
+### Spacing System
+- **Base unit:** 8px (with finer 2/4/6px steps for tight inline gaps in callout banners and pill buttons).
+- **Tokens (front matter):** `{spacing.xxs}` (2px) · `{spacing.xs}` (4px) · `{spacing.sm}` (8px) · `{spacing.md}` (12px) · `{spacing.lg}` (16px) · `{spacing.xl}` (24px) · `{spacing.xxl}` (32px) · `{spacing.section}` (80px).
+- **Universal section rhythm:** every page in the set uses `{spacing.section}` (80px) as the vertical gap between major content blocks. Card grids use `{spacing.lg}` (16px) gutters; card internal padding sits at `{spacing.xl}` (24px) for product cards and `{spacing.xxl}` (32px) for pricing tier cards.
+
+### Grid & Container
+- **Max width:** ~1280px content area at desktop with 24px gutters (~48px at ultrawide). Doc article body sits at ~720px max width with the 240px sidebar pushing the article column right of center.
+- **Marketing card grid:** 4-up at desktop, 3-up at 1024px, 2-up at 768px, 1-up at 480px. Cards preserve a fixed 1:1 or 4:3 ratio.
+- **Pricing tier grid:** 3-up at desktop with a left rail of plan info, collapsing to 2-up + 1 at tablet and 1-up at mobile.
+- **Doc layout:** desktop 240px sticky left sidebar + ~720px article body + (optional) 200px right TOC rail = ~1160px content width.
+- **Footer:** 6-column horizontal link grid at desktop, 3-up at tablet, 2-up at mobile.
+
+### Whitespace Philosophy
+Whitespace is generous on marketing pages and tight on doc pages. The home and workflows pages stack feature tiles with `{spacing.lg}` (16px) gutters and 24px internal padding, while doc articles tighten internal spacing to `{spacing.md}` (12px) between paragraphs to maximize information density. The cream canvas runs continuously through every section — there are no decorative dividers, no shaded section bands; only the 1px hairline beneath section eyebrows and footer column rules separate content blocks.
+
+## Elevation & Depth
+
+| Level | Treatment | Use |
+|---|---|---|
+| 0 — Flat | No border, no shadow | Default for canvas-on-canvas blocks, hero text, body sections |
+| 1 — Hairline border | 1px solid `{colors.hairline}` | Marketing cards, pricing tier cards, doc sidebar items, footer column rules |
+| 2 — Hairline soft | 1px solid `{colors.hairline-soft}` | In-card row divider between adjacent rows |
+| 3 — Inverted dark code block | `{colors.surface-dark}` fill | Code samples inside doc cards — the system's only "elevated" surface uses color, not shadow |
+
+The system has no drop-shadow elevation in marketing or product chrome. Cards sit flat on cream with thin olive borders. The single inverted moment is the dark code-block surface used inside doc article body cards.
+
+### Decorative Depth
+Depth comes entirely from illustration and the pastel callout band system, not from CSS effects:
+- **Hand-drawn hedgehog mascots** — characters in various costumes (lab coat, terminal, lounge chair, magnifying glass, hammock, hat) scattered across pages as marginalia. Always rendered as flat color illustrations, never photographs.
+- **Pastel callout banners** — `{component.banner-tip-blue}` / `-green` / `-red` / `-purple` soft tinted side-rail panels inside doc articles, each prefixed with an emoji icon (💡 ✅ ⚠️ 📘) and carrying tip/warning/note copy.
+- **Code blocks** — full-width dark olive-charcoal panels on `{colors.surface-dark}` with white code text. The system's most cinematic surface, used inside white doc cards.
+- **Outline product icons** in the doc sidebar — small rounded-square mini-illustrations (chart icon, funnel, session-replay icon) mark each major product section.
+
+## Shapes
+
+### Border Radius Scale
+
+| Token | Value | Use |
+|---|---|---|
+| `{rounded.none}` | 0px | Sub-nav strip, footer, doc sidebar, primary nav — flat structural surfaces |
+| `{rounded.xs}` | 2px | Inline `<code>` chips, micro-rule highlights |
+| `{rounded.sm}` | 4px | Inline buttons, form inputs, micro chips |
+| `{rounded.md}` | 6px | Marketing cards, pricing cards, doc cards, code blocks, every standard CTA |
+| `{rounded.lg}` | 8px | Tab top corners (`6px 6px 0 0` on active tab) and rare large containers |
+| `{rounded.full}` | 9999px | Pill chips and pill-style CTAs ("Get started — free" sticky CTA in nav) |
+
+The radius vocabulary clusters around 4–6px for nearly everything; the only fully-rounded element is the pill-style sticky nav CTA and inline pill chips.
+
+### Photography Geometry
+There is no photography. Visual elements are limited to:
+- **Hedgehog character illustrations** — flat-color cartoon hedgehogs ranging from ~80px (in-card mascot) to ~240px (hero illustration). Always at native aspect, never cropped to a frame.
+- **Outline product icons** in the doc sidebar — 20–24px rounded-square illustrations.
+- **Inline emoji** at 14–16px inside callout banners (💡 ✅ ⚠️ 📘) — used as functional iconography rather than decoration.
+- **Section illustrations** on the home page — small hedgehog vignettes paired with each "Understand product usage" / "Build sticky habits" / "Test before launch" feature row.
+
+## Components
+
+> **No hover states documented** per system policy. Each spec covers Default and Active/Pressed only.
+
+### Buttons
+
+**`button-primary`** — the universal PostHog CTA
+- Background `{colors.primary}` (yellow-orange), text `{colors.on-primary}` (deep olive), type `{typography.button-md}`, padding `8px 16px`, height `40px`, rounded `{rounded.md}`.
+- Used for "Get started — free" (sticky top-nav CTA), "Sign up", "Try it free", "Subscribe" — every primary action.
+- Pressed state lives in `button-primary-pressed` — background drops to `{colors.primary-pressed}`.
+
+**`button-secondary`** — soft alternative on cream canvas
+- Background `{colors.surface-soft}` (`#e5e7e0`), text `{colors.ink}`, type `{typography.button-md}`, padding `8px 16px`, height `40px`, rounded `{rounded.md}`.
+- "Talk to sales", "Read docs", "Watch demo" — second-tier actions paired with the yellow primary.
+
+**`button-tertiary`** — ghost text button
+- Background transparent, text `{colors.ink}`, type `{typography.button-md}`, padding `8px 12px`, rounded `{rounded.md}`.
+- Lowest-emphasis action: "See all docs →", "Browse all features".
+
+**`button-disabled`**
+- Background `{colors.surface-soft}`, text `{colors.ash}` — flat soft cream-gray.
+
+### Tabs & Chips
+
+**`product-tab`** + **`product-tab-active`** — major product section tabs
+- Default: transparent background, text `{colors.body}`, type `{typography.body-strong}`, padding `8px 12px`, rounded `{rounded.md}`.
+- Active: background flips to `{colors.surface-card}` (white), text `{colors.ink}` — the tab card lifts off the cream canvas as the visual signal of selection.
+
+**`pill-tab`** + **`pill-tab-active`** — compact filter pill
+- Default: transparent background, text `{colors.body}`, type `{typography.button-sm}`, padding `6px 14px`, rounded `{rounded.full}`.
+- Active: background flips to `{colors.ink}`, text `{colors.on-dark}` — the chip flips fully inverted on selection.
+
+**`badge-uppercase`** — text-only utility label
+- Background transparent, text `{colors.body}` in `{typography.utility-xs}` (uppercase) — used as in-list category prefix ("FEATURE FLAG", "EXPERIMENT", "HEATMAP").
+
+**`badge-promo`** — small inline pill chip
+- Background `{colors.accent-blue-soft}`, text `{colors.link-blue}`, type `{typography.caption-xs}`, padding `2px 8px`, rounded `{rounded.full}`.
+- "New", "Beta", "Coming soon" pill labels overlaid on cards.
+
+### Inputs & Forms
+
+**`text-input`** + **`text-input-focused`**
+- Default: background `{colors.surface-card}`, text `{colors.ink}`, 1px solid `{colors.hairline}`, type `{typography.body-md}`, padding `8px 12px`, height `36px`, rounded `{rounded.md}`.
+- Focused: same surface; 2px solid `{colors.accent-blue}` border replaces the 1px hairline + a translucent `{colors.focus-ring}` outline.
+
+**`search-input`** — utility search field (doc sidebar, "Ask PostHog AI")
+- Same dimensions as `text-input` with a magnifier glyph at the left edge in `{colors.mute}`.
+
+### Cards & Containers
+
+**`product-card`** — marketing tile / feature card
+- Container: background `{colors.surface-card}` (white), 1px solid `{colors.hairline}`, padding `{spacing.xl}` (24px), rounded `{rounded.md}`.
+- Layout: small hedgehog illustration at top-left, `{typography.heading-sm-mixed}` title, `{typography.body-sm}` description, optional `{component.button-tertiary}` "Learn more →" link.
+
+**`doc-card`** — doc article body card
+- Container: background `{colors.surface-doc}` (`#fcfcfa` warm-white), 1px solid `{colors.hairline}`, padding `{spacing.xl}` (24px), rounded `{rounded.md}`.
+- Carries article body sections, code blocks, callout banners, and tables inside doc pages.
+
+**`feature-tile`** — small marketing feature tile
+- Container: background `{colors.surface-card}`, 1px solid `{colors.hairline}`, padding `{spacing.lg}` (20px), rounded `{rounded.md}`.
+- Used in 3-up or 4-up grids on home and workflows pages — paired with a small icon and a 1-line description.
+
+**`pricing-tier-card`** — pricing plan card
+- Container: background `{colors.surface-card}`, 1px solid `{colors.hairline}`, padding `{spacing.xxl}` (32px), rounded `{rounded.md}`.
+- Layout: tier name in `{typography.display-lg}` (24px / 800 / -0.6px), large price + period, feature checklist with check-icon bullets, primary or secondary CTA at bottom.
+
+**`hedgehog-mascot-card`** — feature card with margin-anchored hedgehog
+- Same chrome as `{component.product-card}` but with a hand-drawn hedgehog illustration anchored in the right margin or top-right corner — the brand's signature card variant.
+
+### Callout Banners
+
+**`banner-tip-blue`** + **`banner-tip-green`** + **`banner-tip-red`** + **`banner-tip-purple`**
+- Background `{colors.accent-blue-soft}` / `{colors.accent-green-soft}` / `{colors.accent-red-soft}` / `{colors.accent-purple-soft}`, text `{colors.ink}`, type `{typography.body-md}`, padding `16px 20px`, rounded `{rounded.md}`.
+- Each prefixed with an inline emoji icon (💡 / ✅ / ⚠️ / 📘) followed by an inline label and body copy.
+- Only appear inside doc article body. The four-color callout family is the brand's information-architecture vocabulary for inline tips/warnings/info inside long-form documentation.
+
+### Code
+
+**`code-block`** — dark code sample inside doc card
+- Container: background `{colors.surface-dark}` (deep olive-charcoal), text `{colors.on-dark}` in `{typography.code-sm}`, padding `16px 20px`, rounded `{rounded.md}`.
+- Syntax highlighting uses muted accent colors (blue for keywords, green for strings, purple for numbers) — never the bright accent colors used in callout banners.
+
+**`inline-code`** — small inline `<code>` chip
+- Background `{colors.surface-soft}`, text `{colors.ink}` in `{typography.code-xs}`, padding `2px 6px`, rounded `{rounded.xs}` (2px).
+- Used inside body prose to mark code snippets and identifiers.
+
+### Navigation
+
+**`primary-nav`**
+- Background `{colors.canvas}` (cream — same as the page), text `{colors.ink}`, height `56px`, type `{typography.body-strong}`, rounded `{rounded.none}`.
+- Layout (desktop): PostHog wordmark + hedgehog logo at left, nav menu cluster ("Pricing · Docs · Community · Company"), right cluster with a search-glyph, "Login" link, and the always-yellow `{component.button-primary}` "Get started — free" pill anchored to the far right.
+
+**`sub-nav-strip`** — secondary nav bar (under primary)
+- Background `{colors.surface-soft}`, text `{colors.body}` in `{typography.body-xs}`, height `40px`, rounded `{rounded.none}`.
+- Sits directly below the primary nav on workflows / product pages with section anchor links and a contextual "Get started →" link at the right.
+
+**`doc-sidebar`** — sticky doc-page left sidebar
+- Background `{colors.canvas}`, text `{colors.body}` in `{typography.body-xs}`, width `240px`, rounded `{rounded.none}`.
+- Layout: search-input "Ask PostHog AI" at top, then a vertical list of section headers each with a small rounded outline-icon mini-illustration, then nested item links indented under the active header.
+
+**Top Nav (Mobile)**
+- Hamburger menu icon at left, PostHog wordmark + hedgehog at center, search + sticky yellow "Get started — free" CTA at right. Primary nav collapses into a full-height drawer that slides from the left.
+
+### Footer
+
+**`footer-section`**
+- Background `{colors.canvas}`, text `{colors.body}` in `{typography.body-xs}`, padding `32px 24px`, rounded `{rounded.none}`, with a 1px `{colors.hairline}` top rule.
+- Layout: 6-column horizontal link grid (Product · Resources · Company · Community · Pricing · Legal), each column with a `{typography.utility-xs}` (uppercase) header and a vertical list of links in `{typography.body-xs}` `{colors.body}`.
+- Bottom row: PostHog wordmark + small hedgehog illustration, copyright in `{typography.caption-xs}` `{colors.mute}`, social-icon row at far-right.
+
+### Inline
+
+**`link-inline`** — body-prose anchor link
+- `{colors.link-teal}` (`#1078a3`) in body prose with no underline by default; underline appears on focus. The brand's primary inline link color.
+
+## Do's and Don'ts
+
+### Do
+- Use `{colors.canvas}` (cream — `#eeefe9`) as the page body. Never substitute pure white as the canvas.
+- Reserve `{colors.primary}` (yellow-orange) for the primary CTA pill only. The "Get started — free" treatment is the brand's anchor.
+- Render the brand wordmark with the hedgehog illustration alongside it, not as a stand-alone wordmark. The hedgehog IS the brand identity.
+- Use IBM Plex Sans Variable across every text role — body 400, emphasis 600/700, display 800.
+- Stack content sections at `{spacing.section}` (80px) rhythm with no decorative dividers between them; let the cream canvas continue uninterrupted.
+- Use `{component.banner-tip-blue}` / `-green` / `-red` / `-purple` only inside doc article body for tip/warning/note panels — keep marketing chrome out of the four-color callout family.
+- Pair every code sample with the dark `{component.code-block}` surface; inline `<code>` chips use `{component.inline-code}` (cream surface-soft chip).
+- Anchor a hedgehog mascot illustration in feature tile margins on home and workflows pages — the system's signature decoration.
+
+### Don't
+- Don't introduce drop shadows on cards. Cards sit flat on cream with thin olive borders only.
+- Don't add a second saturated chromatic CTA. Yellow-orange is the only loud color in the system.
+- Don't replace the cream canvas with pure white or full-bleed dark hero bands. The cream is the brand.
+- Don't use the four-color callout banner pastels (`{colors.accent-blue-soft}`, `-green`, `-red`, `-purple`) as marketing-card backgrounds. They belong to inline doc content only.
+- Don't substitute the hedgehog illustration with a generic icon set. The character system is the brand.
+- Don't use uppercase transform outside of `{typography.heading-sm}`, `{typography.utility-xs}`, and `{typography.caption-xs}`. Uppercase is reserved for eyebrows and footer category headers.
+- Don't pad cards with 32px+ on all sides except for `{component.pricing-tier-card}`. Standard cards sit at 24px internal padding.
+
+## Responsive Behavior
+
+### Breakpoints
+
+| Name | Width | Key Changes |
+|---|---|---|
+| ultrawide | 1920px+ | Content max-width holds at 1280px; outer gutters grow to ~80px |
+| desktop-large | 1440px | Default — 4-up feature tile grid, 240px sticky doc sidebar visible |
+| desktop | 1280px | Same layout with narrower outer gutters |
+| desktop-small | 1024px | 4-up tiles collapse to 3-up; doc sidebar remains visible |
+| tablet | 768px | 3-up tiles collapse to 2-up; doc sidebar collapses into a top accordion; primary nav becomes hamburger |
+| mobile | 480px | Single-column everything; hero `{typography.display-xl}` scales 36px → ~28px |
+| mobile-narrow | 320px | Section padding tightens to 32px |
+
+### Touch Targets
+All interactive elements meet WCAG AA (≥ 40×40px). `{component.button-primary}` and `{component.button-secondary}` sit at 40px height with 16px padding. `{component.text-input}` sits at 36px (just under AAA but above AA at this size). `{component.pill-tab}` is ~32–36px height with 14px padding extending to ~44px tappable via inline padding. Doc-sidebar items use 14px text with ~32px line-height + 6px vertical padding for ~44px tap rows.
+
+### Collapsing Strategy
+- **Primary nav:** desktop horizontal cluster → tablet hamburger drawer at 768px. The yellow "Get started — free" CTA stays visible at every breakpoint.
+- **Sub-nav strip:** desktop horizontal anchor row → tablet horizontal scroll → mobile select dropdown.
+- **Marketing card grid:** 4-up → 3-up → 2-up → 1-up at 1024, 768, and 480px; gutters drop from 16px to 12px on mobile.
+- **Pricing grid:** 3-up → 2+1 → 1-up stacked at tablet and below.
+- **Doc layout:** desktop 240px sidebar + 720px article → tablet sidebar collapses to a top accordion → mobile fully collapsed accordion.
+- **Footer:** 6-up link columns → 3-up at tablet → 2-up at mobile.
+- **Section padding:** `{spacing.section}` (80px) desktop → 64px tablet → 48px mobile.
+- **Hero headline:** `{typography.display-xl}` (36px) at desktop, scaling to ~28px at mobile, line-height holding at 1.5.
+
+### Image Behavior
+The only "imagery" in the system is hand-drawn hedgehog illustrations rendered as inline SVG. They preserve their natural aspect at every breakpoint and scale via CSS `width: auto; max-width: 100%`. There is no responsive art-direction needed because there is no photography.
+
+## Iteration Guide
+
+1. Focus on ONE component at a time. Pull its YAML entry and verify every property resolves.
+2. Reference component names and tokens directly (`{colors.primary}`, `{component.button-primary-pressed}`, `{rounded.md}`) — do not paraphrase.
+3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
+4. Add new variants as separate component entries (`-pressed`, `-disabled`, `-focused`) — do not bury them inside prose.
+5. Default body to `{typography.body-md}` (16px / 400 / 1.5); reach for `{typography.body-strong}` for emphasis; reserve `{typography.display-lg}` (24px / 800) strictly for marketing display moments.
+6. Keep `{colors.primary}` scarce per viewport — at most one yellow-orange pill per fold.
+7. When introducing a new component, ask whether it can be expressed with the existing card + 6px-radius + cream-canvas vocabulary before adding new tokens. The system's strength is that it almost never needs new ones.
+
+## Known Gaps
+
+- **Mobile screenshots not captured** — responsive behavior synthesizes PostHog's mobile pattern (hamburger drawer, single-column grid, doc sidebar accordion) from desktop evidence and the breakpoint stack.
+- **Hover states not documented** by system policy.
+- **In-product app chrome** (PostHog dashboard, charts, session replay player) not in the captured set — the marketing site is documented here, not the in-product analytics interface.
+- **Authenticated chrome** (login modal, account dashboard, billing settings) not in the captured pages.
+- **Form validation states** beyond the focused-state input not present in the captured surfaces.
+- **Marketing illustration set** — the full library of hedgehog character poses is not enumerated here; specific poses (lab coat hedgehog, terminal hedgehog, hammock hedgehog) are noted as visible in screenshots but the full asset library is page-specific.
+</textarea>
+
+<script>
+  function copyMarkdownSpec() {
+    const mdText = document.getElementById('markdown-spec-content').value;
+    navigator.clipboard.writeText(mdText).then(() => {
+      const btn = document.getElementById('copy-md-btn');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+      btn.style.borderColor = 'var(--accent-vue)';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.borderColor = '';
+      }, 2000);
+    }).catch(err => {
+      console.error(err);
+      alert('Failed to copy: ' + err);
+    });
+  }
+
+  function copyColor(hex, el) {
+    navigator.clipboard.writeText(hex).then(() => {
+      const hexEl = el.querySelector('.hex');
+      const originalText = hexEl.innerText;
+      hexEl.innerText = 'Copied!';
+      hexEl.style.color = 'var(--accent-vue)';
+      hexEl.style.fontWeight = 'bold';
+      setTimeout(() => {
+        hexEl.innerText = originalText;
+        hexEl.style.color = '';
+        hexEl.style.fontWeight = '';
+      }, 1000);
+    });
+  }
+
+  function updateTypoPreviews(val) {
+    const previews = document.querySelectorAll('.typo-preview-text');
+    previews.forEach(p => {
+      p.innerText = val.trim() || 'The quick brown fox jumps over the lazy dog';
+    });
+  }
+
+  function setSimWidth(mode) {
+    const container = document.getElementById('viewport-sim-container');
+    const indicator = document.getElementById('sim-width-indicator');
+    const cols = document.getElementById('sim-layout-columns');
+    const btnMobile = document.getElementById('btn-sim-mobile');
+    const btnTablet = document.getElementById('btn-sim-tablet');
+    const btnDesktop = document.getElementById('btn-sim-desktop');
+    
+    // Reset button styles
+    [btnMobile, btnTablet, btnDesktop].forEach(btn => {
+      if (btn) {
+        btn.style.background = 'var(--bg-base)';
+        btn.style.borderColor = 'var(--border-color)';
+        btn.style.color = 'var(--text-primary)';
+      }
+    });
+    
+    const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
+    if (activeBtn) {
+      activeBtn.style.background = 'var(--accent-vue-glow)';
+      activeBtn.style.borderColor = 'var(--accent-vue)';
+      activeBtn.style.color = 'var(--accent-vue)';
+    }
+    
+    if (mode === 'mobile') {
+      container.style.maxWidth = '375px';
+      indicator.innerText = 'Width: 375px (Mobile < 768px)';
+      cols.style.gridTemplateColumns = '1fr';
+    } else if (mode === 'tablet') {
+      container.style.maxWidth = '600px';
+      indicator.innerText = 'Width: 600px (Tablet 768px-1024px)';
+      cols.style.gridTemplateColumns = '1fr 1fr';
+    } else {
+      container.style.maxWidth = '800px';
+      indicator.innerText = 'Width: 800px (Desktop > 1024px)';
+      cols.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    }
+  }
+</script>
+</body>
+</html>

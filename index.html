@@ -13,28 +13,12 @@
   <style>
     /* ═══════════════════ DESIGN SYSTEM INDEX STYLING (LIGHT THEME) ═══════════════════ */
     :root {
-      --bg: #f9f8f6; /* Warm off-white/ivory-tinted paper bg */
+      --bg: #f9f8f6; /* Warm off-white bg */
       --card-bg: #ffffff;
-      --card-border: rgba(20, 20, 19, 0.15); /* More visible default border */
+      --card-border: rgba(20, 20, 19, 0.15);
       --card-border-hover: rgba(20, 20, 19, 0.3);
-      --text-main: #141413; /* Deep dark slate near-black */
-      --text-secondary: #575752; /* Muted warm gray */
-      
-      --accent-html: #d97757; /* Clay red */
-      --accent-html-glow: rgba(217, 119, 87, 0.08);
-      --accent-tw93: #a67c52; /* Copper brown */
-      --accent-tw93-glow: rgba(166, 124, 82, 0.08);
-      --accent-linear: #5e6ad2; /* Linear purple */
-      --accent-linear-glow: rgba(94, 106, 210, 0.08);
-      --accent-apple: #0066cc; /* Apple blue */
-      --accent-apple-glow: rgba(0, 102, 204, 0.08);
-      --accent-tailwind: #6366f1; /* Tailwind Indigo */
-      --accent-tailwind-glow: rgba(99, 102, 241, 0.08);
-      --accent-notion: #37352f; /* Notion charcoal */
-      --accent-notion-glow: rgba(55, 53, 47, 0.06);
-      --accent-vue: #42b883; /* Vue green */
-      --accent-vue-glow: rgba(66, 184, 131, 0.08);
-      
+      --text-main: #141413;
+      --text-secondary: #575752;
       --radius-lg: 16px;
       --radius-md: 10px;
       --transition-speed: 0.3s;
@@ -49,7 +33,7 @@
     body {
       background-color: var(--bg);
       color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -85,10 +69,10 @@
       flex: 1;
     }
 
-    /* ── Header (Enlarged Weight) ─────────────────────────── */
+    /* Header */
     header {
       text-align: center;
-      margin-bottom: 80px;
+      margin-bottom: 56px;
       animation: fadeInDown 0.8s ease-out;
     }
 
@@ -135,10 +119,49 @@
       line-height: 1.6;
     }
 
-    /* ── Grid Layout ─────────────────────────── */
+    /* Category Filter Tabs */
+    .category-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 56px;
+      animation: fadeInDown 0.8s ease-out 0.1s both;
+    }
+
+    .category-tab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .category-tab:hover {
+      border-color: var(--text-main);
+      color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    .category-tab.active {
+      background: var(--text-main);
+      border-color: var(--text-main);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(20, 20, 19, 0.15);
+    }
+
+    /* Grid Layout */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       gap: 32px;
       animation: fadeInUp 0.8s ease-out 0.2s both;
     }
@@ -150,10 +173,10 @@
       }
     }
 
-    /* ── Card Styling (Fully Clickable Links) ─────────────────────────── */
+    /* Card Styling */
     .card {
       background: var(--card-bg);
-      border: 1.5px solid var(--card-border); /* Slightly thicker border for visibility */
+      border: 1.5px solid var(--card-border);
       border-radius: var(--radius-lg);
       box-shadow: 0 4px 20px rgba(20, 20, 19, 0.02);
       overflow: hidden;
@@ -174,82 +197,19 @@
       top: 0; left: 0; right: 0;
       height: 5px;
       opacity: 0.9;
+      background: linear-gradient(90deg, var(--accent), var(--accent));
     }
 
-    /* HTML Spec Card Variant */
-    .card.html::before {
-      background: linear-gradient(90deg, var(--accent-html), #e0937a);
-    }
-    .card.html:hover {
-      border-color: var(--accent-html);
-      box-shadow: 0 20px 40px var(--accent-html-glow);
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 20px 40px var(--accent-glow);
       transform: translateY(-8px);
     }
 
-    /* Tw93 Card Variant */
-    .card.tw93::before {
-      background: linear-gradient(90deg, var(--accent-tw93), #c89d73);
-    }
-    .card.tw93:hover {
-      border-color: var(--accent-tw93);
-      box-shadow: 0 20px 40px var(--accent-tw93-glow);
-      transform: translateY(-8px);
-    }
-
-    /* Linear Card Variant */
-    .card.linear::before {
-      background: linear-gradient(90deg, var(--accent-linear), #98a2eb);
-    }
-    .card.linear:hover {
-      border-color: var(--accent-linear);
-      box-shadow: 0 20px 40px var(--accent-linear-glow);
-      transform: translateY(-8px);
-    }
-
-    /* Apple Card Variant */
-    .card.apple::before {
-      background: linear-gradient(90deg, var(--accent-apple), #3399ff);
-    }
-    .card.apple:hover {
-      border-color: var(--accent-apple);
-      box-shadow: 0 20px 40px var(--accent-apple-glow);
-      transform: translateY(-8px);
-    }
-
-    /* Tailwind Card Variant */
-    .card.tailwind::before {
-      background: linear-gradient(90deg, var(--accent-tailwind), #38bdf8);
-    }
-    .card.tailwind:hover {
-      border-color: var(--accent-tailwind);
-      box-shadow: 0 20px 40px var(--accent-tailwind-glow);
-      transform: translateY(-8px);
-    }
-
-    /* Notion Card Variant */
-    .card.notion::before {
-      background: linear-gradient(90deg, var(--accent-notion), #7c7b77);
-    }
-    .card.notion:hover {
-      border-color: var(--accent-notion);
-      box-shadow: 0 20px 40px var(--accent-notion-glow);
-      transform: translateY(-8px);
-    }
-
-    /* Vue Card Variant */
-    .card.vue::before {
-      background: linear-gradient(90deg, var(--accent-vue), #35495e);
-    }
-    .card.vue:hover {
-      border-color: var(--accent-vue);
-      box-shadow: 0 20px 40px var(--accent-vue-glow);
-      transform: translateY(-8px);
-    }
-
-    /* Card Preview (Increased height to 380px for prominence) */
+    /* Card Preview */
     .card-preview {
       height: 380px;
-      background: #f3f1ed;
+      background: var(--preview-bg);
       border-bottom: 1.5px solid var(--card-border);
       position: relative;
       display: flex;
@@ -257,25 +217,6 @@
       justify-content: center;
       padding: 36px;
       overflow: hidden;
-    }
-
-    .card.tw93 .card-preview {
-      background: #efece6;
-    }
-    .card.linear .card-preview {
-      background: #0f111a;
-    }
-    .card.apple .card-preview {
-      background: #f5f5f7;
-    }
-    .card.tailwind .card-preview {
-      background: #f8fafc;
-    }
-    .card.notion .card-preview {
-      background: #fbfbfa;
-    }
-    .card.vue .card-preview {
-      background: #f6f6f7;
     }
 
     /* Visual Mockup inside card preview */
@@ -317,6 +258,7 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
+      justify-content: center;
     }
 
     .mockup-line {
@@ -325,7 +267,6 @@
       background: rgba(20, 20, 19, 0.06);
     }
 
-    /* Mockup swatches display */
     .mockup-swatches {
       display: flex;
       gap: 6px;
@@ -338,184 +279,87 @@
       border: 1px solid rgba(20, 20, 19, 0.08);
     }
 
-    /* HTML Mockup Styles */
-    .card.html .mockup-title {
-      font-family: ui-serif, Georgia, serif;
-      font-size: 22px;
-      font-style: italic;
-      color: var(--accent-html);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-    }
-    .card.html .mockup-tag {
-      background: rgba(217, 119, 87, 0.1);
-      border: 1px solid var(--accent-html);
-      color: var(--accent-html);
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-family: monospace;
-      align-self: flex-start;
+    .mockup-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      word-break: break-word;
     }
 
-    /* Tw93 Mockup Styles */
-    .card.tw93 .mockup-title {
-      font-family: 'LXGW WenKai', Kaiti, sans-serif;
-      font-size: 21px;
-      color: var(--accent-tw93);
-    }
-    .card.tw93 .mockup-tag {
-      background: rgba(166, 124, 82, 0.1);
-      border: 1px solid var(--accent-tw93);
-      color: var(--accent-tw93);
+    .mockup-tag {
+      background: var(--accent-glow);
+      border: 1px solid var(--accent);
+      color: var(--accent);
       font-size: 10px;
       padding: 3px 8px;
       border-radius: 4px;
       align-self: flex-start;
-      font-family: 'LXGW WenKai', Kaiti, sans-serif;
+      font-weight: bold;
     }
 
-    /* Linear Mockup Styles */
-    .card.linear .mockup-container {
-      background: #000212;
+    /* Dark Mode Mockup overrides */
+    .card[data-dark="true"] .mockup-container {
+      background: #0d1117;
       border-color: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 12px 30px rgba(94, 106, 210, 0.12);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
     }
-    .card.linear .mockup-dot {
+    .card[data-dark="true"] .mockup-dot {
       background: rgba(255, 255, 255, 0.15);
     }
-    .card.linear .mockup-line {
+    .card[data-dark="true"] .mockup-line {
       background: rgba(255, 255, 255, 0.06);
     }
-    .card.linear .mockup-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
+    .card[data-dark="true"] .mockup-title {
       color: #ffffff;
     }
-    .card.linear .mockup-tag {
-      background: rgba(94, 106, 210, 0.15);
-      border: 1px solid var(--accent-linear);
-      color: #98a2eb;
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      align-self: flex-start;
-      font-family: 'Inter', sans-serif;
+
+    /* Retro/Special Mockups */
+    .card[data-retro="dell"] .mockup-container {
+      background: #c0c0c0;
+      border: 3px outset #fff;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .card[data-retro="dell"] .mockup-dot {
+      background: #808080;
+      border: 1px inset #fff;
+      border-radius: 0;
+    }
+    .card[data-retro="dell"] .mockup-line {
+      background: #fff;
+      border: 1px inset #fff;
+      border-radius: 0;
+    }
+    .card[data-retro="dell"] .mockup-title {
+      font-family: "Times New Roman", Times, serif;
+      font-weight: bold;
+      color: #000000;
+    }
+    .card[data-retro="dell"] .mockup-tag {
+      background: #e91d2a;
+      color: #fff;
+      font-family: Helvetica, sans-serif;
+      font-weight: 900;
+      border-radius: 0;
+      border: 1.5px outset #fff;
     }
 
-    /* Apple Mockup Styles */
-    .card.apple .mockup-container {
-      background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.06);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+    .card[data-retro="nintendo"] .mockup-container {
+      background: #a1accb;
+      border: 2px outset #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 0 #6e768e;
     }
-    .card.apple .mockup-dot {
-      background: rgba(0, 0, 0, 0.06);
+    .card[data-retro="nintendo"] .mockup-title {
+      font-family: Arial, sans-serif;
+      color: #0c0c2e;
     }
-    .card.apple .mockup-line {
-      background: rgba(0, 0, 0, 0.04);
-    }
-    .card.apple .mockup-title {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-      font-size: 21px;
-      font-weight: 600;
-      color: #1d1d1f;
-    }
-    .card.apple .mockup-tag {
-      background: #e5e5ea;
-      border: 1px solid #d2d2d7;
-      color: #1d1d1f;
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      align-self: flex-start;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-    }
-
-    /* Tailwind Mockup Styles */
-    .card.tailwind .mockup-container {
-      background: #ffffff;
-      border-color: #e2e8f0;
-      box-shadow: 0 12px 32px rgba(99, 102, 241, 0.05);
-    }
-    .card.tailwind .mockup-dot {
-      background: #cbd5e1;
-    }
-    .card.tailwind .mockup-line {
-      background: #f1f5f9;
-    }
-    .card.tailwind .mockup-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 20px;
-      font-weight: 800;
-      color: #0f172a;
-    }
-    .card.tailwind .mockup-tag {
-      background: rgba(99, 102, 241, 0.08);
-      border: 1px solid var(--accent-tailwind);
-      color: #4f46e5;
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      align-self: flex-start;
-      font-family: monospace;
-    }
-
-    /* Notion Mockup Styles */
-    .card.notion .mockup-container {
-      background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.06);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.02);
-    }
-    .card.notion .mockup-dot {
-      background: rgba(0, 0, 0, 0.06);
-    }
-    .card.notion .mockup-line {
-      background: rgba(0, 0, 0, 0.04);
-    }
-    .card.notion .mockup-title {
-      font-family: ui-sans-serif, -apple-system, sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: #37352f;
-    }
-    .card.notion .mockup-tag {
-      background: #fff9e6;
-      border: 1px solid #edecee;
-      color: #37352f;
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 3px;
-      align-self: flex-start;
-    }
-
-    /* Vue Mockup Styles */
-    .card.vue .mockup-container {
-      background: #ffffff;
-      border-color: #e2e2e3;
-      box-shadow: 0 12px 32px rgba(66, 184, 131, 0.05);
-    }
-    .card.vue .mockup-dot {
-      background: #e2e2e3;
-    }
-    .card.vue .mockup-line {
-      background: #f6f6f7;
-    }
-    .card.vue .mockup-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: #2c3e50;
-    }
-    .card.vue .mockup-tag {
-      background: #f0f9eb;
-      border: 1px solid #42b883;
-      color: #3ca272;
-      font-size: 9px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      align-self: flex-start;
+    .card[data-retro="nintendo"] .mockup-tag {
+      background: #e60012;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      border-radius: 20px;
+      border: none;
     }
 
     .card-body {
@@ -566,33 +410,17 @@
       transition: transform var(--transition-speed) ease;
     }
 
-    /* Specific hover effects for card-arrow-wrap when hovering the card */
-    .card.html:hover .card-arrow-wrap {
-      background: var(--accent-html);
-      border-color: var(--accent-html);
+    .card:hover .card-arrow-wrap {
+      background: var(--accent);
+      border-color: var(--accent);
       color: #ffffff;
       transform: translate(2px, -2px);
     }
-    .card.tw93:hover .card-arrow-wrap {
-      background: var(--accent-tw93);
-      border-color: var(--accent-tw93);
-      color: #ffffff;
-      transform: translate(2px, -2px);
-    }
-    .card.linear:hover .card-arrow-wrap {
-      background: var(--accent-linear);
-      border-color: var(--accent-linear);
-      color: #ffffff;
-      transform: translate(2px, -2px);
-    }
-    .card.apple:hover .card-arrow-wrap {
-      background: var(--accent-apple);
-      border-color: var(--accent-apple);
-      color: #ffffff;
-      transform: translate(2px, -2px);
+    
+    .card[style*="--accent: #faff69"]:hover .card-arrow-wrap {
+      color: #0a0a0a;
     }
 
-    /* Changed descriptions to exactly one sentence */
     .card-desc {
       font-size: 14.5px;
       line-height: 1.6;
@@ -628,15 +456,6 @@
       margin-top: 80px;
     }
 
-    footer a {
-      color: var(--text-main);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-
     /* Animations */
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-20px); }
@@ -648,11 +467,11 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── Tutorial Section ── */
+    /* Tutorial Section */
     .tutorial-section {
       margin-top: 100px;
       padding-top: 80px;
-      border-top: 1.5px dashed var(--card-border);
+      border-top: 1.5px dashed rgba(20, 20, 19, 0.15);
       animation: fadeInUp 0.8s ease-out 0.4s both;
     }
 
@@ -750,24 +569,11 @@
     }
 
     .tutorial-code code {
-      font-family: var(--font-mono);
+      font-family: monospace;
       font-size: 12px;
       color: var(--text-main);
       background: transparent;
       padding: 0;
-    }
-
-    @media (max-width: 640px) {
-      .tutorial-section {
-        margin-top: 64px;
-        padding-top: 48px;
-      }
-      .tutorial-header h2 {
-        font-size: 26px;
-      }
-      .tutorial-step {
-        padding: 24px;
-      }
     }
   </style>
 </head>
@@ -784,11 +590,63 @@
       </p>
     </header>
 
+    <!-- ═══════════════════ CATEGORY FILTER TABS ═══════════════════ -->
+    <div class="category-tabs">
+      <div class="category-tab active" onclick="filterCategory('all', this)">
+        <span>📚</span>
+        <span>全部规范</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('ai', this)">
+        <span>🧠</span>
+        <span>AI & LLM 平台</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('dev', this)">
+        <span>💻</span>
+        <span>开发者工具</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('backend', this)">
+        <span>🗄️</span>
+        <span>后端与数据库</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('saas', this)">
+        <span>⚡</span>
+        <span>生产力与 SaaS</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('design', this)">
+        <span>🎨</span>
+        <span>设计与创意</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('fintech', this)">
+        <span>🪙</span>
+        <span>金融与加密</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('ecommerce', this)">
+        <span>🛍️</span>
+        <span>零售与电商</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('media', this)">
+        <span>📱</span>
+        <span>媒体与消费电子</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('auto', this)">
+        <span>🚗</span>
+        <span>汽车工业</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('retro', this)">
+        <span>🕹️</span>
+        <span>复古网页</span>
+      </div>
+      <div class="category-tab " onclick="filterCategory('other', this)">
+        <span>📖</span>
+        <span>其他规范</span>
+      </div>
+
+    </div>
+
     <!-- ═══════════════════ GRID ═══════════════════ -->
-    <div class="grid">
-      
-      <!-- Card 1: HTML Effectiveness -->
-      <a href="pages/html-effectiveness.html" target="_blank" class="card html">
+    <div class="grid" id="cards-grid">
+            <!-- Card: HTML Effectiveness -->
+      <a href="pages/html-effectiveness.html" target="_blank" class="card" data-category="other" data-dark="false"  style="--accent: #d97757; --accent-glow: rgba(217, 119, 87, 0.08); --preview-bg: #faf9f5;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -797,14 +655,13 @@
               <div class="mockup-dot"></div>
             </div>
             <div class="mockup-content">
-              <div class="mockup-title">The unreasonable <em>effectiveness</em> of HTML</div>
-              <div class="mockup-tag">Functional-Minimalist</div>
+              <div class="mockup-title">HTML Effectiveness</div>
+              <div class="mockup-tag">Ivory Editorial</div>
               <div class="mockup-swatches">
-                <div class="mockup-swatch-chip" style="background:#FAF9F5" title="Ivory"></div>
-                <div class="mockup-swatch-chip" style="background:#FFFFFF" title="Paper"></div>
-                <div class="mockup-swatch-chip" style="background:#141413" title="Slate"></div>
-                <div class="mockup-swatch-chip" style="background:#d97757" title="Clay"></div>
-                <div class="mockup-swatch-chip" style="background:#788C5D" title="Olive"></div>
+                <div class="mockup-swatch-chip" style="background:#FAF9F5"></div>
+                <div class="mockup-swatch-chip" style="background:#FFFFFF"></div>
+                <div class="mockup-swatch-chip" style="background:#141413"></div>
+                <div class="mockup-swatch-chip" style="background:#d97757"></div>
               </div>
               <div class="mockup-line" style="width: 85%"></div>
               <div class="mockup-line" style="width: 60%"></div>
@@ -813,7 +670,7 @@
         </div>
         <div class="card-body">
           <div class="card-title-row">
-            <span class="card-title">HTML Effectiveness Spec</span>
+            <span class="card-title">HTML Effectiveness</span>
             <div class="card-arrow-wrap">
               <svg viewBox="0 0 24 24" class="card-arrow-icon">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -832,8 +689,8 @@
         </div>
       </a>
 
-      <!-- Card 2: Tw93 Weekly -->
-      <a href="pages/tw93.html" target="_blank" class="card tw93">
+      <!-- Card: 潮流周刊 by Tw93 -->
+      <a href="pages/tw93.html" target="_blank" class="card" data-category="other" data-dark="false"  style="--accent: #a67c52; --accent-glow: rgba(166, 124, 82, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -842,23 +699,22 @@
               <div class="mockup-dot"></div>
             </div>
             <div class="mockup-content">
-              <div class="mockup-title">潮流周刊 Design System</div>
-              <div class="mockup-tag">Chinese-Native Kaiti</div>
+              <div class="mockup-title">潮流周刊</div>
+              <div class="mockup-tag">Kaiti Editorial</div>
               <div class="mockup-swatches">
-                <div class="mockup-swatch-chip" style="background:#ffffff" title="Light Bg"></div>
-                <div class="mockup-swatch-chip" style="background:#21262b" title="Dark Bg"></div>
-                <div class="mockup-swatch-chip" style="background:#a67c52" title="Accent"></div>
-                <div class="mockup-swatch-chip" style="background:#262626" title="Text"></div>
-                <div class="mockup-swatch-chip" style="background:#6b7280" title="Muted"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#21262b"></div>
+                <div class="mockup-swatch-chip" style="background:#a67c52"></div>
+                <div class="mockup-swatch-chip" style="background:#262626"></div>
               </div>
-              <div class="mockup-line" style="width: 90%"></div>
-              <div class="mockup-line" style="width: 55%"></div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
             </div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-title-row">
-            <span class="card-title">潮流周刊 by Tw93 Spec</span>
+            <span class="card-title">潮流周刊 by Tw93</span>
             <div class="card-arrow-wrap">
               <svg viewBox="0 0 24 24" class="card-arrow-icon">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -877,8 +733,8 @@
         </div>
       </a>
 
-      <!-- Card 3: Linear Design System -->
-      <a href="pages/linear.html" target="_blank" class="card linear">
+      <!-- Card: Linear Spec -->
+      <a href="pages/linear.html" target="_blank" class="card" data-category="saas" data-dark="true"  style="--accent: #5e6ad2; --accent-glow: rgba(94, 106, 210, 0.08); --preview-bg: #0f111a;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -887,17 +743,16 @@
               <div class="mockup-dot"></div>
             </div>
             <div class="mockup-content">
-              <div class="mockup-title">Linear Design System</div>
+              <div class="mockup-title">Linear Project</div>
               <div class="mockup-tag">Sleek Dark Mode</div>
               <div class="mockup-swatches">
-                <div class="mockup-swatch-chip" style="background:#000212" title="bg"></div>
-                <div class="mockup-swatch-chip" style="background:#080a10" title="surface"></div>
-                <div class="mockup-swatch-chip" style="background:#5e6ad2" title="accent"></div>
-                <div class="mockup-swatch-chip" style="background:#f0f3f6" title="text"></div>
-                <div class="mockup-swatch-chip" style="background:#4cad6b" title="success"></div>
+                <div class="mockup-swatch-chip" style="background:#000212"></div>
+                <div class="mockup-swatch-chip" style="background:#080a10"></div>
+                <div class="mockup-swatch-chip" style="background:#5e6ad2"></div>
+                <div class="mockup-swatch-chip" style="background:#f0f3f6"></div>
               </div>
-              <div class="mockup-line" style="width: 80%"></div>
-              <div class="mockup-line" style="width: 45%"></div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
             </div>
           </div>
         </div>
@@ -922,8 +777,8 @@
         </div>
       </a>
 
-      <!-- Card 4: Apple Design System -->
-      <a href="pages/apple.html" target="_blank" class="card apple">
+      <!-- Card: Apple Spec -->
+      <a href="pages/apple.html" target="_blank" class="card" data-category="media" data-dark="false"  style="--accent: #0066cc; --accent-glow: rgba(0, 102, 204, 0.08); --preview-bg: #f5f5f7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -935,20 +790,19 @@
               <div class="mockup-title">Apple.com Web Style</div>
               <div class="mockup-tag">Clean Premium HIG</div>
               <div class="mockup-swatches">
-                <div class="mockup-swatch-chip" style="background:#f5f5f7" title="bg"></div>
-                <div class="mockup-swatch-chip" style="background:#ffffff" title="surface"></div>
-                <div class="mockup-swatch-chip" style="background:#1d1d1f" title="text"></div>
-                <div class="mockup-swatch-chip" style="background:#86868b" title="muted"></div>
-                <div class="mockup-swatch-chip" style="background:#0066cc" title="blue"></div>
+                <div class="mockup-swatch-chip" style="background:#f5f5f7"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#1d1d1f"></div>
+                <div class="mockup-swatch-chip" style="background:#0066cc"></div>
               </div>
               <div class="mockup-line" style="width: 85%"></div>
-              <div class="mockup-line" style="width: 50%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
             </div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-title-row">
-            <span class="card-title">Apple HIG Spec</span>
+            <span class="card-title">Apple Spec</span>
             <div class="card-arrow-wrap">
               <svg viewBox="0 0 24 24" class="card-arrow-icon">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -967,8 +821,8 @@
         </div>
       </a>
 
-      <!-- Card 5: Tailwind CSS -->
-      <a href="pages/tailwindcss.html" target="_blank" class="card tailwind">
+      <!-- Card: Tailwind CSS -->
+      <a href="pages/tailwindcss.html" target="_blank" class="card" data-category="other" data-dark="false"  style="--accent: #38bdf8; --accent-glow: rgba(56, 189, 248, 0.08); --preview-bg: #f8fafc;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -977,23 +831,22 @@
               <div class="mockup-dot"></div>
             </div>
             <div class="mockup-content">
-              <div class="mockup-title">composition over configuration</div>
-              <div class="mockup-tag">flex items-center gap-4</div>
+              <div class="mockup-title">flex items-center</div>
+              <div class="mockup-tag">Utility-First</div>
               <div class="mockup-swatches">
-                <div class="mockup-swatch-chip" style="background:#0f172a" title="slate-900"></div>
-                <div class="mockup-swatch-chip" style="background:#6366f1" title="indigo-500"></div>
-                <div class="mockup-swatch-chip" style="background:#38bdf8" title="sky-400"></div>
-                <div class="mockup-swatch-chip" style="background:#10b981" title="emerald-500"></div>
-                <div class="mockup-swatch-chip" style="background:#f43f5e" title="rose-500"></div>
+                <div class="mockup-swatch-chip" style="background:#0f172a"></div>
+                <div class="mockup-swatch-chip" style="background:#6366f1"></div>
+                <div class="mockup-swatch-chip" style="background:#38bdf8"></div>
+                <div class="mockup-swatch-chip" style="background:#10b981"></div>
               </div>
-              <div class="mockup-line" style="width: 80%"></div>
-              <div class="mockup-line" style="width: 50%"></div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
             </div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-title-row">
-            <span class="card-title">Tailwind CSS Spec</span>
+            <span class="card-title">Tailwind CSS</span>
             <div class="card-arrow-wrap">
               <svg viewBox="0 0 24 24" class="card-arrow-icon">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -1005,15 +858,15 @@
             以实用优先为核心的现代响应式工具链，基于 Indigo 靛蓝与丰富且高对比的原子化色板。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">Indigo &amp; Sky</span>
+            <span class="meta-tag">Indigo & Sky</span>
             <span class="meta-tag">原子化间距</span>
             <span class="meta-tag">响应式前缀</span>
           </div>
         </div>
       </a>
 
-      <!-- Card 6: Notion Design System -->
-      <a href="pages/notion.html" target="_blank" class="card notion">
+      <!-- Card: Notion Spec -->
+      <a href="pages/notion.html" target="_blank" class="card" data-category="saas" data-dark="false"  style="--accent: #37352f; --accent-glow: rgba(55, 53, 47, 0.06); --preview-bg: #fbfbfa;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -1025,14 +878,13 @@
               <div class="mockup-title">📓 Notion Workspace</div>
               <div class="mockup-tag">💡 Callout Block</div>
               <div class="mockup-swatches">
-                <div class="mockup-swatch-chip" style="background:#ffffff" title="bg"></div>
-                <div class="mockup-swatch-chip" style="background:#fbfbfa" title="sidebar"></div>
-                <div class="mockup-swatch-chip" style="background:#37352f" title="text"></div>
-                <div class="mockup-swatch-chip" style="background:#edecee" title="border"></div>
-                <div class="mockup-swatch-chip" style="background:#fff9e6" title="yellow highlight"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#fbfbfa"></div>
+                <div class="mockup-swatch-chip" style="background:#37352f"></div>
+                <div class="mockup-swatch-chip" style="background:#edecee"></div>
               </div>
               <div class="mockup-line" style="width: 85%"></div>
-              <div class="mockup-line" style="width: 45%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
             </div>
           </div>
         </div>
@@ -1057,8 +909,8 @@
         </div>
       </a>
 
-      <!-- Card 7: Vue.js Design System -->
-      <a href="pages/vue.html" target="_blank" class="card vue">
+      <!-- Card: Vue.js progressive docs -->
+      <a href="pages/vue.html" target="_blank" class="card" data-category="other" data-dark="false"  style="--accent: #42b883; --accent-glow: rgba(66, 184, 131, 0.08); --preview-bg: #f6f6f7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -1067,23 +919,22 @@
               <div class="mockup-dot"></div>
             </div>
             <div class="mockup-content">
-              <div class="mockup-title">⚡ Progressive Docs</div>
-              <div class="mockup-tag">custom-block tip</div>
+              <div class="mockup-title">Progressive Web</div>
+              <div class="mockup-tag">VitePress Theme</div>
               <div class="mockup-swatches">
-                <div class="mockup-swatch-chip" style="background:#42b883" title="vue-green"></div>
-                <div class="mockup-swatch-chip" style="background:#35495e" title="vue-navy"></div>
-                <div class="mockup-swatch-chip" style="background:#ffffff" title="canvas-light"></div>
-                <div class="mockup-swatch-chip" style="background:#1b1b1f" title="canvas-dark"></div>
-                <div class="mockup-swatch-chip" style="background:#f6f6f7" title="surface-alt"></div>
+                <div class="mockup-swatch-chip" style="background:#42b883"></div>
+                <div class="mockup-swatch-chip" style="background:#35495e"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#1b1b1f"></div>
               </div>
-              <div class="mockup-line" style="width: 82%; border-left: 3px solid #42b883; padding-left: 8px; background: #f0f9eb;"></div>
-              <div class="mockup-line" style="width: 50%; border-left: 3px solid #42b883; padding-left: 8px; background: #f0f9eb;"></div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
             </div>
           </div>
         </div>
         <div class="card-body">
           <div class="card-title-row">
-            <span class="card-title">Vue.js Spec</span>
+            <span class="card-title">Vue.js progressive docs</span>
             <div class="card-arrow-wrap">
               <svg viewBox="0 0 24 24" class="card-arrow-icon">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -1102,9 +953,1152 @@
         </div>
       </a>
 
+      <!-- Card: Claude Spec -->
+      <a href="pages/claude.html" target="_blank" class="card" data-category="ai" data-dark="false"  style="--accent: #cc785c; --accent-glow: rgba(204, 120, 92, 0.08); --preview-bg: #f5f0e8;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Claude System</div>
+              <div class="mockup-tag">Humanist Editorial</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#faf9f5"></div>
+                <div class="mockup-swatch-chip" style="background:#cc785c"></div>
+                <div class="mockup-swatch-chip" style="background:#141413"></div>
+                <div class="mockup-swatch-chip" style="background:#efe9de"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Claude Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            Anthropic 推出的温暖人文学术风设计系统，以象牙奶油色纸张为底，辅以珊瑚红点缀与优美 Serif 衬线字体。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">人文社论排版</span>
+            <span class="meta-tag">奶油色与珊瑚红</span>
+            <span class="meta-tag">Copernicus 衬线</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Cursor Spec -->
+      <a href="pages/cursor.html" target="_blank" class="card" data-category="dev" data-dark="false"  style="--accent: #f54e00; --accent-glow: rgba(245, 78, 0, 0.08); --preview-bg: #f7f7f4;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Cursor Editor</div>
+              <div class="mockup-tag">Confident AI</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#f7f7f4"></div>
+                <div class="mockup-swatch-chip" style="background:#f54e00"></div>
+                <div class="mockup-swatch-chip" style="background:#26251e"></div>
+                <div class="mockup-swatch-chip" style="background:#dfa88f"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Cursor Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            面向人工智能辅助编程环境的温润奶油纸质质感营销网页系统，采用明亮醒目的 Cursor 橙进行功能引导。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">AI 时间线配色</span>
+            <span class="meta-tag">Cursor 橙</span>
+            <span class="meta-tag">安静自信的极简</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: ClickHouse Spec -->
+      <a href="pages/clickhouse.html" target="_blank" class="card" data-category="backend" data-dark="true"  style="--accent: #faff69; --accent-glow: rgba(250, 255, 105, 0.12); --preview-bg: #0a0a0a;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">SELECT * FROM DB</div>
+              <div class="mockup-tag">Electric Yellow</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#0a0a0a"></div>
+                <div class="mockup-swatch-chip" style="background:#faff69"></div>
+                <div class="mockup-swatch-chip" style="background:#1a1a1a"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">ClickHouse Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            追求极致性能的大数据分析引擎品牌系统，在暗夜黑背景中仅以高能亮黄色作为信号指示，强调专业力量。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">暗黑高反差</span>
+            <span class="meta-tag">高能亮黄色</span>
+            <span class="meta-tag">数据驱动版面</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Cal.com Spec -->
+      <a href="pages/cal.html" target="_blank" class="card" data-category="saas" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.06); --preview-bg: #f8f9fa;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">📅 Cal Calendar</div>
+              <div class="mockup-tag">SaaS Minimalist</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#111111"></div>
+                <div class="mockup-swatch-chip" style="background:#f5f5f5"></div>
+                <div class="mockup-swatch-chip" style="background:#3b82f6"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Cal.com Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            开源预约系统的高级极简主义设计，采用锋利而清晰的无衬线标题字体与扁平粗实的表单框架。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">Cal Sans 字体</span>
+            <span class="meta-tag">宽幅留白</span>
+            <span class="meta-tag">极简预约卡片</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Airtable Spec -->
+      <a href="pages/airtable.html" target="_blank" class="card" data-category="design" data-dark="false"  style="--accent: #aa2d00; --accent-glow: rgba(170, 45, 0, 0.08); --preview-bg: #f8fafc;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">📋 Airtable Base</div>
+              <div class="mockup-tag">Workflow Grid</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#181d26"></div>
+                <div class="mockup-swatch-chip" style="background:#aa2d00"></div>
+                <div class="mockup-swatch-chip" style="background:#a8d8c4"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Airtable Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            为数据协作设计的端庄社论表格风界面，在黑白底噪中以五彩斑斓的标志性重点区块增添活力。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">Haas Grotesk 字体</span>
+            <span class="meta-tag">多彩功能区块</span>
+            <span class="meta-tag">无阴影扁平线框</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Binance Spec -->
+      <a href="pages/binance.html" target="_blank" class="card" data-category="fintech" data-dark="true"  style="--accent: #fcd535; --accent-glow: rgba(252, 213, 53, 0.12); --preview-bg: #0b0e11;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">🪙 Binance Exchange</div>
+              <div class="mockup-tag">Financial Urgency</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#0b0e11"></div>
+                <div class="mockup-swatch-chip" style="background:#fcd535"></div>
+                <div class="mockup-swatch-chip" style="background:#0ecb81"></div>
+                <div class="mockup-swatch-chip" style="background:#f6465d"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Binance Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            极具交易急迫感与金融信心的专业币圈设计，以深空墨黑承载极具电压感的高饱和度币安黄。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">币安标志黄</span>
+            <span class="meta-tag">交易红绿双向指示</span>
+            <span class="meta-tag">BinanceNova 字体</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Airbnb Spec -->
+      <a href="pages/airbnb.html" target="_blank" class="card" data-category="ecommerce" data-dark="false"  style="--accent: #ff385c; --accent-glow: rgba(255, 56, 92, 0.08); --preview-bg: #f7f7f7;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">🏡 Airbnb stays</div>
+              <div class="mockup-tag">Consumer Friendly</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#ff385c"></div>
+                <div class="mockup-swatch-chip" style="background:#222222"></div>
+                <div class="mockup-swatch-chip" style="background:#f7f7f7"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Airbnb Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            充满旅行与生活气息的友好型设计，使用温和圆润的排布线条、房源展示卡片与亮丽的 Coral 珊瑚红。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">Airbnb Cereal 字体</span>
+            <span class="meta-tag">珊瑚红 Rausch</span>
+            <span class="meta-tag">圆润亲和布局</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: BMW Spec -->
+      <a href="pages/bmw.html" target="_blank" class="card" data-category="auto" data-dark="false"  style="--accent: #1c69d4; --accent-glow: rgba(28, 105, 212, 0.08); --preview-bg: #f7f7f7;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">🚗 BMW Portal</div>
+              <div class="mockup-tag">Measured Luxury</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#1c69d4"></div>
+                <div class="mockup-swatch-chip" style="background:#1a2129"></div>
+                <div class="mockup-swatch-chip" style="background:#262626"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">BMW Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            沉稳而讲究的豪华汽车门户设计，采用粗壮醒目的标题与纤细现代的 BMW Type Next 字体。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">BMW 经典蓝</span>
+            <span class="meta-tag">深海蓝框架</span>
+            <span class="meta-tag">工业现代排线</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Dell 1996 Spec -->
+      <a href="pages/dell-1996.html" target="_blank" class="card" data-category="retro" data-dark="false" data-retro="dell" style="--accent: #e91d2a; --accent-glow: rgba(233, 29, 42, 0.08); --preview-bg: #808080;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">DELL.COM 1996</div>
+              <div class="mockup-tag">Retro Nostalgia</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#c0c0c0"></div>
+                <div class="mockup-swatch-chip" style="background:#0000ee"></div>
+                <div class="mockup-swatch-chip" style="background:#e91d2a"></div>
+                <div class="mockup-swatch-chip" style="background:#d77a7a"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Dell 1996 Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            重温 90 年代目录式企业网页风格的复古设计，使用 Windows 95 浮雕灰色边框与纯蓝色的文字链接。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">Windows 95 灰色浮雕</span>
+            <span class="meta-tag">Times New Roman 衬线</span>
+            <span class="meta-tag">高对比度色块</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Cohere Spec -->
+      <a href="pages/cohere.html" target="_blank" class="card" data-category="ai" data-dark="false"  style="--accent: #003c33; --accent-glow: rgba(0, 60, 51, 0.08); --preview-bg: #eeece7;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Cohere Platform</div>
+              <div class="mockup-tag">Data-Rich Dashboard</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#003c33"></div>
+                <div class="mockup-swatch-chip" style="background:#17171c"></div>
+                <div class="mockup-swatch-chip" style="background:#eeece7"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Cohere Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            企业级大模型研发与部署设计系统，融合温暖矿物背景、深绿色调与高精度的单色数字看板。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">矿物灰调 canvas</span>
+            <span class="meta-tag">深绿与黑</span>
+            <span class="meta-tag">monospace 数据标识</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Mistral AI Spec -->
+      <a href="pages/mistral.ai.html" target="_blank" class="card" data-category="ai" data-dark="false"  style="--accent: #f06a3a; --accent-glow: rgba(240, 106, 58, 0.08); --preview-bg: #fbfaf7;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Mistral Console</div>
+              <div class="mockup-tag">French Minimalism</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#fbfaf7"></div>
+                <div class="mockup-swatch-chip" style="background:#f06a3a"></div>
+                <div class="mockup-swatch-chip" style="background:#111111"></div>
+                <div class="mockup-swatch-chip" style="background:#eeedea"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Mistral AI Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            欧洲人工智能领头羊的优雅极简设计系统，以极高饱和度橘红作为单一交互点缀，版面极其克制。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">法式工程极简</span>
+            <span class="meta-tag">高亮橘红</span>
+            <span class="meta-tag">灰泥底噪背景</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Expo Spec -->
+      <a href="pages/expo.html" target="_blank" class="card" data-category="dev" data-dark="true"  style="--accent: #6366f1; --accent-glow: rgba(99, 102, 241, 0.08); --preview-bg: #000208;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Expo Orbit</div>
+              <div class="mockup-tag">React Native Dark</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#000208"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#1e293b"></div>
+                <div class="mockup-swatch-chip" style="background:#6366f1"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Expo Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            移动端跨平台构建生态系统的现代暗色设计系统，极窄的字母间距，辅以代码级高对比度文字和深蓝色卡片。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">极窄字母间距</span>
+            <span class="meta-tag">暗黑宇宙</span>
+            <span class="meta-tag">代码容器</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Vercel Spec -->
+      <a href="pages/vercel.html" target="_blank" class="card" data-category="dev" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.06); --preview-bg: #ffffff;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Vercel Deployment</div>
+              <div class="mockup-tag">Geist Monochrome</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#000000"></div>
+                <div class="mockup-swatch-chip" style="background:#888888"></div>
+                <div class="mockup-swatch-chip" style="background:#fafafa"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Vercel Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            极简主义与黑白几何图形的杰出代表，使用高度统一的 Geist 字体与超薄的发光边框结构。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">Geist 字体家族</span>
+            <span class="meta-tag">黑白纯几何</span>
+            <span class="meta-tag">清晰布局比例</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Supabase Spec -->
+      <a href="pages/supabase.html" target="_blank" class="card" data-category="backend" data-dark="false"  style="--accent: #3ecf8e; --accent-glow: rgba(62, 207, 142, 0.08); --preview-bg: #1c1c1c;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Supabase DB</div>
+              <div class="mockup-tag">Dark Emerald</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#1c1c1c"></div>
+                <div class="mockup-swatch-chip" style="background:#3ecf8e"></div>
+                <div class="mockup-swatch-chip" style="background:#10b981"></div>
+                <div class="mockup-swatch-chip" style="background:#2e2e2e"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Supabase Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            开发者的云端数据库平台，以深碳灰和极高饱和度霓虹翡翠绿为主色，带有独特的代码语法高亮质感。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">霓虹翡翠绿</span>
+            <span class="meta-tag">开发者控制台</span>
+            <span class="meta-tag">代码首选</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: PostHog Spec -->
+      <a href="pages/posthog.html" target="_blank" class="card" data-category="backend" data-dark="false"  style="--accent: #f97316; --accent-glow: rgba(249, 115, 22, 0.08); --preview-bg: #f3f4f6;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">PostHog Analytics</div>
+              <div class="mockup-tag">Playful Retro Tech</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#f97316"></div>
+                <div class="mockup-swatch-chip" style="background:#2b2b2b"></div>
+                <div class="mockup-swatch-chip" style="background:#e5e7eb"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">PostHog Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            充满趣味性的数据分析设计系统，融合经典的复古街机风格与标志性刺猬插图，在沉闷的 SaaS 行业脱颖而出。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">街机式粗线框</span>
+            <span class="meta-tag">橙色高亮</span>
+            <span class="meta-tag">刺猬趣味图腾</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Figma Spec -->
+      <a href="pages/figma.html" target="_blank" class="card" data-category="design" data-dark="false"  style="--accent: #ff7262; --accent-glow: rgba(255, 114, 98, 0.08); --preview-bg: #ffffff;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Figma Canvas</div>
+              <div class="mockup-tag">Vibrant Creative</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#ff7262"></div>
+                <div class="mockup-swatch-chip" style="background:#18a0fb"></div>
+                <div class="mockup-swatch-chip" style="background:#0acf83"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Figma Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            全球顶级在线协作设计工具的界面系统，采用彩虹多色圆点与工具栏像素线框，营造高自由度的创意画布。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">多彩协同圆点</span>
+            <span class="meta-tag">深灰工具栏</span>
+            <span class="meta-tag">无限画板缩放</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Framer Spec -->
+      <a href="pages/framer.html" target="_blank" class="card" data-category="design" data-dark="true"  style="--accent: #0055ff; --accent-glow: rgba(0, 85, 255, 0.08); --preview-bg: #000000;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Framer Studio</div>
+              <div class="mockup-tag">Motion Blue</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#000000"></div>
+                <div class="mockup-swatch-chip" style="background:#0055ff"></div>
+                <div class="mockup-swatch-chip" style="background:#333333"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Framer Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            面向高动效与交互网站的暗黑前沿构建系统，使用霓虹极光蓝作为交互焦点，强调速度感与无边框美学。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">霓虹极光蓝</span>
+            <span class="meta-tag">无网格画布</span>
+            <span class="meta-tag">微秒响应状态</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Stripe Spec -->
+      <a href="pages/stripe.html" target="_blank" class="card" data-category="fintech" data-dark="false"  style="--accent: #635bff; --accent-glow: rgba(99, 91, 255, 0.08); --preview-bg: #ffffff;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Stripe API</div>
+              <div class="mockup-tag">Weight-300 Elegance</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#635bff"></div>
+                <div class="mockup-swatch-chip" style="background:#697386"></div>
+                <div class="mockup-swatch-chip" style="background:#0a2540"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Stripe Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            被奉为互联网美学天花板的支付规范，标志性的三斜角渐变底色，极轻薄的字体字重与梦幻高阶色彩。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">极轻柔细字重</span>
+            <span class="meta-tag">斜角渐变画布</span>
+            <span class="meta-tag">高饱和梦幻紫</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Coinbase Spec -->
+      <a href="pages/coinbase.html" target="_blank" class="card" data-category="fintech" data-dark="false"  style="--accent: #0052ff; --accent-glow: rgba(0, 82, 255, 0.08); --preview-bg: #ffffff;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Coinbase Prime</div>
+              <div class="mockup-tag">Institutional Trust</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#0052ff"></div>
+                <div class="mockup-swatch-chip" style="background:#050f24"></div>
+                <div class="mockup-swatch-chip" style="background:#f5f8ff"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Coinbase Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            定位于主流金融合规的加密资产交易所设计系统，以实心的 Coinbase 蓝为主打，版面沉稳而严谨。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">实心高安全蓝</span>
+            <span class="meta-tag">机构卡片式</span>
+            <span class="meta-tag">无衬线学术排版</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Nike Spec -->
+      <a href="pages/nike.html" target="_blank" class="card" data-category="ecommerce" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.08); --preview-bg: #ffffff;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">NIKE RUN</div>
+              <div class="mockup-tag">Futura High-Impact</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#000000"></div>
+                <div class="mockup-swatch-chip" style="background:#111111"></div>
+                <div class="mockup-swatch-chip" style="background:#f6f6f6"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Nike Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            极具视觉冲击力的运动品牌设计，超大字重的全大写 Futura 字体与全屏无边界图文排版。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">大写 Futura 字体</span>
+            <span class="meta-tag">纯黑底色点缀</span>
+            <span class="meta-tag">大留白排版</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Shopify Spec -->
+      <a href="pages/shopify.html" target="_blank" class="card" data-category="ecommerce" data-dark="true"  style="--accent: #008060; --accent-glow: rgba(0, 128, 96, 0.08); --preview-bg: #0d1117;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Shopify Admin</div>
+              <div class="mockup-tag">Polar Cold Dark</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#0d1117"></div>
+                <div class="mockup-swatch-chip" style="background:#008060"></div>
+                <div class="mockup-swatch-chip" style="background:#1c2128"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Shopify Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            为全球商户服务的极速电商后台系统，冷冬极夜黑中泛起极光般的薄荷绿与翡翠绿，极具秩序感。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">商户绿</span>
+            <span class="meta-tag">极夜冷背景</span>
+            <span class="meta-tag">网格卡片面板</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Spotify Spec -->
+      <a href="pages/spotify.html" target="_blank" class="card" data-category="media" data-dark="true"  style="--accent: #1ed760; --accent-glow: rgba(30, 215, 96, 0.08); --preview-bg: #121212;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Spotify Player</div>
+              <div class="mockup-tag">Content-First Dark</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#121212"></div>
+                <div class="mockup-swatch-chip" style="background:#1ed760"></div>
+                <div class="mockup-swatch-chip" style="background:#181818"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Spotify Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            纯暗色调的极简数字唱机界面，通过标志性的 Spotify 绿亮线聚焦核心控制，界面完全为音乐封面让路。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">纯黑视听室</span>
+            <span class="meta-tag">声压亮绿</span>
+            <span class="meta-tag">圆角专辑卡片</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: PlayStation Spec -->
+      <a href="pages/playstation.html" target="_blank" class="card" data-category="media" data-dark="true"  style="--accent: #003087; --accent-glow: rgba(0, 48, 135, 0.08); --preview-bg: #0f0f12;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">PlayStation Store</div>
+              <div class="mockup-tag">Dark Chrome Console</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#0f0f12"></div>
+                <div class="mockup-swatch-chip" style="background:#003087"></div>
+                <div class="mockup-swatch-chip" style="background:#0072ce"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">PlayStation Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            索尼主打次世代游戏视听的深灰铬金属格调，使用高光青蓝色进行层级标记，富有未来的数字娱乐风。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">游戏主机深灰</span>
+            <span class="meta-tag">高光青蓝</span>
+            <span class="meta-tag">卡片三轨流布局</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Tesla Spec -->
+      <a href="pages/tesla.html" target="_blank" class="card" data-category="auto" data-dark="false"  style="--accent: #171a20; --accent-glow: rgba(23, 26, 32, 0.08); --preview-bg: #ffffff;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Tesla Drive</div>
+              <div class="mockup-tag">Stark Subtraction</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#cc0000"></div>
+                <div class="mockup-swatch-chip" style="background:#171a20"></div>
+                <div class="mockup-swatch-chip" style="background:#f4f4f4"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Tesla Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            特斯拉著名的极致减法界面，全屏车载摄影大背景中仅漂浮透明毛玻璃菜单与亮红线框。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">极致全大写减法</span>
+            <span class="meta-tag">电驱蓝点缀</span>
+            <span class="meta-tag">透明毛玻璃层</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Lamborghini Spec -->
+      <a href="pages/lamborghini.html" target="_blank" class="card" data-category="auto" data-dark="true"  style="--accent: #FFC000; --accent-glow: rgba(255, 192, 0, 0.08); --preview-bg: #000000;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Lambo Bull</div>
+              <div class="mockup-tag">True Black Void</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#000000"></div>
+                <div class="mockup-swatch-chip" style="background:#FFC000"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+                <div class="mockup-swatch-chip" style="background:#202020"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Lamborghini Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            兰博基尼著名的漆黑大教堂格调，完全使用纯黑色填充整个画布，仅以纯金色与冷白粗体宣告狂野性能。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">兰博黄金色</span>
+            <span class="meta-tag">绝对纯黑画布</span>
+            <span class="meta-tag">12度斜切边角</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Nintendo 2001 Spec -->
+      <a href="pages/nintendo-2001.html" target="_blank" class="card" data-category="retro" data-dark="false" data-retro="nintendo" style="--accent: #e60012; --accent-glow: rgba(230, 0, 18, 0.08); --preview-bg: #a1accb;">
+        <div class="card-preview">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">Nintendo.com</div>
+              <div class="mockup-tag">Console Chrome</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#a1accb"></div>
+                <div class="mockup-swatch-chip" style="background:#e60012"></div>
+                <div class="mockup-swatch-chip" style="background:#0c0c2e"></div>
+                <div class="mockup-swatch-chip" style="background:#ffffff"></div>
+              </div>
+              <div class="mockup-line" style="width: 85%"></div>
+              <div class="mockup-line" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Nintendo 2001 Spec</span>
+            <div class="card-arrow-wrap">
+              <svg viewBox="0 0 24 24" class="card-arrow-icon">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="card-desc">
+            千禧年经典的“游戏机金属”网页重现，运用拉丝灰蓝色双坡度立体框、半调圆点矩阵与亮红按钮。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag">千禧拉丝蓝</span>
+            <span class="meta-tag">任天堂正红</span>
+            <span class="meta-tag">半调网格圆点</span>
+          </div>
+        </div>
+      </a>
     </div>
 
-    <!-- ── Tutorial Section ── -->
+    <!-- ═══════════════════ TUTORIAL ═══════════════════ -->
     <div class="tutorial-section">
       <div class="tutorial-header">
         <span class="tutorial-eyebrow">INTEGRATION GUIDE</span>
@@ -1158,5 +2152,24 @@
     <p>© 2026 设计系统目录库 · 优雅与极简的交汇</p>
   </footer>
 
+  <!-- Filter Logic -->
+  <script>
+    function filterCategory(catId, element) {
+      // Set active tab
+      const tabs = document.querySelectorAll('.category-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      element.classList.add('active');
+
+      // Filter cards
+      const cards = document.querySelectorAll('.grid .card');
+      cards.forEach(card => {
+        if (catId === 'all' || card.getAttribute('data-category') === catId) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
