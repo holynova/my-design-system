@@ -611,6 +611,44 @@
       background: transparent;
       padding: 0;
     }
+
+    /* Filter Tags Styling */
+    .filter-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+      animation: fadeInDown 0.8s ease-out 0.15s both;
+    }
+
+    .filter-tag {
+      padding: 8px 18px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-md);
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(20, 20, 19, 0.01);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .filter-tag:hover {
+      border-color: var(--text-main);
+      color: var(--text-main);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(20, 20, 19, 0.04);
+    }
+
+    .filter-tag.active {
+      background: var(--text-main);
+      border-color: var(--text-main);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(20, 20, 19, 0.12);
+    }
   </style>
 </head>
 <body>
@@ -639,10 +677,24 @@
 
     </div>
 
+    <!-- ═══════════════════ FILTER TAGS ═══════════════════ -->
+    <div class="filter-tags">
+      <div class="filter-tag active" onclick="filterTag('all', this)">✨ 全部</div>
+      <div class="filter-tag" onclick="filterTag('ai', this)">🤖 人工智能</div>
+      <div class="filter-tag" onclick="filterTag('devtools', this)">🛠️ 开发者工具</div>
+      <div class="filter-tag" onclick="filterTag('saas', this)">💻 办公与 SaaS</div>
+      <div class="filter-tag" onclick="filterTag('fintech', this)">🪙 金融与加密</div>
+      <div class="filter-tag" onclick="filterTag('retail', this)">🛍️ 电商与零售</div>
+      <div class="filter-tag" onclick="filterTag('tech', this)">📱 媒体与科技</div>
+      <div class="filter-tag" onclick="filterTag('automotive', this)">🚗 汽车与工业</div>
+      <div class="filter-tag" onclick="filterTag('dark', this)">🌙 暗色主题</div>
+      <div class="filter-tag" onclick="filterTag('retro', this)">💾 复古怀旧</div>
+    </div>
+
     <!-- ═══════════════════ GRID ═══════════════════ -->
     <div class="grid" id="cards-grid">
             <!-- Card: HTML Effectiveness -->
-      <a href="pages/html-effectiveness.html" target="_blank" class="card" data-source="manual" data-dark="false"  style="--accent: #d97757; --accent-glow: rgba(217, 119, 87, 0.08); --preview-bg: #faf9f5;">
+      <a href="pages/html-effectiveness.html" target="_blank" class="card" data-source="manual" data-tags="saas" data-dark="false"  style="--accent: #d97757; --accent-glow: rgba(217, 119, 87, 0.08); --preview-bg: #faf9f5;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -962,7 +1014,7 @@ No breakpoint for the card grid itself — `auto-fill, minmax(316px, 1fr)` handl
       </a>
 
       <!-- Card: 潮流周刊 by Tw93 -->
-      <a href="pages/tw93.html" target="_blank" class="card" data-source="manual" data-dark="false"  style="--accent: #a67c52; --accent-glow: rgba(166, 124, 82, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/tw93.html" target="_blank" class="card" data-source="manual" data-tags="saas" data-dark="false"  style="--accent: #a67c52; --accent-glow: rgba(166, 124, 82, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -1227,7 +1279,7 @@ article
       </a>
 
       <!-- Card: Linear Spec -->
-      <a href="pages/linear.html" target="_blank" class="card" data-source="manual" data-dark="true"  style="--accent: #5e6ad2; --accent-glow: rgba(94, 106, 210, 0.08); --preview-bg: #0f111a;">
+      <a href="pages/linear.html" target="_blank" class="card" data-source="manual" data-tags="saas,dark" data-dark="true"  style="--accent: #5e6ad2; --accent-glow: rgba(94, 106, 210, 0.08); --preview-bg: #0f111a;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -1818,7 +1870,7 @@ Linear's depth is carried by surface ladder + hairline borders. The brand resist
       </a>
 
       <!-- Card: Apple Spec -->
-      <a href="pages/apple.html" target="_blank" class="card" data-source="manual" data-dark="false"  style="--accent: #0066cc; --accent-glow: rgba(0, 102, 204, 0.08); --preview-bg: #f5f5f7;">
+      <a href="pages/apple.html" target="_blank" class="card" data-source="manual" data-tags="tech" data-dark="false"  style="--accent: #0066cc; --accent-glow: rgba(0, 102, 204, 0.08); --preview-bg: #f5f5f7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -2423,7 +2475,7 @@ The structural breakpoints that matter for agents: 1440px (content lock), 1068px
       </a>
 
       <!-- Card: Tailwind CSS -->
-      <a href="pages/tailwindcss.html" target="_blank" class="card" data-source="manual" data-dark="false"  style="--accent: #38bdf8; --accent-glow: rgba(56, 189, 248, 0.08); --preview-bg: #f8fafc;">
+      <a href="pages/tailwindcss.html" target="_blank" class="card" data-source="manual" data-tags="devtools" data-dark="false"  style="--accent: #38bdf8; --accent-glow: rgba(56, 189, 248, 0.08); --preview-bg: #f8fafc;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -2645,7 +2697,7 @@ Tailwind uses a proportional 4px layout scale (1 unit = 4px):
       </a>
 
       <!-- Card: Notion Spec -->
-      <a href="pages/notion.html" target="_blank" class="card" data-source="manual" data-dark="false"  style="--accent: #37352f; --accent-glow: rgba(55, 53, 47, 0.06); --preview-bg: #fbfbfa;">
+      <a href="pages/notion.html" target="_blank" class="card" data-source="manual" data-tags="saas" data-dark="false"  style="--accent: #37352f; --accent-glow: rgba(55, 53, 47, 0.06); --preview-bg: #fbfbfa;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -3509,7 +3561,7 @@ Notion's geometry is sober-editorial — `{rounded.md}` (8px) buttons distinguis
       </a>
 
       <!-- Card: Vue.js progressive docs -->
-      <a href="pages/vue.html" target="_blank" class="card" data-source="manual" data-dark="false"  style="--accent: #42b883; --accent-glow: rgba(66, 184, 131, 0.08); --preview-bg: #f6f6f7;">
+      <a href="pages/vue.html" target="_blank" class="card" data-source="manual" data-tags="devtools" data-dark="false"  style="--accent: #42b883; --accent-glow: rgba(66, 184, 131, 0.08); --preview-bg: #f6f6f7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -3681,7 +3733,7 @@ A sticky right-side vertical menu (width: `224px`) displaying active page subsec
       </a>
 
       <!-- Card: Claude Spec -->
-      <a href="pages/claude.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #cc785c; --accent-glow: rgba(204, 120, 92, 0.08); --preview-bg: #f5f0e8;">
+      <a href="pages/claude.html" target="_blank" class="card" data-source="imported" data-tags="ai" data-dark="false"  style="--accent: #cc785c; --accent-glow: rgba(204, 120, 92, 0.08); --preview-bg: #f5f0e8;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -4313,7 +4365,7 @@ When photography is used (rare — mostly testimonials), avatars crop to perfect
       </a>
 
       <!-- Card: Cursor Spec -->
-      <a href="pages/cursor.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #f54e00; --accent-glow: rgba(245, 78, 0, 0.08); --preview-bg: #f7f7f4;">
+      <a href="pages/cursor.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark" data-dark="false"  style="--accent: #f54e00; --accent-glow: rgba(245, 78, 0, 0.08); --preview-bg: #f7f7f4;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -4893,7 +4945,7 @@ The system uses **hairline-only depth**. No drop shadows, no elevation tiers. Ca
       </a>
 
       <!-- Card: ClickHouse Spec -->
-      <a href="pages/clickhouse.html" target="_blank" class="card" data-source="imported" data-dark="true"  style="--accent: #faff69; --accent-glow: rgba(250, 255, 105, 0.12); --preview-bg: #0a0a0a;">
+      <a href="pages/clickhouse.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark" data-dark="true"  style="--accent: #faff69; --accent-glow: rgba(250, 255, 105, 0.12); --preview-bg: #0a0a0a;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -5480,7 +5532,7 @@ The system uses no drop shadows. Depth comes from the contrast between black can
       </a>
 
       <!-- Card: Cal.com Spec -->
-      <a href="pages/cal.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.06); --preview-bg: #f8f9fa;">
+      <a href="pages/cal.html" target="_blank" class="card" data-source="imported" data-tags="saas" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.06); --preview-bg: #f8f9fa;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -6065,7 +6117,7 @@ Avatar photos use `{rounded.full}` (perfect circles) at 36px or 40px. Product UI
       </a>
 
       <!-- Card: Airtable Spec -->
-      <a href="pages/airtable.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #aa2d00; --accent-glow: rgba(170, 45, 0, 0.08); --preview-bg: #f8fafc;">
+      <a href="pages/airtable.html" target="_blank" class="card" data-source="imported" data-tags="saas" data-dark="false"  style="--accent: #aa2d00; --accent-glow: rgba(170, 45, 0, 0.08); --preview-bg: #f8fafc;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -6662,7 +6714,7 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
       </a>
 
       <!-- Card: Binance Spec -->
-      <a href="pages/binance.html" target="_blank" class="card" data-source="imported" data-dark="true"  style="--accent: #fcd535; --accent-glow: rgba(252, 213, 53, 0.12); --preview-bg: #0b0e11;">
+      <a href="pages/binance.html" target="_blank" class="card" data-source="imported" data-tags="fintech,dark" data-dark="true"  style="--accent: #fcd535; --accent-glow: rgba(252, 213, 53, 0.12); --preview-bg: #0b0e11;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -7339,7 +7391,7 @@ Binance's radius hierarchy is tighter than typical marketing systems — most su
       </a>
 
       <!-- Card: Airbnb Spec -->
-      <a href="pages/airbnb.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #ff385c; --accent-glow: rgba(255, 56, 92, 0.08); --preview-bg: #f7f7f7;">
+      <a href="pages/airbnb.html" target="_blank" class="card" data-source="imported" data-tags="retail" data-dark="false"  style="--accent: #ff385c; --accent-glow: rgba(255, 56, 92, 0.08); --preview-bg: #f7f7f7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -7927,7 +7979,7 @@ There are no progressive elevation tiers — the system either has the one shado
       </a>
 
       <!-- Card: BMW Spec -->
-      <a href="pages/bmw.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #1c69d4; --accent-glow: rgba(28, 105, 212, 0.08); --preview-bg: #f7f7f7;">
+      <a href="pages/bmw.html" target="_blank" class="card" data-source="imported" data-tags="automotive" data-dark="false"  style="--accent: #1c69d4; --accent-glow: rgba(28, 105, 212, 0.08); --preview-bg: #f7f7f7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -8514,7 +8566,7 @@ The radius hierarchy is binary: **rectangular for everything, circular only for 
       </a>
 
       <!-- Card: Dell 1996 Spec -->
-      <a href="pages/dell-1996.html" target="_blank" class="card" data-source="imported" data-dark="false" data-retro="dell" style="--accent: #e91d2a; --accent-glow: rgba(233, 29, 42, 0.08); --preview-bg: #808080;">
+      <a href="pages/dell-1996.html" target="_blank" class="card" data-source="imported" data-tags="retro" data-dark="false" data-retro="dell" style="--accent: #e91d2a; --accent-glow: rgba(233, 29, 42, 0.08); --preview-bg: #808080;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -9189,7 +9241,7 @@ All seven share identical chrome: 1 px solid `{colors.frame-ink}` border, `{spac
       </a>
 
       <!-- Card: Cohere Spec -->
-      <a href="pages/cohere.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #003c33; --accent-glow: rgba(0, 60, 51, 0.08); --preview-bg: #eeece7;">
+      <a href="pages/cohere.html" target="_blank" class="card" data-source="imported" data-tags="ai,dark" data-dark="false"  style="--accent: #003c33; --accent-glow: rgba(0, 60, 51, 0.08); --preview-bg: #eeece7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -9683,7 +9735,7 @@ Primary CTAs and pills meet comfortable touch sizing through 12px-24px padding a
       </a>
 
       <!-- Card: Mistral AI Spec -->
-      <a href="pages/mistral.ai.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #f06a3a; --accent-glow: rgba(240, 106, 58, 0.08); --preview-bg: #fbfaf7;">
+      <a href="pages/mistral.ai.html" target="_blank" class="card" data-source="imported" data-tags="ai" data-dark="false"  style="--accent: #f06a3a; --accent-glow: rgba(240, 106, 58, 0.08); --preview-bg: #fbfaf7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -10499,7 +10551,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
       </a>
 
       <!-- Card: Expo Spec -->
-      <a href="pages/expo.html" target="_blank" class="card" data-source="imported" data-dark="true"  style="--accent: #6366f1; --accent-glow: rgba(99, 102, 241, 0.08); --preview-bg: #000208;">
+      <a href="pages/expo.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark" data-dark="true"  style="--accent: #6366f1; --accent-glow: rgba(99, 102, 241, 0.08); --preview-bg: #000208;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -11068,7 +11120,7 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
       </a>
 
       <!-- Card: Vercel Spec -->
-      <a href="pages/vercel.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.06); --preview-bg: #ffffff;">
+      <a href="pages/vercel.html" target="_blank" class="card" data-source="imported" data-tags="devtools" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.06); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -11847,7 +11899,7 @@ The brand uses STACKED shadows — multiple small offsets layered to fake natura
       </a>
 
       <!-- Card: Supabase Spec -->
-      <a href="pages/supabase.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #3ecf8e; --accent-glow: rgba(62, 207, 142, 0.08); --preview-bg: #1c1c1c;">
+      <a href="pages/supabase.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark" data-dark="false"  style="--accent: #3ecf8e; --accent-glow: rgba(62, 207, 142, 0.08); --preview-bg: #1c1c1c;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -12352,7 +12404,7 @@ Product UI mockups use `srcset` with desktop / mobile crops; mobile crops focus 
       </a>
 
       <!-- Card: PostHog Spec -->
-      <a href="pages/posthog.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #f97316; --accent-glow: rgba(249, 115, 22, 0.08); --preview-bg: #f3f4f6;">
+      <a href="pages/posthog.html" target="_blank" class="card" data-source="imported" data-tags="devtools" data-dark="false"  style="--accent: #f97316; --accent-glow: rgba(249, 115, 22, 0.08); --preview-bg: #f3f4f6;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -13085,7 +13137,7 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
       </a>
 
       <!-- Card: Figma Spec -->
-      <a href="pages/figma.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #ff7262; --accent-glow: rgba(255, 114, 98, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/figma.html" target="_blank" class="card" data-source="imported" data-tags="saas" data-dark="false"  style="--accent: #ff7262; --accent-glow: rgba(255, 114, 98, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -13706,7 +13758,7 @@ The defining surface of Figma's marketing. Each is a full-content-width panel wi
       </a>
 
       <!-- Card: Framer Spec -->
-      <a href="pages/framer.html" target="_blank" class="card" data-source="imported" data-dark="true"  style="--accent: #0055ff; --accent-glow: rgba(0, 85, 255, 0.08); --preview-bg: #000000;">
+      <a href="pages/framer.html" target="_blank" class="card" data-source="imported" data-tags="saas,dark" data-dark="true"  style="--accent: #0055ff; --accent-glow: rgba(0, 85, 255, 0.08); --preview-bg: #000000;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -14293,7 +14345,7 @@ The defining decorative surface of Framer's marketing — oversized atmospheric 
       </a>
 
       <!-- Card: Stripe Spec -->
-      <a href="pages/stripe.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #635bff; --accent-glow: rgba(99, 91, 255, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/stripe.html" target="_blank" class="card" data-source="imported" data-tags="fintech" data-dark="false"  style="--accent: #635bff; --accent-glow: rgba(99, 91, 255, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -14823,7 +14875,7 @@ Product UI composites use `srcset` with art-direction crops at major breakpoints
       </a>
 
       <!-- Card: Coinbase Spec -->
-      <a href="pages/coinbase.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #0052ff; --accent-glow: rgba(0, 82, 255, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/coinbase.html" target="_blank" class="card" data-source="imported" data-tags="fintech" data-dark="false"  style="--accent: #0052ff; --accent-glow: rgba(0, 82, 255, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -15436,7 +15488,7 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
       </a>
 
       <!-- Card: Nike Spec -->
-      <a href="pages/nike.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/nike.html" target="_blank" class="card" data-source="imported" data-tags="retail" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -16054,7 +16106,7 @@ All interactive elements meet WCAG AAA (44×44px minimum). Pills (`{component.bu
       </a>
 
       <!-- Card: Shopify Spec -->
-      <a href="pages/shopify.html" target="_blank" class="card" data-source="imported" data-dark="true"  style="--accent: #008060; --accent-glow: rgba(0, 128, 96, 0.08); --preview-bg: #0d1117;">
+      <a href="pages/shopify.html" target="_blank" class="card" data-source="imported" data-tags="retail,dark" data-dark="true"  style="--accent: #008060; --accent-glow: rgba(0, 128, 96, 0.08); --preview-bg: #0d1117;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -16613,7 +16665,7 @@ Photography uses responsive `srcset` with art-direction crops at major breakpoin
       </a>
 
       <!-- Card: Spotify Spec -->
-      <a href="pages/spotify.html" target="_blank" class="card" data-source="imported" data-dark="true"  style="--accent: #1ed760; --accent-glow: rgba(30, 215, 96, 0.08); --preview-bg: #121212;">
+      <a href="pages/spotify.html" target="_blank" class="card" data-source="imported" data-tags="tech,dark" data-dark="true"  style="--accent: #1ed760; --accent-glow: rgba(30, 215, 96, 0.08); --preview-bg: #121212;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -16948,7 +17000,7 @@ What distinguishes Spotify is its pill-and-circle geometry. Primary buttons use 
       </a>
 
       <!-- Card: PlayStation Spec -->
-      <a href="pages/playstation.html" target="_blank" class="card" data-source="imported" data-dark="true"  style="--accent: #003087; --accent-glow: rgba(0, 48, 135, 0.08); --preview-bg: #0f0f12;">
+      <a href="pages/playstation.html" target="_blank" class="card" data-source="imported" data-tags="tech,dark" data-dark="true"  style="--accent: #003087; --accent-glow: rgba(0, 48, 135, 0.08); --preview-bg: #0f0f12;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -17652,7 +17704,7 @@ All interactive elements meet WCAG AAA (≥ 44×44px). `{component.button-primar
       </a>
 
       <!-- Card: Tesla Spec -->
-      <a href="pages/tesla.html" target="_blank" class="card" data-source="imported" data-dark="false"  style="--accent: #171a20; --accent-glow: rgba(23, 26, 32, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/tesla.html" target="_blank" class="card" data-source="imported" data-tags="tech,automotive" data-dark="false"  style="--accent: #171a20; --accent-glow: rgba(23, 26, 32, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -18025,7 +18077,7 @@ When refining existing screens generated with this design system:
       </a>
 
       <!-- Card: Lamborghini Spec -->
-      <a href="pages/lamborghini.html" target="_blank" class="card" data-source="imported" data-dark="true"  style="--accent: #FFC000; --accent-glow: rgba(255, 192, 0, 0.08); --preview-bg: #000000;">
+      <a href="pages/lamborghini.html" target="_blank" class="card" data-source="imported" data-tags="automotive,dark" data-dark="true"  style="--accent: #FFC000; --accent-glow: rgba(255, 192, 0, 0.08); --preview-bg: #000000;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -18399,7 +18451,7 @@ When refining existing screens generated with this design system:
       </a>
 
       <!-- Card: Nintendo 2001 Spec -->
-      <a href="pages/nintendo-2001.html" target="_blank" class="card" data-source="imported" data-dark="false" data-retro="nintendo" style="--accent: #e60012; --accent-glow: rgba(230, 0, 18, 0.08); --preview-bg: #a1accb;">
+      <a href="pages/nintendo-2001.html" target="_blank" class="card" data-source="imported" data-tags="retro" data-dark="false" data-retro="nintendo" style="--accent: #e60012; --accent-glow: rgba(230, 0, 18, 0.08); --preview-bg: #a1accb;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -19147,21 +19199,76 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
 
   <!-- Filter & Copy Logic -->
   <script>
+    let currentSource = 'manual';
+    let currentTag = 'all';
+
     function filterCategory(catId, element) {
       // Set active tab
       const tabs = document.querySelectorAll('.category-tab');
       tabs.forEach(tab => tab.classList.remove('active'));
       element.classList.add('active');
 
-      // Filter cards by data-source attribute
+      currentSource = catId;
+      applyFilter();
+    }
+
+    function filterTag(tagId, element) {
+      // Set active tag
+      const tags = document.querySelectorAll('.filter-tag');
+      tags.forEach(tag => tag.classList.remove('active'));
+      element.classList.add('active');
+
+      currentTag = tagId;
+      applyFilter();
+    }
+
+    function applyFilter() {
       const cards = document.querySelectorAll('.grid .card');
+      let visibleCount = 0;
+      
       cards.forEach(card => {
-        if (card.getAttribute('data-source') === catId) {
+        const sourceMatch = card.getAttribute('data-source') === currentSource;
+        
+        let tagMatch = false;
+        if (currentTag === 'all') {
+          tagMatch = true;
+        } else {
+          const tagsAttr = card.getAttribute('data-tags') || '';
+          const tagList = tagsAttr.split(',');
+          tagMatch = tagList.includes(currentTag);
+        }
+        
+        if (sourceMatch && tagMatch) {
           card.style.display = 'flex';
+          visibleCount++;
         } else {
           card.style.display = 'none';
         }
       });
+      
+      // Handle empty state
+      let emptyState = document.getElementById('grid-empty-state');
+      if (!emptyState) {
+        emptyState = document.createElement('div');
+        emptyState.id = 'grid-empty-state';
+        emptyState.style.gridColumn = '1 / -1';
+        emptyState.style.textAlign = 'center';
+        emptyState.style.padding = '80px 20px';
+        emptyState.style.color = 'var(--text-secondary)';
+        emptyState.style.fontFamily = "'Outfit', sans-serif";
+        emptyState.style.fontSize = '16px';
+        emptyState.innerHTML = `
+          <div style="font-size: 32px; margin-bottom: 12px;">🔍</div>
+          <div>没有找到符合条件的设计规范</div>
+        `;
+        document.getElementById('cards-grid').appendChild(emptyState);
+      }
+      
+      if (visibleCount === 0) {
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+      }
     }
 
     function copyCardSpec(event, button) {
