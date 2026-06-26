@@ -1,19 +1,20 @@
-<!-- Design System — Vue.js by holynova -->
+<!-- Design System — Vue.js progressive docs -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design System — Vue.js</title>
-<!-- Google Fonts: Inter -->
+<title>Design System — Vue.js progressive docs</title>
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
   :root {
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: Georgia, serif;
+    --font-mono: ui-monospace, monospace;
     
     --bg-base: #ffffff;
     --bg-surface: #f6f6f7;
@@ -21,71 +22,24 @@
     --border-dark: #cbd5e1;
     
     --text-primary: #2c3e50;
-    --text-secondary: #476582;
-    --text-muted: #90a4ae;
+    --text-secondary: #2c3e50;
+    --text-muted: #476582;
     
-    --accent-vue: #42b883; /* Vue green */
-    --accent-vue-hover: #338a60;
+    --accent-vue: #42b883;
+    --accent-vue-hover: #2563eb;
     --accent-vue-glow: rgba(66, 184, 131, 0.08);
-    --accent-navy: #35495e; /* Vue slate blue */
-    
-    /* Custom container colors (Light Mode) */
-    --tip-border: #42b883;
-    --tip-bg: #f0f9eb;
-    --tip-title: #3ca272;
-    
-    --warning-border: #e7c000;
-    --warning-bg: #fffdf4;
-    --warning-title: #b89000;
-    
-    --danger-border: #c00;
-    --danger-bg: #fdf3f3;
-    --danger-title: #ad0000;
     
     --radius-lg: 8px;
     --radius-md: 6px;
     --radius-sm: 4px;
     --radius-pill: 999px;
     
+    --shadow-flat: none;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    
     --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* Dark mode overrides (by default responsive prefers-color-scheme) */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg-base: #1b1b1f;
-      --bg-surface: #202024;
-      --border-color: #2e2e32;
-      --border-dark: #3e3e42;
-      
-      --text-primary: #ebebeb;
-      --text-secondary: #c8d6e2;
-      --text-muted: #708599;
-      
-      /* Custom container colors (Dark Mode) */
-      --tip-border: #42b883;
-      --tip-bg: rgba(66, 184, 131, 0.08);
-      --tip-title: #42b883;
-      
-      --warning-border: #e7c000;
-      --warning-bg: rgba(231, 192, 0, 0.08);
-      --warning-title: #e7c000;
-      
-      --danger-border: #c00;
-      --danger-bg: rgba(204, 0, 0, 0.08);
-      --danger-title: #ff4d4d;
-    }
-    body {
-      background-image: 
-        radial-gradient(circle at top, rgba(66, 184, 131, 0.06) 0%, transparent 60%),
-        linear-gradient(rgba(255, 255, 255, 0.003) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.003) 1px, transparent 1px) !important;
-    }
-    .swatch .color-label { background: #202024 !important; }
-    .product-card { background: #202024 !important; }
-    .pill { background: #202024 !important; }
-    pre { background: #151518 !important; }
-    th { background: rgba(255, 255, 255, 0.01) !important; }
   }
 
   /* ═══════════════════ RESET & BASE ═══════════════════ */
@@ -102,12 +56,6 @@
   
   body {
     line-height: 1.6;
-    background-image: 
-      radial-gradient(circle at top, rgba(66, 184, 131, 0.04) 0%, transparent 50%),
-      linear-gradient(rgba(0, 0, 0, 0.006) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.006) 1px, transparent 1px);
-    background-size: 100% 100%, 32px 32px, 32px 32px;
-    background-position: top center, center center, center center;
     padding-bottom: 120px;
   }
 
@@ -115,21 +63,17 @@
   a:hover { color: var(--accent-vue-hover); }
   hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
   pre, code { font-family: var(--font-mono); }
-  code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: #476582; }
-  
-  @media (prefers-color-scheme: dark) {
-    code { color: #c8d6e2; }
-  }
+  code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
   
   pre {
-    background: #202024;
+    background: var(--bg-surface);
     border: 1px solid var(--border-color);
     padding: 16px 20px;
     border-radius: var(--radius-lg);
     overflow-x: auto;
     font-size: 13.5px;
     line-height: 1.6;
-    color: #ebebeb;
+    color: var(--text-primary);
     margin: 20px 0;
     position: relative;
   }
@@ -159,13 +103,14 @@
   .masthead-logo {
     width: 48px; height: 48px;
     border-radius: var(--radius-lg);
-    background: linear-gradient(135deg, var(--accent-vue), var(--accent-navy));
+    background: var(--accent-vue);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 14px rgba(66, 184, 131, 0.25);
+    box-shadow: 0 4px 14px var(--accent-vue-glow);
   }
-  .masthead-logo svg { width: 26px; height: 26px; fill: #fff; }
+  .masthead-logo svg { width: 26px; height: 26px; fill: currentColor; }
   .masthead h1 {
     font-size: 28px;
     font-weight: 800;
@@ -238,7 +183,7 @@
   }
   .sidebar a:hover, .sidebar a.active {
     color: var(--text-primary);
-    background: rgba(66, 184, 131, 0.05);
+    background: var(--bg-surface);
     box-shadow: inset 0 0 0 1px var(--border-color);
   }
 
@@ -284,7 +229,7 @@
   .swatch .color-label {
     padding: 12px;
     font-size: 12px;
-    background: #ffffff;
+    background: var(--bg-surface);
   }
   .swatch .color-label .name { font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
   .swatch .color-label .hex { color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
@@ -312,46 +257,6 @@
   td { color: var(--text-secondary); }
   tr:hover td { color: var(--text-primary); }
   td:first-child { font-weight: 600; color: var(--text-primary); }
-
-  /* CUSTOM BLOCKS */
-  .custom-block {
-    border-left: 4px solid transparent;
-    padding: 16px 24px;
-    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-    margin-bottom: 20px;
-    font-size: 14px;
-  }
-  .custom-block .custom-block-title {
-    font-weight: 700;
-    margin-bottom: 8px;
-    font-size: 13.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .custom-block p {
-    color: var(--text-primary);
-  }
-  .custom-block.tip {
-    border-color: var(--tip-border);
-    background: var(--tip-bg);
-  }
-  .custom-block.tip .custom-block-title {
-    color: var(--tip-title);
-  }
-  .custom-block.warning {
-    border-color: var(--warning-border);
-    background: var(--warning-bg);
-  }
-  .custom-block.warning .custom-block-title {
-    color: var(--warning-title);
-  }
-  .custom-block.danger {
-    border-color: var(--danger-border);
-    background: var(--danger-bg);
-  }
-  .custom-block.danger .custom-block-title {
-    color: var(--danger-title);
-  }
 
   /* TYPE SPECIMEN */
   .type-spec { margin-bottom: 32px; }
@@ -392,7 +297,7 @@
     transition: all var(--transition-base);
   }
   .pill:hover { border-color: var(--border-dark); color: var(--text-primary); }
-  .pill.active { background: rgba(66, 184, 131, 0.08); border-color: var(--accent-vue); color: var(--accent-vue); }
+  .pill.active { background: var(--accent-vue-glow); border-color: var(--accent-vue); color: var(--accent-vue); }
 
   /* FOOTER */
   footer {
@@ -406,6 +311,8 @@
     color: var(--text-secondary);
   }
   footer a { color: var(--text-primary); }
+
+  
 </style>
 </head>
 <body>
@@ -414,11 +321,11 @@
   <!-- ═══════════════════ MASTHEAD ═══════════════════ -->
   <div class="masthead">
     <div class="masthead-logo">
-      <svg viewBox="0 0 24 24"><path d="M24,1.458L18.4,1.458L12,12.529L5.6,1.458L0,1.458L12,22.25L24,1.458Z"/><path d="M18.4,1.458L12,12.529L5.6,1.458L9.15,1.458L12,6.4L14.85,1.458L18.4,1.458Z" style="fill:#35495e;"/></svg>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" style="fill:currentColor;"/></svg>
     </div>
     <div>
-      <h1>Vue.js Design System</h1>
-      <div class="sub">VitePress Documentation Style · Progressive documentation design rules</div>
+      <h1>Vue.js progressive docs</h1>
+      <div class="sub">A progressive documentation system driving modern web libraries, combining vibrant Vue Green, deep c...</div>
     </div>
     <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
       <a href="../index.html" class="back-home-link">
@@ -436,131 +343,323 @@
   <div class="layout-grid">
     <nav class="sidebar">
       <div class="sidebar-section">
-        <div class="sidebar-heading">Guide</div>
-        <a href="#philosophy">Philosophy</a>
-        <a href="#color">Color System</a>
-        <a href="#typography">Typography</a>
+        <div class="sidebar-heading">Guidelines</div>
+        <a href="#visual-theme">01 Theme & Atmosphere</a>
+        <a href="#color-palette">02 Color Palette</a>
+        <a href="#typography">03 Typography Rules</a>
+        <a href="#layout">04 Layout Principles</a>
+        <a href="#depth-elevation">05 Depth & Elevation</a>
       </div>
       <div class="sidebar-section">
-        <div class="sidebar-heading">Showcase</div>
-        <a href="#containers">Custom Containers</a>
-        <a href="#code-block">Code Styling</a>
-        <a href="#components">Visual Elements</a>
+        <div class="sidebar-heading">Showcase & Guardrails</div>
+        <a href="#components">06 Component Showcase</a>
+        <a href="#dos-donts">07 Do's and Don'ts</a>
+        <a href="#responsive">08 Responsive Behavior</a>
+        <a href="#prompt-guide">09 Agent Prompt Guide</a>
       </div>
     </nav>
 
     <main>
 
-      <!-- 01 Philosophy -->
-      <div id="philosophy" class="sec-head"><span class="idx">01</span><h2>Design Philosophy</h2></div>
-      <p style="font-size:14.5px;color:var(--text-secondary);margin-bottom:20px;">
-        Vue.js 的文档设计系统主要承载了渐进式框架的技术讲解。其设计美学推崇以内容为中心，减少修饰性干扰，同时通过高识别度的标记性区域来提升技术指引的阅读体验。
-      </p>
-      <div class="custom-block tip">
-        <p class="custom-block-title">提示 — 核心原则</p>
-        <p>信息层级化是核心。所有的文档都应易于导航，长篇大论的代码块应有明确的语言分类与一键复制功能。</p>
+      <!-- 01 Visual Theme & Atmosphere -->
+      <div id="visual-theme" class="sec-head"><span class="idx">01</span><h2>Visual Theme & Atmosphere</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'># Design System — Vue.js (VitePress Documentation Style)</p>
+<p style='margin-bottom:16px; line-height:1.6;'>Extracted and adapted from [cn.vuejs.org](https://cn.vuejs.org) and [vuejs.org](https://vuejs.org).
+A content-first, developer-friendly documentation design system characterized by vibrant Vue Green accents, soft semantic highlights, progressive layout flow, and exceptionally legible dark-theme code blocks.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>---</p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Live Visual Theme Representation:</p>
+        <p>Visual Theme Example</p>
       </div>
 
-      <!-- 02 Color System -->
-      <div id="color" class="sec-head"><span class="idx">02</span><h2>Color System</h2></div>
-      <div class="swatches">
-        <div class="swatch"><div class="color-block" style="background:#42b883"></div><div class="color-label"><div class="name">vue-green</div><div class="hex">#42b883</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#35495e"></div><div class="color-label"><div class="name">vue-navy</div><div class="hex">#35495e</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div><div class="color-label"><div class="name">canvas-bg</div><div class="hex">#ffffff</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#1b1b1f"></div><div class="color-label"><div class="name">canvas-dark</div><div class="hex">#1b1b1f</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#f6f6f7"></div><div class="color-label"><div class="name">surface-alt</div><div class="hex">#f6f6f7</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#e7c000"></div><div class="color-label"><div class="name">warning-yellow</div><div class="hex">#e7c000</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#cc0000"></div><div class="color-label"><div class="name">danger-red</div><div class="hex">#cc0000</div></div></div>
-      </div>
+      <!-- 02 Color Palette & Roles -->
+      <div id="color-palette" class="sec-head"><span class="idx">02</span><h2>Color Palette & Roles</h2></div>
       
-      <table>
-        <tr><th>Design Token</th><th>Hex Value</th><th>Default Application</th></tr>
-        <tr><td>--vp-c-brand</td><td>#42b883</td><td>Primary action link, active menu highlight</td></tr>
-        <tr><td>--vp-c-navy</td><td>#35495e</td><td>Secondary brand contrast header color</td></tr>
-        <tr><td>--vp-c-text-1</td><td>#2c3e50</td><td>Default reading dark grey text color</td></tr>
-        <tr><td>--vp-c-bg-alt</td><td>#f6f6f7</td><td>Sidebar backgrounds, inline code backing, warning box bounds</td></tr>
-        <tr><td>--vp-c-border</td><td>#e2e2e3</td><td>Table column separators, horizontal dividers</td></tr>
-      </table>
-
-      <!-- 03 Typography -->
-      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography</h2></div>
-      <div class="type-spec">
-        <div class="type-title">Progressive Framework.</div>
-        <div class="type-caption">Inter · 38px · font-extrabold · line-height 1.2</div>
-        <div class="type-h2">渐进式 JavaScript 框架</div>
-        <div class="type-caption">Inter · 24px · font-bold · line-height 1.3</div>
-        <p class="type-body">
-          易学易用，性能出色，适用场景丰富的 Web 前端框架。基于标准 HTML、CSS 和 JavaScript 构建，提供容易入手的 API 和一流的文档。
-        </p>
-        <div class="type-caption">Inter · 16px · font-normal · line-height 1.6</div>
+      <div class="swatches" style="margin-top:20px;">
+        
+            <div class="swatch" onclick="copyColor('#42b883', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#42b883; "></div>
+                <div class="color-label">
+                    <div class="name">primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#42b883</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#338a60', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#338a60; "></div>
+                <div class="color-label">
+                    <div class="name">primary-focus</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#338a60</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">canvas</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f6f6f7', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f6f6f7; "></div>
+                <div class="color-label">
+                    <div class="name">surface-card</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f6f6f7</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f6f6f7', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f6f6f7; "></div>
+                <div class="color-label">
+                    <div class="name">surface-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f6f6f7</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#2c3e50', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#2c3e50; "></div>
+                <div class="color-label">
+                    <div class="name">ink</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#2c3e50</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#2c3e50', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#2c3e50; "></div>
+                <div class="color-label">
+                    <div class="name">body</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#2c3e50</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#476582', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#476582; "></div>
+                <div class="color-label">
+                    <div class="name">muted</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#476582</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#e2e2e3', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#e2e2e3; "></div>
+                <div class="color-label">
+                    <div class="name">hairline</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e2e2e3</div>
+                </div>
+            </div>
+            
       </div>
 
-      <!-- 04 Custom Containers -->
-      <div id="containers" class="sec-head"><span class="idx">04</span><h2>Custom Containers</h2></div>
-      <p style="font-size:14.5px;color:var(--text-secondary);margin-bottom:20px;">
-        VitePress-style custom container blocks are structural callouts used to classify information weight:
-      </p>
+      <!-- 03 Typography Rules -->
+      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography Rules</h2></div>
       
-      <div class="custom-block tip">
-        <p class="custom-block-title">TIP</p>
-        <p>这是一个提示框。主要用于提供额外的信息或最佳实践，帮助开发者更好地理解 API 的使用方式。</p>
-      </div>
       
-      <div class="custom-block warning">
-        <p class="custom-block-title">WARNING</p>
-        <p>这是一个警告框。表示在这里存在可能触发的配置异常，或是即将废弃的非推荐接口。</p>
-      </div>
-
-      <div class="custom-block danger">
-        <p class="custom-block-title">DANGER</p>
-        <p>这是一个危险警告框。提醒开发者有关重大安全漏洞隐患，或者是会导致运行崩溃的严重操作误区。</p>
-      </div>
-
-      <!-- 05 Code Styling -->
-      <div id="code-block" class="sec-head"><span class="idx">05</span><h2>Code Block Styling</h2></div>
-      <p style="font-size:14.5px;color:var(--text-secondary);margin-bottom:12px;">
-        Interactive code block display with dark background theme (`#202024`) and uppercase language indicators:
-      </p>
-
-      <pre data-lang="javascript"><code>import { createApp, ref } from 'vue'
-
-const app = createApp({
-  setup() {
-    const count = ref(0)
-    const increment = () => count.value++
-    
-    return { count, increment }
-  }
-})
-
-app.mount('#app')</code></pre>
-
-      <!-- 06 Visual Elements -->
-      <div id="components" class="sec-head"><span class="idx">06</span><h2>Visual Elements</h2></div>
-      <div style="display: flex; flex-direction: column; gap: 24px; margin-bottom: 32px;">
-        <div class="product-card">
-          <h3>Interactive Counter Card</h3>
-          <p>This is a component preview highlighting Vue's brand badge colors and rounded layout edges.</p>
-          <a href="#" class="back-home-link" style="padding: 6px 12px; font-size: 12px; border-color: var(--accent-vue); color: var(--accent-vue);">Read API Specs &rarr;</a>
+        <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
+            <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
+            <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
         </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+        
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-xl</span>
+                        <span>size: 38px | weight: 700 | height: 1.2 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:38px; font-weight:700; line-height:1.2; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    <div style="margin-top:8px; font-size:11.5px; color:var(--text-secondary); font-style:italic; font-family:var(--font-sans);">Use: Page Heading</div>
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-md</span>
+                        <span>size: 16px | weight: 400 | height: 1.6 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.6; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    <div style="margin-top:8px; font-size:11.5px; color:var(--text-secondary); font-style:italic; font-family:var(--font-sans);">Use: Primary Body</div>
+                </div>
+                </div>
+
+      <!-- 04 Layout Principles -->
+      <div id="layout" class="sec-head"><span class="idx">04</span><h2>Layout Principles</h2></div>
+      
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
+        <p>Layout Grid Example</p>
+        
+    <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
+        <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
+        
+        <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">3</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">4</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">5</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">6</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">7</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">8</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">9</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">10</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
+        </div>
+        
+        <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
+            <div>Gutter spacing: 16px / 24px</div>
+            <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
+            <div>Max Container Width: 1200px</div>
+        </div>
+    </div>
+    
       </div>
 
-      <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:12px;">Badges and status pills:</p>
-      <div class="pills">
-        <span class="pill active">v3.3.4</span>
-        <span class="pill">Composition API</span>
-        <span class="pill"><span style="width:6px; height:6px; border-radius:50%; background:var(--accent-vue); display:inline-block; margin-right:6px;"></span>Stable</span>
-        <span class="pill"><span style="width:6px; height:6px; border-radius:50%; background:var(--warning-border); display:inline-block; margin-right:6px;"></span>Experimental</span>
+      <!-- 05 Depth & Elevation -->
+      <div id="depth-elevation" class="sec-head"><span class="idx">05</span><h2>Depth & Elevation</h2></div>
+      
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
+        <p>Elevation Level Example</p>
+        
+    <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for background layers, sidebar headers, or baseline borders.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-md);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Low Elevation (Level 1 / Card)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for floating product elements, cards, and hover states.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-lg);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">High Elevation (Level 2 / Popover & Dropdown)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
+        </div>
+    </div>
+    
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
+        
+    <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-sm</span>
+            <span style="color:var(--text-muted); margin-top:4px;">4px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-md</span>
+            <span style="color:var(--text-muted); margin-top:4px;">6px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-lg</span>
+            <span style="color:var(--text-muted); margin-top:4px;">8px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-pill); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-pill</span>
+            <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
+        </div>
+    </div>
+    
       </div>
+
+      <!-- 06 Component Stylings -->
+      <div id="components" class="sec-head"><span class="idx">06</span><h2>Component Stylings</h2></div>
+      
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; font-family:var(--font-mono);">Interactive Component Demonstrations:</p>
+        <p>Component Interactive Example</p>
+      </div>
+
+      <!-- 07 Do's and Don'ts -->
+      <div id="dos-donts" class="sec-head"><span class="idx">07</span><h2>Do's and Don'ts</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Do</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Keep documentation layout flat and focused on readability.</li><li style='margin-left:20px; margin-bottom:6px;'>Use monospaced fonts for paths, variables, and terminal commands.</li><li style='margin-left:20px; margin-bottom:6px;'>Limit bright brand gradients to main logos and call-to-action cards.</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't use overly stylized buttons or elements that distract from raw documentation content.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use heavy cards with deep blur box-shadows.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't mix bright brand gradients inside long reading blocks.</li></ul>
+      
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
+        <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
+            <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                <ul><li style='margin-left:20px; margin-bottom:6px;'>Keep documentation layout flat and focused on readability.</li><li style='margin-left:20px; margin-bottom:6px;'>Use monospaced fonts for paths, variables, and terminal commands.</li><li style='margin-left:20px; margin-bottom:6px;'>Limit bright brand gradients to main logos and call-to-action cards.</li></ul>
+            </div>
+        </div>
+        <div style="border:1px solid #ef4444; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(239, 68, 68, 0.015); position:relative;">
+            <span style="background:#ef4444; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">❌ Discouraged / Don't</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                <ul><li style='margin-left:20px; margin-bottom:6px;'>Don't use overly stylized buttons or elements that distract from raw documentation content.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use heavy cards with deep blur box-shadows.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't mix bright brand gradients inside long reading blocks.</li></ul>
+            </div>
+        </div>
+    </div>
+    
+
+      <!-- 08 Responsive Behavior -->
+      <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
+      
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
+        <p>Responsive Behavior Example</p>
+        
+    <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
+        <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
+            <div style="display:flex; gap:6px;">
+                <button id="btn-sim-mobile" onclick="setSimWidth('mobile')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Mobile</button>
+                <button id="btn-sim-tablet" onclick="setSimWidth('tablet')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Tablet</button>
+                <button id="btn-sim-desktop" onclick="setSimWidth('desktop')" style="padding:4px 10px; border:1px solid var(--accent-vue); background:var(--accent-vue-glow); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--accent-vue); transition:all var(--transition-base);">Desktop</button>
+            </div>
+        </div>
+        <div style="padding:28px 16px; display:flex; justify-content:center; background:rgba(0,0,0,0.005); overflow:hidden;">
+            <div id="viewport-sim-container" style="width:100%; max-width:800px; transition:max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1); border:1.5px dashed var(--border-dark); border-radius:var(--radius-md); background:var(--bg-base); padding:20px; overflow:hidden; box-sizing:border-box;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                    <span id="sim-width-indicator" style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); text-transform:uppercase;">Width: 800px (Desktop Mode)</span>
+                    <span style="font-size:11px; font-weight:700; color:var(--accent-vue); font-family:var(--font-sans);">Grid Container</span>
+                </div>
+                <div id="sim-layout-columns" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; transition:all 0.3s;">
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Primary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Adjusts layout width</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Secondary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Folds on viewport change</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Sidebar Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Stacks to bottom on mobile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 09 Agent Prompt Guide -->
+      <div id="prompt-guide" class="sec-head"><span class="idx">09</span><h2>Agent Prompt Guide</h2></div>
+      
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Copyable Agent Integration Prompt:</p>
+        <p>Prompt Guide Copy Box</p>
+      </div>
+
+      <!-- 10 Design Tokens Table -->
+      <div id="tokens-table" class="sec-head"><span class="idx">10</span><h2>Full System Design Tokens</h2></div>
+      <p style="margin-bottom:20px;">The parsed design tokens extracted from the core stylesheet of this design system:</p>
+      <table>
+        <tr><th>Design Token</th><th>Hex Value</th><th>System Palette Role</th></tr>
+        <tr><td>--primary</td><td>#42b883</td><td>System color representation for primary</td></tr><tr><td>--primary-focus</td><td>#338a60</td><td>System color representation for primary-focus</td></tr><tr><td>--canvas</td><td>#ffffff</td><td>System color representation for canvas</td></tr><tr><td>--surface-card</td><td>#f6f6f7</td><td>System color representation for surface-card</td></tr><tr><td>--surface-soft</td><td>#f6f6f7</td><td>System color representation for surface-soft</td></tr><tr><td>--ink</td><td>#2c3e50</td><td>System color representation for ink</td></tr><tr><td>--body</td><td>#2c3e50</td><td>System color representation for body</td></tr><tr><td>--muted</td><td>#476582</td><td>System color representation for muted</td></tr><tr><td>--hairline</td><td>#e2e2e3</td><td>System color representation for hairline</td></tr>
+      </table>
 
     </main>
   </div>
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer>
-    <div><strong>Design System — Vue.js</strong> · Extracted May 2026</div>
+    <div><strong>Vue.js progressive docs Spec</strong> · Extracted from awesome-design-md</div>
     <div>
-      <a href="https://cn.vuejs.org">Vue Website</a>
+      <a href="../index.html">Design System Hub</a>
     </div>
   </footer>
 
@@ -687,14 +786,18 @@ A sticky right-side vertical menu (width: `224px`) displaying active page subsec
       └── List of sub-anchors (hover color: --vp-c-brand)
 ```
 
----
+## Do's and Don'ts
 
-## 9. Anti-Patterns (What to Avoid)
+### Do
+- Keep documentation layout flat and focused on readability.
+- Use monospaced fonts for paths, variables, and terminal commands.
+- Limit bright brand gradients to main logos and call-to-action cards.
 
-- No overly stylized elements that distract from raw documentation content.
-- No heavy cards with deep blur box-shadows. Shadows should be flat or very subtle (`0 1px 3px rgba(0,0,0,0.05)`).
-- Never use non-monospaced fonts for paths, variables, or terminal commands.
-- Do not mix bright brand gradients inside long reading blocks; keep gradients strictly limited to main logos and call-to-action cards.
+### Don't
+- Don't use overly stylized buttons or elements that distract from raw documentation content.
+- Don't use heavy cards with deep blur box-shadows.
+- Don't mix bright brand gradients inside long reading blocks.
+
 </textarea>
 
 <script>
@@ -713,6 +816,67 @@ A sticky right-side vertical menu (width: `224px`) displaying active page subsec
       console.error(err);
       alert('Failed to copy: ' + err);
     });
+  }
+
+  function copyColor(hex, el) {
+    navigator.clipboard.writeText(hex).then(() => {
+      const hexEl = el.querySelector('.hex');
+      const originalText = hexEl.innerText;
+      hexEl.innerText = 'Copied!';
+      hexEl.style.color = 'var(--accent-vue)';
+      hexEl.style.fontWeight = 'bold';
+      setTimeout(() => {
+        hexEl.innerText = originalText;
+        hexEl.style.color = '';
+        hexEl.style.fontWeight = '';
+      }, 1000);
+    });
+  }
+
+  function updateTypoPreviews(val) {
+    const previews = document.querySelectorAll('.typo-preview-text');
+    previews.forEach(p => {
+      p.innerText = val.trim() || 'The quick brown fox jumps over the lazy dog';
+    });
+  }
+
+  function setSimWidth(mode) {
+    const container = document.getElementById('viewport-sim-container');
+    const indicator = document.getElementById('sim-width-indicator');
+    const cols = document.getElementById('sim-layout-columns');
+    const btnMobile = document.getElementById('btn-sim-mobile');
+    const btnTablet = document.getElementById('btn-sim-tablet');
+    const btnDesktop = document.getElementById('btn-sim-desktop');
+    
+    // Reset button styles
+    [btnMobile, btnTablet, btnDesktop].forEach(btn => {
+      if (btn) {
+        btn.style.background = 'var(--bg-base)';
+        btn.style.borderColor = 'var(--border-color)';
+        btn.style.color = 'var(--text-primary)';
+      }
+    });
+    
+    const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
+    if (activeBtn) {
+      activeBtn.style.background = 'var(--accent-vue-glow)';
+      activeBtn.style.borderColor = 'var(--accent-vue)';
+      activeBtn.style.color = 'var(--accent-vue)';
+    }
+    
+    if (mode === 'mobile') {
+      container.style.maxWidth = '375px';
+      indicator.innerText = 'Width: 375px (Mobile < 768px)';
+      cols.style.gridTemplateColumns = '1fr';
+    } else if (mode === 'tablet') {
+      container.style.maxWidth = '600px';
+      indicator.innerText = 'Width: 600px (Tablet 768px-1024px)';
+      cols.style.gridTemplateColumns = '1fr 1fr';
+    } else {
+      container.style.maxWidth = '800px';
+      indicator.innerText = 'Width: 800px (Desktop > 1024px)';
+      cols.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    }
   }
 </script>
 </body>

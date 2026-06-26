@@ -1,425 +1,318 @@
-<!-- Design System — 潮流周刊 (Trendy Weekly) by Tw93 -->
+<!-- Design System — Trendy Weekly by Tw93 -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design System — 潮流周刊 by Tw93</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" />
+<title>Design System — Trendy Weekly by Tw93</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
   :root {
-    --font-body: "LXGW WenKai", "STKaiti", "KaiTi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-mono: "SF Mono", Consolas, Monaco, "Courier New", Courier, monospace;
-    --theme-bg: #ffffff;
-    --theme-accent: #a67c52;
-    --theme-accent-hover: #8b5e3a;
-    --theme-text: #262626;
-    --theme-text-secondary: #6b7280;
-    --theme-divider: #e6e6e6;
-    --theme-card-bg: #f9f9f9;
-    --theme-code-bg: #1f2937;
-    --theme-code-text: #e5e7eb;
-    --radius: 8px;
-    --transition-base: 0.2s ease;
-    --line-height-normal: 1.7;
-    --line-height-tight: 1.6;
-    --font-size-base: 16px;
-    --font-size-small: 14px;
-    --space-1: 4px;
-    --space-2: 8px;
-    --space-3: 12px;
-    --space-4: 16px;
-    --space-5: 20px;
-    --space-6: 24px;
-    --space-8: 32px;
-    --max-width: 864px;
-    --link-blue: #1d9bf0;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: Georgia, serif;
+    --font-mono: ui-monospace, monospace;
+    
+    --bg-base: #ffffff;
+    --bg-surface: #ffffff;
+    --border-color: #e6e6e6;
+    --border-dark: #cbd5e1;
+    
+    --text-primary: #262626;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    
+    --accent-vue: #a67c52;
+    --accent-vue-hover: #2563eb;
+    --accent-vue-glow: rgba(166, 124, 82, 0.08);
+    
+    --radius-lg: 8px;
+    --radius-md: 6px;
+    --radius-sm: 4px;
+    --radius-pill: 999px;
+    
+    --shadow-flat: none;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    
+    --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* ═══════════════════ RESET ═══════════════════ */
+  /* ═══════════════════ RESET & BASE ═══════════════════ */
   *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { font-size: var(--font-size-base); color: var(--theme-text); -webkit-font-smoothing: subpixel-antialiased; scroll-behavior: smooth; }
+  
+  html {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
   body {
-    font-family: var(--font-body);
-    background: var(--theme-bg);
-    color: var(--theme-text);
-    line-height: var(--line-height-normal);
-    letter-spacing: 0.5px;
-  }
-  img, video { max-width: 100%; height: auto; object-fit: cover; border-radius: var(--radius); }
-  a { color: var(--link-blue); cursor: pointer; transition: all var(--transition-base); text-decoration: none; }
-  a:hover { color: var(--theme-accent); }
-  hr { height: 1px; border: 0; background: var(--theme-divider); margin: 28px 0; }
-  pre, code { font-family: var(--font-mono); }
-  pre {
-    background: var(--theme-code-bg);
-    color: var(--theme-code-text);
-    padding: 16px 20px;
-    border-radius: var(--radius);
-    overflow-x: auto;
-    font-size: 14px;
     line-height: 1.6;
-    margin: 24px 0;
+    padding-bottom: 120px;
   }
-  code { font-size: 0.875em; }
+
+  a { color: var(--accent-vue); text-decoration: none; transition: color var(--transition-base); }
+  a:hover { color: var(--accent-vue-hover); }
+  hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
+  pre, code { font-family: var(--font-mono); }
+  code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
+  
+  pre {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 16px 20px;
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 20px 0;
+    position: relative;
+  }
+  pre::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
 
   /* ═══════════════════ LAYOUT ═══════════════════ */
-  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 16px 80px; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-  /* ═══════════════════ MASTHEAD ═══════════════════ */
+  /* MASTHEAD */
   .masthead {
-    padding: 48px 0 32px;
-    border-bottom: 1px solid var(--theme-divider);
-    margin-bottom: 40px;
+    padding: 80px 0 48px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 48px;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
   }
   .masthead-logo {
-    width: 44px; height: 44px;
-    border-radius: var(--radius);
-    background: var(--theme-accent);
+    width: 48px; height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--accent-vue);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 700;
-    flex-shrink: 0;
+    box-shadow: 0 4px 14px var(--accent-vue-glow);
   }
+  .masthead-logo svg { width: 26px; height: 26px; fill: currentColor; }
   .masthead h1 {
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
   }
   .masthead .sub {
-    font-size: var(--font-size-small);
-    color: var(--theme-text-secondary);
-    margin-top: 2px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 4px;
   }
-  .back-home-link {
+
+  .back-home-link, #copy-md-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 500;
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    font-weight: 600;
     padding: 8px 16px;
-    border: 1px solid var(--theme-divider);
-    border-radius: var(--radius);
-    color: var(--theme-text);
-    background: var(--theme-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    background: var(--bg-base);
     cursor: pointer;
     text-decoration: none;
     transition: all var(--transition-base);
   }
-  .back-home-link:hover {
-    color: var(--theme-accent);
-    border-color: var(--theme-accent);
-    background: rgba(166, 124, 82, 0.04);
-  }
-  #copy-md-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border: 1px solid var(--theme-divider);
-    border-radius: var(--radius);
-    color: var(--theme-text);
-    background: var(--theme-bg);
-    cursor: pointer;
-    transition: all var(--transition-base);
-  }
-  #copy-md-btn:hover {
-    color: var(--theme-accent);
-    border-color: var(--theme-accent);
-    background: rgba(166, 124, 82, 0.04);
+  .back-home-link:hover, #copy-md-btn:hover {
+    border-color: var(--accent-vue);
+    box-shadow: 0 0 12px var(--accent-vue-glow);
+    background: var(--bg-surface);
   }
 
-  /* ═══════════════════ TWO-COLUMN LAYOUT ═══════════════════ */
+  /* TWO-COLUMN GRID */
   .layout-grid {
     display: grid;
     grid-template-columns: 240px 1fr;
-    gap: 48px;
+    gap: 64px;
     align-items: start;
   }
   @media (max-width: 768px) {
-    .layout-grid { grid-template-columns: 1fr; }
-    .sidebar { position: static; }
+    .layout-grid { grid-template-columns: 1fr; gap: 40px; }
   }
 
-  /* ═══════════════════ SIDEBAR ═══════════════════ */
+  /* SIDEBAR */
   .sidebar {
     position: sticky;
-    top: 32px;
+    top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 28px;
   }
   .sidebar-section { display: flex; flex-direction: column; gap: 6px; }
   .sidebar-heading {
     font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--theme-text-secondary);
-    font-weight: 600;
-    margin-bottom: 4px;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
   }
   .sidebar a {
     display: block;
-    font-size: var(--font-size-small);
-    color: var(--theme-text);
-    padding: 4px 8px;
-    border-radius: 4px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
     transition: all var(--transition-base);
   }
   .sidebar a:hover, .sidebar a.active {
-    color: var(--theme-accent);
-    background: rgba(166, 124, 82, 0.08);
-  }
-  .sidebar a .count {
-    font-size: 11px;
-    color: var(--theme-text-secondary);
-    margin-left: 4px;
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    box-shadow: inset 0 0 0 1px var(--border-color);
   }
 
-  /* ═══════════════════ SECTION HEADINGS ═══════════════════ */
+  /* ═══════════════════ COMPONENTS & SECTIONS ═══════════════════ */
   .sec-head {
     display: flex;
     align-items: baseline;
-    gap: 12px;
-    margin-top: 56px;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--theme-divider);
+    gap: 16px;
+    margin-top: 64px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
   }
   .sec-head:first-child { margin-top: 0; }
   .sec-head .idx {
     font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--theme-accent);
+    font-size: 12px;
+    color: var(--accent-vue);
     font-weight: 600;
   }
   .sec-head h2 {
     font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 0.8px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
   }
 
-  /* ═══════════════════ COLOR SWATCHES ═══════════════════ */
+  /* COLOR SWATCHES */
   .swatches {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 12px;
-    margin-bottom: 28px;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
   }
   .swatch {
-    border-radius: var(--radius);
-    border: 1px solid var(--theme-divider);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
     overflow: hidden;
+    transition: border-color var(--transition-base);
   }
-  .swatch .color-block { height: 64px; }
+  .swatch:hover { border-color: var(--border-dark); }
+  .swatch .color-block { height: 72px; }
   .swatch .color-label {
-    padding: 8px 10px;
+    padding: 12px;
     font-size: 12px;
-    line-height: 1.4;
-    background: #fff;
+    background: var(--bg-surface);
   }
-  .swatch .color-label .name { font-weight: 600; color: var(--theme-text); }
-  .swatch .color-label .hex { color: var(--theme-text-secondary); font-family: var(--font-mono); font-size: 11px; }
+  .swatch .color-label .name { font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+  .swatch .color-label .hex { color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
 
-  /* ═══════════════════ TABLES ═══════════════════ */
+  /* TABLES */
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: var(--font-size-small);
-    margin-bottom: 28px;
+    font-size: 13.5px;
+    margin-bottom: 32px;
   }
   th, td {
     text-align: left;
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--theme-divider);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
   }
   th {
     font-size: 11px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--theme-text-secondary);
-    font-weight: 600;
-    background: var(--theme-card-bg);
+    color: var(--text-muted);
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.01);
   }
-  td { vertical-align: top; }
-  td:first-child { font-weight: 600; }
-  td code {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    background: var(--theme-card-bg);
-    padding: 1px 6px;
-    border-radius: 4px;
-  }
+  td { color: var(--text-secondary); }
+  tr:hover td { color: var(--text-primary); }
+  td:first-child { font-weight: 600; color: var(--text-primary); }
 
-  /* ═══════════════════ TYPE SPECIMEN ═══════════════════ */
-  .type-spec { margin-bottom: 28px; }
-  .type-h1 { font-size: 2.25em; font-weight: 800; line-height: 1.11; margin-bottom: 4px; }
-  .type-h2 { font-size: 1.5em; font-weight: 700; line-height: 1.33; margin: 24px 0 4px; }
-  .type-h3 { font-size: 1.25em; font-weight: 600; line-height: 1.6; margin: 20px 0 4px; }
-  .type-body { font-size: 1rem; line-height: 1.75; color: #374151; max-width: 65ch; }
-  .type-small { font-size: var(--font-size-small); color: var(--theme-text-secondary); }
-  .type-caption {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--theme-text-secondary);
-    margin-top: 4px;
-    margin-bottom: 16px;
-  }
+  /* TYPE SPECIMEN */
+  .type-spec { margin-bottom: 32px; }
+  .type-title { font-size: 38px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .type-h2 { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: -0.015em; margin: 24px 0 8px; }
+  .type-body { font-size: 16px; line-height: 1.6; color: var(--text-primary); }
+  .type-caption { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 4px; margin-bottom: 16px; }
 
-  /* ═══════════════════ SPACING VIZ ═══════════════════ */
-  .spacing-demo { margin-bottom: 28px; }
-  .spacing-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 6px;
-    font-size: var(--font-size-small);
+  /* COMPONENT DEMOS */
+  .product-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    max-width: 420px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   }
-  .spacing-bar {
-    height: 8px;
-    border-radius: 4px;
-    background: var(--theme-accent);
-    opacity: 0.45;
-    flex-shrink: 0;
+  .product-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-dark);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
   }
-  .spacing-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--theme-text-secondary);
-    width: 90px;
-    flex-shrink: 0;
-  }
+  .product-card h3 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .product-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px; }
 
-  /* ═══════════════════ DO / DON'T ═══════════════════ */
-  .dos-donts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-  @media (max-width: 640px) { .dos-donts { grid-template-columns: 1fr; } }
-  .do, .dont {
-    border-radius: var(--radius);
-    padding: 20px;
-    border: 1px solid var(--theme-divider);
-    background: #fff;
-  }
-  .do h4, .dont h4 {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 8px;
-    font-family: var(--font-mono);
-  }
-  .do h4 { color: #059669; }
-  .dont h4 { color: #dc2626; }
-  .do p, .dont p { font-size: var(--font-size-small); color: var(--theme-text-secondary); line-height: 1.6; }
-
-  /* ═══════════════════ CARD DEMO ═══════════════════ */
-  .card-demo {
-    background: var(--theme-card-bg);
-    border: 1px solid var(--theme-divider);
-    border-radius: var(--radius);
-    padding: 20px;
-    margin-bottom: 28px;
-  }
-  .card-demo .card-title {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--theme-text);
-  }
-  .card-demo .card-desc {
-    font-size: var(--font-size-small);
-    color: var(--theme-text-secondary);
-    line-height: 1.6;
-  }
-
-  /* ═══════════════════ PILL / TAG ═══════════════════ */
-  .pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 28px;
-  }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
   .pill {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 999px;
-    font-size: 13px;
-    color: var(--theme-text-secondary);
-    border: 1px solid var(--theme-divider);
-    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    background: var(--bg-base);
     transition: all var(--transition-base);
   }
-  .pill:hover { border-color: var(--theme-accent); color: var(--theme-accent); }
-  .pill.active { background: var(--theme-accent); color: #fff; border-color: var(--theme-accent); }
+  .pill:hover { border-color: var(--border-dark); color: var(--text-primary); }
+  .pill.active { background: var(--accent-vue-glow); border-color: var(--accent-vue); color: var(--accent-vue); }
 
-  /* ═══════════════════ NAV LINK LIST ═══════════════════ */
-  .nav-link-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    margin-bottom: 28px;
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid var(--theme-divider);
-    border-radius: var(--radius);
-    padding: 8px;
-  }
-  .nav-link-list a {
-    padding: 6px 10px;
-    border-radius: 4px;
-    font-size: var(--font-size-small);
-    color: var(--theme-text);
-    transition: all var(--transition-base);
-  }
-  .nav-link-list a:hover { background: rgba(166, 124, 82, 0.06); color: var(--theme-accent); }
-
-  /* ═══════════════════ FOOTER ═══════════════════ */
+  /* FOOTER */
   footer {
-    margin-top: 64px;
-    border-top: 1px solid var(--theme-divider);
-    padding-top: 24px;
+    margin-top: 80px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: var(--font-size-small);
-    color: var(--theme-text-secondary);
+    font-size: 12.5px;
+    color: var(--text-secondary);
   }
-  footer a { color: var(--theme-accent); }
-  footer a:hover { color: var(--theme-accent-hover); }
+  footer a { color: var(--text-primary); }
 
-  /* ═══════════════════ DARK MODE ═══════════════════ */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --theme-bg: #21262b;
-      --theme-accent: #e8a15a;
-      --theme-text: #e7e9ea;
-      --theme-text-secondary: #9ca3af;
-      --theme-divider: #555555;
-      --theme-card-bg: #2a2f35;
-      --theme-code-bg: #161b22;
-      --link-blue: #58a6ff;
-    }
-    .swatch .color-label { background: #2a2f35; }
-    .card-demo, .do, .dont { background: #2a2f35; }
-    .pill { background: #2a2f35; }
-    .sidebar a:hover, .sidebar a.active { background: rgba(232, 161, 90, 0.12); }
-  }
+  
 </style>
 </head>
 <body>
@@ -427,291 +320,336 @@
 
   <!-- ═══════════════════ MASTHEAD ═══════════════════ -->
   <div class="masthead">
-    <div class="masthead-logo">潮</div>
+    <div class="masthead-logo">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" style="fill:currentColor;"/></svg>
+    </div>
     <div>
-      <h1>潮流周刊 Design System</h1>
-      <div class="sub">Extracted from weekly.tw93.fun · 中文排版优先的设计语言</div>
+      <h1>Trendy Weekly by Tw93</h1>
+      <div class="sub">A literary-style CJK-optimized layout design system, using the open-source LXGW WenKai font and copp...</div>
     </div>
     <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
       <a href="../index.html" class="back-home-link">
         <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        返回主页
+        Back to Home
       </a>
       <button id="copy-md-btn" onclick="copyMarkdownSpec()">
         <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-        复制 Markdown 规范
+        Copy Spec
       </button>
     </div>
   </div>
 
-  <!-- ═══════════════════ TWO-COLUMN ═══════════════════ -->
+  <!-- ═══════════════════ TWO-COLUMN LAYOUT ═══════════════════ -->
   <div class="layout-grid">
     <nav class="sidebar">
       <div class="sidebar-section">
-        <div class="sidebar-heading">Design Tokens</div>
-        <a href="#philosophy">Philosophy</a>
-        <a href="#color">Color</a>
-        <a href="#typography">Typography</a>
-        <a href="#spacing">Spacing</a>
-        <a href="#layout">Layout</a>
+        <div class="sidebar-heading">Guidelines</div>
+        <a href="#visual-theme">01 Theme & Atmosphere</a>
+        <a href="#color-palette">02 Color Palette</a>
+        <a href="#typography">03 Typography Rules</a>
+        <a href="#layout">04 Layout Principles</a>
+        <a href="#depth-elevation">05 Depth & Elevation</a>
       </div>
       <div class="sidebar-section">
-        <div class="sidebar-heading">Components</div>
-        <a href="#cards">Cards & Pills</a>
-        <a href="#navigation">Navigation</a>
-        <a href="#motion">Motion</a>
-        <a href="#dark-mode">Dark Mode</a>
-        <a href="#anti-patterns">Anti-Patterns</a>
+        <div class="sidebar-heading">Showcase & Guardrails</div>
+        <a href="#components">06 Component Showcase</a>
+        <a href="#dos-donts">07 Do's and Don'ts</a>
+        <a href="#responsive">08 Responsive Behavior</a>
+        <a href="#prompt-guide">09 Agent Prompt Guide</a>
       </div>
     </nav>
 
     <main>
 
-      <!-- ═══════════════════ 01 PHILOSOPHY ═══════════════════ -->
-      <div id="philosophy" class="sec-head"><span class="idx">01</span><h2>Design Philosophy</h2></div>
-      <div class="dos-donts">
-        <div class="do">
-          <h4>This System Is</h4>
-          <p>Typography-first: a custom KaiTi (楷体) typeface defines the visual identity.</p>
-          <p>Chinese-native: CJK-aware spacing, punctuation, and line-breaking via 赫蹏 (heti).</p>
-          <p>Clean reading: high contrast, generous 1.7 line-height, 864px max-width on content.</p>
-          <p>Quietly warm: a single brown/copper accent (#a67c52) on white — no loud colors.</p>
-          <p>Dark mode native: full light/dark scheme using @media (prefers-color-scheme: dark).</p>
-          <p>Utility-powered: built on Tailwind CSS, extended with custom properties.</p>
+      <!-- 01 Visual Theme & Atmosphere -->
+      <div id="visual-theme" class="sec-head"><span class="idx">01</span><h2>Visual Theme & Atmosphere</h2></div>
+      <p style='margin-bottom:16px; line-height:1.6;'># Design System — 潮流周刊 (Trendy Weekly) by Tw93</p>
+<p style='margin-bottom:16px; line-height:1.6;'>Extracted from [weekly.tw93.fun/posts/268](https://weekly.tw93.fun/posts/268).
+A Chinese typography-first, clean reading design with warm accents and dark mode.</p>
+<p style='margin-bottom:16px; line-height:1.6;'>---</p>
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Live Visual Theme Representation:</p>
+        <p>Visual Theme Example</p>
+      </div>
+
+      <!-- 02 Color Palette & Roles -->
+      <div id="color-palette" class="sec-head"><span class="idx">02</span><h2>Color Palette & Roles</h2></div>
+      
+      <div class="swatches" style="margin-top:20px;">
+        
+            <div class="swatch" onclick="copyColor('#a67c52', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#a67c52; "></div>
+                <div class="color-label">
+                    <div class="name">primary</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#a67c52</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#e8a15a', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#e8a15a; "></div>
+                <div class="color-label">
+                    <div class="name">primary-focus</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e8a15a</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">canvas</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
+                <div class="color-label">
+                    <div class="name">surface-card</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#f3f4f6', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#f3f4f6; "></div>
+                <div class="color-label">
+                    <div class="name">surface-soft</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f3f4f6</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#262626', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#262626; "></div>
+                <div class="color-label">
+                    <div class="name">ink</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#262626</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#374151', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#374151; "></div>
+                <div class="color-label">
+                    <div class="name">body</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#374151</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#6b7280', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#6b7280; "></div>
+                <div class="color-label">
+                    <div class="name">muted</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#6b7280</div>
+                </div>
+            </div>
+            
+            <div class="swatch" onclick="copyColor('#e6e6e6', this)" style="cursor:pointer; position:relative;">
+                <div class="color-block" style="background:#e6e6e6; "></div>
+                <div class="color-label">
+                    <div class="name">hairline</div>
+                    <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e6e6e6</div>
+                </div>
+            </div>
+            
+      </div>
+
+      <!-- 03 Typography Rules -->
+      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography Rules</h2></div>
+      
+      
+        <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
+            <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
+            <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
         </div>
-        <div class="dont">
-          <h4>This System Is Not</h4>
-          <p>No Latin serif fonts — KaiTi serves as the distinctive voice for both Latin and CJK.</p>
-          <p>No heavy shadows — shadow-md is the maximum. Cards use borders, not elevation.</p>
-          <p>No color beyond the warm brown accent + blue links (#1d9bf0).</p>
-          <p>No animations over 0.2s — snappy transitions only.</p>
-          <p>No external icon fonts — all icons are inline SVGs.</p>
-          <p>No pure black text — #262626 is the darkest tone used.</p>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+        
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">display-xl</span>
+                        <span>size: 36px | weight: 800 | height: 1.11 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:36px; font-weight:800; line-height:1.11; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    <div style="margin-top:8px; font-size:11.5px; color:var(--text-secondary); font-style:italic; font-family:var(--font-sans);">Use: Article Title</div>
+                </div>
+                
+                <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
+                        <span style="font-weight:700; color:var(--accent-vue);">body-md</span>
+                        <span>size: 16px | weight: 400 | height: 1.7 | spacing: 0</span>
+                    </div>
+                    <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.7; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                    <div style="margin-top:8px; font-size:11.5px; color:var(--text-secondary); font-style:italic; font-family:var(--font-sans);">Use: Body Text</div>
+                </div>
+                </div>
+
+      <!-- 04 Layout Principles -->
+      <div id="layout" class="sec-head"><span class="idx">04</span><h2>Layout Principles</h2></div>
+      
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
+        <p>Layout Grid Example</p>
+        
+    <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
+        <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
+        
+        <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">3</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">4</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">5</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">6</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">7</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">8</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">9</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">10</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
+            <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
         </div>
-      </div>
-
-      <!-- ═══════════════════ 02 COLOR ═══════════════════ -->
-      <div id="color" class="sec-head"><span class="idx">02</span><h2>Color Palette</h2></div>
-      <div class="swatches">
-        <div class="swatch"><div class="color-block" style="background:#fff;border-bottom:1px solid var(--theme-divider)"></div><div class="color-label"><div class="name">theme-bg</div><div class="hex">#ffffff</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#a67c52"></div><div class="color-label"><div class="name">theme-accent</div><div class="hex">#a67c52</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#262626"></div><div class="color-label"><div class="name">theme-text</div><div class="hex">#262626</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#e6e6e6"></div><div class="color-label"><div class="name">theme-divider</div><div class="hex">#e6e6e6</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#1d9bf0"></div><div class="color-label"><div class="name">link-blue</div><div class="hex">#1d9bf0</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#6b7280"></div><div class="color-label"><div class="name">text-secondary</div><div class="hex">#6b7280</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#1f2937"></div><div class="color-label"><div class="name">code-bg</div><div class="hex">#1f2937</div></div></div>
-        <div class="swatch"><div class="color-block" style="background:#e8a15a"></div><div class="color-label"><div class="name">accent (dark)</div><div class="hex">#e8a15a</div></div></div>
-      </div>
-
-      <table>
-        <tr><th>Token</th><th>Light</th><th>Dark</th><th>Role</th></tr>
-        <tr><td>--theme-bg</td><td>#ffffff</td><td>#21262b</td><td>Page background</td></tr>
-        <tr><td>--theme-accent</td><td>#a67c52</td><td>#e8a15a</td><td>Accent, links on hover</td></tr>
-        <tr><td>--theme-text</td><td>#262626</td><td>#e7e9ea</td><td>Primary text</td></tr>
-        <tr><td>--theme-divider</td><td>#e6e6e6</td><td>#555555</td><td>Borders, hr</td></tr>
-        <tr><td>link</td><td>#1d9bf0</td><td>#58a6ff</td><td>Hyperlinks in prose</td></tr>
-        <tr><td>text-secondary</td><td>#6b7280</td><td>#9ca3af</td><td>Muted text, captions</td></tr>
-        <tr><td>code-bg</td><td>#1f2937</td><td>#161b22</td><td>Code block background</td></tr>
-        <tr><td>code-text</td><td>#e5e7eb</td><td>#e5e7eb</td><td>Code block text</td></tr>
-      </table>
-
-      <!-- ═══════════════════ 03 TYPOGRAPHY ═══════════════════ -->
-      <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography</h2></div>
-      <div class="type-spec">
-        <div class="type-h1">潮流周刊第268期 — 小河公园</div>
-        <div class="type-caption">h1 · 2.25em · weight 800 · line-height 1.11</div>
-        <div class="type-h2">产品发布 · 潮流工具</div>
-        <div class="type-caption">h2 · 1.5em · weight 700 · line-height 1.33</div>
-        <div class="type-h3">随便看看 · 每周精选</div>
-        <div class="type-caption">h3 · 1.25em · weight 600 · line-height 1.6</div>
-        <p class="type-body">
-          封面图拍摄于上一个周末在小河公园拍到的一座有质感的建筑，刚好阳光非常好，绿树搭一起很好看。
-          这是正文段落的样张，<a href="#">超链接为蓝色</a>，字间距 0.5px，行高 1.75。
-        </p>
-        <div class="type-caption">body · 1rem (16px) · weight 400 · line-height 1.75 · letter-spacing 0.5px</div>
-        <p class="type-small">这是辅助文字 · 14px · #6b7280 · 用于描述、注释、侧边栏链接。</p>
-      </div>
-
-      <table>
-        <tr><th>Element</th><th>Font</th><th>Size</th><th>Weight</th><th>Line-height</th></tr>
-        <tr><td>Body</td><td>LXGW WenKai</td><td>16px</td><td>400</td><td>1.7</td></tr>
-        <tr><td>Small / Sidebar</td><td>LXGW WenKai</td><td>14px</td><td>400</td><td>1.6</td></tr>
-        <tr><td>h1 (prose)</td><td>LXGW WenKai</td><td>2.25em</td><td>800</td><td>1.11</td></tr>
-        <tr><td>h2 (prose)</td><td>LXGW WenKai</td><td>1.5em</td><td>700</td><td>1.33</td></tr>
-        <tr><td>h3 (prose)</td><td>LXGW WenKai</td><td>1.25em</td><td>600</td><td>1.6</td></tr>
-        <tr><td>Code</td><td>SF Mono / Consolas</td><td>14px</td><td>400</td><td>1.6</td></tr>
-      </table>
-
-      <div class="card-demo">
-        <p style="font-size:14px;margin-bottom:12px;color:var(--theme-text-secondary);">
-          <strong>核心字体：</strong>霞鹜文楷 (LXGW WenKai) — 从 CDN (jsDelivr) 分片加载 WOFF2 Web Font，回退至 STKaiti → KaiTi → system-ui。
-          字体渲染使用 <code>subpixel-antialiased</code>（非 macOS 默认的 antialiased），在中低分辨率屏幕上文字更清晰锐利。
-        </p>
-      </div>
-
-      <!-- ═══════════════════ 04 SPACING ═══════════════════ -->
-      <div id="spacing" class="sec-head"><span class="idx">04</span><h2>Spacing</h2></div>
-      <div class="spacing-demo">
-        <div class="spacing-row"><span class="spacing-label">--space-1</span><span class="spacing-bar" style="width:4px"></span>4px</div>
-        <div class="spacing-row"><span class="spacing-label">--space-2</span><span class="spacing-bar" style="width:8px"></span>8px</div>
-        <div class="spacing-row"><span class="spacing-label">--space-3</span><span class="spacing-bar" style="width:12px"></span>12px</div>
-        <div class="spacing-row"><span class="spacing-label">--space-4</span><span class="spacing-bar" style="width:16px"></span>16px</div>
-        <div class="spacing-row"><span class="spacing-label">--space-5</span><span class="spacing-bar" style="width:20px"></span>20px</div>
-        <div class="spacing-row"><span class="spacing-label">--space-6</span><span class="spacing-bar" style="width:24px"></span>24px</div>
-        <div class="spacing-row"><span class="spacing-label">--space-8</span><span class="spacing-bar" style="width:32px"></span>32px</div>
-        <div class="spacing-row"><span class="spacing-label">Content width</span><span class="spacing-bar" style="width:86px"></span>864px max</div>
-        <div class="spacing-row"><span class="spacing-label">Prose margin</span><span class="spacing-bar" style="width:28px"></span>28px (p, hr)</div>
-      </div>
-
-      <table>
-        <tr><th>Token</th><th>Value</th><th>Equivalent Tailwind Class</th></tr>
-        <tr><td>--space-1</td><td>4px</td><td>p-1 / gap-1</td></tr>
-        <tr><td>--space-2</td><td>8px</td><td>p-2 / gap-2</td></tr>
-        <tr><td>--space-3</td><td>12px</td><td>— (custom)</td></tr>
-        <tr><td>--space-4</td><td>16px</td><td>p-4 / gap-4</td></tr>
-        <tr><td>--space-5</td><td>20px</td><td>p-5 / gap-5</td></tr>
-        <tr><td>--space-6</td><td>24px</td><td>p-6 / gap-6</td></tr>
-        <tr><td>--space-8</td><td>32px</td><td>p-8 / gap-8</td></tr>
-        <tr><td>--doc-padding</td><td>32px</td><td>px-8</td></tr>
-        <tr><td>p margin-block</td><td>28px</td><td>my-7</td></tr>
-      </table>
-
-      <!-- ═══════════════════ 05 LAYOUT ═══════════════════ -->
-      <div id="layout" class="sec-head"><span class="idx">05</span><h2>Layout</h2></div>
-      <table>
-        <tr><th>Pattern</th><th>Approach</th><th>Details</th></tr>
-        <tr>
-          <td>Page shell</td>
-          <td>CSS Grid two-column</td>
-          <td>Sidebar (240px) + Main content. Stacks at 768px.</td>
-        </tr>
-        <tr>
-          <td>Sidebar</td>
-          <td>position: sticky</td>
-          <td>Full-height navigation, dense issue archive (268 links)</td>
-        </tr>
-        <tr>
-          <td>Content area</td>
-          <td>max-width: 864px</td>
-          <td>Centered, 16px mobile padding</td>
-        </tr>
-        <tr>
-          <td>Navbar</td>
-          <td>96px height</td>
-          <td>Logo, search, navigation groups</td>
-        </tr>
-        <tr>
-          <td>Prose</td>
-          <td>max-width: 65ch</td>
-          <td>Tailwind .prose class with CJK enhancements</td>
-        </tr>
-        <tr>
-          <td>Card grid</td>
-          <td>CSS Grid 2-4 cols</td>
-          <td>Responsive: 2@md, 3@lg, 4@xl</td>
-        </tr>
-      </table>
-
-      <table>
-        <tr><th>Breakpoint</th><th>Min-width</th><th>Behavior</th></tr>
-        <tr><td>sm</td><td>640px</td><td>Sidebar collapses, content gets mobile padding</td></tr>
-        <tr><td>md</td><td>768px</td><td>Two-column layout, card grids (2 cols)</td></tr>
-        <tr><td>lg</td><td>1080px</td><td>Wider content (64rem), card grids (3 cols)</td></tr>
-        <tr><td>xl</td><td>1412px</td><td>Max width 80rem, card grids (4 cols)</td></tr>
-      </table>
-
-      <!-- ═══════════════════ 06 CARDS & PILLS ═══════════════════ -->
-      <div id="cards" class="sec-head"><span class="idx">06</span><h2>Cards &amp; Pills</h2></div>
-      <div class="card-demo">
-        <div class="card-title">周刊第 268 期 — 小河公园</div>
-        <div class="card-desc">封面图拍摄于上一个周末在小河公园拍到的一座有质感的建筑，刚好阳光非常好，绿树搭一起很好看。</div>
-        <div style="margin-top:12px;font-size:12px;color:var(--theme-text-secondary);font-family:var(--font-mono);">2026/05/25 · 阅读约 8 分钟</div>
-      </div>
-
-      <p style="font-size:14px;margin-bottom:12px;color:var(--theme-text-secondary);">Pills / Tags:</p>
-      <div class="pills">
-        <span class="pill">产品发布</span>
-        <span class="pill">潮流工具</span>
-        <span class="pill active">随便看看</span>
-        <span class="pill">前端开发</span>
-        <span class="pill">macOS</span>
-        <span class="pill">设计</span>
-      </div>
-
-      <!-- ═══════════════════ 07 NAVIGATION ═══════════════════ -->
-      <div id="navigation" class="sec-head"><span class="idx">07</span><h2>Navigation Patterns</h2></div>
-      <p style="font-size:14px;margin-bottom:12px;color:var(--theme-text-secondary);">Dense sidebar nav (simulating the 268-issue archive):</p>
-      <div class="nav-link-list">
-        <a href="#">第268期 — 小河公园</a>
-        <a href="#" style="background:rgba(166,124,82,0.08);color:var(--theme-accent);">第267期 — 夏日庭院</a>
-        <a href="#">第266期 — 湖边落日</a>
-        <a href="#">第265期 — 老街咖啡</a>
-        <a href="#">第264期 — 樱花季节</a>
-        <a href="#">第263期 — 雪山脚下</a>
-        <a href="#">第262期 — 城市夜景</a>
-        <a href="#">第261期 — 秋日公园</a>
-      </div>
-
-      <!-- ═══════════════════ 08 MOTION ═══════════════════ -->
-      <div id="motion" class="sec-head"><span class="idx">08</span><h2>Motion &amp; Transitions</h2></div>
-      <table>
-        <tr><th>Element</th><th>Property</th><th>Duration</th><th>Easing</th></tr>
-        <tr><td>All links</td><td>color</td><td>0.2s</td><td>ease</td></tr>
-        <tr><td>Sidebar nav links</td><td>color, background</td><td>0.2s</td><td>ease</td></tr>
-        <tr><td>Pills</td><td>border-color, color</td><td>0.2s</td><td>ease</td></tr>
-        <tr><td>Tailwind utilities</td><td>color, bg, border, shadow, opacity</td><td>150ms</td><td>cubic-bezier(.4,0,.2,1)</td></tr>
-        <tr><td>Page scroll</td><td>scroll-behavior: smooth</td><td>—</td><td>smooth</td></tr>
-      </table>
-      <p style="font-size:14px;color:var(--theme-text-secondary);margin-top:12px;">
-        <strong>Rule:</strong> Transitions are fast (0.15–0.2s) and limited to color/background/border changes.
-        No opacity fades, no transform animations, no motion for motion's sake.
-      </p>
-
-      <!-- ═══════════════════ 09 DARK MODE ═══════════════════ -->
-      <div id="dark-mode" class="sec-head"><span class="idx">09</span><h2>Dark Mode</h2></div>
-      <p style="font-size:14px;color:var(--theme-text-secondary);margin-bottom:16px;max-width:65ch;">
-        This page renders differently depending on your OS setting. Toggle between light and dark mode
-        in your system preferences to see the full palette. Key changes:
-      </p>
-      <table>
-        <tr><th>Property</th><th>Light</th><th>Dark</th></tr>
-        <tr><td>Background</td><td>#ffffff</td><td>#21262b</td></tr>
-        <tr><td>Text</td><td>#262626</td><td>#e7e9ea</td></tr>
-        <tr><td>Accent</td><td>#a67c52</td><td>#e8a15a (warmer, brighter)</td></tr>
-        <tr><td>Dividers</td><td>#e6e6e6</td><td>#555555</td></tr>
-        <tr><td>Links</td><td>#1d9bf0</td><td>#58a6ff</td></tr>
-        <tr><td>Card bg</td><td>#f9f9f9</td><td>#2a2f35</td></tr>
-        <tr><td>Code bg</td><td>#1f2937</td><td>#161b22</td></tr>
-      </table>
-
-      <!-- ═══════════════════ 10 ANTI-PATTERNS ═══════════════════ -->
-      <div id="anti-patterns" class="sec-head"><span class="idx">10</span><h2>Anti-Patterns</h2></div>
-      <div class="dos-donts">
-        <div class="do">
-          <h4>Use When</h4>
-          <p>Chinese-first content websites, personal blogs, weekly newsletters</p>
-          <p>Projects that want a literary, refined reading experience</p>
-          <p>Static sites that need light/dark mode without a JS toggle</p>
-          <p>Content-heavy pages with sidebar navigation and dense archives</p>
+        
+        <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
+            <div>Gutter spacing: 16px / 24px</div>
+            <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
+            <div>Max Container Width: 1200px</div>
         </div>
-        <div class="dont">
-          <h4>Avoid When</h4>
-          <p>Data-dense dashboards or admin panels (wrong font, wrong density)</p>
-          <p>English-only content (KaiTi Latin glyphs are unconventional for body text)</p>
-          <p>Projects that can't load external font files (8MB+ total across subsets)</p>
-          <p>Highly interactive web apps needing rich component libraries</p>
-        </div>
+    </div>
+    
       </div>
+
+      <!-- 05 Depth & Elevation -->
+      <div id="depth-elevation" class="sec-head"><span class="idx">05</span><h2>Depth & Elevation</h2></div>
+      
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
+        <p>Elevation Level Example</p>
+        
+    <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for background layers, sidebar headers, or baseline borders.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-md);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Low Elevation (Level 1 / Card)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for floating product elements, cards, and hover states.</p>
+        </div>
+        <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-lg);">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">High Elevation (Level 2 / Popover & Dropdown)</span>
+            <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
+        </div>
+    </div>
+    
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
+        
+    <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-sm</span>
+            <span style="color:var(--text-muted); margin-top:4px;">4px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-md</span>
+            <span style="color:var(--text-muted); margin-top:4px;">6px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-lg</span>
+            <span style="color:var(--text-muted); margin-top:4px;">8px</span>
+        </div>
+        <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-pill); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
+            <span style="font-weight:700;">radius-pill</span>
+            <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 06 Component Stylings -->
+      <div id="components" class="sec-head"><span class="idx">06</span><h2>Component Stylings</h2></div>
+      
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; font-family:var(--font-mono);">Interactive Component Demonstrations:</p>
+        <p>Component Interactive Example</p>
+      </div>
+
+      <!-- 07 Do's and Don'ts -->
+      <div id="dos-donts" class="sec-head"><span class="idx">07</span><h2>Do's and Don'ts</h2></div>
+      <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Do</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Use LXGW WenKai as the distinctive font for both Latin and Chinese text.</li><li style='margin-left:20px; margin-bottom:6px;'>Use the 赫蹏 (heti) library to ensure correct spacing for CJK punctuation.</li><li style='margin-left:20px; margin-bottom:6px;'>Keep layout backgrounds light white (<code>#ffffff</code>) or matte dark gray (<code>#21262b</code>).</li></ul>
+<h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't use standard sans-serif Latin fonts for body text or headlines.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't apply bold weights (use regular 400 for body text).</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use colors outside the warm brown (<code>#a67c52</code>) and link blue (<code>#1d9bf0</code>) palette.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add heavy shadows or excessive card layouts.</li></ul>
+      
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
+        <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
+            <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                <ul><li style='margin-left:20px; margin-bottom:6px;'>Use LXGW WenKai as the distinctive font for both Latin and Chinese text.</li><li style='margin-left:20px; margin-bottom:6px;'>Use the 赫蹏 (heti) library to ensure correct spacing for CJK punctuation.</li><li style='margin-left:20px; margin-bottom:6px;'>Keep layout backgrounds light white (<code>#ffffff</code>) or matte dark gray (<code>#21262b</code>).</li></ul>
+            </div>
+        </div>
+        <div style="border:1px solid #ef4444; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(239, 68, 68, 0.015); position:relative;">
+            <span style="background:#ef4444; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">❌ Discouraged / Don't</span>
+            <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
+                <ul><li style='margin-left:20px; margin-bottom:6px;'>Don't use standard sans-serif Latin fonts for body text or headlines.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't apply bold weights (use regular 400 for body text).</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use colors outside the warm brown (<code>#a67c52</code>) and link blue (<code>#1d9bf0</code>) palette.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add heavy shadows or excessive card layouts.</li></ul>
+            </div>
+        </div>
+    </div>
+    
+
+      <!-- 08 Responsive Behavior -->
+      <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
+      
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
+        <p>Responsive Behavior Example</p>
+        
+    <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
+        <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
+            <div style="display:flex; gap:6px;">
+                <button id="btn-sim-mobile" onclick="setSimWidth('mobile')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Mobile</button>
+                <button id="btn-sim-tablet" onclick="setSimWidth('tablet')" style="padding:4px 10px; border:1px solid var(--border-color); background:var(--bg-base); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--text-primary); transition:all var(--transition-base);">Tablet</button>
+                <button id="btn-sim-desktop" onclick="setSimWidth('desktop')" style="padding:4px 10px; border:1px solid var(--accent-vue); background:var(--accent-vue-glow); font-size:11px; font-family:var(--font-sans); border-radius:var(--radius-sm); cursor:pointer; font-weight:600; color:var(--accent-vue); transition:all var(--transition-base);">Desktop</button>
+            </div>
+        </div>
+        <div style="padding:28px 16px; display:flex; justify-content:center; background:rgba(0,0,0,0.005); overflow:hidden;">
+            <div id="viewport-sim-container" style="width:100%; max-width:800px; transition:max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1); border:1.5px dashed var(--border-dark); border-radius:var(--radius-md); background:var(--bg-base); padding:20px; overflow:hidden; box-sizing:border-box;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                    <span id="sim-width-indicator" style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); text-transform:uppercase;">Width: 800px (Desktop Mode)</span>
+                    <span style="font-size:11px; font-weight:700; color:var(--accent-vue); font-family:var(--font-sans);">Grid Container</span>
+                </div>
+                <div id="sim-layout-columns" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; transition:all 0.3s;">
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Primary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Adjusts layout width</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Secondary Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Folds on viewport change</p>
+                    </div>
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); padding:16px; border-radius:var(--radius-sm); text-align:center;">
+                        <strong style="font-size:12px; color:var(--text-primary); font-family:var(--font-sans);">Sidebar Column</strong>
+                        <p style="font-size:11px; color:var(--text-secondary); margin-top:4px; margin-bottom:0;">Stacks to bottom on mobile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      </div>
+
+      <!-- 09 Agent Prompt Guide -->
+      <div id="prompt-guide" class="sec-head"><span class="idx">09</span><h2>Agent Prompt Guide</h2></div>
+      
+      <div style="margin-top:20px; margin-bottom:40px;">
+        <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Copyable Agent Integration Prompt:</p>
+        <p>Prompt Guide Copy Box</p>
+      </div>
+
+      <!-- 10 Design Tokens Table -->
+      <div id="tokens-table" class="sec-head"><span class="idx">10</span><h2>Full System Design Tokens</h2></div>
+      <p style="margin-bottom:20px;">The parsed design tokens extracted from the core stylesheet of this design system:</p>
       <table>
-        <tr><th>Avoid</th><th>Use Instead</th></tr>
-        <tr><td>Pure black (#000) text</td><td>#262626 (light) or #e7e9ea (dark)</td></tr>
-        <tr><td>Bold weight on body text</td><td>400 throughout; headings scale to 800</td></tr>
-        <tr><td>Heavy box shadows</td><td>Subtle Tailwind shadow / shadow-md, or none</td></tr>
-        <tr><td>More than 2 accent colors</td><td>Warm brown for hover/accent + blue for links</td></tr>
-        <tr><td>Transitions over 0.2s</td><td>150-200ms max; color-only transitions</td></tr>
-        <tr><td>External icon fonts</td><td>Inline SVG or Unicode characters</td></tr>
-        <tr><td>JavaScript-dependent dark mode toggle</td><td>@media (prefers-color-scheme: dark)</td></tr>
-        <tr><td>System sans-serif for Chinese body text</td><td>KaiTi (楷体) for a literary, refined voice</td></tr>
+        <tr><th>Design Token</th><th>Hex Value</th><th>System Palette Role</th></tr>
+        <tr><td>--primary</td><td>#a67c52</td><td>System color representation for primary</td></tr><tr><td>--primary-focus</td><td>#e8a15a</td><td>System color representation for primary-focus</td></tr><tr><td>--canvas</td><td>#ffffff</td><td>System color representation for canvas</td></tr><tr><td>--surface-card</td><td>#ffffff</td><td>System color representation for surface-card</td></tr><tr><td>--surface-soft</td><td>#f3f4f6</td><td>System color representation for surface-soft</td></tr><tr><td>--ink</td><td>#262626</td><td>System color representation for ink</td></tr><tr><td>--body</td><td>#374151</td><td>System color representation for body</td></tr><tr><td>--muted</td><td>#6b7280</td><td>System color representation for muted</td></tr><tr><td>--hairline</td><td>#e6e6e6</td><td>System color representation for hairline</td></tr>
       </table>
 
     </main>
@@ -719,15 +657,14 @@
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer>
-    <div><strong>Design System — 潮流周刊</strong> · Extracted May 2026</div>
+    <div><strong>Trendy Weekly by Tw93 Spec</strong> · Extracted from awesome-design-md</div>
     <div>
-      <a href="https://weekly.tw93.fun/posts/268">Source</a>
-      &nbsp;·&nbsp;
-      <a href="https://github.com/tw93/weekly">GitHub</a>
+      <a href="../index.html">Design System Hub</a>
     </div>
   </footer>
 
 </div>
+
 <textarea id="markdown-spec-content" style="display:none;"># Design System — 潮流周刊 (Trendy Weekly) by Tw93
 
 Extracted from [weekly.tw93.fun/posts/268](https://weekly.tw93.fun/posts/268).
@@ -940,33 +877,98 @@ article
 - **Placeholder:** Gray background (`#f3f4f6` light / `#262626` dark) while loading
 - **Lightense:** Click-to-zoom via lightense.js with `rgba(230,230,230,.85)` backdrop
 
----
+## Do's and Don'ts
 
-## 11. Anti-Patterns (What This System Avoids)
+### Do
+- Use LXGW WenKai as the distinctive font for both Latin and Chinese text.
+- Use the 赫蹏 (heti) library to ensure correct spacing for CJK punctuation.
+- Keep layout backgrounds light white (`#ffffff`) or matte dark gray (`#21262b`).
 
-- No serif Latin fonts — LXGW WenKai serves as the distinctive voice for both Latin and CJK
-- No bold weights on body — 400 throughout; headings go up to 800
-- No box-shadow heavy cards — shadows are subtle Tailwind defaults
-- No color outside the warm brown + blue link palette
-- No animation beyond 0.2s
-- No external icon fonts — inline SVGs only
+### Don't
+- Don't use standard sans-serif Latin fonts for body text or headlines.
+- Don't apply bold weights (use regular 400 for body text).
+- Don't use colors outside the warm brown (`#a67c52`) and link blue (`#1d9bf0`) palette.
+- Don't add heavy shadows or excessive card layouts.
+
 </textarea>
+
 <script>
   function copyMarkdownSpec() {
     const mdText = document.getElementById('markdown-spec-content').value;
     navigator.clipboard.writeText(mdText).then(() => {
       const btn = document.getElementById('copy-md-btn');
       const originalHTML = btn.innerHTML;
-      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 已复制`;
-      btn.style.borderColor = 'var(--theme-accent)';
+      btn.innerHTML = `<svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+      btn.style.borderColor = 'var(--accent-vue)';
       setTimeout(() => {
         btn.innerHTML = originalHTML;
         btn.style.borderColor = '';
       }, 2000);
     }).catch(err => {
       console.error(err);
-      alert('复制失败: ' + err);
+      alert('Failed to copy: ' + err);
     });
+  }
+
+  function copyColor(hex, el) {
+    navigator.clipboard.writeText(hex).then(() => {
+      const hexEl = el.querySelector('.hex');
+      const originalText = hexEl.innerText;
+      hexEl.innerText = 'Copied!';
+      hexEl.style.color = 'var(--accent-vue)';
+      hexEl.style.fontWeight = 'bold';
+      setTimeout(() => {
+        hexEl.innerText = originalText;
+        hexEl.style.color = '';
+        hexEl.style.fontWeight = '';
+      }, 1000);
+    });
+  }
+
+  function updateTypoPreviews(val) {
+    const previews = document.querySelectorAll('.typo-preview-text');
+    previews.forEach(p => {
+      p.innerText = val.trim() || 'The quick brown fox jumps over the lazy dog';
+    });
+  }
+
+  function setSimWidth(mode) {
+    const container = document.getElementById('viewport-sim-container');
+    const indicator = document.getElementById('sim-width-indicator');
+    const cols = document.getElementById('sim-layout-columns');
+    const btnMobile = document.getElementById('btn-sim-mobile');
+    const btnTablet = document.getElementById('btn-sim-tablet');
+    const btnDesktop = document.getElementById('btn-sim-desktop');
+    
+    // Reset button styles
+    [btnMobile, btnTablet, btnDesktop].forEach(btn => {
+      if (btn) {
+        btn.style.background = 'var(--bg-base)';
+        btn.style.borderColor = 'var(--border-color)';
+        btn.style.color = 'var(--text-primary)';
+      }
+    });
+    
+    const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
+    if (activeBtn) {
+      activeBtn.style.background = 'var(--accent-vue-glow)';
+      activeBtn.style.borderColor = 'var(--accent-vue)';
+      activeBtn.style.color = 'var(--accent-vue)';
+    }
+    
+    if (mode === 'mobile') {
+      container.style.maxWidth = '375px';
+      indicator.innerText = 'Width: 375px (Mobile < 768px)';
+      cols.style.gridTemplateColumns = '1fr';
+    } else if (mode === 'tablet') {
+      container.style.maxWidth = '600px';
+      indicator.innerText = 'Width: 600px (Tablet 768px-1024px)';
+      cols.style.gridTemplateColumns = '1fr 1fr';
+    } else {
+      container.style.maxWidth = '800px';
+      indicator.innerText = 'Width: 800px (Desktop > 1024px)';
+      cols.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    }
   }
 </script>
 </body>

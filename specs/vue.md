@@ -1,3 +1,30 @@
+---
+version: alpha
+name: Vue.js progressive docs
+description: A progressive documentation system driving modern web libraries, combining vibrant Vue Green, deep carbon gray, and semantic callouts.
+colors:
+  primary: "#42b883"
+  primary-focus: "#338a60"
+  canvas: "#ffffff"
+  surface-card: "#f6f6f7"
+  surface-soft: "#f6f6f7"
+  ink: "#2c3e50"
+  body: "#2c3e50"
+  muted: "#476582"
+  hairline: "#e2e2e3"
+typography:
+  display-xl:
+    fontSize: "38px"
+    fontWeight: "700"
+    lineHeight: "1.2"
+    use: "Page Heading"
+  body-md:
+    fontSize: "16px"
+    fontWeight: "400"
+    lineHeight: "1.6"
+    use: "Primary Body"
+---
+
 # Design System — Vue.js (VitePress Documentation Style)
 
 Extracted and adapted from [cn.vuejs.org](https://cn.vuejs.org) and [vuejs.org](https://vuejs.org).
@@ -119,11 +146,15 @@ A sticky right-side vertical menu (width: `224px`) displaying active page subsec
       └── List of sub-anchors (hover color: --vp-c-brand)
 ```
 
----
+## Do's and Don'ts
 
-## 9. Anti-Patterns (What to Avoid)
+### Do
+- Keep documentation layout flat and focused on readability.
+- Use monospaced fonts for paths, variables, and terminal commands.
+- Limit bright brand gradients to main logos and call-to-action cards.
 
-- No overly stylized buttons or elements that distract from raw documentation content.
-- No heavy cards with deep blur box-shadows. Shadows should be flat or very subtle (`0 1px 3px rgba(0,0,0,0.05)`).
-- Never use non-monospaced fonts for paths, variables, or terminal commands.
-- Do not mix bright brand gradients inside long reading blocks; keep gradients strictly limited to main logos and call-to-action cards.
+### Don't
+- Don't use overly stylized buttons or elements that distract from raw documentation content.
+- Don't use heavy cards with deep blur box-shadows.
+- Don't mix bright brand gradients inside long reading blocks.
+

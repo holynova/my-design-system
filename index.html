@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>设计系统目录 · Design Systems Hub</title>
+  <title data-zh="设计系统目录 · Design Systems Hub" data-en="Design Systems Hub">设计系统目录 · Design Systems Hub</title>
   
   <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,6 +117,38 @@
       max-width: 720px;
       margin: 0 auto;
       line-height: 1.6;
+    }
+
+    /* Language Switcher */
+    .lang-toggle {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      display: flex;
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 3px;
+      box-shadow: 0 2px 8px rgba(20, 20, 19, 0.02);
+      z-index: 1000;
+    }
+    
+    .lang-btn {
+      padding: 6px 12px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .lang-btn.active {
+      background: var(--text-main);
+      color: #ffffff;
     }
 
     /* Category Filter Tabs (2 main source tabs) */
@@ -503,115 +535,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Tutorial Section */
-    .tutorial-section {
-      margin-top: 100px;
-      padding-top: 80px;
-      border-top: 1.5px dashed rgba(20, 20, 19, 0.15);
-      animation: fadeInUp 0.8s ease-out 0.4s both;
-    }
-
-    .tutorial-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .tutorial-eyebrow {
-      font-family: 'Outfit', sans-serif;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #a67c52;
-      font-weight: 600;
-      margin-bottom: 12px;
-      display: inline-block;
-    }
-
-    .tutorial-header h2 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text-main);
-      margin-bottom: 16px;
-    }
-
-    .tutorial-subtitle {
-      font-size: 15px;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .tutorial-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-    }
-
-    .tutorial-step {
-      background: var(--card-bg);
-      border: 1.5px solid var(--card-border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      position: relative;
-      transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    }
-    
-    .tutorial-step:hover {
-      border-color: #a67c52;
-      box-shadow: 0 12px 30px rgba(166, 124, 82, 0.05);
-    }
-
-    .step-num {
-      font-family: 'Outfit', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: rgba(166, 124, 82, 0.15);
-      line-height: 1;
-    }
-
-    .tutorial-step h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-main);
-      letter-spacing: -0.01em;
-    }
-
-    .tutorial-step p {
-      font-size: 13.5px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .tutorial-code {
-      background: rgba(20, 20, 19, 0.02);
-      border: 1px solid var(--card-border);
-      border-radius: 6px;
-      padding: 12px 16px;
-      margin-top: 8px;
-      overflow-x: auto;
-    }
-
-    .tutorial-code pre {
-      margin: 0;
-      padding: 0;
-      background: transparent;
-      border: none;
-    }
-
-    .tutorial-code code {
-      font-family: monospace;
-      font-size: 12px;
-      color: var(--text-main);
-      background: transparent;
-      padding: 0;
-    }
-
     /* Filter Tags Styling */
     .filter-tags {
       display: flex;
@@ -653,46 +576,65 @@
 </head>
 <body>
 
+  <!-- Language Switcher -->
+  <div class="lang-toggle">
+    <button onclick="setLang('zh')" id="btn-lang-zh" class="lang-btn active">中</button>
+    <button onclick="setLang('en')" id="btn-lang-en" class="lang-btn">EN</button>
+  </div>
+
   <div class="container">
     
     <!-- ═══════════════════ HEADER ═══════════════════ -->
     <header>
-      <div class="eyebrow">Design System Hub</div>
-      <h1>设计系统规范库</h1>
-      <p class="subtitle">
+      <div class="eyebrow" data-zh="Design System Hub" data-en="Design System Hub">Design System Hub</div>
+      <h1 data-zh="设计系统规范库" data-en="Design System Library">设计系统规范库</h1>
+      <p class="subtitle" 
+         data-zh="精选内容优先的网页设计系统规范与中文排版引擎。点击卡片可直接预览交互细节、设计规格及一键复制代码。" 
+         data-en="Curated content-first web design system specifications and typesetting guides. Click on cards to preview interaction details, specifications, and copy markdown instantly.">
         精选内容优先的网页设计系统规范与中文排版引擎。点击卡片可直接预览交互细节、设计规格及一键复制代码。
       </p>
     </header>
 
     <!-- ═══════════════════ CATEGORY FILTER TABS ═══════════════════ -->
     <div class="category-tabs">
-      <div class="category-tab active" onclick="filterCategory('manual', this)">
+      <div class="category-tab active" onclick="filterCategory('manual', this)" data-zh="精选设计项目" data-en="Curated Projects">
         <span>精选设计项目</span>
       </div>
-      <div class="category-tab " onclick="filterCategory('imported', this)">
+      <div class="category-tab " onclick="filterCategory('imported', this)" data-zh="社区克隆项目" data-en="Community Clones">
         <span>社区克隆项目</span>
       </div>
 
     </div>
 
     <!-- ═══════════════════ FILTER TAGS ═══════════════════ -->
-    <div class="filter-tags">
-      <div class="filter-tag active" onclick="filterTag('all', this)">全部</div>
-      <div class="filter-tag" onclick="filterTag('ai', this)">人工智能</div>
-      <div class="filter-tag" onclick="filterTag('devtools', this)">开发者工具</div>
-      <div class="filter-tag" onclick="filterTag('saas', this)">办公与 SaaS</div>
-      <div class="filter-tag" onclick="filterTag('fintech', this)">金融与加密</div>
-      <div class="filter-tag" onclick="filterTag('retail', this)">电商与零售</div>
-      <div class="filter-tag" onclick="filterTag('tech', this)">媒体与科技</div>
-      <div class="filter-tag" onclick="filterTag('automotive', this)">汽车与工业</div>
-      <div class="filter-tag" onclick="filterTag('dark', this)">暗色主题</div>
-      <div class="filter-tag" onclick="filterTag('retro', this)">复古怀旧</div>
+    <div style="margin-bottom: 12px; text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.15em; font-family: 'Outfit', sans-serif;" data-zh="类型筛选" data-en="Filter by Type">类型筛选</div>
+    <div class="filter-tags" id="category-filters" style="margin-bottom: 24px;">
+      <div class="filter-tag active" onclick="filterCategoryTag('all', this)" data-zh="全部" data-en="All">全部</div>
+      <div class="filter-tag" onclick="filterCategoryTag('ai', this)" data-zh="人工智能" data-en="AI & LLM">人工智能</div>
+      <div class="filter-tag" onclick="filterCategoryTag('devtools', this)" data-zh="开发者工具" data-en="DevTools">开发者工具</div>
+      <div class="filter-tag" onclick="filterCategoryTag('saas', this)" data-zh="办公与 SaaS" data-en="SaaS & Productivity">办公与 SaaS</div>
+      <div class="filter-tag" onclick="filterCategoryTag('fintech', this)" data-zh="金融与加密" data-en="Fintech & Crypto">金融与加密</div>
+      <div class="filter-tag" onclick="filterCategoryTag('retail', this)" data-zh="电商与零售" data-en="E-commerce & Retail">电商与零售</div>
+      <div class="filter-tag" onclick="filterCategoryTag('tech', this)" data-zh="媒体与科技" data-en="Media & Tech">媒体与科技</div>
+      <div class="filter-tag" onclick="filterCategoryTag('automotive', this)" data-zh="汽车与工业" data-en="Automotive & Industry">汽车与工业</div>
+      <div class="filter-tag" onclick="filterCategoryTag('dark', this)" data-zh="暗色主题" data-en="Dark Theme">暗色主题</div>
+      <div class="filter-tag" onclick="filterCategoryTag('retro', this)" data-zh="复古怀旧" data-en="Retro Nostalgia">复古怀旧</div>
+    </div>
+
+    <div style="margin-bottom: 12px; text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.15em; font-family: 'Outfit', sans-serif;" data-zh="色系筛选" data-en="Filter by Color">色系筛选</div>
+    <div class="filter-tags" id="color-filters" style="margin-bottom: 48px;">
+      <div class="filter-tag active" onclick="filterColorTag('all', this)" data-zh="全部色系" data-en="All Colors">全部色系</div>
+      <div class="filter-tag" onclick="filterColorTag('red', this)" style="border-color: rgba(239, 68, 68, 0.25);"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ef4444; margin-right:6px; vertical-align:middle; transform: translateY(-1px);"></span><span data-zh="红色 / 珊瑚红" data-en="Red / Coral">红色 / 珊瑚红</span></div>
+      <div class="filter-tag" onclick="filterColorTag('blue', this)" style="border-color: rgba(59, 130, 246, 0.25);"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#3b82f6; margin-right:6px; vertical-align:middle; transform: translateY(-1px);"></span><span data-zh="蓝色 / 靛蓝" data-en="Blue / Indigo">蓝色 / 靛蓝</span></div>
+      <div class="filter-tag" onclick="filterColorTag('green', this)" style="border-color: rgba(34, 197, 94, 0.25);"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e; margin-right:6px; vertical-align:middle; transform: translateY(-1px);"></span><span data-zh="绿色 / 翡翠绿" data-en="Green / Emerald">绿色 / 翡翠绿</span></div>
+      <div class="filter-tag" onclick="filterColorTag('yellow', this)" style="border-color: rgba(245, 158, 11, 0.25);"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#f59e0b; margin-right:6px; vertical-align:middle; transform: translateY(-1px);"></span><span data-zh="黄色 / 橙色" data-en="Yellow / Orange">黄色 / 橙色</span></div>
+      <div class="filter-tag" onclick="filterColorTag('neutral', this)" style="border-color: rgba(107, 114, 128, 0.25);"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#6b7280; margin-right:6px; vertical-align:middle; transform: translateY(-1px);"></span><span data-zh="黑白灰 / 单色" data-en="Monochrome / Neutral">黑白灰 / 单色</span></div>
     </div>
 
     <!-- ═══════════════════ GRID ═══════════════════ -->
     <div class="grid" id="cards-grid">
             <!-- Card: HTML Effectiveness -->
-      <a href="pages/html-effectiveness.html" target="_blank" class="card" data-source="manual" data-tags="saas" data-dark="false"  style="--accent: #d97757; --accent-glow: rgba(217, 119, 87, 0.08); --preview-bg: #faf9f5;">
+      <a href="pages/html-effectiveness.html" target="_blank" class="card" data-source="manual" data-tags="saas,neutral" data-dark="false"  style="--accent: #d97757; --accent-glow: rgba(217, 119, 87, 0.08); --preview-bg: #faf9f5;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -719,18 +661,45 @@
             <span class="card-title">HTML Effectiveness</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="秉持温暖极简主义的文档级阅读设计系统，采用经典的 Serif / Sans / Mono 字体定位与极细实线修饰。" data-en="A functional-minimalist reading design system with warm editorial style, featuring classic typography rules and hairline styling.">
             秉持温暖极简主义的文档级阅读设计系统，采用经典的 Serif / Sans / Mono 字体定位与极细实线修饰。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">象牙黄与黏土红</span>
-            <span class="meta-tag">单文件无依赖</span>
-            <span class="meta-tag">人文报刊排版</span>
+            <span class="meta-tag" data-zh="象牙黄与黏土红" data-en="Ivory & Clay">象牙黄与黏土红</span>
+            <span class="meta-tag" data-zh="单文件无依赖" data-en="Zero Dependencies">单文件无依赖</span>
+            <span class="meta-tag" data-zh="人文报刊排版" data-en="Editorial Layout">人文报刊排版</span>
           </div>
-          <textarea class="raw-spec-markdown" style="display:none;"># Design System — "The unreasonable effectiveness of HTML"
+          <textarea class="raw-spec-markdown" style="display:none;">---
+version: alpha
+name: HTML Effectiveness
+description: A functional-minimalist reading design system with warm editorial style, featuring classic Serif/Sans/Mono typography and thin rules.
+colors:
+  primary: "#d97757"
+  primary-focus: "#b85c3e"
+  canvas: "#FAF9F5"
+  surface-card: "#FFFFFF"
+  surface-soft: "#E3DACC"
+  ink: "#141413"
+  body: "#3D3D3A"
+  muted: "#87867F"
+  hairline: "#D1CFC5"
+typography:
+  display-xl:
+    fontSize: "38px"
+    fontWeight: "500"
+    lineHeight: "1.06"
+    use: "Page Heading"
+  body-md:
+    fontSize: "16px"
+    fontWeight: "400"
+    lineHeight: "1.55"
+    use: "Primary Body"
+---
+
+# Design System — "The unreasonable effectiveness of HTML"
 
 Extracted from [thariqs.github.io/html-effectiveness](https://thariqs.github.io/html-effectiveness).
 A functional-minimalist, content-forward design language with editorial warmth.
@@ -994,25 +963,25 @@ No breakpoint for the card grid itself — `auto-fill, minmax(316px, 1fr)` handl
 - `text-underline-offset: 3px` for better readability
 - No syntax highlighting — plain mono text
 
----
+## Do's and Don'ts
 
-## 14. Anti-Patterns (What This System Avoids)
+### Do
+- Use warm-tinted neutrals throughout; never pure black or pure gray.
+- Set snappy transitions (120–150ms) for responsive hover states.
+- Rely on borders and spacing to define cards and layouts.
 
-- No pure black (`#000`) or pure gray — always warm-tinted
-- No bold weights above 600
-- No box shadows on static elements
-- No background blur or glassmorphism
-- No gradient backgrounds (only one subtle gradient in hero SVG)
-- No large border-radius (&gt;14px) except for pills
-- No animations over 150ms
-- No external font loads — fully self-contained
-- No opacity-based hover states — use color shifts or positional changes instead
+### Don't
+- Don't use bold weights above 600.
+- Don't apply drop shadows to static cards or containers.
+- Don't use background blurs, glassmorphism, or mesh gradients.
+- Don't load external fonts; rely strictly on system typography.
+
 </textarea>
         </div>
       </a>
 
       <!-- Card: 潮流周刊 by Tw93 -->
-      <a href="pages/tw93.html" target="_blank" class="card" data-source="manual" data-tags="saas" data-dark="false"  style="--accent: #a67c52; --accent-glow: rgba(166, 124, 82, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/tw93.html" target="_blank" class="card" data-source="manual" data-tags="saas,neutral" data-dark="false"  style="--accent: #a67c52; --accent-glow: rgba(166, 124, 82, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -1039,18 +1008,45 @@ No breakpoint for the card grid itself — `auto-fill, minmax(316px, 1fr)` handl
             <span class="card-title">潮流周刊 by Tw93</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="专为中文长文排版打造的文学画报感设计系统，使用开源“霞鹜文楷”与红铜色点缀，并原生支持深色模式。" data-en="A literary-style CJK-optimized layout design system, using the open-source LXGW WenKai font and copper brown accents with native dark mode.">
             专为中文长文排版打造的文学画报感设计系统，使用开源“霞鹜文楷”与红铜色点缀，并原生支持深色模式。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">霞鹜文楷 Web Font</span>
-            <span class="meta-tag">赫蹏中文排版</span>
-            <span class="meta-tag">全自动暗色模式</span>
+            <span class="meta-tag" data-zh="霞鹜文楷 Web Font" data-en="LXGW WenKai Font">霞鹜文楷 Web Font</span>
+            <span class="meta-tag" data-zh="赫蹏中文排版" data-en="Heti CJK Formatting">赫蹏中文排版</span>
+            <span class="meta-tag" data-zh="全自动暗色模式" data-en="Auto Dark Mode">全自动暗色模式</span>
           </div>
-          <textarea class="raw-spec-markdown" style="display:none;"># Design System — 潮流周刊 (Trendy Weekly) by Tw93
+          <textarea class="raw-spec-markdown" style="display:none;">---
+version: alpha
+name: Trendy Weekly by Tw93
+description: A literary-style CJK-optimized layout design system, using the open-source LXGW WenKai font and copper brown accents with native dark mode.
+colors:
+  primary: "#a67c52"
+  primary-focus: "#e8a15a"
+  canvas: "#ffffff"
+  surface-card: "#ffffff"
+  surface-soft: "#f3f4f6"
+  ink: "#262626"
+  body: "#374151"
+  muted: "#6b7280"
+  hairline: "#e6e6e6"
+typography:
+  display-xl:
+    fontSize: "36px"
+    fontWeight: "800"
+    lineHeight: "1.11"
+    use: "Article Title"
+  body-md:
+    fontSize: "16px"
+    fontWeight: "400"
+    lineHeight: "1.7"
+    use: "Body Text"
+---
+
+# Design System — 潮流周刊 (Trendy Weekly) by Tw93
 
 Extracted from [weekly.tw93.fun/posts/268](https://weekly.tw93.fun/posts/268).
 A Chinese typography-first, clean reading design with warm accents and dark mode.
@@ -1262,22 +1258,25 @@ article
 - **Placeholder:** Gray background (`#f3f4f6` light / `#262626` dark) while loading
 - **Lightense:** Click-to-zoom via lightense.js with `rgba(230,230,230,.85)` backdrop
 
----
+## Do's and Don'ts
 
-## 11. Anti-Patterns (What This System Avoids)
+### Do
+- Use LXGW WenKai as the distinctive font for both Latin and Chinese text.
+- Use the 赫蹏 (heti) library to ensure correct spacing for CJK punctuation.
+- Keep layout backgrounds light white (`#ffffff`) or matte dark gray (`#21262b`).
 
-- No serif Latin fonts — LXGW WenKai serves as the distinctive voice for both Latin and CJK
-- No bold weights on body — 400 throughout; headings go up to 800
-- No box-shadow heavy cards — shadows are subtle Tailwind defaults
-- No color outside the warm brown + blue link palette
-- No animation beyond 0.2s
-- No external icon fonts — inline SVGs only
+### Don't
+- Don't use standard sans-serif Latin fonts for body text or headlines.
+- Don't apply bold weights (use regular 400 for body text).
+- Don't use colors outside the warm brown (`#a67c52`) and link blue (`#1d9bf0`) palette.
+- Don't add heavy shadows or excessive card layouts.
+
 </textarea>
         </div>
       </a>
 
       <!-- Card: Linear Spec -->
-      <a href="pages/linear.html" target="_blank" class="card" data-source="manual" data-tags="saas,dark" data-dark="true"  style="--accent: #5e6ad2; --accent-glow: rgba(94, 106, 210, 0.08); --preview-bg: #0f111a;">
+      <a href="pages/linear.html" target="_blank" class="card" data-source="manual" data-tags="saas,dark,blue" data-dark="true"  style="--accent: #5e6ad2; --accent-glow: rgba(94, 106, 210, 0.08); --preview-bg: #0f111a;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -1304,16 +1303,16 @@ article
             <span class="card-title">Linear Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="面向软件开发团队的暗色首选设计系统，以深邃星空蓝黑为底色，结合 Bento Grids 与动态光晕营造极客质感。" data-en="A dark-first design system for software engineering teams, featuring deep space-black backdrops, Bento Grids, and glowing active states.">
             面向软件开发团队的暗色首选设计系统，以深邃星空蓝黑为底色，结合 Bento Grids 与动态光晕营造极客质感。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">深色模式优先</span>
-            <span class="meta-tag">Bento Grid 容器</span>
-            <span class="meta-tag">发光紫色调</span>
+            <span class="meta-tag" data-zh="深色模式优先" data-en="Dark Mode First">深色模式优先</span>
+            <span class="meta-tag" data-zh="Bento Grid 容器" data-en="Bento Grid Layouts">Bento Grid 容器</span>
+            <span class="meta-tag" data-zh="发光紫色调" data-en="Glowing Violet">发光紫色调</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -1868,7 +1867,7 @@ Linear's depth is carried by surface ladder + hairline borders. The brand resist
       </a>
 
       <!-- Card: Apple Spec -->
-      <a href="pages/apple.html" target="_blank" class="card" data-source="manual" data-tags="tech" data-dark="false"  style="--accent: #0066cc; --accent-glow: rgba(0, 102, 204, 0.08); --preview-bg: #f5f5f7;">
+      <a href="pages/apple.html" target="_blank" class="card" data-source="manual" data-tags="tech,blue" data-dark="false"  style="--accent: #0066cc; --accent-glow: rgba(0, 102, 204, 0.08); --preview-bg: #f5f5f7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -1895,16 +1894,16 @@ Linear's depth is carried by surface ladder + hairline borders. The brand resist
             <span class="card-title">Apple Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="遵循苹果官方人机交互指南（HIG）的经典网页设计，强调极致的内容遵从、宽留白与优雅的毛玻璃层级。" data-en="Classic web design following Apple Human Interface Guidelines (HIG), emphasizing content deference, generous whitespace, and frosted overlays.">
             遵循苹果官方人机交互指南（HIG）的经典网页设计，强调极致的内容遵从、宽留白与优雅的毛玻璃层级。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">San Francisco 字体</span>
-            <span class="meta-tag">毛玻璃顶栏</span>
-            <span class="meta-tag">宽幅留白</span>
+            <span class="meta-tag" data-zh="San Francisco 字体" data-en="SF Typography">San Francisco 字体</span>
+            <span class="meta-tag" data-zh="毛玻璃顶栏" data-en="Frosted Sub-nav">毛玻璃顶栏</span>
+            <span class="meta-tag" data-zh="宽幅留白" data-en="Generous Margins">宽幅留白</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -2473,7 +2472,7 @@ The structural breakpoints that matter for agents: 1440px (content lock), 1068px
       </a>
 
       <!-- Card: Tailwind CSS -->
-      <a href="pages/tailwindcss.html" target="_blank" class="card" data-source="manual" data-tags="devtools" data-dark="false"  style="--accent: #38bdf8; --accent-glow: rgba(56, 189, 248, 0.08); --preview-bg: #f8fafc;">
+      <a href="pages/tailwindcss.html" target="_blank" class="card" data-source="manual" data-tags="devtools,blue" data-dark="false"  style="--accent: #38bdf8; --accent-glow: rgba(56, 189, 248, 0.08); --preview-bg: #f8fafc;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -2500,18 +2499,45 @@ The structural breakpoints that matter for agents: 1440px (content lock), 1068px
             <span class="card-title">Tailwind CSS</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="以实用优先为核心的现代响应式工具链，基于 Indigo 靛蓝与丰富且高对比的原子化色板。" data-en="A modern, utility-first CSS framework prioritizing strict design system scales, indigo/sky color palettes, and responsive prefixes.">
             以实用优先为核心的现代响应式工具链，基于 Indigo 靛蓝与丰富且高对比的原子化色板。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">Indigo & Sky</span>
-            <span class="meta-tag">原子化间距</span>
-            <span class="meta-tag">响应式前缀</span>
+            <span class="meta-tag" data-zh="Indigo & Sky" data-en="Indigo & Sky Palette">Indigo & Sky</span>
+            <span class="meta-tag" data-zh="原子化间距" data-en="Atomic Spacing">原子化间距</span>
+            <span class="meta-tag" data-zh="响应式前缀" data-en="Responsive Prefixes">响应式前缀</span>
           </div>
-          <textarea class="raw-spec-markdown" style="display:none;"># Design System — Tailwind CSS (Utility-First)
+          <textarea class="raw-spec-markdown" style="display:none;">---
+version: alpha
+name: Tailwind CSS
+description: A modern, utility-first CSS framework prioritizing strict design system scales, indigo/sky color palettes, and responsive prefixes.
+colors:
+  primary: "#38bdf8"
+  primary-focus: "#6366f1"
+  canvas: "#ffffff"
+  surface-card: "#f8fafc"
+  surface-soft: "#f1f5f9"
+  ink: "#0f172a"
+  body: "#334155"
+  muted: "#94a3b8"
+  hairline: "#e2e8f0"
+typography:
+  display-xl:
+    fontSize: "30px"
+    fontWeight: "800"
+    lineHeight: "1.2"
+    use: "Section Heading"
+  body-md:
+    fontSize: "16px"
+    fontWeight: "400"
+    lineHeight: "1.5"
+    use: "Primary Body"
+---
+
+# Design System — Tailwind CSS (Utility-First)
 
 Extracted and adapted from [tailwindcss.com](https://tailwindcss.com).
 A modern, utility-first CSS design framework prioritizing customizability, high-density utility scales, and clean component composition.
@@ -2682,20 +2708,24 @@ Tailwind uses a proportional 4px layout scale (1 unit = 4px):
 - Inline code runs inside light purple/pink gray chips `bg-slate-100 text-pink-600 px-1 py-0.5 rounded`
 - Preformatted blocks use dark slate background `bg-slate-900 text-slate-100 p-4 rounded-xl font-mono`
 
----
+## Do's and Don'ts
 
-## 14. Anti-Patterns (What This System Avoids)
+### Do
+- Tie all color usage strictly to semantic numerical tokens (e.g. `bg-slate-900`).
+- Resolve styles directly via utility class combinations rather than writing custom CSS rules.
+- Rely exclusively on CSS Flexbox and Grid for page structure layouts.
 
-- No absolute colors — color is always tied to semantic numerical tokens
-- No custom class inflation — styles are resolved directly via tailwind utility combinations
-- No complex layout floats — CSS Flex and Grid are the exclusive structure systems
-- No unconstrained font sizes — type sizes map strictly to the `text-` prefixes scale
+### Don't
+- Don't use absolute or hardcoded hex colors inline without mapping to tailwind variables.
+- Don't use traditional CSS floats or complex position hacks.
+- Don't introduce unconstrained font sizes outside the predefined `text-` scale prefixes.
+
 </textarea>
         </div>
       </a>
 
       <!-- Card: Notion Spec -->
-      <a href="pages/notion.html" target="_blank" class="card" data-source="manual" data-tags="saas" data-dark="false"  style="--accent: #37352f; --accent-glow: rgba(55, 53, 47, 0.06); --preview-bg: #fbfbfa;">
+      <a href="pages/notion.html" target="_blank" class="card" data-source="manual" data-tags="saas,neutral" data-dark="false"  style="--accent: #37352f; --accent-glow: rgba(55, 53, 47, 0.06); --preview-bg: #fbfbfa;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -2722,16 +2752,16 @@ Tailwind uses a proportional 4px layout scale (1 unit = 4px):
             <span class="card-title">Notion Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="秉持无干扰极简原则的块状文档搭建系统，强调单色黑白灰与温和的马卡龙色标。" data-en="A block-based documentation workspace design system built on complete monochrome layout rules and warm callout highlighted banners.">
             秉持无干扰极简原则的块状文档搭建系统，强调单色黑白灰与温和的马卡龙色标。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">无干扰黑白灰</span>
-            <span class="meta-tag">块状组装结构</span>
-            <span class="meta-tag">马卡龙高亮</span>
+            <span class="meta-tag" data-zh="无干扰黑白灰" data-en="Monochrome Base">无干扰黑白灰</span>
+            <span class="meta-tag" data-zh="块状组装结构" data-en="Block-based Grid">块状组装结构</span>
+            <span class="meta-tag" data-zh="马卡龙高亮" data-en="Macaron Highlights">马卡龙高亮</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -3559,7 +3589,7 @@ Notion's geometry is sober-editorial — `{rounded.md}` (8px) buttons distinguis
       </a>
 
       <!-- Card: Vue.js progressive docs -->
-      <a href="pages/vue.html" target="_blank" class="card" data-source="manual" data-tags="devtools" data-dark="false"  style="--accent: #42b883; --accent-glow: rgba(66, 184, 131, 0.08); --preview-bg: #f6f6f7;">
+      <a href="pages/vue.html" target="_blank" class="card" data-source="manual" data-tags="devtools,green" data-dark="false"  style="--accent: #42b883; --accent-glow: rgba(66, 184, 131, 0.08); --preview-bg: #f6f6f7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -3586,18 +3616,45 @@ Notion's geometry is sober-editorial — `{rounded.md}` (8px) buttons distinguis
             <span class="card-title">Vue.js progressive docs</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="基于 VitePress 驱动的现代渐进式文档设计系统，融合翡翠绿与深邃碳灰，以及标志性的提示框容器。" data-en="A progressive documentation system driving modern web libraries, combining vibrant Vue Green, deep carbon gray, and semantic callouts.">
             基于 VitePress 驱动的现代渐进式文档设计系统，融合翡翠绿与深邃碳灰，以及标志性的提示框容器。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">Vue 翡翠绿</span>
-            <span class="meta-tag">渐进式提示框</span>
-            <span class="meta-tag">系统字阶</span>
+            <span class="meta-tag" data-zh="Vue 翡翠绿" data-en="Vue Emerald Green">Vue 翡翠绿</span>
+            <span class="meta-tag" data-zh="渐进式提示框" data-en="Progressive Callouts">渐进式提示框</span>
+            <span class="meta-tag" data-zh="系统字阶" data-en="System Type Scale">系统字阶</span>
           </div>
-          <textarea class="raw-spec-markdown" style="display:none;"># Design System — Vue.js (VitePress Documentation Style)
+          <textarea class="raw-spec-markdown" style="display:none;">---
+version: alpha
+name: Vue.js progressive docs
+description: A progressive documentation system driving modern web libraries, combining vibrant Vue Green, deep carbon gray, and semantic callouts.
+colors:
+  primary: "#42b883"
+  primary-focus: "#338a60"
+  canvas: "#ffffff"
+  surface-card: "#f6f6f7"
+  surface-soft: "#f6f6f7"
+  ink: "#2c3e50"
+  body: "#2c3e50"
+  muted: "#476582"
+  hairline: "#e2e2e3"
+typography:
+  display-xl:
+    fontSize: "38px"
+    fontWeight: "700"
+    lineHeight: "1.2"
+    use: "Page Heading"
+  body-md:
+    fontSize: "16px"
+    fontWeight: "400"
+    lineHeight: "1.6"
+    use: "Primary Body"
+---
+
+# Design System — Vue.js (VitePress Documentation Style)
 
 Extracted and adapted from [cn.vuejs.org](https://cn.vuejs.org) and [vuejs.org](https://vuejs.org).
 A content-first, developer-friendly documentation design system characterized by vibrant Vue Green accents, soft semantic highlights, progressive layout flow, and exceptionally legible dark-theme code blocks.
@@ -3718,20 +3775,24 @@ A sticky right-side vertical menu (width: `224px`) displaying active page subsec
       └── List of sub-anchors (hover color: --vp-c-brand)
 ```
 
----
+## Do's and Don'ts
 
-## 9. Anti-Patterns (What to Avoid)
+### Do
+- Keep documentation layout flat and focused on readability.
+- Use monospaced fonts for paths, variables, and terminal commands.
+- Limit bright brand gradients to main logos and call-to-action cards.
 
-- No overly stylized buttons or elements that distract from raw documentation content.
-- No heavy cards with deep blur box-shadows. Shadows should be flat or very subtle (`0 1px 3px rgba(0,0,0,0.05)`).
-- Never use non-monospaced fonts for paths, variables, or terminal commands.
-- Do not mix bright brand gradients inside long reading blocks; keep gradients strictly limited to main logos and call-to-action cards.
+### Don't
+- Don't use overly stylized buttons or elements that distract from raw documentation content.
+- Don't use heavy cards with deep blur box-shadows.
+- Don't mix bright brand gradients inside long reading blocks.
+
 </textarea>
         </div>
       </a>
 
       <!-- Card: Claude Spec -->
-      <a href="pages/claude.html" target="_blank" class="card" data-source="imported" data-tags="ai" data-dark="false"  style="--accent: #cc785c; --accent-glow: rgba(204, 120, 92, 0.08); --preview-bg: #f5f0e8;">
+      <a href="pages/claude.html" target="_blank" class="card" data-source="imported" data-tags="ai,red" data-dark="false"  style="--accent: #cc785c; --accent-glow: rgba(204, 120, 92, 0.08); --preview-bg: #f5f0e8;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -3758,16 +3819,16 @@ A sticky right-side vertical menu (width: `224px`) displaying active page subsec
             <span class="card-title">Claude Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="Anthropic 推出的温暖人文学术风设计系统，以象牙奶油色纸张为底，辅以珊瑚红点缀与优美 Serif 衬线字体。" data-en="A warm humanist editorial canvas by Anthropic, utilizing publication-grade Lora Serif, terracotta borders, and cream backdrops.">
             Anthropic 推出的温暖人文学术风设计系统，以象牙奶油色纸张为底，辅以珊瑚红点缀与优美 Serif 衬线字体。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">人文社论排版</span>
-            <span class="meta-tag">奶油色与珊瑚红</span>
-            <span class="meta-tag">Copernicus 衬线</span>
+            <span class="meta-tag" data-zh="人文社论排版" data-en="Humanist Reading">人文社论排版</span>
+            <span class="meta-tag" data-zh="奶油色与珊瑚红" data-en="Cream & Terracotta">奶油色与珊瑚红</span>
+            <span class="meta-tag" data-zh="Copernicus 衬线" data-en="Lora Serif Typography">Copernicus 衬线</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -4363,7 +4424,7 @@ When photography is used (rare — mostly testimonials), avatars crop to perfect
       </a>
 
       <!-- Card: Cursor Spec -->
-      <a href="pages/cursor.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark" data-dark="false"  style="--accent: #f54e00; --accent-glow: rgba(245, 78, 0, 0.08); --preview-bg: #f7f7f4;">
+      <a href="pages/cursor.html" target="_blank" class="card" data-source="imported" data-tags="devtools,yellow" data-dark="false"  style="--accent: #f54e00; --accent-glow: rgba(245, 78, 0, 0.08); --preview-bg: #f7f7f4;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -4390,16 +4451,16 @@ When photography is used (rare — mostly testimonials), avatars crop to perfect
             <span class="card-title">Cursor Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="面向人工智能辅助编程环境的温润奶油纸质质感营销网页系统，采用明亮醒目的 Cursor 橙进行功能引导。" data-en="An AI-first code editor landing page system, featuring flat white surfaces, JetBrains Mono code panels, and cursor-orange highlights.">
             面向人工智能辅助编程环境的温润奶油纸质质感营销网页系统，采用明亮醒目的 Cursor 橙进行功能引导。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">AI 时间线配色</span>
-            <span class="meta-tag">Cursor 橙</span>
-            <span class="meta-tag">安静自信的极简</span>
+            <span class="meta-tag" data-zh="AI 时间线配色" data-en="AI Timeline Palette">AI 时间线配色</span>
+            <span class="meta-tag" data-zh="Cursor 橙" data-en="Cursor Orange">Cursor 橙</span>
+            <span class="meta-tag" data-zh="安静自信的极简" data-en="Quiet Editorial Canvas">安静自信的极简</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -4943,7 +5004,7 @@ The system uses **hairline-only depth**. No drop shadows, no elevation tiers. Ca
       </a>
 
       <!-- Card: ClickHouse Spec -->
-      <a href="pages/clickhouse.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark" data-dark="true"  style="--accent: #faff69; --accent-glow: rgba(250, 255, 105, 0.12); --preview-bg: #0a0a0a;">
+      <a href="pages/clickhouse.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark,yellow" data-dark="true"  style="--accent: #faff69; --accent-glow: rgba(250, 255, 105, 0.12); --preview-bg: #0a0a0a;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -4970,16 +5031,16 @@ The system uses **hairline-only depth**. No drop shadows, no elevation tiers. Ca
             <span class="card-title">ClickHouse Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="追求极致性能的大数据分析引擎品牌系统，在暗夜黑背景中仅以高能亮黄色作为信号指示，强调专业力量。" data-en="A high-performance DB console design system, using deep void black, electric yellow highlights, and monospace tables.">
             追求极致性能的大数据分析引擎品牌系统，在暗夜黑背景中仅以高能亮黄色作为信号指示，强调专业力量。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">暗黑高反差</span>
-            <span class="meta-tag">高能亮黄色</span>
-            <span class="meta-tag">数据驱动版面</span>
+            <span class="meta-tag" data-zh="暗黑高反差" data-en="Electric Yellow">暗黑高反差</span>
+            <span class="meta-tag" data-zh="高能亮黄色" data-en="High Contrast Black">高能亮黄色</span>
+            <span class="meta-tag" data-zh="数据驱动版面" data-en="Monospace Query Grid">数据驱动版面</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -5530,7 +5591,7 @@ The system uses no drop shadows. Depth comes from the contrast between black can
       </a>
 
       <!-- Card: Cal.com Spec -->
-      <a href="pages/cal.html" target="_blank" class="card" data-source="imported" data-tags="saas" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.06); --preview-bg: #f8f9fa;">
+      <a href="pages/cal.html" target="_blank" class="card" data-source="imported" data-tags="saas,neutral" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.06); --preview-bg: #f8f9fa;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -5557,16 +5618,16 @@ The system uses no drop shadows. Depth comes from the contrast between black can
             <span class="card-title">Cal.com Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="开源预约系统的高级极简主义设计，采用锋利而清晰的无衬线标题字体与扁平粗实的表单框架。" data-en="An open-source scheduling infrastructure design system, featuring sharp card layouts, Space Grotesk headings, and flat black buttons.">
             开源预约系统的高级极简主义设计，采用锋利而清晰的无衬线标题字体与扁平粗实的表单框架。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">Cal Sans 字体</span>
-            <span class="meta-tag">宽幅留白</span>
-            <span class="meta-tag">极简预约卡片</span>
+            <span class="meta-tag" data-zh="Cal Sans 字体" data-en="Space Grotesk Font">Cal Sans 字体</span>
+            <span class="meta-tag" data-zh="宽幅留白" data-en="Minimalist Calendar">宽幅留白</span>
+            <span class="meta-tag" data-zh="极简预约卡片" data-en="Flat UI Geometry">极简预约卡片</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -6115,7 +6176,7 @@ Avatar photos use `{rounded.full}` (perfect circles) at 36px or 40px. Product UI
       </a>
 
       <!-- Card: Airtable Spec -->
-      <a href="pages/airtable.html" target="_blank" class="card" data-source="imported" data-tags="saas" data-dark="false"  style="--accent: #aa2d00; --accent-glow: rgba(170, 45, 0, 0.08); --preview-bg: #f8fafc;">
+      <a href="pages/airtable.html" target="_blank" class="card" data-source="imported" data-tags="saas,green" data-dark="false"  style="--accent: #aa2d00; --accent-glow: rgba(170, 45, 0, 0.08); --preview-bg: #f8fafc;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -6142,16 +6203,16 @@ Avatar photos use `{rounded.full}` (perfect circles) at 36px or 40px. Product UI
             <span class="card-title">Airtable Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="为数据协作设计的端庄社论表格风界面，在黑白底噪中以五彩斑斓的标志性重点区块增添活力。" data-en="A spreadsheet-database hybrid workflow layout, utilizing Haas Grotesk typography, colorful status pills, and zero shadows.">
             为数据协作设计的端庄社论表格风界面，在黑白底噪中以五彩斑斓的标志性重点区块增添活力。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">Haas Grotesk 字体</span>
-            <span class="meta-tag">多彩功能区块</span>
-            <span class="meta-tag">无阴影扁平线框</span>
+            <span class="meta-tag" data-zh="Haas Grotesk 字体" data-en="Haas Grotesk Look">Haas Grotesk 字体</span>
+            <span class="meta-tag" data-zh="多彩功能区块" data-en="Vibrant Status Tags">多彩功能区块</span>
+            <span class="meta-tag" data-zh="无阴影扁平线框" data-en="Flat Table Outlines">无阴影扁平线框</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -6712,7 +6773,7 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
       </a>
 
       <!-- Card: Binance Spec -->
-      <a href="pages/binance.html" target="_blank" class="card" data-source="imported" data-tags="fintech,dark" data-dark="true"  style="--accent: #fcd535; --accent-glow: rgba(252, 213, 53, 0.12); --preview-bg: #0b0e11;">
+      <a href="pages/binance.html" target="_blank" class="card" data-source="imported" data-tags="fintech,dark,yellow" data-dark="true"  style="--accent: #fcd535; --accent-glow: rgba(252, 213, 53, 0.12); --preview-bg: #0b0e11;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -6739,16 +6800,16 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
             <span class="card-title">Binance Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="极具交易急迫感与金融信心的专业币圈设计，以深空墨黑承载极具电压感的高饱和度币安黄。" data-en="A high-frequency crypto trading platform, featuring deep void backdrops, finance yellow accents, and green/red status states.">
             极具交易急迫感与金融信心的专业币圈设计，以深空墨黑承载极具电压感的高饱和度币安黄。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">币安标志黄</span>
-            <span class="meta-tag">交易红绿双向指示</span>
-            <span class="meta-tag">BinanceNova 字体</span>
+            <span class="meta-tag" data-zh="币安标志黄" data-en="Binance Yellow">币安标志黄</span>
+            <span class="meta-tag" data-zh="交易红绿双向指示" data-en="Green & Red Indicators">交易红绿双向指示</span>
+            <span class="meta-tag" data-zh="BinanceNova 字体" data-en="Plex Sans Typography">BinanceNova 字体</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -7389,7 +7450,7 @@ Binance's radius hierarchy is tighter than typical marketing systems — most su
       </a>
 
       <!-- Card: Airbnb Spec -->
-      <a href="pages/airbnb.html" target="_blank" class="card" data-source="imported" data-tags="retail" data-dark="false"  style="--accent: #ff385c; --accent-glow: rgba(255, 56, 92, 0.08); --preview-bg: #f7f7f7;">
+      <a href="pages/airbnb.html" target="_blank" class="card" data-source="imported" data-tags="retail,red" data-dark="false"  style="--accent: #ff385c; --accent-glow: rgba(255, 56, 92, 0.08); --preview-bg: #f7f7f7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -7416,16 +7477,16 @@ Binance's radius hierarchy is tighter than typical marketing systems — most su
             <span class="card-title">Airbnb Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="充满旅行与生活气息的友好型设计，使用温和圆润的排布线条、房源展示卡片与亮丽的 Coral 珊瑚红。" data-en="A warm, user-friendly vacation rental marketplace, featuring circular search controls, coral Rausch accents, and rounded layouts.">
             充满旅行与生活气息的友好型设计，使用温和圆润的排布线条、房源展示卡片与亮丽的 Coral 珊瑚红。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">Airbnb Cereal 字体</span>
-            <span class="meta-tag">珊瑚红 Rausch</span>
-            <span class="meta-tag">圆润亲和布局</span>
+            <span class="meta-tag" data-zh="Airbnb Cereal 字体" data-en="Airbnb Cereal Font">Airbnb Cereal 字体</span>
+            <span class="meta-tag" data-zh="珊瑚红 Rausch" data-en="Coral Rausch Accent">珊瑚红 Rausch</span>
+            <span class="meta-tag" data-zh="圆润亲和布局" data-en="Rounded Image Grids">圆润亲和布局</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -7965,6 +8026,18 @@ There are no progressive elevation tiers — the system either has the one shado
 - Property and city-link grids drop column counts cleanly at each breakpoint — never reflow rows; always reduce columns.
 - Reservation card on listing detail switches from sticky right-rail to a sticky bottom bar on mobile, carrying just the "Reserve" CTA + nightly price summary.
 
+## Do's and Don'ts
+
+### Do
+- Use Coral Rausch (`#ff385c`) exclusively for primary CTA buttons.
+- Keep property cards with `{rounded.lg}` (12px or 14px) rounded corners.
+- Set card text layouts to have generous vertical gaps for high legibility.
+
+### Don't
+- Don't use sharp, non-rounded corners on property images or primary action cards.
+- Don't apply dark or high-contrast grey backgrounds on core consumer search screens.
+- Don't add deep, harsh shadows on static elements.
+
 ## Known Gaps
 
 - **Hover state colors:** intentionally not documented per the global no-hover policy — Airbnb's actual `:hover` styling for property cards is a subtle elevation lift, but precise extraction is unreliable.
@@ -7977,7 +8050,7 @@ There are no progressive elevation tiers — the system either has the one shado
       </a>
 
       <!-- Card: BMW Spec -->
-      <a href="pages/bmw.html" target="_blank" class="card" data-source="imported" data-tags="automotive" data-dark="false"  style="--accent: #1c69d4; --accent-glow: rgba(28, 105, 212, 0.08); --preview-bg: #f7f7f7;">
+      <a href="pages/bmw.html" target="_blank" class="card" data-source="imported" data-tags="automotive,blue" data-dark="false"  style="--accent: #1c69d4; --accent-glow: rgba(28, 105, 212, 0.08); --preview-bg: #f7f7f7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -8004,16 +8077,16 @@ There are no progressive elevation tiers — the system either has the one shado
             <span class="card-title">BMW Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="沉稳而讲究的豪华汽车门户设计，采用粗壮醒目的标题与纤细现代的 BMW Type Next 字体。" data-en="A measured luxury automotive portal, utilizing heavy headlines, BMW Type Next typography, and thin industrial grids.">
             沉稳而讲究的豪华汽车门户设计，采用粗壮醒目的标题与纤细现代的 BMW Type Next 字体。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">BMW 经典蓝</span>
-            <span class="meta-tag">深海蓝框架</span>
-            <span class="meta-tag">工业现代排线</span>
+            <span class="meta-tag" data-zh="BMW 经典蓝" data-en="BMW Classic Blue">BMW 经典蓝</span>
+            <span class="meta-tag" data-zh="深海蓝框架" data-en="Dark Corporate Accent">深海蓝框架</span>
+            <span class="meta-tag" data-zh="工业现代排线" data-en="Thin Layout Grids">工业现代排线</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -8564,7 +8637,7 @@ The radius hierarchy is binary: **rectangular for everything, circular only for 
       </a>
 
       <!-- Card: Dell 1996 Spec -->
-      <a href="pages/dell-1996.html" target="_blank" class="card" data-source="imported" data-tags="retro" data-dark="false" data-retro="dell" style="--accent: #e91d2a; --accent-glow: rgba(233, 29, 42, 0.08); --preview-bg: #808080;">
+      <a href="pages/dell-1996.html" target="_blank" class="card" data-source="imported" data-tags="retro,neutral" data-dark="false" data-retro="dell" style="--accent: #e91d2a; --accent-glow: rgba(233, 29, 42, 0.08); --preview-bg: #808080;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -8591,16 +8664,16 @@ The radius hierarchy is binary: **rectangular for everything, circular only for 
             <span class="card-title">Dell 1996 Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="重温 90 年代目录式企业网页风格的复古设计，使用 Windows 95 浮雕灰色边框与纯蓝色的文字链接。" data-en="A 90s vintage catalog-style site design, utilizing classic Windows 95 beveled gray borders, serif typography, and bright blue links.">
             重温 90 年代目录式企业网页风格的复古设计，使用 Windows 95 浮雕灰色边框与纯蓝色的文字链接。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">Windows 95 灰色浮雕</span>
-            <span class="meta-tag">Times New Roman 衬线</span>
-            <span class="meta-tag">高对比度色块</span>
+            <span class="meta-tag" data-zh="Windows 95 灰色浮雕" data-en="Windows 95 Gray Bevels">Windows 95 灰色浮雕</span>
+            <span class="meta-tag" data-zh="Times New Roman 衬线" data-en="Times New Roman Serif">Times New Roman 衬线</span>
+            <span class="meta-tag" data-zh="高对比度色块" data-en="High-Contrast Solid Fills">高对比度色块</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -9239,7 +9312,7 @@ All seven share identical chrome: 1 px solid `{colors.frame-ink}` border, `{spac
       </a>
 
       <!-- Card: Cohere Spec -->
-      <a href="pages/cohere.html" target="_blank" class="card" data-source="imported" data-tags="ai,dark" data-dark="false"  style="--accent: #003c33; --accent-glow: rgba(0, 60, 51, 0.08); --preview-bg: #eeece7;">
+      <a href="pages/cohere.html" target="_blank" class="card" data-source="imported" data-tags="ai,green" data-dark="false"  style="--accent: #003c33; --accent-glow: rgba(0, 60, 51, 0.08); --preview-bg: #eeece7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -9266,16 +9339,16 @@ All seven share identical chrome: 1 px solid `{colors.frame-ink}` border, `{spac
             <span class="card-title">Cohere Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="企业级大模型研发与部署设计系统，融合温暖矿物背景、深绿色调与高精度的单色数字看板。" data-en="An enterprise AI platform design system, utilizing warm mineral canvas backgrounds, deep green accents, and monospace data grids.">
             企业级大模型研发与部署设计系统，融合温暖矿物背景、深绿色调与高精度的单色数字看板。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">矿物灰调 canvas</span>
-            <span class="meta-tag">深绿与黑</span>
-            <span class="meta-tag">monospace 数据标识</span>
+            <span class="meta-tag" data-zh="矿物灰调 canvas" data-en="Mineral Gray Canvas">矿物灰调 canvas</span>
+            <span class="meta-tag" data-zh="深绿与黑" data-en="Forest Green Accent">深绿与黑</span>
+            <span class="meta-tag" data-zh="monospace 数据标识" data-en="Monospace Metrics">monospace 数据标识</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -9733,7 +9806,7 @@ Primary CTAs and pills meet comfortable touch sizing through 12px-24px padding a
       </a>
 
       <!-- Card: Mistral AI Spec -->
-      <a href="pages/mistral.ai.html" target="_blank" class="card" data-source="imported" data-tags="ai" data-dark="false"  style="--accent: #f06a3a; --accent-glow: rgba(240, 106, 58, 0.08); --preview-bg: #fbfaf7;">
+      <a href="pages/mistral.ai.html" target="_blank" class="card" data-source="imported" data-tags="ai,yellow" data-dark="false"  style="--accent: #f06a3a; --accent-glow: rgba(240, 106, 58, 0.08); --preview-bg: #fbfaf7;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -9760,16 +9833,16 @@ Primary CTAs and pills meet comfortable touch sizing through 12px-24px padding a
             <span class="card-title">Mistral AI Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="欧洲人工智能领头羊的优雅极简设计系统，以极高饱和度橘红作为单一交互点缀，版面极其克制。" data-en="An elegant French-engineered AI minimalist layout, using saffron orange active elements on top of neutral stone-gray backdrops.">
             欧洲人工智能领头羊的优雅极简设计系统，以极高饱和度橘红作为单一交互点缀，版面极其克制。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">法式工程极简</span>
-            <span class="meta-tag">高亮橘红</span>
-            <span class="meta-tag">灰泥底噪背景</span>
+            <span class="meta-tag" data-zh="法式工程极简" data-en="French Engineering Style">法式工程极简</span>
+            <span class="meta-tag" data-zh="高亮橘红" data-en="Saffron Orange CTA">高亮橘红</span>
+            <span class="meta-tag" data-zh="灰泥底噪背景" data-en="Stone Grey Backdrops">灰泥底噪背景</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -10549,7 +10622,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
       </a>
 
       <!-- Card: Expo Spec -->
-      <a href="pages/expo.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark" data-dark="true"  style="--accent: #6366f1; --accent-glow: rgba(99, 102, 241, 0.08); --preview-bg: #000208;">
+      <a href="pages/expo.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark,blue" data-dark="true"  style="--accent: #6366f1; --accent-glow: rgba(99, 102, 241, 0.08); --preview-bg: #000208;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -10576,16 +10649,16 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
             <span class="card-title">Expo Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="移动端跨平台构建生态系统的现代暗色设计系统，极窄的字母间距，辅以代码级高对比度文字和深蓝色卡片。" data-en="A developer-first universal app platform system, featuring tight tracking typography, code cards, and deep indigo accents.">
             移动端跨平台构建生态系统的现代暗色设计系统，极窄的字母间距，辅以代码级高对比度文字和深蓝色卡片。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">极窄字母间距</span>
-            <span class="meta-tag">暗黑宇宙</span>
-            <span class="meta-tag">代码容器</span>
+            <span class="meta-tag" data-zh="极窄字母间距" data-en="Tight Tracking Type">极窄字母间距</span>
+            <span class="meta-tag" data-zh="暗黑宇宙" data-en="Dark Universe Backdrop">暗黑宇宙</span>
+            <span class="meta-tag" data-zh="代码容器" data-en="Code Containers">代码容器</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -11118,7 +11191,7 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
       </a>
 
       <!-- Card: Vercel Spec -->
-      <a href="pages/vercel.html" target="_blank" class="card" data-source="imported" data-tags="devtools" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.06); --preview-bg: #ffffff;">
+      <a href="pages/vercel.html" target="_blank" class="card" data-source="imported" data-tags="devtools,neutral" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.06); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -11145,16 +11218,16 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
             <span class="card-title">Vercel Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="极简主义与黑白几何图形的杰出代表，使用高度统一的 Geist 字体与超薄的发光边框结构。" data-en="A premium monochrome deployment platform system, featuring Geist Sans typography, pure geometric frames, and thin border dividers.">
             极简主义与黑白几何图形的杰出代表，使用高度统一的 Geist 字体与超薄的发光边框结构。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">Geist 字体家族</span>
-            <span class="meta-tag">黑白纯几何</span>
-            <span class="meta-tag">清晰布局比例</span>
+            <span class="meta-tag" data-zh="Geist 字体家族" data-en="Geist Typography Stack">Geist 字体家族</span>
+            <span class="meta-tag" data-zh="黑白纯几何" data-en="Monochrome Geometry">黑白纯几何</span>
+            <span class="meta-tag" data-zh="清晰布局比例" data-en="Hairline Outlines">清晰布局比例</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -11897,7 +11970,7 @@ The brand uses STACKED shadows — multiple small offsets layered to fake natura
       </a>
 
       <!-- Card: Supabase Spec -->
-      <a href="pages/supabase.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark" data-dark="false"  style="--accent: #3ecf8e; --accent-glow: rgba(62, 207, 142, 0.08); --preview-bg: #1c1c1c;">
+      <a href="pages/supabase.html" target="_blank" class="card" data-source="imported" data-tags="devtools,dark,green" data-dark="true"  style="--accent: #3ecf8e; --accent-glow: rgba(62, 207, 142, 0.08); --preview-bg: #1c1c1c;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -11924,16 +11997,16 @@ The brand uses STACKED shadows — multiple small offsets layered to fake natura
             <span class="card-title">Supabase Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="开发者的云端数据库平台，以深碳灰和极高饱和度霓虹翡翠绿为主色，带有独特的代码语法高亮质感。" data-en="An open-source cloud database console system, featuring deep carbon backgrounds, high-energy emerald green, and syntax themes.">
             开发者的云端数据库平台，以深碳灰和极高饱和度霓虹翡翠绿为主色，带有独特的代码语法高亮质感。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">霓虹翡翠绿</span>
-            <span class="meta-tag">开发者控制台</span>
-            <span class="meta-tag">代码首选</span>
+            <span class="meta-tag" data-zh="霓虹翡翠绿" data-en="Neon Emerald Accent">霓虹翡翠绿</span>
+            <span class="meta-tag" data-zh="开发者控制台" data-en="Developer Console Grid">开发者控制台</span>
+            <span class="meta-tag" data-zh="代码首选" data-en="Syntax-Theme Elements">代码首选</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -12402,7 +12475,7 @@ Product UI mockups use `srcset` with desktop / mobile crops; mobile crops focus 
       </a>
 
       <!-- Card: PostHog Spec -->
-      <a href="pages/posthog.html" target="_blank" class="card" data-source="imported" data-tags="devtools" data-dark="false"  style="--accent: #f97316; --accent-glow: rgba(249, 115, 22, 0.08); --preview-bg: #f3f4f6;">
+      <a href="pages/posthog.html" target="_blank" class="card" data-source="imported" data-tags="devtools,yellow" data-dark="false"  style="--accent: #f97316; --accent-glow: rgba(249, 115, 22, 0.08); --preview-bg: #f3f4f6;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -12429,16 +12502,16 @@ Product UI mockups use `srcset` with desktop / mobile crops; mobile crops focus 
             <span class="card-title">PostHog Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="充满趣味性的数据分析设计系统，融合经典的复古街机风格与标志性刺猬插图，在沉闷的 SaaS 行业脱颖而出。" data-en="A playful, developer-focused product analytics system, using thick comic borders, orange highlights, and retro-tech imagery.">
             充满趣味性的数据分析设计系统，融合经典的复古街机风格与标志性刺猬插图，在沉闷的 SaaS 行业脱颖而出。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">街机式粗线框</span>
-            <span class="meta-tag">橙色高亮</span>
-            <span class="meta-tag">刺猬趣味图腾</span>
+            <span class="meta-tag" data-zh="街机式粗线框" data-en="Arcade Wireframe Lines">街机式粗线框</span>
+            <span class="meta-tag" data-zh="橙色高亮" data-en="PostHog Orange Accent">橙色高亮</span>
+            <span class="meta-tag" data-zh="刺猬趣味图腾" data-en="Witty Retro Mascot">刺猬趣味图腾</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -13135,7 +13208,7 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
       </a>
 
       <!-- Card: Figma Spec -->
-      <a href="pages/figma.html" target="_blank" class="card" data-source="imported" data-tags="saas" data-dark="false"  style="--accent: #ff7262; --accent-glow: rgba(255, 114, 98, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/figma.html" target="_blank" class="card" data-source="imported" data-tags="saas,red" data-dark="false"  style="--accent: #ff7262; --accent-glow: rgba(255, 114, 98, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -13162,16 +13235,16 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
             <span class="card-title">Figma Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="全球顶级在线协作设计工具的界面系统，采用彩虹多色圆点与工具栏像素线框，营造高自由度的创意画布。" data-en="A creative canvas and collaboration workspace system, utilizing multicolored avatars, dark toolbar borders, and fluid grids.">
             全球顶级在线协作设计工具的界面系统，采用彩虹多色圆点与工具栏像素线框，营造高自由度的创意画布。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">多彩协同圆点</span>
-            <span class="meta-tag">深灰工具栏</span>
-            <span class="meta-tag">无限画板缩放</span>
+            <span class="meta-tag" data-zh="多彩协同圆点" data-en="Multi-user Active Dots">多彩协同圆点</span>
+            <span class="meta-tag" data-zh="深灰工具栏" data-en="Dark Toolbar Frames">深灰工具栏</span>
+            <span class="meta-tag" data-zh="无限画板缩放" data-en="Infinite Creative Canvas">无限画板缩放</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -13756,7 +13829,7 @@ The defining surface of Figma's marketing. Each is a full-content-width panel wi
       </a>
 
       <!-- Card: Framer Spec -->
-      <a href="pages/framer.html" target="_blank" class="card" data-source="imported" data-tags="saas,dark" data-dark="true"  style="--accent: #0055ff; --accent-glow: rgba(0, 85, 255, 0.08); --preview-bg: #000000;">
+      <a href="pages/framer.html" target="_blank" class="card" data-source="imported" data-tags="saas,dark,blue" data-dark="true"  style="--accent: #0055ff; --accent-glow: rgba(0, 85, 255, 0.08); --preview-bg: #000000;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -13783,16 +13856,16 @@ The defining surface of Figma's marketing. Each is a full-content-width panel wi
             <span class="card-title">Framer Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="面向高动效与交互网站的暗黑前沿构建系统，使用霓虹极光蓝作为交互焦点，强调速度感与无边框美学。" data-en="An interactive web construction layout, featuring deep dark canvases, vibrant blue indicators, and flat responsive panels.">
             面向高动效与交互网站的暗黑前沿构建系统，使用霓虹极光蓝作为交互焦点，强调速度感与无边框美学。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">霓虹极光蓝</span>
-            <span class="meta-tag">无网格画布</span>
-            <span class="meta-tag">微秒响应状态</span>
+            <span class="meta-tag" data-zh="霓虹极光蓝" data-en="Motion Blue Accent">霓虹极光蓝</span>
+            <span class="meta-tag" data-zh="无网格画布" data-en="Borderless Workspace">无网格画布</span>
+            <span class="meta-tag" data-zh="微秒响应状态" data-en="Micro-interactions">微秒响应状态</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -14343,7 +14416,7 @@ The defining decorative surface of Framer's marketing — oversized atmospheric 
       </a>
 
       <!-- Card: Stripe Spec -->
-      <a href="pages/stripe.html" target="_blank" class="card" data-source="imported" data-tags="fintech" data-dark="false"  style="--accent: #635bff; --accent-glow: rgba(99, 91, 255, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/stripe.html" target="_blank" class="card" data-source="imported" data-tags="fintech,blue" data-dark="false"  style="--accent: #635bff; --accent-glow: rgba(99, 91, 255, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -14370,16 +14443,16 @@ The defining decorative surface of Framer's marketing — oversized atmospheric 
             <span class="card-title">Stripe Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="被奉为互联网美学天花板的支付规范，标志性的三斜角渐变底色，极轻薄的字体字重与梦幻高阶色彩。" data-en="A legendary developer payments design system, utilizing ultra-light font weights, multi-angle gradient sheets, and pastel color systems.">
             被奉为互联网美学天花板的支付规范，标志性的三斜角渐变底色，极轻薄的字体字重与梦幻高阶色彩。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">极轻柔细字重</span>
-            <span class="meta-tag">斜角渐变画布</span>
-            <span class="meta-tag">高饱和梦幻紫</span>
+            <span class="meta-tag" data-zh="极轻柔细字重" data-en="Elegantly Light Type">极轻柔细字重</span>
+            <span class="meta-tag" data-zh="斜角渐变画布" data-en="Angled Gradient Sheets">斜角渐变画布</span>
+            <span class="meta-tag" data-zh="高饱和梦幻紫" data-en="Pastel Color Palette">高饱和梦幻紫</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -14873,7 +14946,7 @@ Product UI composites use `srcset` with art-direction crops at major breakpoints
       </a>
 
       <!-- Card: Coinbase Spec -->
-      <a href="pages/coinbase.html" target="_blank" class="card" data-source="imported" data-tags="fintech" data-dark="false"  style="--accent: #0052ff; --accent-glow: rgba(0, 82, 255, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/coinbase.html" target="_blank" class="card" data-source="imported" data-tags="fintech,blue" data-dark="false"  style="--accent: #0052ff; --accent-glow: rgba(0, 82, 255, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -14900,16 +14973,16 @@ Product UI composites use `srcset` with art-direction crops at major breakpoints
             <span class="card-title">Coinbase Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="定位于主流金融合规的加密资产交易所设计系统，以实心的 Coinbase 蓝为主打，版面沉稳而严谨。" data-en="A trustworthy cryptocurrency trading catalog, utilizing flat institutional card decks and bold Coinbase Blue accents.">
             定位于主流金融合规的加密资产交易所设计系统，以实心的 Coinbase 蓝为主打，版面沉稳而严谨。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">实心高安全蓝</span>
-            <span class="meta-tag">机构卡片式</span>
-            <span class="meta-tag">无衬线学术排版</span>
+            <span class="meta-tag" data-zh="实心高安全蓝" data-en="Solid Safety Blue">实心高安全蓝</span>
+            <span class="meta-tag" data-zh="机构卡片式" data-en="Institutional Cards">机构卡片式</span>
+            <span class="meta-tag" data-zh="无衬线学术排版" data-en="Clean Academic Sans">无衬线学术排版</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -15486,7 +15559,7 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
       </a>
 
       <!-- Card: Nike Spec -->
-      <a href="pages/nike.html" target="_blank" class="card" data-source="imported" data-tags="retail" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/nike.html" target="_blank" class="card" data-source="imported" data-tags="retail,neutral" data-dark="false"  style="--accent: #111111; --accent-glow: rgba(17, 17, 17, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -15513,16 +15586,16 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
             <span class="card-title">Nike Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="极具视觉冲击力的运动品牌设计，超大字重的全大写 Futura 字体与全屏无边界图文排版。" data-en="A high-impact athletic retail canvas, featuring bold full-width banner wraps, thick uppercase Futura headlines, and heavy black accents.">
             极具视觉冲击力的运动品牌设计，超大字重的全大写 Futura 字体与全屏无边界图文排版。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">大写 Futura 字体</span>
-            <span class="meta-tag">纯黑底色点缀</span>
-            <span class="meta-tag">大留白排版</span>
+            <span class="meta-tag" data-zh="大写 Futura 字体" data-en="Futura Bold Headlines">大写 Futura 字体</span>
+            <span class="meta-tag" data-zh="纯黑底色点缀" data-en="Black Accent Blocks">纯黑底色点缀</span>
+            <span class="meta-tag" data-zh="大留白排版" data-en="High-Contrast Banners">大留白排版</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -16104,7 +16177,7 @@ All interactive elements meet WCAG AAA (44×44px minimum). Pills (`{component.bu
       </a>
 
       <!-- Card: Shopify Spec -->
-      <a href="pages/shopify.html" target="_blank" class="card" data-source="imported" data-tags="retail,dark" data-dark="true"  style="--accent: #008060; --accent-glow: rgba(0, 128, 96, 0.08); --preview-bg: #0d1117;">
+      <a href="pages/shopify.html" target="_blank" class="card" data-source="imported" data-tags="retail,dark,green" data-dark="true"  style="--accent: #008060; --accent-glow: rgba(0, 128, 96, 0.08); --preview-bg: #0d1117;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -16131,16 +16204,16 @@ All interactive elements meet WCAG AAA (44×44px minimum). Pills (`{component.bu
             <span class="card-title">Shopify Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
-            为全球商户服务的极速电商后台系统，冷冬极夜黑中泛起极光般的薄荷绿与翡翠绿，极具秩序感。
+          <div class="card-desc" data-zh="为全球商户服务的极速电商后台系统，冷冬极夜黑中泛起极光般的薄荷绿与翡翠绿，极极秩序感。" data-en="A professional global e-commerce admin system, featuring deep-night backdrops, merchant green signals, and grid dashboard cards.">
+            为全球商户服务的极速电商后台系统，冷冬极夜黑中泛起极光般的薄荷绿与翡翠绿，极极秩序感。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">商户绿</span>
-            <span class="meta-tag">极夜冷背景</span>
-            <span class="meta-tag">网格卡片面板</span>
+            <span class="meta-tag" data-zh="商户绿" data-en="Shopify Admin Green">商户绿</span>
+            <span class="meta-tag" data-zh="极夜冷背景" data-en="Polar Night Backdrop">极夜冷背景</span>
+            <span class="meta-tag" data-zh="网格卡片面板" data-en="Dashboard Grid Panels">网格卡片面板</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -16663,7 +16736,7 @@ Photography uses responsive `srcset` with art-direction crops at major breakpoin
       </a>
 
       <!-- Card: Spotify Spec -->
-      <a href="pages/spotify.html" target="_blank" class="card" data-source="imported" data-tags="tech,dark" data-dark="true"  style="--accent: #1ed760; --accent-glow: rgba(30, 215, 96, 0.08); --preview-bg: #121212;">
+      <a href="pages/spotify.html" target="_blank" class="card" data-source="imported" data-tags="tech,dark,green" data-dark="true"  style="--accent: #1ed760; --accent-glow: rgba(30, 215, 96, 0.08); --preview-bg: #121212;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -16690,16 +16763,16 @@ Photography uses responsive `srcset` with art-direction crops at major breakpoin
             <span class="card-title">Spotify Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="纯暗色调的极简数字唱机界面，通过标志性的 Spotify 绿亮线聚焦核心控制，界面完全为音乐封面让路。" data-en="A music player design system, utilizing deep charcoal soundstages, sound-pressure neon green lines, and rounded cover jackets.">
             纯暗色调的极简数字唱机界面，通过标志性的 Spotify 绿亮线聚焦核心控制，界面完全为音乐封面让路。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">纯黑视听室</span>
-            <span class="meta-tag">声压亮绿</span>
-            <span class="meta-tag">圆角专辑卡片</span>
+            <span class="meta-tag" data-zh="纯黑视听室" data-en="Pure Dark Soundstage">纯黑视听室</span>
+            <span class="meta-tag" data-zh="声压亮绿" data-en="Vibrant Green Indicators">声压亮绿</span>
+            <span class="meta-tag" data-zh="圆角专辑卡片" data-en="Rounded Album Art">圆角专辑卡片</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -16998,7 +17071,7 @@ What distinguishes Spotify is its pill-and-circle geometry. Primary buttons use 
       </a>
 
       <!-- Card: PlayStation Spec -->
-      <a href="pages/playstation.html" target="_blank" class="card" data-source="imported" data-tags="tech,dark" data-dark="true"  style="--accent: #003087; --accent-glow: rgba(0, 48, 135, 0.08); --preview-bg: #0f0f12;">
+      <a href="pages/playstation.html" target="_blank" class="card" data-source="imported" data-tags="tech,dark,blue" data-dark="true"  style="--accent: #003087; --accent-glow: rgba(0, 48, 135, 0.08); --preview-bg: #0f0f12;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -17025,16 +17098,16 @@ What distinguishes Spotify is its pill-and-circle geometry. Primary buttons use 
             <span class="card-title">PlayStation Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="索尼主打次世代游戏视听的深灰铬金属格调，使用高光青蓝色进行层级标记，富有未来的数字娱乐风。" data-en="A console retail layout, featuring deep chrome-blue frames, bright blue highlights, and card sliders.">
             索尼主打次世代游戏视听的深灰铬金属格调，使用高光青蓝色进行层级标记，富有未来的数字娱乐风。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">游戏主机深灰</span>
-            <span class="meta-tag">高光青蓝</span>
-            <span class="meta-tag">卡片三轨流布局</span>
+            <span class="meta-tag" data-zh="游戏主机深灰" data-en="Console Dark Chrome">游戏主机深灰</span>
+            <span class="meta-tag" data-zh="高光青蓝" data-en="Electric Blue Highlights">高光青蓝</span>
+            <span class="meta-tag" data-zh="卡片三轨流布局" data-en="Game Slider Tracks">卡片三轨流布局</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -17702,7 +17775,7 @@ All interactive elements meet WCAG AAA (≥ 44×44px). `{component.button-primar
       </a>
 
       <!-- Card: Tesla Spec -->
-      <a href="pages/tesla.html" target="_blank" class="card" data-source="imported" data-tags="tech,automotive" data-dark="false"  style="--accent: #171a20; --accent-glow: rgba(23, 26, 32, 0.08); --preview-bg: #ffffff;">
+      <a href="pages/tesla.html" target="_blank" class="card" data-source="imported" data-tags="tech,automotive,neutral" data-dark="false"  style="--accent: #171a20; --accent-glow: rgba(23, 26, 32, 0.08); --preview-bg: #ffffff;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -17729,16 +17802,16 @@ All interactive elements meet WCAG AAA (≥ 44×44px). `{component.button-primar
             <span class="card-title">Tesla Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="特斯拉著名的极致减法界面，全屏车载摄影大背景中仅漂浮透明毛玻璃菜单与亮红线框。" data-en="A stark subtractive electric drive showcase, featuring transparent glass panes and minimal red highlight outlines.">
             特斯拉著名的极致减法界面，全屏车载摄影大背景中仅漂浮透明毛玻璃菜单与亮红线框。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">极致全大写减法</span>
-            <span class="meta-tag">电驱蓝点缀</span>
-            <span class="meta-tag">透明毛玻璃层</span>
+            <span class="meta-tag" data-zh="极致全大写减法" data-en="Subtracted All-Caps Type">极致全大写减法</span>
+            <span class="meta-tag" data-zh="电驱蓝点缀" data-en="Red Driving Accent">电驱蓝点缀</span>
+            <span class="meta-tag" data-zh="透明毛玻璃层" data-en="Glassmorphism Layers">透明毛玻璃层</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -18075,7 +18148,7 @@ When refining existing screens generated with this design system:
       </a>
 
       <!-- Card: Lamborghini Spec -->
-      <a href="pages/lamborghini.html" target="_blank" class="card" data-source="imported" data-tags="automotive,dark" data-dark="true"  style="--accent: #FFC000; --accent-glow: rgba(255, 192, 0, 0.08); --preview-bg: #000000;">
+      <a href="pages/lamborghini.html" target="_blank" class="card" data-source="imported" data-tags="automotive,dark,yellow" data-dark="true"  style="--accent: #FFC000; --accent-glow: rgba(255, 192, 0, 0.08); --preview-bg: #000000;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -18102,16 +18175,16 @@ When refining existing screens generated with this design system:
             <span class="card-title">Lamborghini Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="兰博基尼著名的漆黑大教堂格调，完全使用纯黑色填充整个画布，仅以纯金色与冷白粗体宣告狂野性能。" data-en="A wild performance brand showcase, using absolute black void spaces, gold-bronze badges, and 12-degree cut angles.">
             兰博基尼著名的漆黑大教堂格调，完全使用纯黑色填充整个画布，仅以纯金色与冷白粗体宣告狂野性能。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">兰博黄金色</span>
-            <span class="meta-tag">绝对纯黑画布</span>
-            <span class="meta-tag">12度斜切边角</span>
+            <span class="meta-tag" data-zh="兰博黄金色" data-en="Lamborghini Gold Accent">兰博黄金色</span>
+            <span class="meta-tag" data-zh="绝对纯黑画布" data-en="Void Black Canvas">绝对纯黑画布</span>
+            <span class="meta-tag" data-zh="12度斜切边角" data-en="12-Degree Chamfer Cuts">12度斜切边角</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -18449,7 +18522,7 @@ When refining existing screens generated with this design system:
       </a>
 
       <!-- Card: Nintendo 2001 Spec -->
-      <a href="pages/nintendo-2001.html" target="_blank" class="card" data-source="imported" data-tags="retro" data-dark="false" data-retro="nintendo" style="--accent: #e60012; --accent-glow: rgba(230, 0, 18, 0.08); --preview-bg: #a1accb;">
+      <a href="pages/nintendo-2001.html" target="_blank" class="card" data-source="imported" data-tags="retro,red" data-dark="false" data-retro="nintendo" style="--accent: #e60012; --accent-glow: rgba(230, 0, 18, 0.08); --preview-bg: #a1accb;">
         <div class="card-preview">
           <div class="mockup-container">
             <div class="mockup-header">
@@ -18476,16 +18549,16 @@ When refining existing screens generated with this design system:
             <span class="card-title">Nintendo 2001 Spec</span>
             <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
               <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor; margin-right: 4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              <span>Copy</span>
+              <span data-zh="复制" data-en="Copy">复制</span>
             </button>
           </div>
-          <div class="card-desc">
+          <div class="card-desc" data-zh="千禧年经典的“游戏机金属”网页重现，运用拉丝灰蓝色双坡度立体框、半调圆点矩阵与亮红按钮。" data-en="A Y2K console gaming portal, featuring steel blue metallic borders, Nintendo red CTA buttons, and halftoned grids.">
             千禧年经典的“游戏机金属”网页重现，运用拉丝灰蓝色双坡度立体框、半调圆点矩阵与亮红按钮。
           </div>
           <div class="meta-tags">
-            <span class="meta-tag">千禧拉丝蓝</span>
-            <span class="meta-tag">任天堂正红</span>
-            <span class="meta-tag">半调网格圆点</span>
+            <span class="meta-tag" data-zh="千禧拉丝蓝" data-en="Y2K Metallic Blue">千禧拉丝蓝</span>
+            <span class="meta-tag" data-zh="任天堂正红" data-en="Nintendo Red Accent">任天堂正红</span>
+            <span class="meta-tag" data-zh="半调网格圆点" data-en="Halftoned Dot Matrix">半调网格圆点</span>
           </div>
           <textarea class="raw-spec-markdown" style="display:none;">---
 version: alpha
@@ -19141,64 +19214,42 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
       </a>
     </div>
 
-    <!-- ═══════════════════ TUTORIAL ═══════════════════ -->
-    <div class="tutorial-section">
-      <div class="tutorial-header">
-        <span class="tutorial-eyebrow">INTEGRATION GUIDE</span>
-        <h2>如何将设计规范导入您的项目？</h2>
-        <p class="tutorial-subtitle">仅需三步，即可将 Markdown 格式的设计规范转化为您项目的实际样式与主题配置。</p>
-      </div>
-      
-      <div class="tutorial-steps">
-        <div class="tutorial-step">
-          <div class="step-num">01</div>
-          <h3>复制并保存设计 Token</h3>
-          <p>进入任意设计规范详情页，点击右上角的 <strong>“Copy Spec”</strong> 复制 Markdown 文本。推荐将该内容保存至项目文档中（如 <code>docs/design-system.md</code>），作为团队一致遵循的设计标准源头。</p>
-        </div>
-
-        <div class="tutorial-step">
-          <div class="step-num">02</div>
-          <h3>声明 CSS 自定义属性</h3>
-          <p>将设计系统中的色板与大小 token 转换为 CSS 变量。声明在全局样式表（例如 <code>global.css</code>）的根元素中，以便在项目各处引用：</p>
-          <div class="tutorial-code">
-            <pre><code>:root {
-  --color-primary: #42b883;
-  --font-sans: 'Inter', sans-serif;
-  --radius-lg: 8px;
-}</code></pre>
-          </div>
-        </div>
-
-        <div class="tutorial-step">
-          <div class="step-num">03</div>
-          <h3>集成框架配置 (可选)</h3>
-          <p>如果您使用 Tailwind CSS，可以将设计系统对应的数值配置写入您的 <code>tailwind.config.js</code> 配置文件中，实现原子化类的无缝继承：</p>
-          <div class="tutorial-code">
-            <pre><code>module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        vue: '#42b883',
-      }
-    }
-  }
-}</code></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>© 2026 Design Systems Hub · 精选网页设计系统与规范库</p>
+    <p data-zh="© 2026 Design Systems Hub · 精选网页设计系统与规范库" data-en="© 2026 Design Systems Hub · Curated Web Design System Library">© 2026 Design Systems Hub · 精选网页设计系统与规范库</p>
   </footer>
 
   <!-- Filter & Copy Logic -->
   <script>
     let currentSource = 'manual';
-    let currentTag = 'all';
+    let currentCategoryTag = 'all';
+    let currentColorTag = 'all';
+    let currentLang = 'zh';
+
+    function setLang(lang) {
+      currentLang = lang;
+      
+      // Update active toggle buttons
+      document.getElementById('btn-lang-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('btn-lang-en').classList.toggle('active', lang === 'en');
+      
+      // Update toggle button text states if needed
+      document.querySelectorAll('[data-zh]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
+      
+      // Update title
+      const title = document.querySelector('title');
+      if (title && title.getAttribute('data-' + lang)) {
+        title.textContent = title.getAttribute('data-' + lang);
+      }
+      
+      // Toggle card raw spec language content is unaffected
+      // Re-apply filters to update empty state text if visible
+      applyFilter();
+    }
 
     function filterCategory(catId, element) {
       // Set active tab
@@ -19210,13 +19261,21 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
       applyFilter();
     }
 
-    function filterTag(tagId, element) {
-      // Set active tag
-      const tags = document.querySelectorAll('.filter-tag');
+    function filterCategoryTag(tagId, element) {
+      const tags = document.querySelectorAll('#category-filters .filter-tag');
       tags.forEach(tag => tag.classList.remove('active'));
       element.classList.add('active');
 
-      currentTag = tagId;
+      currentCategoryTag = tagId;
+      applyFilter();
+    }
+
+    function filterColorTag(tagId, element) {
+      const tags = document.querySelectorAll('#color-filters .filter-tag');
+      tags.forEach(tag => tag.classList.remove('active'));
+      element.classList.add('active');
+
+      currentColorTag = tagId;
       applyFilter();
     }
 
@@ -19227,16 +19286,25 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
       cards.forEach(card => {
         const sourceMatch = card.getAttribute('data-source') === currentSource;
         
-        let tagMatch = false;
-        if (currentTag === 'all') {
-          tagMatch = true;
+        let catMatch = false;
+        if (currentCategoryTag === 'all') {
+          catMatch = true;
         } else {
           const tagsAttr = card.getAttribute('data-tags') || '';
           const tagList = tagsAttr.split(',');
-          tagMatch = tagList.includes(currentTag);
+          catMatch = tagList.includes(currentCategoryTag);
+        }
+
+        let colorMatch = false;
+        if (currentColorTag === 'all') {
+          colorMatch = true;
+        } else {
+          const tagsAttr = card.getAttribute('data-tags') || '';
+          const tagList = tagsAttr.split(',');
+          colorMatch = tagList.includes(currentColorTag);
         }
         
-        if (sourceMatch && tagMatch) {
+        if (sourceMatch && catMatch && colorMatch) {
           card.style.display = 'flex';
           visibleCount++;
         } else {
@@ -19255,11 +19323,19 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
         emptyState.style.color = 'var(--text-secondary)';
         emptyState.style.fontFamily = "'Outfit', sans-serif";
         emptyState.style.fontSize = '16px';
+        document.getElementById('cards-grid').appendChild(emptyState);
+      }
+      
+      if (currentLang === 'zh') {
         emptyState.innerHTML = `
           <div style="font-size: 32px; margin-bottom: 12px;">🔍</div>
           <div>没有找到符合条件的设计规范</div>
         `;
-        document.getElementById('cards-grid').appendChild(emptyState);
+      } else {
+        emptyState.innerHTML = `
+          <div style="font-size: 32px; margin-bottom: 12px;">🔍</div>
+          <div>No matching design specifications found</div>
+        `;
       }
       
       if (visibleCount === 0) {
@@ -19279,7 +19355,11 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
       const mdText = textarea.value;
       navigator.clipboard.writeText(mdText).then(() => {
         const originalHTML = button.innerHTML;
-        button.innerHTML = `<svg viewBox="0 0 24 24" style="width: 10px; height: 10px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+        const copiedHTML = currentLang === 'zh' 
+          ? `<svg viewBox="0 0 24 24" style="width: 10px; height: 10px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 已复制!`
+          : `<svg viewBox="0 0 24 24" style="width: 10px; height: 10px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
+        
+        button.innerHTML = copiedHTML;
         button.style.borderColor = 'var(--accent)';
         button.style.background = 'var(--accent)';
         
@@ -19295,7 +19375,8 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
         }, 2000);
       }).catch(err => {
         console.error(err);
-        alert('复制失败: ' + err);
+        const errMsg = currentLang === 'zh' ? '复制失败: ' : 'Failed to copy: ';
+        alert(errMsg + err);
       });
     }
 

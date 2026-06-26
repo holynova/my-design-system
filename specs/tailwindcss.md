@@ -1,3 +1,30 @@
+---
+version: alpha
+name: Tailwind CSS
+description: A modern, utility-first CSS framework prioritizing strict design system scales, indigo/sky color palettes, and responsive prefixes.
+colors:
+  primary: "#38bdf8"
+  primary-focus: "#6366f1"
+  canvas: "#ffffff"
+  surface-card: "#f8fafc"
+  surface-soft: "#f1f5f9"
+  ink: "#0f172a"
+  body: "#334155"
+  muted: "#94a3b8"
+  hairline: "#e2e8f0"
+typography:
+  display-xl:
+    fontSize: "30px"
+    fontWeight: "800"
+    lineHeight: "1.2"
+    use: "Section Heading"
+  body-md:
+    fontSize: "16px"
+    fontWeight: "400"
+    lineHeight: "1.5"
+    use: "Primary Body"
+---
+
 # Design System — Tailwind CSS (Utility-First)
 
 Extracted and adapted from [tailwindcss.com](https://tailwindcss.com).
@@ -169,11 +196,15 @@ Tailwind uses a proportional 4px layout scale (1 unit = 4px):
 - Inline code runs inside light purple/pink gray chips `bg-slate-100 text-pink-600 px-1 py-0.5 rounded`
 - Preformatted blocks use dark slate background `bg-slate-900 text-slate-100 p-4 rounded-xl font-mono`
 
----
+## Do's and Don'ts
 
-## 14. Anti-Patterns (What This System Avoids)
+### Do
+- Tie all color usage strictly to semantic numerical tokens (e.g. `bg-slate-900`).
+- Resolve styles directly via utility class combinations rather than writing custom CSS rules.
+- Rely exclusively on CSS Flexbox and Grid for page structure layouts.
 
-- No absolute colors — color is always tied to semantic numerical tokens
-- No custom class inflation — styles are resolved directly via tailwind utility combinations
-- No complex layout floats — CSS Flex and Grid are the exclusive structure systems
-- No unconstrained font sizes — type sizes map strictly to the `text-` prefixes scale
+### Don't
+- Don't use absolute or hardcoded hex colors inline without mapping to tailwind variables.
+- Don't use traditional CSS floats or complex position hacks.
+- Don't introduce unconstrained font sizes outside the predefined `text-` scale prefixes.
+

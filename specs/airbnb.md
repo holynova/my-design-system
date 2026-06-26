@@ -536,6 +536,18 @@ There are no progressive elevation tiers — the system either has the one shado
 - Property and city-link grids drop column counts cleanly at each breakpoint — never reflow rows; always reduce columns.
 - Reservation card on listing detail switches from sticky right-rail to a sticky bottom bar on mobile, carrying just the "Reserve" CTA + nightly price summary.
 
+## Do's and Don'ts
+
+### Do
+- Use Coral Rausch (`#ff385c`) exclusively for primary CTA buttons.
+- Keep property cards with `{rounded.lg}` (12px or 14px) rounded corners.
+- Set card text layouts to have generous vertical gaps for high legibility.
+
+### Don't
+- Don't use sharp, non-rounded corners on property images or primary action cards.
+- Don't apply dark or high-contrast grey backgrounds on core consumer search screens.
+- Don't add deep, harsh shadows on static elements.
+
 ## Known Gaps
 
 - **Hover state colors:** intentionally not documented per the global no-hover policy — Airbnb's actual `:hover` styling for property cards is a subtle elevation lift, but precise extraction is unreliable.

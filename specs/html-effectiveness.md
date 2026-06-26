@@ -1,3 +1,30 @@
+---
+version: alpha
+name: HTML Effectiveness
+description: A functional-minimalist reading design system with warm editorial style, featuring classic Serif/Sans/Mono typography and thin rules.
+colors:
+  primary: "#d97757"
+  primary-focus: "#b85c3e"
+  canvas: "#FAF9F5"
+  surface-card: "#FFFFFF"
+  surface-soft: "#E3DACC"
+  ink: "#141413"
+  body: "#3D3D3A"
+  muted: "#87867F"
+  hairline: "#D1CFC5"
+typography:
+  display-xl:
+    fontSize: "38px"
+    fontWeight: "500"
+    lineHeight: "1.06"
+    use: "Page Heading"
+  body-md:
+    fontSize: "16px"
+    fontWeight: "400"
+    lineHeight: "1.55"
+    use: "Primary Body"
+---
+
 # Design System — "The unreasonable effectiveness of HTML"
 
 Extracted from [thariqs.github.io/html-effectiveness](https://thariqs.github.io/html-effectiveness).
@@ -262,16 +289,16 @@ No breakpoint for the card grid itself — `auto-fill, minmax(316px, 1fr)` handl
 - `text-underline-offset: 3px` for better readability
 - No syntax highlighting — plain mono text
 
----
+## Do's and Don'ts
 
-## 14. Anti-Patterns (What This System Avoids)
+### Do
+- Use warm-tinted neutrals throughout; never pure black or pure gray.
+- Set snappy transitions (120–150ms) for responsive hover states.
+- Rely on borders and spacing to define cards and layouts.
 
-- No pure black (`#000`) or pure gray — always warm-tinted
-- No bold weights above 600
-- No box shadows on static elements
-- No background blur or glassmorphism
-- No gradient backgrounds (only one subtle gradient in hero SVG)
-- No large border-radius (>14px) except for pills
-- No animations over 150ms
-- No external font loads — fully self-contained
-- No opacity-based hover states — use color shifts or positional changes instead
+### Don't
+- Don't use bold weights above 600.
+- Don't apply drop shadows to static cards or containers.
+- Don't use background blurs, glassmorphism, or mesh gradients.
+- Don't load external fonts; rely strictly on system typography.
+
