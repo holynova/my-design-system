@@ -151,43 +151,68 @@
       color: #ffffff;
     }
 
-    /* Category Filter Tabs (2 main source tabs) */
-    .category-tabs {
+    /* Unified Filter Toolbar & Controls */
+    .filter-row {
       display: flex;
+      align-items: center;
       justify-content: center;
       gap: 16px;
-      margin-bottom: 56px;
+      margin: 0 auto 48px auto;
+      flex-wrap: wrap;
       animation: fadeInDown 0.8s ease-out 0.1s both;
+    }
+
+    .category-tabs {
+      display: flex;
+      gap: 8px;
     }
 
     .category-tab {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 28px;
+      gap: 8px;
+      padding: 8px 18px;
       background: var(--card-bg);
       border: 1.5px solid var(--card-border);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-md);
       font-family: 'Outfit', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 13.5px;
+      font-weight: 600;
       color: var(--text-secondary);
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(20, 20, 19, 0.02);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 6px rgba(20, 20, 19, 0.01);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .category-tab:hover {
       border-color: var(--text-main);
       color: var(--text-main);
-      transform: translateY(-2px);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(20, 20, 19, 0.04);
     }
 
     .category-tab.active {
       background: var(--text-main);
       border-color: var(--text-main);
       color: #ffffff;
-      box-shadow: 0 12px 28px rgba(20, 20, 19, 0.15);
+      box-shadow: 0 8px 20px rgba(20, 20, 19, 0.12);
+    }
+
+    .filter-separator {
+      width: 1.5px;
+      height: 18px;
+      background: var(--card-border);
+      opacity: 0.8;
+      align-self: center;
+    }
+
+    @media (max-width: 640px) {
+      .filter-separator {
+        display: none;
+      }
+      .filter-row {
+        gap: 12px;
+      }
     }
 
     /* Grid Layout: Compact 4-column layout */
@@ -538,11 +563,7 @@
     /* Filter Tags Styling */
     .filter-tags {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 40px;
-      animation: fadeInDown 0.8s ease-out 0.15s both;
+      gap: 8px;
     }
 
     .filter-tag {
@@ -551,7 +572,7 @@
       border: 1.5px solid var(--card-border);
       border-radius: var(--radius-md);
       font-family: 'Outfit', sans-serif;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 600;
       color: var(--text-secondary);
       cursor: pointer;
@@ -595,40 +616,19 @@
       </p>
     </header>
 
-    <!-- ═══════════════════ CATEGORY FILTER TABS ═══════════════════ -->
-    <div class="category-tabs">
-      <div class="category-tab active" onclick="filterCategory('manual', this)" data-zh="精选设计项目" data-en="Curated Projects">
-        <span>精选设计项目</span>
+    <!-- ═══════════════════ FILTER TOOLBAR ═══════════════════ -->
+    <div class="filter-row">
+      <div class="category-tabs">
+      <div class="category-tab active" onclick="filterCategory('manual', this)" data-zh="精选设计" data-en="Curated Specs">精选设计</div>
+      <div class="category-tab " onclick="filterCategory('imported', this)" data-zh="社区克隆" data-en="Community Clones">社区克隆</div>
+
       </div>
-      <div class="category-tab " onclick="filterCategory('imported', this)" data-zh="社区克隆项目" data-en="Community Clones">
-        <span>社区克隆项目</span>
+      <div class="filter-separator"></div>
+      <div class="filter-tags" id="theme-filters">
+        <div class="filter-tag active" onclick="filterThemeTag('all', this)" data-zh="全部" data-en="All">全部</div>
+        <div class="filter-tag" onclick="filterThemeTag('dark', this)" data-zh="暗色" data-en="Dark">暗色</div>
+        <div class="filter-tag" onclick="filterThemeTag('light', this)" data-zh="亮色" data-en="Light">亮色</div>
       </div>
-
-    </div>
-
-    <!-- ═══════════════════ FILTER TAGS ═══════════════════ -->
-    <div style="margin-bottom: 12px; text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.15em; font-family: 'Outfit', sans-serif;" data-zh="类型筛选" data-en="Filter by Type">类型筛选</div>
-    <div class="filter-tags" id="category-filters" style="margin-bottom: 24px;">
-      <div class="filter-tag active" onclick="filterCategoryTag('all', this)" data-zh="全部" data-en="All">全部</div>
-      <div class="filter-tag" onclick="filterCategoryTag('ai', this)" data-zh="人工智能" data-en="AI & LLM">人工智能</div>
-      <div class="filter-tag" onclick="filterCategoryTag('devtools', this)" data-zh="开发者工具" data-en="DevTools">开发者工具</div>
-      <div class="filter-tag" onclick="filterCategoryTag('saas', this)" data-zh="办公与 SaaS" data-en="SaaS & Productivity">办公与 SaaS</div>
-      <div class="filter-tag" onclick="filterCategoryTag('fintech', this)" data-zh="金融与加密" data-en="Fintech & Crypto">金融与加密</div>
-      <div class="filter-tag" onclick="filterCategoryTag('retail', this)" data-zh="电商与零售" data-en="E-commerce & Retail">电商与零售</div>
-      <div class="filter-tag" onclick="filterCategoryTag('tech', this)" data-zh="媒体与科技" data-en="Media & Tech">媒体与科技</div>
-      <div class="filter-tag" onclick="filterCategoryTag('automotive', this)" data-zh="汽车与工业" data-en="Automotive & Industry">汽车与工业</div>
-      <div class="filter-tag" onclick="filterCategoryTag('dark', this)" data-zh="暗色主题" data-en="Dark Theme">暗色主题</div>
-      <div class="filter-tag" onclick="filterCategoryTag('retro', this)" data-zh="复古怀旧" data-en="Retro Nostalgia">复古怀旧</div>
-    </div>
-
-    <div style="margin-bottom: 12px; text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.15em; font-family: 'Outfit', sans-serif;" data-zh="色系筛选" data-en="Filter by Color">色系筛选</div>
-    <div class="filter-tags" id="color-filters" style="margin-bottom: 48px;">
-      <div class="filter-tag active" onclick="filterColorTag('all', this)" data-zh="全部色系" data-en="All Colors">全部色系</div>
-      <div class="filter-tag" onclick="filterColorTag('red', this)" style="border-color: rgba(239, 68, 68, 0.25);"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ef4444; margin-right:6px; vertical-align:middle; transform: translateY(-1px);"></span><span data-zh="红色 / 珊瑚红" data-en="Red / Coral">红色 / 珊瑚红</span></div>
-      <div class="filter-tag" onclick="filterColorTag('blue', this)" style="border-color: rgba(59, 130, 246, 0.25);"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#3b82f6; margin-right:6px; vertical-align:middle; transform: translateY(-1px);"></span><span data-zh="蓝色 / 靛蓝" data-en="Blue / Indigo">蓝色 / 靛蓝</span></div>
-      <div class="filter-tag" onclick="filterColorTag('green', this)" style="border-color: rgba(34, 197, 94, 0.25);"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e; margin-right:6px; vertical-align:middle; transform: translateY(-1px);"></span><span data-zh="绿色 / 翡翠绿" data-en="Green / Emerald">绿色 / 翡翠绿</span></div>
-      <div class="filter-tag" onclick="filterColorTag('yellow', this)" style="border-color: rgba(245, 158, 11, 0.25);"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#f59e0b; margin-right:6px; vertical-align:middle; transform: translateY(-1px);"></span><span data-zh="黄色 / 橙色" data-en="Yellow / Orange">黄色 / 橙色</span></div>
-      <div class="filter-tag" onclick="filterColorTag('neutral', this)" style="border-color: rgba(107, 114, 128, 0.25);"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#6b7280; margin-right:6px; vertical-align:middle; transform: translateY(-1px);"></span><span data-zh="黑白灰 / 单色" data-en="Monochrome / Neutral">黑白灰 / 单色</span></div>
     </div>
 
     <!-- ═══════════════════ GRID ═══════════════════ -->
@@ -19224,8 +19224,7 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
   <!-- Filter & Copy Logic -->
   <script>
     let currentSource = 'manual';
-    let currentCategoryTag = 'all';
-    let currentColorTag = 'all';
+    let currentThemeTag = 'all';
     let currentLang = 'zh';
 
     function setLang(lang) {
@@ -19261,21 +19260,12 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
       applyFilter();
     }
 
-    function filterCategoryTag(tagId, element) {
-      const tags = document.querySelectorAll('#category-filters .filter-tag');
+    function filterThemeTag(tagId, element) {
+      const tags = document.querySelectorAll('#theme-filters .filter-tag');
       tags.forEach(tag => tag.classList.remove('active'));
       element.classList.add('active');
 
-      currentCategoryTag = tagId;
-      applyFilter();
-    }
-
-    function filterColorTag(tagId, element) {
-      const tags = document.querySelectorAll('#color-filters .filter-tag');
-      tags.forEach(tag => tag.classList.remove('active'));
-      element.classList.add('active');
-
-      currentColorTag = tagId;
+      currentThemeTag = tagId;
       applyFilter();
     }
 
@@ -19285,26 +19275,18 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
       
       cards.forEach(card => {
         const sourceMatch = card.getAttribute('data-source') === currentSource;
+        const isDark = card.getAttribute('data-dark') === 'true';
         
-        let catMatch = false;
-        if (currentCategoryTag === 'all') {
-          catMatch = true;
-        } else {
-          const tagsAttr = card.getAttribute('data-tags') || '';
-          const tagList = tagsAttr.split(',');
-          catMatch = tagList.includes(currentCategoryTag);
-        }
-
-        let colorMatch = false;
-        if (currentColorTag === 'all') {
-          colorMatch = true;
-        } else {
-          const tagsAttr = card.getAttribute('data-tags') || '';
-          const tagList = tagsAttr.split(',');
-          colorMatch = tagList.includes(currentColorTag);
+        let themeMatch = false;
+        if (currentThemeTag === 'all') {
+          themeMatch = true;
+        } else if (currentThemeTag === 'dark') {
+          themeMatch = isDark;
+        } else if (currentThemeTag === 'light') {
+          themeMatch = !isDark;
         }
         
-        if (sourceMatch && catMatch && colorMatch) {
+        if (sourceMatch && themeMatch) {
           card.style.display = 'flex';
           visibleCount++;
         } else {
