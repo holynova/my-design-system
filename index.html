@@ -3789,6 +3789,49 @@ A sticky right-side vertical menu (width: `224px`) displaying active page subsec
         </div>
       </a>
 
+      <!-- Card: Codex Resets -->
+      <a href="pages/codex-resets.html" target="_blank" class="card" data-source="manual" data-tags="ai,devtools,orange" data-dark="false" data-spec-src="specs/codex-resets.md" style="--accent: #ff5c2b; --accent-glow: rgba(255, 92, 43, 0.08); --preview-bg: #fff4dd;">
+        <div class="card-preview">
+          <div class="mockup-container" style="border:2px solid #26201a; box-shadow:4px 4px 0 #26201a;">
+            <div class="mockup-header">
+              <div class="mockup-dot" style="background:#ff5c2b"></div>
+              <div class="mockup-dot" style="background:#ffd84d"></div>
+              <div class="mockup-dot" style="background:#a5dcff"></div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title" style="font-family:'Arial Rounded MT Bold',system-ui,sans-serif; color:#26201a;">Codex Resets</div>
+              <div class="mockup-tag" style="color:#5c5347;">Sticker Neo-Brutalism</div>
+              <div class="mockup-swatches">
+                <div class="mockup-swatch-chip" style="background:#fff4dd; border:1px solid #26201a"></div>
+                <div class="mockup-swatch-chip" style="background:#ff5c2b"></div>
+                <div class="mockup-swatch-chip" style="background:#ffd84d"></div>
+                <div class="mockup-swatch-chip" style="background:#ffb9cc"></div>
+                <div class="mockup-swatch-chip" style="background:#a5dcff"></div>
+              </div>
+              <div class="mockup-line" style="width:85%; background:#26201a"></div>
+              <div class="mockup-line" style="width:60%; background:#877b6b"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <span class="card-title">Codex Resets</span>
+            <button class="card-copy-btn" title="复制 Markdown 规范" onclick="copyCardSpec(event, this)">
+              <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor;margin-right:4px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              <span data-zh="复制" data-en="Copy">复制</span>
+            </button>
+          </div>
+          <div class="card-desc" data-zh="贴纸纸张式新粗野主义：暖米色画布、粗圆标题、硬偏移阴影与黄粉蓝状态卡，把实时数据做成轻松而清晰的仪表界面。" data-en="Sticker-sheet neo-brutalism with warm paper, rounded display type, hard offset shadows, and semantic yellow, rose, and sky status cards.">
+            贴纸纸张式新粗野主义：暖米色画布、粗圆标题、硬偏移阴影与黄粉蓝状态卡，把实时数据做成轻松而清晰的仪表界面。
+          </div>
+          <div class="meta-tags">
+            <span class="meta-tag" data-zh="贴纸新粗野主义" data-en="Sticker Neo-Brutalism">贴纸新粗野主义</span>
+            <span class="meta-tag" data-zh="暖米色与亮橙" data-en="Cream & Orange">暖米色与亮橙</span>
+            <span class="meta-tag" data-zh="Baloo 2 粗圆体" data-en="Baloo 2 Display">Baloo 2 粗圆体</span>
+          </div>
+        </div>
+      </a>
+
       <!-- Card: Claude Spec -->
       <a href="pages/claude.html" target="_blank" class="card" data-source="imported" data-tags="ai,red" data-dark="false"  style="--accent: #cc785c; --accent-glow: rgba(204, 120, 92, 0.08); --preview-bg: #f5f0e8;">
         <div class="card-preview">
@@ -19325,14 +19368,29 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
       }
     }
 
-    function copyCardSpec(event, button) {
+    async function copyCardSpec(event, button) {
       event.preventDefault();
       event.stopPropagation();
-      
-      const textarea = button.closest('.card').querySelector('.raw-spec-markdown');
-      if (!textarea) return;
-      
-      const mdText = textarea.value;
+
+      const card = button.closest('.card');
+      const textarea = card.querySelector('.raw-spec-markdown');
+      let mdText = textarea ? textarea.value : '';
+
+      if (!mdText && card.dataset.specSrc) {
+        try {
+          const response = await fetch(card.dataset.specSrc);
+          if (!response.ok) throw new Error(`Spec request failed: ${response.status}`);
+          mdText = await response.text();
+        } catch (err) {
+          console.error(err);
+          const errMsg = currentLang === 'zh' ? '规范加载失败: ' : 'Failed to load spec: ';
+          alert(errMsg + err.message);
+          return;
+        }
+      }
+
+      if (!mdText) return;
+
       navigator.clipboard.writeText(mdText).then(() => {
         const originalHTML = button.innerHTML;
         const copiedHTML = currentLang === 'zh' 

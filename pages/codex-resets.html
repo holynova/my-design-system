@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System: Codex Resets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #fff4dd;
+    --card: #fffdf7;
+    --ink: #26201a;
+    --ink-2: #5c5347;
+    --ink-3: #877b6b;
+    --accent: #ff5c2b;
+    --sun: #ffd84d;
+    --watch-paper: #fff0bd;
+    --rose: #ffb9cc;
+    --sky: #a5dcff;
+    --cell-empty: #f1e3c4;
+    --border: 2px solid var(--ink);
+    --shadow: 4px 4px 0 var(--ink);
+    --shadow-sm: 3px 3px 0 var(--ink);
+    --radius: 14px;
+    --display: "Baloo 2", "Arial Rounded MT Bold", system-ui, sans-serif;
+    --body: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.58;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: var(--ink); text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  a:hover { color: var(--accent); }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  code, pre { font-family: var(--mono); }
+  code { background: var(--cell-empty); border-radius: 5px; padding: 2px 5px; font-size: .88em; }
+  pre { margin: 18px 0 0; padding: 18px; background: var(--ink); color: var(--paper); border-radius: 10px; overflow-x: auto; font-size: 12px; line-height: 1.6; }
+  table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 18px; background: var(--card); border: var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+  th, td { padding: 12px 14px; border-bottom: 1.5px solid var(--ink); text-align: left; vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  th { background: var(--sun); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+  td { font-size: 13px; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px 88px; }
+  .masthead { display: flex; align-items: center; gap: 14px; padding: 42px 0 34px; border-bottom: var(--border); }
+  .brand-mark { width: 52px; height: 52px; flex: none; display: grid; place-items: center; background: var(--sun); border: var(--border); border-radius: 50%; box-shadow: var(--shadow-sm); font-family: var(--display); font-size: 31px; font-weight: 800; transform: rotate(-5deg); }
+  .brand-copy h1 { margin: 0; font-family: var(--display); font-size: clamp(28px, 4vw, 38px); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+  .brand-copy p { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; font-style: italic; }
+  .masthead-actions { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+  .sticker-button { min-height: 40px; display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; background: var(--card); color: var(--ink); border: var(--border); border-radius: 999px; box-shadow: var(--shadow-sm); font-family: var(--display); font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer; transition: transform .1s ease, box-shadow .1s ease, background .1s ease; }
+  .sticker-button.primary { background: var(--sun); }
+  .sticker-button:hover { color: var(--ink); background: var(--sky); }
+  .sticker-button:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+
+  .layout { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 52px; padding-top: 42px; align-items: start; min-width: 0; }
+  .sidebar { position: sticky; top: 22px; }
+  main, .sidebar { min-width: 0; }
+  .sidebar-label { margin: 0 0 10px; font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+  .sidebar a { display: block; padding: 7px 10px; margin-bottom: 7px; border: 1.5px solid transparent; border-radius: 9px; color: var(--ink-2); font-family: var(--mono); font-size: 11px; text-decoration: none; }
+  .sidebar a:hover, .sidebar a:focus-visible { background: var(--sun); color: var(--ink); border-color: var(--ink); box-shadow: 2px 2px 0 var(--ink); }
+
+  section { padding-top: 54px; }
+  section:first-child { padding-top: 0; }
+  .section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+  .section-index { font-family: var(--mono); font-size: 11px; color: var(--accent); font-weight: 700; }
+  .section-head h2 { margin: 0; font-family: var(--display); font-size: 26px; font-weight: 800; letter-spacing: -.01em; line-height: 1.1; }
+  .lead { max-width: 62ch; margin: 0; color: var(--ink-2); font-size: 16px; }
+
+  .theme-demo { position: relative; margin-top: 24px; padding: 26px 28px 30px; background: var(--card); background-image: radial-gradient(rgba(38,32,26,.1) 1.5px, transparent 1.5px); background-size: 18px 18px; border: var(--border); border-radius: var(--radius); box-shadow: 6px 6px 0 var(--ink); transform: rotate(-.35deg); }
+  .theme-label { display: block; margin-bottom: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+  .theme-figure { display: inline-block; margin: 0; padding: 0 15px 3px; background: var(--sun); border-radius: 10px; font-family: var(--display); font-size: clamp(38px, 7vw, 64px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; transform: rotate(-1.2deg); }
+  .theme-meta { margin: 12px 0 0; color: var(--ink-3); font-family: var(--mono); font-size: 12px; }
+
+  .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 14px; }
+  .swatch { overflow: hidden; background: var(--card); border: var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); cursor: pointer; transition: transform .15s cubic-bezier(.34,1.56,.64,1); }
+  .swatch:hover { transform: translateY(-3px) rotate(-.5deg); }
+  .swatch-color { height: 76px; border-bottom: var(--border); }
+  .swatch-copy { padding: 10px 12px 11px; }
+  .swatch-name { font-family: var(--display); font-size: 14px; font-weight: 700; }
+  .swatch-hex { color: var(--ink-3); font-family: var(--mono); font-size: 10px; }
+
+  .type-stack { display: grid; gap: 16px; }
+  .type-sample { padding: 18px; background: var(--card); border: var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+  .type-meta { display: flex; justify-content: space-between; gap: 14px; padding-bottom: 8px; margin-bottom: 12px; border-bottom: 1.5px dashed var(--ink); color: var(--ink-3); font-family: var(--mono); font-size: 10px; }
+  .type-display { font-family: var(--display); font-size: clamp(38px, 6vw, 60px); font-weight: 800; line-height: 1.02; letter-spacing: -.03em; }
+  .type-body { font-size: 17px; color: var(--ink-2); }
+  .type-mono { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+
+  .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .metric { padding: 14px 16px 16px; border: var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .metric:nth-child(1) { background: var(--sun); transform: rotate(-1deg); }
+  .metric:nth-child(2) { background: var(--rose); transform: rotate(.8deg); }
+  .metric:nth-child(3) { background: var(--sky); transform: rotate(-.6deg); }
+  .metric span { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; opacity: .75; }
+  .metric strong { display: block; margin-top: 3px; font-family: var(--display); font-size: 30px; line-height: 1.1; }
+  .graph-demo { margin-top: 24px; padding: 18px; background: var(--card); border: var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow-x: auto; }
+  .cells { width: max-content; display: grid; grid-template-columns: repeat(18, 18px); gap: 5px; }
+  .cell { width: 18px; height: 18px; background: var(--cell-empty); border-radius: 5px; }
+  .cell.hit { background: var(--accent); border: 1.5px solid var(--ink); box-shadow: 1px 1px 0 var(--ink); }
+
+  .depth-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .depth-card { min-height: 122px; padding: 18px; background: var(--card); border: var(--border); border-radius: var(--radius); }
+  .depth-card:nth-child(2) { box-shadow: var(--shadow-sm); }
+  .depth-card:nth-child(3) { box-shadow: 6px 6px 0 var(--ink); }
+  .depth-card strong { display: block; font-family: var(--display); font-size: 18px; }
+  .depth-card span { display: block; margin-top: 6px; color: var(--ink-3); font-family: var(--mono); font-size: 10px; }
+
+  .component-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .component-demo { padding: 20px; background: var(--card); border: var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+  .component-label { margin: 0 0 14px; color: var(--ink-3); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+  .speech { position: relative; margin-left: 16px; padding: 13px 15px; background: var(--card); border: var(--border); border-radius: 16px; box-shadow: var(--shadow); }
+  .speech::before { content: ""; position: absolute; left: -8px; top: 18px; width: 13px; height: 13px; background: var(--card); border-left: var(--border); border-bottom: var(--border); transform: rotate(45deg); }
+  .speech time { display: inline-block; padding: 1px 9px 2px; background: var(--sun); border: 1.5px solid var(--ink); border-radius: 999px; font-family: var(--display); font-size: 13px; font-weight: 700; }
+  .speech p { margin: 9px 0 0; font-size: 14px; }
+  .watch { padding: 16px; background: var(--watch-paper); border: var(--border); border-radius: var(--radius); box-shadow: var(--shadow); transform: rotate(.45deg); }
+  .watch span { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  .watch strong { display: inline-block; margin-top: 10px; padding: 2px 12px 5px; background: var(--sun); border: var(--border); border-radius: 12px; box-shadow: var(--shadow-sm); font-family: var(--display); font-size: 42px; letter-spacing: -.04em; line-height: 1; transform: rotate(-1.2deg); }
+
+  .guardrails { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .guardrail { padding: 20px; border: var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+  .guardrail.do { background: var(--sky); transform: rotate(-.3deg); }
+  .guardrail.dont { background: var(--rose); transform: rotate(.3deg); }
+  .guardrail h3 { margin: 0 0 10px; font-family: var(--display); font-size: 21px; }
+  .guardrail ul { margin: 0; padding-left: 20px; }
+  .guardrail li { margin-bottom: 7px; font-size: 14px; }
+
+  .breakpoint { padding: 18px 20px; background: var(--sun); border: var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .breakpoint strong { font-family: var(--display); font-size: 30px; }
+  .breakpoint p { margin: 4px 0 0; font-size: 14px; }
+
+  footer { margin-top: 64px; padding-top: 18px; border-top: var(--border); color: var(--ink-2); font-size: 13px; }
+  footer p { margin: 0 0 5px; }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 0 16px 64px; }
+    .masthead { align-items: flex-start; flex-wrap: wrap; padding-top: 26px; }
+    .brand-mark { width: 44px; height: 44px; font-size: 26px; }
+    .masthead-actions { width: 100%; margin-left: 0; }
+    .layout { grid-template-columns: 1fr; gap: 0; padding-top: 26px; }
+    .sidebar { position: static; display: flex; gap: 6px; width: 100%; max-width: calc(100vw - 32px); overflow-x: auto; padding: 3px 3px 12px; }
+    .sidebar-label { display: none; }
+    .sidebar a { flex: none; margin: 0; background: var(--card); border-color: var(--ink); }
+    section { padding-top: 44px; }
+    .metric-grid { gap: 10px; }
+    .metric { padding: 10px 9px 12px; }
+    .metric span { font-size: 8px; letter-spacing: .03em; white-space: nowrap; }
+    .metric strong { font-size: 22px; }
+    .depth-grid, .component-grid, .guardrails { grid-template-columns: 1fr; }
+    th, td { padding: 10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="brand-mark" aria-hidden="true">↻</div>
+    <div class="brand-copy">
+      <h1>Codex Resets</h1>
+      <p>Sticker-sheet neo-brutalism for a tiny operational tracker</p>
+    </div>
+    <div class="masthead-actions">
+      <a class="sticker-button" href="../index.html">← Back home</a>
+      <a class="sticker-button" href="https://codex-resets.com/" target="_blank" rel="noopener noreferrer">View source ↗</a>
+      <button class="sticker-button primary" id="copy-md-btn" type="button">Copy spec</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Specification sections">
+      <p class="sidebar-label">Specification</p>
+      <a href="#theme">01 Theme</a>
+      <a href="#colors">02 Colors</a>
+      <a href="#type">03 Typography</a>
+      <a href="#layout">04 Layout</a>
+      <a href="#depth">05 Depth</a>
+      <a href="#components">06 Components</a>
+      <a href="#guardrails">07 Guardrails</a>
+      <a href="#responsive">08 Responsive</a>
+      <a href="#prompt">09 Prompt guide</a>
+      <a href="#tokens">10 Tokens</a>
+    </nav>
+
+    <main>
+      <section id="theme">
+        <div class="section-head"><span class="section-index">01</span><h2>Visual theme &amp; atmosphere</h2></div>
+        <p class="lead">Warm cream paper, dark cocoa outlines, hard offset shadows, one loud orange, and pastel metric stickers. The system makes status data feel physical and humorous while preserving a strict reading order.</p>
+        <div class="theme-demo">
+          <span class="theme-label">Time since the last blessing</span>
+          <p class="theme-figure">21 hours ago</p>
+          <p class="theme-meta">Jul 29, 2026 · 12:09 PM</p>
+        </div>
+      </section>
+
+      <section id="colors">
+        <div class="section-head"><span class="section-index">02</span><h2>Color palette &amp; roles</h2></div>
+        <div class="swatches">
+          <div class="swatch" data-color="#fff4dd"><div class="swatch-color" style="background:#fff4dd"></div><div class="swatch-copy"><div class="swatch-name">Paper</div><div class="swatch-hex">#fff4dd</div></div></div>
+          <div class="swatch" data-color="#fffdf7"><div class="swatch-color" style="background:#fffdf7"></div><div class="swatch-copy"><div class="swatch-name">Card</div><div class="swatch-hex">#fffdf7</div></div></div>
+          <div class="swatch" data-color="#26201a"><div class="swatch-color" style="background:#26201a"></div><div class="swatch-copy"><div class="swatch-name">Ink</div><div class="swatch-hex">#26201a</div></div></div>
+          <div class="swatch" data-color="#ff5c2b"><div class="swatch-color" style="background:#ff5c2b"></div><div class="swatch-copy"><div class="swatch-name">Active orange</div><div class="swatch-hex">#ff5c2b</div></div></div>
+          <div class="swatch" data-color="#ffd84d"><div class="swatch-color" style="background:#ffd84d"></div><div class="swatch-copy"><div class="swatch-name">Sun yellow</div><div class="swatch-hex">#ffd84d</div></div></div>
+          <div class="swatch" data-color="#ffb9cc"><div class="swatch-color" style="background:#ffb9cc"></div><div class="swatch-copy"><div class="swatch-name">Rose</div><div class="swatch-hex">#ffb9cc</div></div></div>
+          <div class="swatch" data-color="#a5dcff"><div class="swatch-color" style="background:#a5dcff"></div><div class="swatch-copy"><div class="swatch-name">Sky</div><div class="swatch-hex">#a5dcff</div></div></div>
+          <div class="swatch" data-color="#f1e3c4"><div class="swatch-color" style="background:#f1e3c4"></div><div class="swatch-copy"><div class="swatch-name">Calendar empty</div><div class="swatch-hex">#f1e3c4</div></div></div>
+        </div>
+      </section>
+
+      <section id="type">
+        <div class="section-head"><span class="section-index">03</span><h2>Typography rules</h2></div>
+        <div class="type-stack">
+          <div class="type-sample"><div class="type-meta"><span>DISPLAY · BALOO 2</span><span>40–68px / 800 / 1.05</span></div><div class="type-display">The waiting game</div></div>
+          <div class="type-sample"><div class="type-meta"><span>BODY · SYSTEM UI</span><span>17px / 400 / 1.55</span></div><div class="type-body">Friendly display type carries the joke. Neutral system sans keeps operational copy quick to scan.</div></div>
+          <div class="type-sample"><div class="type-meta"><span>METADATA · UI MONO</span><span>11–12px / 400–700</span></div><div class="type-mono">Last 26 weeks · 39 resets · 8.3d avg.</div></div>
+        </div>
+      </section>
+
+      <section id="layout">
+        <div class="section-head"><span class="section-index">04</span><h2>Layout principles</h2></div>
+        <div class="metric-grid">
+          <div class="metric"><span>Resets</span><strong>39</strong></div>
+          <div class="metric"><span>Avg. wait</span><strong>8.3d</strong></div>
+          <div class="metric"><span>Longest</span><strong>67.7d</strong></div>
+        </div>
+        <div class="graph-demo" aria-label="Contribution graph pattern preview"><div class="cells" id="demo-cells"></div></div>
+      </section>
+
+      <section id="depth">
+        <div class="section-head"><span class="section-index">05</span><h2>Depth &amp; elevation</h2></div>
+        <div class="depth-grid">
+          <div class="depth-card"><strong>Outlined</strong><span>2px ink frame · no shadow</span></div>
+          <div class="depth-card"><strong>Sticker</strong><span>3px hard offset shadow</span></div>
+          <div class="depth-card"><strong>Hero</strong><span>6px hard offset shadow</span></div>
+        </div>
+      </section>
+
+      <section id="components">
+        <div class="section-head"><span class="section-index">06</span><h2>Component styling</h2></div>
+        <div class="component-grid">
+          <div class="component-demo"><p class="component-label">Physical actions</p><button class="sticker-button primary" type="button">browser</button> <button class="sticker-button" type="button">telegram</button></div>
+          <div class="component-demo"><p class="component-label">Speech bubble</p><div class="speech"><time>21 hours ago</time><p>Every announcement, preserved for history.</p></div></div>
+          <div class="component-demo"><p class="component-label">Watch state</p><div class="watch"><span>Reset watch</span><br><strong>64%</strong></div></div>
+          <div class="component-demo"><p class="component-label">Active data cell</p><div class="cells" style="grid-template-columns:repeat(6,18px)"><span class="cell"></span><span class="cell hit"></span><span class="cell"></span><span class="cell hit"></span><span class="cell"></span><span class="cell"></span></div></div>
+        </div>
+      </section>
+
+      <section id="guardrails">
+        <div class="section-head"><span class="section-index">07</span><h2>Do's &amp; don'ts</h2></div>
+        <div class="guardrails">
+          <div class="guardrail do"><h3>Do</h3><ul><li>Keep the cream-and-cocoa base intact.</li><li>Use one dominant status figure.</li><li>Give pastel colors stable metric roles.</li><li>Keep labels, dates, and axes in mono.</li></ul></div>
+          <div class="guardrail dont"><h3>Don't</h3><ul><li>Don't add blurred shadows or glass panels.</li><li>Don't use Baloo 2 for long body copy.</li><li>Don't make every surface orange.</li><li>Don't rotate wrappers or nested text.</li></ul></div>
+        </div>
+      </section>
+
+      <section id="responsive">
+        <div class="section-head"><span class="section-index">08</span><h2>Responsive behavior</h2></div>
+        <div class="breakpoint"><strong>640px</strong><p>The single compact breakpoint tightens page and card padding, reduces chart cells to 15px, shortens metric labels, stacks section headings, and keeps the three summary tiles visible side by side.</p></div>
+      </section>
+
+      <section id="prompt">
+        <div class="section-head"><span class="section-index">09</span><h2>Agent prompt guide</h2></div>
+        <pre>Build a compact operational tracker with warm cream paper (#fff4dd), cocoa ink (#26201a), Baloo 2 display type, system-sans body copy, and mono metadata. Use 2px ink outlines and unblurred 3–6px offset shadows. Make one yellow-highlighted status figure dominant; reserve orange for active events and rose/sky for supporting metrics. Buttons physically depress by translating to their shadow offset. Avoid gradients, glassmorphism, blurred shadows, and extra accent colors.</pre>
+      </section>
+
+      <section id="tokens">
+        <div class="section-head"><span class="section-index">10</span><h2>Core token table</h2></div>
+        <table>
+          <thead><tr><th>Token</th><th>Value</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code>--paper</code></td><td>#fff4dd</td><td>Page canvas</td></tr>
+            <tr><td><code>--card</code></td><td>#fffdf7</td><td>Raised surfaces</td></tr>
+            <tr><td><code>--ink</code></td><td>#26201a</td><td>Text, borders, shadows</td></tr>
+            <tr><td><code>--accent</code></td><td>#ff5c2b</td><td>Active events and link emphasis</td></tr>
+            <tr><td><code>--border</code></td><td>2px solid ink</td><td>Primary object frame</td></tr>
+            <tr><td><code>--shadow</code></td><td>4px 4px 0 ink</td><td>Sticker elevation</td></tr>
+            <tr><td><code>--radius</code></td><td>14px</td><td>Primary card radius</td></tr>
+            <tr><td><code>--measure</code></td><td>58ch</td><td>Readable body width</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p><strong>Codex Resets Design System</strong> · Extracted from <a href="https://codex-resets.com/">codex-resets.com</a> on 2026-07-30.</p>
+    <p>Live counts and timestamps are content, not permanent design tokens.</p>
+  </footer>
+</div>
+
+<script>
+  const hitCells = new Set([4, 11, 17, 22, 23, 31, 38, 44, 51, 59, 62, 67, 74, 82, 89, 95, 101]);
+  const cellHost = document.getElementById('demo-cells');
+  for (let i = 0; i < 108; i += 1) {
+    const cell = document.createElement('span');
+    cell.className = hitCells.has(i) ? 'cell hit' : 'cell';
+    cellHost.appendChild(cell);
+  }
+
+  document.querySelectorAll('.swatch').forEach((swatch) => {
+    swatch.addEventListener('click', async () => {
+      const label = swatch.querySelector('.swatch-hex');
+      const value = swatch.dataset.color;
+      try {
+        await navigator.clipboard.writeText(value);
+        const original = label.textContent;
+        label.textContent = 'Copied!';
+        setTimeout(() => { label.textContent = original; }, 1000);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  });
+
+  document.getElementById('copy-md-btn').addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    const original = button.textContent;
+    try {
+      const response = await fetch('../specs/codex-resets.md');
+      if (!response.ok) throw new Error(`Spec request failed: ${response.status}`);
+      await navigator.clipboard.writeText(await response.text());
+      button.textContent = 'Copied!';
+      button.style.background = 'var(--accent)';
+      button.style.color = 'var(--card)';
+      setTimeout(() => {
+        button.textContent = original;
+        button.style.background = '';
+        button.style.color = '';
+      }, 1800);
+    } catch (error) {
+      console.error(error);
+      button.textContent = 'Open raw spec';
+      setTimeout(() => { window.location.href = '../specs/codex-resets.md'; }, 400);
+    }
+  });
+</script>
+</body>
+</html>
