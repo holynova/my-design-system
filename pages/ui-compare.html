@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System: UI Compare</title>
+<style>
+  :root {
+    --paper: #f3f1e9;
+    --surface: #fbfaf5;
+    --ink: #20201c;
+    --muted: #737269;
+    --line: #d8d5ca;
+    --line-strong: #aaa69a;
+    --amber: #e99b20;
+    --amber-soft: #fff0d2;
+    --green: #2f7a4d;
+    --red: #b84535;
+    --font-ui: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-control: 6px;
+    --radius-card: 7px;
+    --radius-menu: 8px;
+    --radius-dialog: 10px;
+    --shadow-mark: 3px 3px 0 var(--ink);
+    --motion: 140ms ease;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--ink); text-decoration-color: var(--amber); text-underline-offset: 3px; }
+  a:hover { color: var(--amber); }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+  code, pre, .mono { font-family: var(--font-mono); }
+  code { padding: 2px 5px; border-radius: 4px; background: var(--amber-soft); font-size: .88em; }
+  pre {
+    position: relative;
+    margin: 20px 0 0;
+    padding: 16px 18px;
+    overflow-x: auto;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-menu);
+    background: var(--ink);
+    color: #fffdf6;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  pre::before { content: attr(data-label); position: absolute; top: 7px; right: 10px; color: #bcb9ae; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px 92px; }
+  .masthead {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 44px 0 30px;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand-mark { width: 42px; height: 42px; flex: none; display: grid; place-items: center; border: 2px solid var(--ink); background: linear-gradient(90deg, var(--amber) 50%, transparent 50%); box-shadow: var(--shadow-mark); }
+  .brand-mark svg { width: 25px; height: 25px; }
+  .masthead h1 { margin: 0; font-size: clamp(24px, 4vw, 34px); line-height: 1.1; letter-spacing: -.035em; }
+  .masthead .sub { margin-top: 4px; color: var(--muted); font-size: 12px; }
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; margin-left: auto; }
+  .action {
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 11px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-control);
+    background: var(--surface);
+    color: var(--ink);
+    font: 650 12px var(--font-ui);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background var(--motion), border-color var(--motion), color var(--motion), transform var(--motion);
+  }
+  .action:hover { border-color: var(--amber); background: var(--amber-soft); color: var(--ink); }
+  .action.primary { border-color: var(--ink); background: var(--ink); color: #fffdf6; }
+  .action.primary:hover { border-color: var(--ink); background: #38372f; }
+  .action:active { transform: translateY(1px); }
+
+  .layout { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 48px; padding-top: 36px; align-items: start; }
+  .sidebar { position: sticky; top: 20px; }
+  .sidebar-label { margin: 0 0 8px; color: var(--muted); font: 800 10px/1.4 var(--font-ui); letter-spacing: .08em; text-transform: uppercase; }
+  .sidebar a { display: block; margin: 0 0 4px; padding: 6px 8px; border: 1px solid transparent; border-radius: 5px; color: var(--muted); font-size: 11px; text-decoration: none; transition: background var(--motion), border-color var(--motion), color var(--motion); }
+  .sidebar a:hover, .sidebar a:focus-visible { border-color: var(--line); background: var(--surface); color: var(--ink); }
+  main { min-width: 0; }
+  section { padding-top: 46px; }
+  section:first-child { padding-top: 0; }
+  .section-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; padding-bottom: 9px; border-bottom: 1px solid var(--line); }
+  .section-index { color: var(--amber); font: 700 10px var(--font-mono); }
+  h2 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: -.025em; }
+  h3 { margin: 0; font-size: 15px; line-height: 1.25; }
+  p { margin: 0; }
+  .lead { max-width: 68ch; color: var(--muted); font-size: 15px; }
+
+  .theme-demo { margin-top: 20px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius-menu); background: var(--surface); }
+  .theme-demo-header { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
+  .brand-lockup { display: flex; align-items: center; gap: 8px; }
+  .mini-mark { width: 20px; height: 20px; border: 2px solid var(--ink); background: linear-gradient(90deg, var(--amber) 50%, transparent 50%); box-shadow: 2px 2px 0 var(--ink); }
+  .brand-lockup strong { font-size: 13px; letter-spacing: -.02em; }
+  .brand-lockup small { display: block; margin-top: 1px; color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+  .theme-chip { padding: 4px 7px; border: 1px solid var(--amber); border-radius: 5px; background: var(--amber-soft); color: #754a06; font: 700 10px var(--font-mono); }
+  .theme-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 14px; padding-top: 15px; }
+  .theme-copy { padding: 5px 0; }
+  .theme-copy .eyebrow { color: var(--muted); font: 800 10px var(--font-ui); letter-spacing: .08em; text-transform: uppercase; }
+  .theme-copy h3 { margin-top: 7px; font-size: 25px; letter-spacing: -.04em; }
+  .theme-copy p { margin-top: 7px; color: var(--muted); font-size: 12px; }
+  .theme-controls { display: grid; gap: 7px; align-content: start; }
+  .fake-field { display: grid; gap: 4px; }
+  .fake-field span { color: var(--muted); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .fake-input { height: 29px; padding: 6px 8px; border: 1px solid var(--line-strong); border-radius: var(--radius-control); background: var(--paper); font-size: 11px; }
+  .fake-segment { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+  .fake-segment span { padding: 6px 3px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--muted); text-align: center; font-size: 10px; }
+  .fake-segment .active { border-color: var(--ink); background: var(--ink); color: #fffdf6; }
+
+  .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+  .swatch { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--surface); cursor: pointer; transition: border-color var(--motion), transform var(--motion); }
+  .swatch:hover { border-color: var(--amber); transform: translateY(-2px); }
+  .swatch-color { height: 60px; border-bottom: 1px solid var(--line); }
+  .swatch-copy { padding: 8px 9px 9px; }
+  .swatch-name { font-size: 12px; font-weight: 700; }
+  .swatch-hex { margin-top: 2px; color: var(--muted); font: 10px var(--font-mono); }
+
+  table { width: 100%; margin-top: 16px; border-collapse: collapse; font-size: 12px; }
+  th, td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  th { color: var(--muted); font: 800 9px var(--font-ui); letter-spacing: .08em; text-transform: uppercase; }
+  td:first-child { color: var(--ink); font-weight: 650; }
+  td { color: var(--muted); }
+
+  .type-stack { display: grid; gap: 10px; }
+  .type-sample { padding: 14px; border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--surface); }
+  .type-meta { display: flex; justify-content: space-between; gap: 10px; padding-bottom: 8px; margin-bottom: 10px; border-bottom: 1px dashed var(--line-strong); color: var(--muted); font: 9px var(--font-mono); text-transform: uppercase; }
+  .type-title { font-size: clamp(24px, 4vw, 34px); line-height: 1.08; letter-spacing: -.04em; }
+  .type-body { color: var(--muted); font-size: 15px; line-height: 1.5; }
+  .type-label { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+
+  .layout-demo { display: grid; grid-template-columns: 150px minmax(0, 1fr); min-height: 250px; overflow: hidden; border: 1px solid var(--line-strong); border-radius: var(--radius-menu); background: var(--surface); }
+  .layout-sidebar { padding: 14px 10px; border-right: 1px solid var(--line); background: var(--paper); }
+  .layout-sidebar small { color: var(--muted); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .layout-nav { display: grid; gap: 4px; margin-top: 12px; }
+  .layout-nav span { padding: 6px 7px; border-radius: 5px; color: var(--muted); font-size: 10px; }
+  .layout-nav .active { background: var(--ink); color: #fffdf6; }
+  .layout-main { padding: 14px; }
+  .layout-main header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .layout-main header strong { font-size: 12px; }
+  .layout-main header span { color: var(--muted); font: 9px var(--font-mono); }
+  .layout-rail { display: flex; gap: 6px; margin-top: 12px; overflow: hidden; }
+  .thumb { width: 52px; flex: none; padding: 3px; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); }
+  .thumb.active { border-color: var(--amber); box-shadow: 0 0 0 2px var(--amber-soft); }
+  .thumb i { display: block; height: 32px; border-radius: 2px; background: linear-gradient(145deg, #e9e3d5, #fffdf6); }
+  .layout-sections { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 14px; }
+  .layout-section { min-height: 48px; padding: 8px; border-top: 1px solid var(--line); }
+  .layout-section b { display: block; color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+  .layout-section span { display: block; margin-top: 5px; font-size: 11px; }
+
+  .depth-grid, .component-grid, .guardrails { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .depth-card, .component-demo, .guardrail { min-width: 0; padding: 14px; border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--surface); }
+  .depth-card strong { display: block; font-size: 14px; }
+  .depth-card span { display: block; margin-top: 5px; color: var(--muted); font: 10px var(--font-mono); }
+  .depth-card.flat { box-shadow: none; }
+  .depth-card.mark { box-shadow: var(--shadow-mark); }
+  .depth-card.soft { box-shadow: 0 8px 20px rgba(32, 32, 28, .1); }
+  .component-label { margin-bottom: 10px; color: var(--muted); font: 800 9px var(--font-ui); letter-spacing: .08em; text-transform: uppercase; }
+  .demo-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+  .demo-button { min-height: 32px; padding: 0 9px; border: 1px solid var(--line-strong); border-radius: var(--radius-control); background: var(--surface); color: var(--ink); font: 650 11px var(--font-ui); }
+  .demo-button.primary { border-color: var(--ink); background: var(--ink); color: #fffdf6; }
+  .demo-button.danger { border-color: var(--red); background: var(--red); color: #fff; }
+  .segmented { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .segmented span { padding: 7px 3px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--muted); text-align: center; font-size: 10px; }
+  .segmented .active { border-color: var(--ink); background: var(--ink); color: #fffdf6; }
+  .notice { padding: 9px 10px; border-left: 3px solid var(--amber); background: var(--paper); color: var(--muted); font-size: 11px; }
+  .notice strong { color: var(--ink); }
+  .image-demo { display: flex; gap: 6px; }
+  .image-demo .thumb { width: 76px; padding: 4px; }
+  .image-demo .thumb i { height: 48px; }
+  .image-demo .thumb b { display: block; overflow: hidden; margin-top: 4px; color: var(--muted); font-size: 9px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+  .field-demo { display: grid; gap: 5px; max-width: 180px; }
+  .field-demo label { color: var(--muted); font: 800 9px var(--font-ui); letter-spacing: .08em; text-transform: uppercase; }
+  .field-demo input { width: 100%; height: 32px; padding: 0 8px; border: 1px solid var(--amber); border-radius: var(--radius-control); outline: 2px solid var(--amber-soft); background: var(--paper); color: var(--ink); font: 12px var(--font-ui); }
+  .guardrail { padding-top: 12px; }
+  .guardrail.do { border-left: 3px solid var(--green); }
+  .guardrail.dont { border-left: 3px solid var(--red); }
+  .guardrail h3 { margin-bottom: 8px; }
+  .guardrail ul { margin: 0; padding-left: 17px; color: var(--muted); font-size: 12px; }
+  .guardrail li + li { margin-top: 5px; }
+  .breakpoint { padding: 14px; border: 1px solid var(--amber); border-radius: var(--radius-card); background: var(--amber-soft); }
+  .breakpoint strong { font-size: 24px; letter-spacing: -.04em; }
+  .breakpoint p { margin-top: 3px; color: #754a06; font-size: 12px; }
+  footer { display: flex; justify-content: space-between; gap: 12px; margin-top: 70px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+
+  @media (max-width: 760px) {
+    .wrap { padding-inline: 18px; }
+    .masthead { align-items: flex-start; flex-wrap: wrap; }
+    .actions { width: 100%; margin-left: 56px; justify-content: flex-start; }
+    .layout { grid-template-columns: 1fr; gap: 24px; }
+    .sidebar { position: static; display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; }
+    .sidebar-label { display: none; }
+    .sidebar a { flex: none; border-color: var(--line); background: var(--surface); }
+  }
+  @media (max-width: 460px) {
+    .wrap { padding-inline: 12px; }
+    .theme-grid, .layout-demo { grid-template-columns: 1fr; }
+    .layout-sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
+    .layout-nav { grid-template-columns: repeat(3, 1fr); }
+    .depth-grid, .component-grid, .guardrails { grid-template-columns: 1fr; }
+    .segmented { grid-template-columns: repeat(2, 1fr); }
+    footer { display: block; }
+    footer p + p { margin-top: 7px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5h14v14H5z"/><path d="M12 5v14"/></svg></div>
+    <div>
+      <h1>UI Compare</h1>
+      <div class="sub">Warm precision utility for local visual acceptance</div>
+    </div>
+    <div class="actions">
+      <a class="action" href="../index.html"><span aria-hidden="true">←</span> Back to Home</a>
+      <button class="action primary" id="copy-md-btn" type="button"><span aria-hidden="true">▣</span> Copy Spec</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="On this page">
+      <span class="sidebar-label">Guidelines</span>
+      <a href="#theme">01 Theme</a>
+      <a href="#color">02 Color</a>
+      <a href="#type">03 Type</a>
+      <a href="#layout">04 Layout</a>
+      <a href="#depth">05 Depth</a>
+      <a href="#components">06 Components</a>
+      <a href="#interaction">07 Motion</a>
+      <a href="#guardrails">08 Guardrails</a>
+      <a href="#responsive">09 Responsive</a>
+      <a href="#prompt">10 Prompt</a>
+    </nav>
+
+    <main>
+      <section id="theme">
+        <div class="section-head"><span class="section-index">01</span><h2>Theme and atmosphere</h2></div>
+        <p class="lead">A warm precision utility: quiet enough to sit beside the page, structured enough to make a visual decision in one scan. Paper and surface layers keep the chrome calm, while ink and amber make state legible.</p>
+        <div class="theme-demo">
+          <div class="theme-demo-header">
+            <div class="brand-lockup"><span class="mini-mark" aria-hidden="true"></span><div><strong>UI Compare</strong><small>Local visual acceptance</small></div></div>
+            <span class="theme-chip">ACTIVE COMPARISON</span>
+          </div>
+          <div class="theme-grid">
+            <div class="theme-copy"><span class="eyebrow">Design instrument</span><h3>Compare what shipped.</h3><p>Keep the overlay close, the controls readable, and the page itself in charge.</p></div>
+            <div class="theme-controls">
+              <label class="fake-field"><span>Project</span><div class="fake-input">Acceptance QA</div></label>
+              <label class="fake-field"><span>Mode</span><div class="fake-segment"><span class="active">Overlay</span><span>Blink</span><span>Split</span></div></label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="color">
+        <div class="section-head"><span class="section-index">02</span><h2>Color palette</h2></div>
+        <p class="lead">The palette is intentionally small. Warm neutrals carry the interface, amber marks comparison and focus, and green/red stay semantic.</p>
+        <div class="swatches" style="margin-top:16px">
+          <div class="swatch" data-color="#f3f1e9"><div class="swatch-color" style="background:#f3f1e9"></div><div class="swatch-copy"><div class="swatch-name">Paper</div><div class="swatch-hex">#f3f1e9</div></div></div>
+          <div class="swatch" data-color="#fbfaf5"><div class="swatch-color" style="background:#fbfaf5"></div><div class="swatch-copy"><div class="swatch-name">Surface</div><div class="swatch-hex">#fbfaf5</div></div></div>
+          <div class="swatch" data-color="#20201c"><div class="swatch-color" style="background:#20201c"></div><div class="swatch-copy"><div class="swatch-name">Ink</div><div class="swatch-hex">#20201c</div></div></div>
+          <div class="swatch" data-color="#e99b20"><div class="swatch-color" style="background:#e99b20"></div><div class="swatch-copy"><div class="swatch-name">Amber</div><div class="swatch-hex">#e99b20</div></div></div>
+          <div class="swatch" data-color="#2f7a4d"><div class="swatch-color" style="background:#2f7a4d"></div><div class="swatch-copy"><div class="swatch-name">Passed</div><div class="swatch-hex">#2f7a4d</div></div></div>
+          <div class="swatch" data-color="#b84535"><div class="swatch-color" style="background:#b84535"></div><div class="swatch-copy"><div class="swatch-name">Changes</div><div class="swatch-hex">#b84535</div></div></div>
+        </div>
+        <table><thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead><tbody>
+          <tr><td><code>--paper</code></td><td>#f3f1e9</td><td>Canvas and quiet navigation</td></tr>
+          <tr><td><code>--surface</code></td><td>#fbfaf5</td><td>Fields, cards, and dialogs</td></tr>
+          <tr><td><code>--amber</code></td><td>#e99b20</td><td>Comparison, focus, and selection</td></tr>
+          <tr><td><code>--line</code></td><td>#d8d5ca</td><td>Sections and low-emphasis borders</td></tr>
+        </tbody></table>
+      </section>
+
+      <section id="type">
+        <div class="section-head"><span class="section-index">03</span><h2>Typography rules</h2></div>
+        <p class="lead">The utility voice comes from a compact system sans, not a display face. Labels are small and uppercase; values remain plain, readable, and close to their controls.</p>
+        <div class="type-stack" style="margin-top:16px">
+          <div class="type-sample"><div class="type-meta"><span>UI title / 13 / 700</span><span>letter spacing -0.02em</span></div><div class="type-title">Compare what shipped.</div></div>
+          <div class="type-sample"><div class="type-meta"><span>Body / 13 / 400</span><span>line height 1.4</span></div><div class="type-body">Place the design directly over the live page, then inspect geometry, color, and acceptance state without leaving the browser.</div></div>
+          <div class="type-sample"><div class="type-meta"><span>Section label / 10 / 800</span><span>uppercase / 0.08em</span></div><div class="type-label">Design viewport</div></div>
+        </div>
+      </section>
+
+      <section id="layout">
+        <div class="section-head"><span class="section-index">04</span><h2>Layout principles</h2></div>
+        <p class="lead">The information architecture follows the user's review loop: choose a project, choose an image, record acceptance, compare, tune geometry, anchor to the page, and calibrate the viewport.</p>
+        <div class="layout-demo" style="margin-top:16px">
+          <aside class="layout-sidebar"><small>Control order</small><div class="layout-nav"><span class="active">Project</span><span>Images</span><span>Acceptance</span><span>Compare</span><span>Geometry</span><span>Anchor</span><span>Viewport</span></div></aside>
+          <div class="layout-main"><header><strong>Design images</strong><span>375 × 812</span></header><div class="layout-rail"><div class="thumb active"><i></i></div><div class="thumb"><i></i></div><div class="thumb"><i></i></div></div><div class="layout-sections"><div class="layout-section"><b>Compare</b><span>Overlay · 50%</span></div><div class="layout-section"><b>Geometry</b><span>X 150 · Y 102</span></div><div class="layout-section"><b>DOM anchor</b><span>Top left</span></div><div class="layout-section"><b>Viewport</b><span>Actual width</span></div></div></div>
+        </div>
+      </section>
+
+      <section id="depth">
+        <div class="section-head"><span class="section-index">05</span><h2>Depth and elevation</h2></div>
+        <p class="lead">Default surfaces are flat and separated by line plus background step. A small hard mark belongs to the brand, while soft elevation is an exception for a transient menu or dialog.</p>
+        <div class="depth-grid" style="margin-top:16px"><div class="depth-card flat"><strong>01 / Flat</strong><span>surface + 1px line</span></div><div class="depth-card mark"><strong>02 / Brand mark</strong><span>3px hard offset ink</span></div><div class="depth-card soft"><strong>03 / Transient</strong><span>soft shadow only for menus</span></div><div class="depth-card"><strong>04 / Focus</strong><span>amber border + soft ring</span></div></div>
+      </section>
+
+      <section id="components">
+        <div class="section-head"><span class="section-index">06</span><h2>Component showcase</h2></div>
+        <div class="component-grid">
+          <div class="component-demo"><p class="component-label">Action hierarchy</p><div class="demo-actions"><button class="demo-button primary">Set page width</button><button class="demo-button">Refresh</button><button class="demo-button danger">Delete</button></div></div>
+          <div class="component-demo"><p class="component-label">Comparison mode</p><div class="segmented"><span class="active">Overlay</span><span>Blink</span><span>Split</span><span>Diff</span></div></div>
+          <div class="component-demo"><p class="component-label">Page access notice</p><div class="notice"><strong>Temporary access needed.</strong><br>Click the toolbar icon while this page is active.</div></div>
+          <div class="component-demo"><p class="component-label">Image rail</p><div class="image-demo"><div class="thumb active"><i></i><b>design-375.svg</b></div><div class="thumb"><i></i><b>desktop.png</b></div></div></div>
+          <div class="component-demo"><p class="component-label">Focused field</p><div class="field-demo"><label for="demo-width">Design width</label><input id="demo-width" value="375" aria-label="Design width example"></div></div>
+          <div class="component-demo"><p class="component-label">Anchor summary</p><div class="notice" style="border-color:var(--line-strong)"><span class="mono">section[data-testid="comparison-target"]</span><br><span style="color:var(--muted)">top-left · document coordinates</span></div></div>
+        </div>
+      </section>
+
+      <section id="interaction">
+        <div class="section-head"><span class="section-index">07</span><h2>Motion and interaction</h2></div>
+        <p class="lead">Motion confirms a state change; it never becomes the product. Keep hover and focus responses short, and reserve continuous motion for an explicitly selected blink comparison mode.</p>
+        <table><thead><tr><th>Interaction</th><th>Timing</th><th>Response</th></tr></thead><tbody>
+          <tr><td>Field focus</td><td>120ms ease</td><td>Amber border and soft two-pixel ring</td></tr>
+          <tr><td>Quiet control hover</td><td>120ms ease</td><td>Paper tint and ink text</td></tr>
+          <tr><td>Mode selection</td><td>120ms ease</td><td>Invert the segment to ink and white</td></tr>
+          <tr><td>Overlay blink</td><td>User controlled</td><td>Follow the selected frequency, never autoplay</td></tr>
+        </tbody></table>
+      </section>
+
+      <section id="guardrails">
+        <div class="section-head"><span class="section-index">08</span><h2>Do's and don'ts</h2></div>
+        <div class="guardrails"><div class="guardrail do"><h3>Do</h3><ul><li>Keep paper, surface, ink, and amber roles stable.</li><li>Group controls by the review decision they support.</li><li>Show a value beside every adjustable range.</li><li>Pair semantic colors with a readable label.</li><li>Keep page access user initiated and temporary.</li></ul></div><div class="guardrail dont"><h3>Don't</h3><ul><li>Don't add broad host permissions for convenience.</li><li>Don't show raw browser injection errors.</li><li>Don't cover the utility in cards or gradients.</li><li>Don't use a display face in the panel.</li><li>Don't measure an exact viewport with the panel open.</li></ul></div></div>
+      </section>
+
+      <section id="responsive">
+        <div class="section-head"><span class="section-index">09</span><h2>Responsive behavior</h2></div>
+        <div class="breakpoint"><strong>330px</strong><p>At the compact breakpoint, comparison modes wrap into a two-by-two grid and anchor, diff, and viewport rows stack. Outer padding reduces from 14px to 10px while the image rail stays horizontally scrollable.</p></div>
+      </section>
+
+      <section id="prompt">
+        <div class="section-head"><span class="section-index">10</span><h2>Agent prompt guide</h2></div>
+        <pre data-label="copy-ready">Build a compact visual-acceptance utility with a warm paper canvas (#f3f1e9), off-white surfaces (#fbfaf5), ink text (#20201c), muted labels (#737269), hairline rules (#d8d5ca), and one amber action signal (#e99b20). Use an Avenir Next/system UI sans at 13px body, 10px uppercase section labels, and 11px helper copy. Keep controls compact: 34px fields and primary buttons, 30px segmented controls, 5–10px radii, and almost no shadow. Organize the panel into project, image rail, acceptance, compare, geometry, DOM anchor, and design viewport sections. Active controls invert to ink; selected images use amber plus an amber-soft halo; passed and changes states retain readable labels. At 330px, stack anchor and width rows and wrap comparison modes. Avoid gradients, glass, large display type, broad host permissions, and color-only status.</pre>
+      </section>
+    </main>
+  </div>
+
+  <footer><p><strong>UI Compare Design System</strong> · Extracted from the local UI Compare Side Panel on 2026-08-09.</p><p>Tokens describe the visual language; runtime behavior remains product-specific.</p></footer>
+</div>
+<script>
+  document.querySelectorAll('.swatch').forEach((swatch) => {
+    swatch.addEventListener('click', async () => {
+      const label = swatch.querySelector('.swatch-hex');
+      const original = label.textContent;
+      try {
+        await navigator.clipboard.writeText(swatch.dataset.color);
+        label.textContent = 'Copied';
+        setTimeout(() => { label.textContent = original; }, 900);
+      } catch { label.textContent = 'Select manually'; setTimeout(() => { label.textContent = original; }, 1200); }
+    });
+  });
+  document.getElementById('copy-md-btn').addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    const original = button.textContent;
+    try {
+      const response = await fetch('../specs/ui-compare.md');
+      if (!response.ok) throw new Error(`Spec request failed: ${response.status}`);
+      await navigator.clipboard.writeText(await response.text());
+      button.textContent = 'Copied';
+      setTimeout(() => { button.textContent = original; }, 1400);
+    } catch {
+      button.textContent = 'Open raw spec';
+      setTimeout(() => { window.location.href = '../specs/ui-compare.md'; }, 500);
+    }
+  });
+</script>
+</body>
+</html>

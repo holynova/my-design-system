@@ -11,7 +11,7 @@
 
 ## 目录中收录的设计系统
 
-精选目录当前收录以下八种代表性设计规范：
+精选目录当前收录以下九种代表性设计规范：
 
 1. **HTML Effectiveness Spec** ([html-effectiveness.html](pages/html-effectiveness.html))
    - **特点**: 秉持温暖极简主义的文档级阅读设计系统，采用经典的 Serif / Sans / Mono 字体定位与 1.5px 极细实线修饰。
@@ -45,6 +45,10 @@
    - **特点**: 从 [codex-resets.com](https://codex-resets.com/) 提取的贴纸纸张式新粗野主义设计系统，以暖米色画布、Baloo 2 粗圆体、2px 墨色描边和硬偏移阴影组织实时状态数据。
    - **美学风格**: 暖色贴纸、数据仪表、轻松幽默的新粗野主义。
 
+9. **UI Compare Spec** ([ui-compare.html](pages/ui-compare.html))
+   - **特点**: 从本地 UI Compare Chrome 扩展提炼的视觉验收工具系统，以暖纸张、细线结构、紧凑控件和琥珀色对比信号组织项目、图片、几何、锚点与视口工作流。
+   - **美学风格**: 暖色精密工具、低装饰、高可读性的本地优先工作台。
+
 ---
 
 ## 核心特性
@@ -75,6 +79,7 @@
 │   ├── tailwindcss.html
 │   ├── notion.html
 │   ├── codex-resets.html
+│   ├── ui-compare.html
 │   └── vue.html
 └── specs/                      # 原始设计系统规范 (Markdown 纯文本)
     ├── html-effectiveness.md
@@ -84,6 +89,7 @@
     ├── tailwindcss.md
     ├── notion.md
     ├── codex-resets.md
+    ├── ui-compare.md
     └── vue.md
 ```
 
