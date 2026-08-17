@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System: Project Brain (BRAIN.md)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/style.css" rel="stylesheet">
+<style>
+  /* ── Geist Design System Tokens ── */
+  :root {
+    /* Background */
+    --background-100: #ffffff;
+    --background-200: #fafafa;
+
+    /* Gray */
+    --gray-100: #f2f2f2;
+    --gray-200: #ebebeb;
+    --gray-300: #e6e6e6;
+    --gray-400: #eaeaea;
+    --gray-500: #c9c9c9;
+    --gray-600: #a8a8a8;
+    --gray-700: #8f8f8f;
+    --gray-800: #7d7d7d;
+    --gray-900: #4d4d4d;
+    --gray-1000: #171717;
+
+    /* Gray Alpha */
+    --gray-alpha-100: rgba(0, 0, 0, 0.05);
+    --gray-alpha-200: rgba(0, 0, 0, 0.08);
+    --gray-alpha-400: rgba(0, 0, 0, 0.12);
+    --gray-alpha-600: rgba(0, 0, 0, 0.24);
+
+    /* Semantic Accents */
+    --blue-600: #48aeff;
+    --blue-700: #006bff;
+    --blue-800: #0059ec;
+    --purple-700: #a000f8;
+    --green-700: #28a948;
+    --red-700: #fc0035;
+    --amber-700: #ffae00;
+
+    /* Semantic Aliases */
+    --paper: var(--background-100);
+    --ink: var(--gray-1000);
+    --muted: var(--gray-900);
+    --chip: var(--gray-100);
+    --border: var(--gray-200);
+    --hover: var(--gray-100);
+    --code-bg: var(--gray-100);
+    --card: var(--background-100);
+
+    /* Elevation & Rings */
+    --shadow-raised: 0 2px 2px rgba(0, 0, 0, 0.04);
+    --shadow-window: 0 4px 24px rgba(0, 0, 0, 0.35);
+    --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #006bff;
+
+    /* Radii */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+
+    /* Typography */
+    --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Geist Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+    --motion: 150ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  }
+
+  /* ── Dark Theme Tokens ── */
+  html.dark {
+    --background-100: #000000;
+    --background-200: #0a0a0a;
+
+    --gray-100: #1a1a1a;
+    --gray-200: #1f1f1f;
+    --gray-300: #292929;
+    --gray-400: #2e2e2e;
+    --gray-500: #454545;
+    --gray-600: #878787;
+    --gray-700: #8f8f8f;
+    --gray-800: #7d7d7d;
+    --gray-900: #a0a0a0;
+    --gray-1000: #ededed;
+
+    --gray-alpha-100: rgba(255, 255, 255, 0.07);
+    --gray-alpha-200: rgba(255, 255, 255, 0.09);
+    --gray-alpha-400: rgba(255, 255, 255, 0.14);
+    --gray-alpha-600: rgba(255, 255, 255, 0.51);
+
+    --blue-600: #0090ff;
+    --blue-700: #006efe;
+    --blue-800: #005be7;
+    --purple-700: #9440d5;
+    --green-700: #00ac3a;
+    --red-700: #f13242;
+    --amber-700: #ed9a00;
+
+    --focus-ring: 0 0 0 2px #000000, 0 0 0 4px #47a8ff;
+  }
+
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background var(--motion), color var(--motion);
+  }
+
+  a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { color: var(--blue-700); }
+  :focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  code, pre { font-family: var(--font-mono); }
+  code.inline {
+    background: var(--chip);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88em;
+    color: var(--ink);
+  }
+
+  /* ── Layout & Masthead ── */
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 32px 96px; }
+  .masthead {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 40px 0 28px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .brand-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.05em;
+  }
+  .brand-copy h1 {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .brand-copy p {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* ── Buttons ── */
+  .btn-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--background-100);
+    color: var(--ink);
+    border: 1px solid var(--gray-alpha-400);
+    border-radius: var(--radius-full);
+    padding: 0 16px;
+    height: 38px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background var(--motion), border-color var(--motion);
+  }
+  .btn-nav:hover { background: var(--hover); }
+  .btn-nav.primary {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: transparent;
+  }
+  .btn-nav.primary:hover { opacity: 0.88; }
+
+  .dark-toggle-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--gray-alpha-400);
+    background: var(--background-100);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background var(--motion);
+  }
+  .dark-toggle-btn:hover { background: var(--hover); }
+  .icon-moon { display: none; }
+  .icon-sun { display: block; }
+  html.dark .icon-moon { display: block; }
+  html.dark .icon-sun { display: none; }
+
+  /* ── Main 2-Column Grid ── */
+  .layout {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 48px;
+    padding-top: 36px;
+    align-items: start;
+  }
+  .sidebar { position: sticky; top: 24px; }
+  .sidebar-label {
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .sidebar a {
+    display: block;
+    margin: 0 0 4px;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    color: var(--muted);
+    font-size: 12px;
+    text-decoration: none;
+    transition: background var(--motion), color var(--motion);
+  }
+  .sidebar a:hover {
+    background: var(--hover);
+    color: var(--ink);
+  }
+
+  /* ── Sections ── */
+  section { padding-top: 52px; }
+  section:first-child { padding-top: 0; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-index {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--blue-700);
+    font-weight: 600;
+  }
+  .section-head h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.8px;
+  }
+  .section-intro {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  /* ── Terminal UI Window Component ── */
+  .ui-window {
+    --window-bg: #171717;
+    --window-titlebar: #171717;
+    --window-border: #2a2a2a;
+    --window-muted: #6b6b6b;
+    --window-text: #b3b3b3;
+    --window-text-strong: #e5e5e5;
+    --window-blue: #79c0ff;
+    --window-purple: #d2a8ff;
+    --window-green: #7ee787;
+    --window-inline-bg: #1e2a1e;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--window-border);
+    box-shadow: var(--shadow-window);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    background: var(--window-bg);
+    overflow: hidden;
+    color: var(--window-text);
+  }
+  .ui-window__titlebar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--window-titlebar);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--window-border);
+  }
+  .ui-window__dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .ui-window__dot:nth-child(1) { background: #ff5f57; }
+  .ui-window__dot:nth-child(2) { background: #febc2e; }
+  .ui-window__dot:nth-child(3) { background: #28c840; }
+  .ui-window__title {
+    flex: 1;
+    text-align: center;
+    color: var(--window-muted);
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    margin-right: 28px;
+  }
+  .ui-window__body { padding: 16px; }
+
+  /* ── Terminal Contrast Demo ── */
+  .terminal-contrast {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .contrast-before .ui-window__title { color: #ff5f57; }
+  .contrast-after .ui-window__title { color: #28c840; }
+  .terminal-line { display: flex; gap: 8px; line-height: 1.6; margin-bottom: 8px; }
+  .terminal-line:last-child { margin-bottom: 0; }
+  .terminal-prompt { color: var(--window-blue); flex-shrink: 0; }
+  .terminal-sigil { color: var(--window-purple); flex-shrink: 0; }
+  .terminal-line--user { color: var(--window-text-strong); }
+  .terminal-line--ai { color: var(--window-text); }
+  .terminal-line--dim { color: var(--window-muted); font-style: italic; font-size: 11.5px; }
+  .terminal-code {
+    background: var(--window-inline-bg);
+    color: var(--window-green);
+    padding: 1px 5px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* ── Color Swatches ── */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .swatch {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--card);
+    cursor: pointer;
+    transition: transform 120ms ease;
+  }
+  .swatch:hover { transform: translateY(-2px); }
+  .swatch-box { height: 60px; width: 100%; border-bottom: 1px solid var(--border); }
+  .swatch-info { padding: 8px 10px; font-size: 11px; }
+  .swatch-name { font-weight: 600; color: var(--ink); }
+  .swatch-hex { color: var(--muted); font-family: var(--font-mono); margin-top: 2px; }
+
+  /* ── Typography Stack Demo ── */
+  .type-grid { display: grid; gap: 14px; margin-top: 16px; }
+  .type-card {
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--card);
+  }
+  .type-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  /* ── Workflow Diagram Component ── */
+  .workflow-row {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .workflow-step {
+    flex: 1;
+    background: var(--chip);
+    border-radius: var(--radius-md);
+    padding: 18px;
+  }
+  .workflow-step__title {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .workflow-step__desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .workflow-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 48px;
+    flex-shrink: 0;
+  }
+  .workflow-arrow__label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  .workflow-arrow__glyph {
+    color: var(--gray-600);
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  /* ── Feature Cards ── */
+  .feat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .feat-card {
+    background: var(--chip);
+    border-radius: var(--radius-md);
+    padding: 16px;
+  }
+  .feat-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.28px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .feat-card-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── Comparison Table ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 16px;
+  }
+  .compare-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table td {
+    padding: 12px 12px 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--ink);
+  }
+  .compare-table td:first-child {
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+  .compare-table tr.highlight td { font-weight: 600; }
+
+  /* ── FAQ Accordion ── */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid var(--muted);
+    border-bottom: 1.5px solid var(--muted);
+    transform: rotate(45deg);
+    transition: transform 180ms ease;
+  }
+  .faq-item[open] > .faq-q::after {
+    transform: rotate(225deg);
+  }
+  .faq-a {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    padding-bottom: 16px;
+  }
+
+  /* ── Do's & Don'ts ── */
+  .guardrails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .guardrail {
+    padding: 18px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--card);
+  }
+  .guardrail.do { border-left: 4px solid var(--green-700); }
+  .guardrail.dont { border-left: 4px solid var(--red-700); }
+  .guardrail h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .guardrail.do h3 { color: var(--green-700); }
+  .guardrail.dont h3 { color: var(--red-700); }
+  .guardrail ul { padding-left: 18px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── Code Spec Block ── */
+  .spec-box {
+    margin-top: 16px;
+    padding: 18px;
+    background: #171717;
+    color: #e5e5e5;
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-x: auto;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; gap: 32px; }
+    .sidebar { display: none; }
+    .terminal-contrast { grid-template-columns: 1fr; }
+    .feat-grid { grid-template-columns: 1fr; }
+    .workflow-row { flex-direction: column; }
+    .workflow-arrow { flex-direction: row; width: auto; gap: 6px; }
+    .workflow-arrow__glyph { transform: rotate(90deg); }
+    .guardrails { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="brand-icon">BM</div>
+    <div class="brand-copy">
+      <h1>Project Brain (BRAIN.md)</h1>
+      <p>A persistent memory layer &amp; developer knowledge design system based on Geist</p>
+    </div>
+    <div class="actions">
+      <a href="../index.html" class="btn-nav">← All Design Systems</a>
+      <button class="dark-toggle-btn" onclick="toggleDark()" title="Toggle Dark Theme" aria-label="Toggle dark mode">
+        <svg class="icon-sun" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="3"/><line x1="8" y1="13" x2="8" y2="15"/><line x1="1" y1="8" x2="3" y2="8"/><line x1="13" y1="8" x2="15" y2="8"/></svg>
+        <svg class="icon-moon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13.5 10A6 6 0 0 1 6 2.5a6 6 0 1 0 7.5 7.5Z"/></svg>
+      </button>
+      <button class="btn-nav primary" id="copy-spec-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1-.9 2-2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy Spec
+      </button>
+    </div>
+  </header>
+
+  <!-- Content Layout -->
+  <div class="layout">
+    <!-- Sidebar -->
+    <nav class="sidebar" aria-label="Table of Contents">
+      <div class="sidebar-label">Navigation</div>
+      <a href="#overview">01. Overview</a>
+      <a href="#colors">02. Color Palette</a>
+      <a href="#typography">03. Typography</a>
+      <a href="#terminals">04. Terminal Preview</a>
+      <a href="#workflow">05. Workflow &amp; Steps</a>
+      <a href="#features">06. Feature Cards</a>
+      <a href="#tables">07. Protocol Table</a>
+      <a href="#faqs">08. FAQ Accordion</a>
+      <a href="#guardrails">09. Do's and Don'ts</a>
+      <a href="#prompt">10. AI Prompt Spec</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Section 1: Overview -->
+      <section id="overview">
+        <div class="section-head">
+          <span class="section-index">01</span>
+          <h2>Design Philosophy &amp; Aesthetic</h2>
+        </div>
+        <p class="section-intro">
+          Extracted from <strong>projectbrain.md</strong>. The Project Brain design system applies Vercel Geist's monochrome precision to developer workflows. It pairs ultra-sharp typefaces, mathematical gray scales, zero-dependency structural simplicity, and high-contrast terminal code windows.
+        </p>
+      </section>
+
+      <!-- Section 2: Colors -->
+      <section id="colors">
+        <div class="section-head">
+          <span class="section-index">02</span>
+          <h2>Color Tokens &amp; Semantic Scale</h2>
+        </div>
+        <p class="section-intro">Click any swatch to copy its hex value to the clipboard.</p>
+        <div class="swatch-grid">
+          <div class="swatch" data-hex="#ffffff"><div class="swatch-box" style="background:#ffffff"></div><div class="swatch-info"><div class="swatch-name">Paper (Light)</div><div class="swatch-hex">#ffffff</div></div></div>
+          <div class="swatch" data-hex="#171717"><div class="swatch-box" style="background:#171717"></div><div class="swatch-info"><div class="swatch-name">Ink (Gray 1000)</div><div class="swatch-hex">#171717</div></div></div>
+          <div class="swatch" data-hex="#f2f2f2"><div class="swatch-box" style="background:#f2f2f2"></div><div class="swatch-info"><div class="swatch-name">Chip (Gray 100)</div><div class="swatch-hex">#f2f2f2</div></div></div>
+          <div class="swatch" data-hex="#006bff"><div class="swatch-box" style="background:#006bff"></div><div class="swatch-info"><div class="swatch-name">Blue Prompt</div><div class="swatch-hex">#006bff</div></div></div>
+          <div class="swatch" data-hex="#a000f8"><div class="swatch-box" style="background:#a000f8"></div><div class="swatch-info"><div class="swatch-name">Purple Sigil</div><div class="swatch-hex">#a000f8</div></div></div>
+          <div class="swatch" data-hex="#28a948"><div class="swatch-box" style="background:#28a948"></div><div class="swatch-info"><div class="swatch-name">Green Truth</div><div class="swatch-hex">#28a948</div></div></div>
+          <div class="swatch" data-hex="#fc0035"><div class="swatch-box" style="background:#fc0035"></div><div class="swatch-info"><div class="swatch-name">Red Error</div><div class="swatch-hex">#fc0035</div></div></div>
+          <div class="swatch" data-hex="#ffae00"><div class="swatch-box" style="background:#ffae00"></div><div class="swatch-info"><div class="swatch-name">Amber Warning</div><div class="swatch-hex">#ffae00</div></div></div>
+        </div>
+      </section>
+
+      <!-- Section 3: Typography -->
+      <section id="typography">
+        <div class="section-head">
+          <span class="section-index">03</span>
+          <h2>Typography &amp; Type Scale</h2>
+        </div>
+        <div class="type-grid">
+          <div class="type-card">
+            <div class="type-meta"><span>Hero Title (Geist Sans 600 · -2.4px tracking)</span><span>40px / 48px</span></div>
+            <div style="font-size:36px; font-weight:600; letter-spacing:-2px; line-height:1.2;">BRAIN.md — Persistent memory</div>
+          </div>
+          <div class="type-card">
+            <div class="type-meta"><span>Section Heading (Geist Sans 600 · -0.96px tracking)</span><span>24px / 32px</span></div>
+            <div style="font-size:22px; font-weight:600; letter-spacing:-0.9px;">How the compiled_truth engine works</div>
+          </div>
+          <div class="type-card">
+            <div class="type-meta"><span>Terminal Code (Geist Mono 400)</span><span>13px / 1.6</span></div>
+            <div style="font-family:var(--font-mono); font-size:13px; color:var(--muted);">$ brain update-truth --id auth-strategy --reversal</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Terminal Window -->
+      <section id="terminals">
+        <div class="section-head">
+          <span class="section-index">04</span>
+          <h2>Terminal Preview &amp; Traffic Lights</h2>
+        </div>
+        <p class="section-intro">High-contrast, macOS 3-dot traffic light terminal windows demonstrate side-by-side agent interactions.</p>
+        <div class="terminal-contrast">
+          <div class="contrast-before">
+            <div class="ui-window">
+              <div class="ui-window__titlebar">
+                <span class="ui-window__dot"></span>
+                <span class="ui-window__dot"></span>
+                <span class="ui-window__dot"></span>
+                <span class="ui-window__title">Without BRAIN.md</span>
+              </div>
+              <div class="ui-window__body">
+                <div class="terminal-line terminal-line--user"><span class="terminal-prompt">❯</span> Let's keep working on auth</div>
+                <div class="terminal-line terminal-line--ai"><span class="terminal-sigil">✦</span> <span>What kind of app is this? Tech stack? Constraints?</span></div>
+                <div class="terminal-line terminal-line--dim">You just typed 318 words again.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contrast-after">
+            <div class="ui-window">
+              <div class="ui-window__titlebar">
+                <span class="ui-window__dot"></span>
+                <span class="ui-window__dot"></span>
+                <span class="ui-window__dot"></span>
+                <span class="ui-window__title">With BRAIN.md</span>
+              </div>
+              <div class="ui-window__body">
+                <div class="terminal-line terminal-line--user"><span class="terminal-prompt">❯</span> Let's keep working on auth</div>
+                <div class="terminal-line terminal-line--ai"><span class="terminal-sigil">✦</span> <span>From <code class="terminal-code">brain/pages/auth.md</code>: Electron + SQLite, local-first. Picking up session strategy.</span></div>
+                <div class="terminal-line terminal-line--dim" style="color:#28c840;">One prompt in. Agent is fully caught up.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Workflow & Steps -->
+      <section id="workflow">
+        <div class="section-head">
+          <span class="section-index">05</span>
+          <h2>Workflow Chain &amp; Spatial Arrows</h2>
+        </div>
+        <div class="workflow-row">
+          <div class="workflow-step">
+            <div class="workflow-step__title">1. Chat</div>
+            <div class="workflow-step__desc">You work through architectural trade-offs with an agent in natural language.</div>
+          </div>
+          <div class="workflow-arrow">
+            <span class="workflow-arrow__label">compile</span>
+            <span class="workflow-arrow__glyph">→</span>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-step__title">2. Brain</div>
+            <div class="workflow-step__desc"><code class="inline">update-truth</code> atomically rewrites truth and appends decision timeline.</div>
+          </div>
+          <div class="workflow-arrow">
+            <span class="workflow-arrow__label">resume</span>
+            <span class="workflow-arrow__glyph">→</span>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-step__title">3. Task</div>
+            <div class="workflow-step__desc">Fresh chats or teammates load <code class="inline">brain/</code> first with zero re-explanation.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Feature Cards -->
+      <section id="features">
+        <div class="section-head">
+          <span class="section-index">06</span>
+          <h2>Feature Cards Grid</h2>
+        </div>
+        <div class="feat-grid">
+          <div class="feat-card">
+            <div class="ui-window" style="margin-bottom:12px; font-size:11px;">
+              <div class="ui-window__body" style="padding:10px;">
+                <span style="color:#6b6b6b"># zero runtime deps</span><br>
+                <span style="color:#79c0ff">$</span> npm i -g @mindmux/brain-md
+              </div>
+            </div>
+            <div class="feat-card-title">Zero Dependencies</div>
+            <div class="feat-card-desc">No service, no daemon, no background MCP server. Pure Markdown files in git.</div>
+          </div>
+          <div class="feat-card">
+            <div class="ui-window" style="margin-bottom:12px; font-size:11px;">
+              <div class="ui-window__body" style="padding:10px;">
+                <span style="color:#79c0ff">$</span> brain update-truth<br>
+                <span style="color:#7ee787">↳ rewrites compiled_truth</span>
+              </div>
+            </div>
+            <div class="feat-card-title">Correct by Construction</div>
+            <div class="feat-card-desc">Frontmatter formatting and atomic timeline mutations are structurally guaranteed by CLI.</div>
+          </div>
+          <div class="feat-card">
+            <div class="ui-window" style="margin-bottom:12px; font-size:11px;">
+              <div class="ui-window__body" style="padding:10px;">
+                <span style="color:#7ee787">[[db-choice]]</span><br>
+                <span style="color:#79c0ff">$</span> brain lint-links <span style="color:#7ee787">✓</span>
+              </div>
+            </div>
+            <div class="feat-card-title">Wiki-Link Graph</div>
+            <div class="feat-card-desc">Cross-reference granular decision pages with double bracket <code class="inline">[[page-id]]</code> syntax.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Protocol Table -->
+      <section id="tables">
+        <div class="section-head">
+          <span class="section-index">07</span>
+          <h2>Protocol Entry Points Table</h2>
+        </div>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>File</th>
+              <th>Audience</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>README.md</td>
+              <td>Humans</td>
+              <td>Quick start, installation, high-level intro</td>
+            </tr>
+            <tr>
+              <td>AGENTS.md</td>
+              <td>AI coding agents</td>
+              <td>Execution rules, build commands, test instructions</td>
+            </tr>
+            <tr class="highlight">
+              <td>BRAIN.md</td>
+              <td>Any reasoning agent</td>
+              <td>Protocol entry point — guides how to read &amp; write the brain</td>
+            </tr>
+            <tr>
+              <td>brain/</td>
+              <td>Agents &amp; humans</td>
+              <td>Decisions, tradeoffs, architecture, flow, stack, roadmap</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Section 8: FAQ Accordion -->
+      <section id="faqs">
+        <div class="section-head">
+          <span class="section-index">08</span>
+          <h2>FAQ Accordion Disclosures</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-q">What is BRAIN.md?</summary>
+            <p class="faq-a">BRAIN.md is a plain-file convention for storing project knowledge in a repository. It gives agents and humans a predictable place to find decisions, rationale, constraints, and current project context.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">Why does it separate compiled_truth and timeline?</summary>
+            <p class="faq-a">compiled_truth records the current best understanding of a topic. timeline records the evidence, decisions, reversals, and notes that led there. The split lets agents read the current answer quickly while preserving the reasoning history.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">How does it differ from MCP?</summary>
+            <p class="faq-a">MCP is a runtime protocol integration layer. BRAIN.md is a repository-local Markdown convention plus a small CLI, so the project knowledge remains readable, reviewable, and versioned in git.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Section 9: Guardrails -->
+      <section id="guardrails">
+        <div class="section-head">
+          <span class="section-index">09</span>
+          <h2>Do's and Don'ts</h2>
+        </div>
+        <div class="guardrails">
+          <div class="guardrail do">
+            <h3>✓ Do</h3>
+            <ul>
+              <li>Keep terminal surfaces high-contrast and dark (#171717) regardless of light/dark theme.</li>
+              <li>Use Geist Mono strictly for commands, prompts, file trees, and code snippets.</li>
+              <li>Use negative letter-spacing on bold headings (-2.4px on hero, -0.96px on sections).</li>
+              <li>Use pill border-radius (9999px) for primary and secondary action buttons.</li>
+            </ul>
+          </div>
+          <div class="guardrail dont">
+            <h3>✗ Don't</h3>
+            <ul>
+              <li>Don't introduce colorful gradient fills across body backgrounds.</li>
+              <li>Don't use saturated primary colors for body text; keep ink at #171717 / #ededed.</li>
+              <li>Don't use heavy drop shadows on cards; prefer subtle borders and 2px raised elevations.</li>
+              <li>Don't mix non-monospace fonts inside terminal preview windows.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 10: AI Prompt -->
+      <section id="prompt">
+        <div class="section-head">
+          <span class="section-index">10</span>
+          <h2>Agent Prompt &amp; Raw Spec</h2>
+        </div>
+        <div class="spec-box">
+Build a developer-first interface following the Project Brain (BRAIN.md) design system.
+- Foundation: Geist design language, clean monochromatic palette (Paper #ffffff / #000000, Ink #171717 / #ededed, Gray 100-1000 scale).
+- Typography: Geist Sans for headings and body, Geist Mono for code and terminal UI. Use -2.4px tracking on hero titles, -0.96px on section headings.
+- Components: macOS 3-dot terminal windows (#ff5f57, #febc2e, #28c840), pill buttons (48px height, 9999px radius), 3-step workflow arrows, responsive 3-column feature cards, and 45-degree rotating chevron accordions.
+- Accents: Semantic blue (#006bff) for prompts, purple (#a000f8) for sigils, green (#28a948) for strings and success states, red (#fc0035) for before/errors.
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script>
+  function toggleDark() {
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  }
+
+  (function() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+
+  // Swatch copy
+  document.querySelectorAll('.swatch').forEach(swatch => {
+    swatch.addEventListener('click', async () => {
+      const hex = swatch.dataset.hex;
+      const hexEl = swatch.querySelector('.swatch-hex');
+      const original = hexEl.textContent;
+      try {
+        await navigator.clipboard.writeText(hex);
+        hexEl.textContent = 'Copied!';
+        setTimeout(() => { hexEl.textContent = original; }, 1000);
+      } catch (e) {
+        console.error(e);
+      }
+    });
+  });
+
+  // Copy Markdown Spec
+  document.getElementById('copy-spec-btn').addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    const originalHTML = button.innerHTML;
+    try {
+      const response = await fetch('../specs/projectbrain.md');
+      if (!response.ok) throw new Error('Failed to load spec file');
+      const md = await response.text();
+      await navigator.clipboard.writeText(md);
+      button.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!';
+      setTimeout(() => { button.innerHTML = originalHTML; }, 2000);
+    } catch (err) {
+      console.error(err);
+      alert('Failed to copy spec: ' + err.message);
+    }
+  });
+</script>
+</body>
+</html>

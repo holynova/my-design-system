@@ -49,6 +49,10 @@
    - **特点**: 从本地 UI Compare Chrome 扩展提炼的视觉验收工具系统，以暖纸张、细线结构、紧凑控件和琥珀色对比信号组织项目、图片、几何、锚点与视口工作流。
    - **美学风格**: 暖色精密工具、低装饰、高可读性的本地优先工作台。
 
+10. **Project Brain (BRAIN.md) Spec** ([projectbrain.html](pages/projectbrain.html))
+    - **特点**: 从 [projectbrain.md](https://projectbrain.md/) 提取的开发者持久记忆层设计系统，基于 Vercel Geist 极简黑白灰哲学，结合高对比暗色终端窗口、macOS 交通灯指示、工作流指向箭头与折叠 FAQ。
+    - **美学风格**: Geist 工程师极简、高对比终端、精密且克制的语义色彩。
+
 ---
 
 ## 核心特性
