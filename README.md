@@ -11,7 +11,7 @@
 
 ## 目录中收录的设计系统
 
-精选目录当前收录以下九种代表性设计规范：
+精选目录当前收录以下十一种代表性设计规范：
 
 1. **HTML Effectiveness Spec** ([html-effectiveness.html](pages/html-effectiveness.html))
    - **特点**: 秉持温暖极简主义的文档级阅读设计系统，采用经典的 Serif / Sans / Mono 字体定位与 1.5px 极细实线修饰。
@@ -50,8 +50,12 @@
    - **美学风格**: 暖色精密工具、低装饰、高可读性的本地优先工作台。
 
 10. **Project Brain (BRAIN.md) Spec** ([projectbrain.html](pages/projectbrain.html))
-    - **特点**: 从 [projectbrain.md](https://projectbrain.md/) 提取的开发者持久记忆层设计系统，基于 Vercel Geist 极简黑白灰哲学，结合高对比暗色终端窗口、macOS 交通灯指示、工作流指向箭头与折叠 FAQ。
-    - **美学风格**: Geist 工程师极简、高对比终端、精密且克制的语义色彩。
+   - **特点**: 从 [projectbrain.md](https://projectbrain.md/) 提取的开发者持久记忆层设计系统，基于 Vercel Geist 极简黑白灰哲学，结合高对比暗色终端窗口、macOS 交通灯指示、工作流指向箭头与折叠 FAQ。
+   - **美学风格**: Geist 工程师极简、高对比终端、精密且克制的语义色彩。
+
+11. **Detail Spec** ([detail-design.html](pages/detail-design.html))
+   - **特点**: 从 [detail.design](https://detail.design/) 提取的产品细节画廊设计系统，以暖白画布、Geist 字体、24px 描边圆角卡片、固定叙事侧栏与自然比例瀑布流组织界面案例。
+   - **美学风格**: 安静的产品工艺画廊、编辑式留白、内容图像优先。
 
 ---
 
@@ -84,6 +88,7 @@
 │   ├── notion.html
 │   ├── codex-resets.html
 │   ├── ui-compare.html
+│   ├── detail-design.html
 │   └── vue.html
 └── specs/                      # 原始设计系统规范 (Markdown 纯文本)
     ├── html-effectiveness.md
@@ -94,6 +99,7 @@
     ├── notion.md
     ├── codex-resets.md
     ├── ui-compare.md
+    ├── detail-design.md
     └── vue.md
 ```
 
