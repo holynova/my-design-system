@@ -11,7 +11,7 @@
 
 ## 目录中收录的设计系统
 
-精选目录当前收录以下十一种代表性设计规范：
+精选目录当前收录以下十二种代表性设计规范：
 
 1. **HTML Effectiveness Spec** ([html-effectiveness.html](pages/html-effectiveness.html))
    - **特点**: 秉持温暖极简主义的文档级阅读设计系统，采用经典的 Serif / Sans / Mono 字体定位与 1.5px 极细实线修饰。
@@ -57,6 +57,10 @@
    - **特点**: 从 [detail.design](https://detail.design/) 提取的产品细节画廊设计系统，以暖白画布、Geist 字体、24px 描边圆角卡片、固定叙事侧栏与自然比例瀑布流组织界面案例。
    - **美学风格**: 安静的产品工艺画廊、编辑式留白、内容图像优先。
 
+12. **Holynova Portfolio Spec** ([holynova-portfolio.html](pages/holynova-portfolio.html))
+   - **特点**: 从 [holynova.github.io](https://holynova.github.io/) 提取的深色优先作品集系统，以 Zinc 中性色、悬浮胶囊导航、渐进模糊的固定工具栏与自然高度项目瀑布流组织大型项目档案。
+   - **美学风格**: 深色编辑式作品集、克制的硬件感控件、高密度可检索目录。
+
 ---
 
 ## 核心特性
@@ -89,6 +93,7 @@
 │   ├── codex-resets.html
 │   ├── ui-compare.html
 │   ├── detail-design.html
+│   ├── holynova-portfolio.html
 │   └── vue.html
 └── specs/                      # 原始设计系统规范 (Markdown 纯文本)
     ├── html-effectiveness.md
@@ -100,6 +105,7 @@
     ├── codex-resets.md
     ├── ui-compare.md
     ├── detail-design.md
+    ├── holynova-portfolio.md
     └── vue.md
 ```
 
