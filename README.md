@@ -11,7 +11,7 @@
 
 ## 目录中收录的设计系统
 
-精选目录当前收录以下十二种代表性设计规范：
+精选目录当前收录以下十三种代表性设计规范：
 
 1. **HTML Effectiveness Spec** ([html-effectiveness.html](pages/html-effectiveness.html))
    - **特点**: 秉持温暖极简主义的文档级阅读设计系统，采用经典的 Serif / Sans / Mono 字体定位与 1.5px 极细实线修饰。
@@ -61,6 +61,10 @@
    - **特点**: 从 [holynova.github.io](https://holynova.github.io/) 提取的深色优先作品集系统，以 Zinc 中性色、悬浮胶囊导航、渐进模糊的固定工具栏与自然高度项目瀑布流组织大型项目档案。
    - **美学风格**: 深色编辑式作品集、克制的硬件感控件、高密度可检索目录。
 
+13. **Yadong Xie Lab Spec** ([yadong-xie-lab.html](pages/yadong-xie-lab.html))
+   - **特点**: 从 [yadongxie.com/lab](https://www.yadongxie.com/lab) 提取的实验索引设计系统，以窄阅读列、Charter 衬线文本、基线对齐导航、8:5 缩略图与无卡片列表呈现小型界面和视觉实验。
+   - **美学风格**: 安静的研究笔记、作者驱动的编辑式目录、图像作为索引。
+
 ---
 
 ## 核心特性
@@ -94,6 +98,7 @@
 │   ├── ui-compare.html
 │   ├── detail-design.html
 │   ├── holynova-portfolio.html
+│   ├── yadong-xie-lab.html
 │   └── vue.html
 └── specs/                      # 原始设计系统规范 (Markdown 纯文本)
     ├── html-effectiveness.md
@@ -106,6 +111,7 @@
     ├── ui-compare.md
     ├── detail-design.md
     ├── holynova-portfolio.md
+    ├── yadong-xie-lab.md
     └── vue.md
 ```
 
