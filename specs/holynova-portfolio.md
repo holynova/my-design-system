@@ -1,14 +1,14 @@
 ---
 version: 1.0
-name: Holynova Portfolio Design System
+name: Anonymous Study Design System
 description: "A dark-first, high-craft project archive: zinc surfaces, centered editorial introduction, floating utility controls, progressive sticky blur, and a searchable masonry of engineering and design work."
-source: "https://holynova.github.io/"
+source: "anonymous reference"
 extracted: "2026-08-27"
 ---
 
-# Design System: Holynova Portfolio
+# Design System: Anonymous Study
 
-Extracted from [holynova.github.io](https://holynova.github.io/) on 2026-08-27. This system makes a large personal archive feel curated rather than crowded. A disciplined near-black canvas, soft layered elevation, compact controls, and a clear catalogue workflow keep the focus on individual projects.
+Derived from an anonymous reference.
 
 ## 1. Visual Theme & Atmosphere
 
@@ -39,7 +39,7 @@ Color rules: primary actions are white in dark mode and ink in light mode. Keep 
 ## 3. Typography Rules
 
 ```css
---font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+--font-sans: "Plus Jakarta Sans", -Anonymous Study-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
 --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 --font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
 ```

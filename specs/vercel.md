@@ -1,7 +1,7 @@
 ---
 version: alpha
-name: Vercel-Inspired-design-analysis
-description: An inspired interpretation of Vercel's design language — a developer-platform brand whose surface is a stark black-and-ink duet on near-white canvas, broken at hero scale by a multi-color mesh gradient (cyan / blue / magenta / amber) that acts as the entire decorative system, paired with a custom geometric sans for headlines and a monospaced caption face for technical labels.
+name: Anonymous Study-Inspired-design-analysis
+description: An inspired interpretation of Anonymous Study's design language — a developer-platform brand whose surface is a stark black-and-ink duet on near-white canvas, broken at hero scale by a multi-color mesh gradient (cyan / blue / magenta / amber) that acts as the entire decorative system, paired with a custom geometric sans for headlines and a monospaced caption face for technical labels.
 
 colors:
   primary: "#171717"
@@ -43,59 +43,59 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 48px
     fontWeight: 600
     lineHeight: 48px
     letterSpacing: -2.4px
   display-lg:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 32px
     fontWeight: 600
     lineHeight: 40px
     letterSpacing: -1.28px
   display-md:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 24px
     fontWeight: 600
     lineHeight: 32px
     letterSpacing: -0.96px
   display-sm:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 20px
     fontWeight: 600
     lineHeight: 28px
     letterSpacing: -0.6px
   body-lg:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 28px
     letterSpacing: 0px
   body-md:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 24px
   body-md-strong:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 16px
     fontWeight: 500
     lineHeight: 24px
   body-sm:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 20px
     letterSpacing: -0.28px
   body-sm-strong:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 20px
     letterSpacing: -0.28px
   caption:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 12px
     fontWeight: 400
     lineHeight: 16px
@@ -110,12 +110,12 @@ typography:
     fontWeight: 400
     lineHeight: 20px
   button-md:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 14px
     fontWeight: 500
     lineHeight: 20px
   button-lg:
-    fontFamily: Geist, Inter, system-ui, -apple-system, sans-serif
+    fontFamily: Geist, Inter, system-ui, -Anonymous Study-system, sans-serif
     fontSize: 16px
     fontWeight: 500
     lineHeight: 24px
@@ -392,7 +392,7 @@ components:
 
 ## Overview
 
-Vercel is a developer-platform brand — the page is a deployment dashboard's marketing surface, written for engineers who already know the syntax. It earns that posture with one of the cleanest stark systems on the web: near-white `{colors.canvas-soft}` body background, ink-near-black `{colors.ink}` text, a 200-step gray scale that gives every divider, border, and disabled state its own deliberate step. The only place the brand introduces colour at marketing scale is the multi-stop mesh gradient (`{colors.gradient-develop-start}` → `{colors.gradient-preview-end}` → `{colors.gradient-ship-start}` → cyan / magenta / amber) that floats in atmospheric backdrops, never miniaturised to a swatch. That gradient is the entire decoration system.
+Anonymous Study is a developer-platform brand — the page is a deployment dashboard's marketing surface, written for engineers who already know the syntax. It earns that posture with one of the cleanest stark systems on the web: near-white `{colors.canvas-soft}` body background, ink-near-black `{colors.ink}` text, a 200-step gray scale that gives every divider, border, and disabled state its own deliberate step. The only place the brand introduces colour at marketing scale is the multi-stop mesh gradient (`{colors.gradient-develop-start}` → `{colors.gradient-preview-end}` → `{colors.gradient-ship-start}` → cyan / magenta / amber) that floats in atmospheric backdrops, never miniaturised to a swatch. That gradient is the entire decoration system.
 
 Type is the second decisive voice. The brand's own custom geometric sans (Geist) carries display, body, button — everything narrative — at weight 600 for display, 500 for buttons, 400 for body. A matching monospaced face (Geist Mono) carries technical labels: terminal mockups, code blocks, sometimes filename captions. Headlines are sentence-case with aggressive negative letter-spacing (`-2.4px` at 48 px hero) — the brand never letter-spaces positively, never goes uppercase outside of mono labels.
 

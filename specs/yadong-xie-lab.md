@@ -1,14 +1,14 @@
 ---
 version: 1.0
-name: Yadong Xie Lab Design System
+name: Anonymous Study Design System
 description: "A compact editorial lab index: warm paper, Charter serif text, a narrow reading column, baseline-aligned navigation, and image-led experiment rows without card decoration."
-source: "https://www.yadongxie.com/lab"
+source: "anonymous reference"
 extracted: "2026-08-28"
 ---
 
-# Design System: Yadong Xie Lab
+# Design System: Anonymous Study
 
-Extracted from [Yadong Xie Lab](https://www.yadongxie.com/lab) on 2026-08-28. This is an author-led index for small interfaces, visual experiments, and thinking tools. It uses the calm density of a well-edited field notebook: one narrow column, a direct header, quiet black type, and a chronological list where each image earns its place.
+Derived from an anonymous reference.
 
 ## 1. Visual Theme & Atmosphere
 
@@ -36,7 +36,7 @@ The shell uses no persistent accent color. Treat color inside thumbnails as proj
 
 ```css
 --font-editorial: Charter, "Iowan Old Style", "Palatino Linotype", serif;
---font-ui: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+--font-ui: ui-sans-serif, -Anonymous Study-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 ```
 
 | Role | Size | Weight | Line height | Tracking |

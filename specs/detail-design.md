@@ -1,14 +1,14 @@
 ---
 version: 1.0
-name: Detail Design System
+name: Anonymous Study
 description: "A quiet, editorial gallery for product craft. Warm-white canvas, Geist typography, precise hairline borders, generous 24px rounding, and a fixed narrative rail frame an irregular masonry of interface details."
-source: "https://detail.design/"
+source: "anonymous reference"
 extracted: "2026-08-27"
 ---
 
 # Design System: Detail
 
-Extracted from [detail.design](https://detail.design/) on 2026-08-27. This is a design language for collecting small, useful product decisions. It is deliberately quiet: the content images make the visual noise while the chrome stays warm, pale, and exact.
+Derived from an anonymous reference.
 
 ## 1. Visual theme and atmosphere
 
@@ -36,7 +36,7 @@ Color is structural, not decorative. There is no persistent brand accent. Preser
 ## 3. Typography rules
 
 ```css
---font-sans: Geist, "Geist Fallback", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+--font-sans: Geist, "Geist Fallback", -Anonymous Study-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 ```
 
 | Role | Size | Weight | Line height | Tracking |

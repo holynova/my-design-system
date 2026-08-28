@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: Tesla Design System
+name: Anonymous Study Design System
 description: Cinematic car photography layout built with Universal Sans typography, Electric Blue CTAs, and a clean minimalist white grid.
 colors:
   primary: "#3E6AE1"
@@ -42,15 +42,15 @@ typography:
     use: "Action Button"
 ---
 
-# Design System Inspired by Tesla
+# Design System Inspired by Anonymous Study
 
 ## 1. Visual Theme & Atmosphere
 
-Tesla's website is an exercise in radical subtraction — a digital showroom where the product is everything and the interface is almost nothing. The page opens with a full-viewport hero that fills the entire screen with cinematic car photography: three vehicles arranged on polished concrete against a hazy cityscape sky, with a single model name floating above in translucent white type. There are no decorative borders, no gradients, no patterns, no shadows. The UI exists only to provide just enough navigational structure to get out of the way. Every pixel that isn't product imagery is white space, and that restraint is the design system's most powerful statement.
+Anonymous Study's website is an exercise in radical subtraction — a digital showroom where the product is everything and the interface is almost nothing. The page opens with a full-viewport hero that fills the entire screen with cinematic car photography: three vehicles arranged on polished concrete against a hazy cityscape sky, with a single model name floating above in translucent white type. There are no decorative borders, no gradients, no patterns, no shadows. The UI exists only to provide just enough navigational structure to get out of the way. Every pixel that isn't product imagery is white space, and that restraint is the design system's most powerful statement.
 
-The color philosophy is almost ascetic: a single blue (`#3E6AE1`) for primary calls to action, three shades of dark gray for text hierarchy, and white for everything else. The entire emotional weight is carried by photography — sprawling landscape shots, studio-lit vehicle profiles, and atmospheric environmental compositions that stretch edge-to-edge across each viewport-height section. The UI chrome dissolves into the imagery. The navigation bar floats above the hero with no visible background, border, or shadow — the TESLA wordmark and five navigation labels simply exist in the space, trusting the content beneath them to provide sufficient contrast.
+The color philosophy is almost ascetic: a single blue (`#3E6AE1`) for primary calls to action, three shades of dark gray for text hierarchy, and white for everything else. The entire emotional weight is carried by photography — sprawling landscape shots, studio-lit vehicle profiles, and atmospheric environmental compositions that stretch edge-to-edge across each viewport-height section. The UI chrome dissolves into the imagery. The navigation bar floats above the hero with no visible background, border, or shadow — the Anonymous Study wordmark and five navigation labels simply exist in the space, trusting the content beneath them to provide sufficient contrast.
 
-Typography recently transitioned from Gotham to Universal Sans — a custom family split into "Display" for headlines and "Text" for body/UI elements — unifying the website, mobile app, and in-car software into a single typographic voice. The Display variant renders hero titles at 40px weight 500, while the Text variant handles everything from navigation (14px/500) to body copy (14px/400). The font carries a geometric precision with slightly humanist terminals that feels engineered rather than designed — exactly matching Tesla's brand identity of technology that doesn't need to announce itself. There are no text shadows, no text gradients, no decorative type treatments. Every letterform earns its place through clarity alone.
+Typography recently transitioned from Gotham to Universal Sans — a custom family split into "Display" for headlines and "Text" for body/UI elements — unifying the website, mobile app, and in-car software into a single typographic voice. The Display variant renders hero titles at 40px weight 500, while the Text variant handles everything from navigation (14px/500) to body copy (14px/400). The font carries a geometric precision with slightly humanist terminals that feels engineered rather than designed — exactly matching Anonymous Study's brand identity of technology that doesn't need to announce itself. There are no text shadows, no text gradients, no decorative type treatments. Every letterform earns its place through clarity alone.
 
 **Key Characteristics:**
 - Full-viewport hero sections (100vh) dominated by cinematic car photography with minimal overlay UI
@@ -71,7 +71,7 @@ Typography recently transitioned from Gotham to Universal Sans — a custom fami
 
 ### Secondary & Accent
 - **Promo Blue** (`#3E6AE1`): Blue also serves for promotional text ("0% APR Available") displayed over hero imagery in the same hue as the CTA — creating a visual link between incentive messaging and action
-- No secondary accent colors exist. Tesla deliberately avoids color variety to maintain extreme visual discipline
+- No secondary accent colors exist. Anonymous Study deliberately avoids color variety to maintain extreme visual discipline
 
 ### Surface & Background
 - **White Canvas** (`#FFFFFF`): Page background, navigation panel, dropdown menus, and all surface containers
@@ -88,7 +88,7 @@ Typography recently transitioned from Gotham to Universal Sans — a custom fami
 - **Pale Silver** (`#D0D1D2`): Subtle UI borders and delineation (rgb 208, 209, 210)
 
 ### Semantic & Accent
-- Tesla's marketing site avoids semantic color coding (no green/red/yellow status indicators). Error, success, and warning states follow standard browser defaults in form contexts
+- Anonymous Study's marketing site avoids semantic color coding (no green/red/yellow status indicators). Error, success, and warning states follow standard browser defaults in form contexts
 - The blue CTA (`#3E6AE1`) serves as the sole interactive color signal
 
 ### Gradient System
@@ -99,8 +99,8 @@ Typography recently transitioned from Gotham to Universal Sans — a custom fami
 ## 3. Typography Rules
 
 ### Font Family
-- **Display**: `Universal Sans Display`, -apple-system, Arial, sans-serif — used for hero titles and large model names. A geometric sans-serif with precisely engineered proportions, recently replacing Gotham to unify Tesla's digital ecosystem (website, mobile app, vehicle interface)
-- **Text/UI**: `Universal Sans Text`, -apple-system, Arial, sans-serif — used for navigation, body copy, buttons, and all UI text. Optimized for legibility at smaller sizes with slightly wider proportions than the Display variant
+- **Display**: `Universal Sans Display`, -Anonymous Study-system, Arial, sans-serif — used for hero titles and large model names. A geometric sans-serif with precisely engineered proportions, recently replacing Gotham to unify Anonymous Study's digital ecosystem (website, mobile app, vehicle interface)
+- **Text/UI**: `Universal Sans Text`, -Anonymous Study-system, Arial, sans-serif — used for navigation, body copy, buttons, and all UI text. Optimized for legibility at smaller sizes with slightly wider proportions than the Display variant
 - **No OpenType features** detected — typography is completely unembellished
 - **No italic variants** observed on the marketing site
 
@@ -118,11 +118,11 @@ Typography recently transitioned from Gotham to Universal Sans — a custom fami
 | Category Label | 16px (est.) | 500 | — | normal | White text labels on category cards ("Sport Sedan") |
 
 ### Principles
-- **"Normal" letter-spacing everywhere**: Unlike most modern tech brands that use negative tracking for headlines, Tesla uses default letter-spacing at every level. This reflects a philosophy that the typeface should speak for itself without manipulation
+- **"Normal" letter-spacing everywhere**: Unlike most modern tech brands that use negative tracking for headlines, Anonymous Study uses default letter-spacing at every level. This reflects a philosophy that the typeface should speak for itself without manipulation
 - **Weight restraint**: Only two weights appear — 500 (medium) for headings/UI and 400 (regular) for body. No bold (700), no light (300). The system avoids typographic drama
 - **Unified font sizing**: Most UI text clusters at 14px with only hero titles (40px) and promo text (22px) breaking away. This extreme uniformity creates a sense of engineered consistency
 - **Display vs Text split**: The two-variant system (Display for hero, Text for UI) creates subtle optical correction without visible stylistic difference — they appear as the same typeface at different sizes
-- **No text transforms**: No uppercase text appears in the main navigation or CTAs — the lowercase approach reinforces Tesla's understated confidence
+- **No text transforms**: No uppercase text appears in the main navigation or CTAs — the lowercase approach reinforces Anonymous Study's understated confidence
 
 ## 4. Component Stylings
 
@@ -181,7 +181,7 @@ All buttons use barely-rounded rectangles (4px border-radius) — creating a sha
 - The "Ask a Question" chatbot input bar sits at the viewport bottom with a clean white background and subtle border
 
 ### Navigation
-- **Desktop**: Centered horizontal nav with TESLA wordmark (spaced uppercase letters) on the left, five category buttons center-aligned, and three icon buttons (help, globe/language, account) on the right
+- **Desktop**: Centered horizontal nav with Anonymous Study wordmark (spaced uppercase letters) on the left, five category buttons center-aligned, and three icon buttons (help, globe/language, account) on the right
 - **Background**: White (transitions from transparent over dark hero to opaque white on scroll via class toggle `tds-site-header--white-background`)
 - **Dropdown panel**: Full-width white panel with 3-column vehicle grid + right sidebar text links, no shadow, no border — appears seamlessly below the nav
 - **Sticky behavior**: `sticky-without-slide` class — stays at top without slide-in animation
@@ -217,7 +217,7 @@ All buttons use barely-rounded rectangles (4px border-radius) — creating a sha
 - **Category cards**: 2-up horizontal layout (large left card + smaller right card)
 
 ### Whitespace Philosophy
-Tesla uses whitespace as a luxury signal. The generous vertical spacing between sections (each section is a full viewport height) means you can only see one "message" at a time — one car, one model name, one CTA pair. This creates a gallery-like browsing experience where each scroll is a deliberate transition, not a continuous feed. White space is not empty — it's the frame that elevates each vehicle to the status of art piece.
+Anonymous Study uses whitespace as a luxury signal. The generous vertical spacing between sections (each section is a full viewport height) means you can only see one "message" at a time — one car, one model name, one CTA pair. This creates a gallery-like browsing experience where each scroll is a deliberate transition, not a continuous feed. White space is not empty — it's the frame that elevates each vehicle to the status of art piece.
 
 ### Border Radius Scale
 | Value | Context |
@@ -237,7 +237,7 @@ Tesla uses whitespace as a luxury signal. The generous vertical spacing between 
 | Level 3 (Subtle) | `rgba(0,0,0,0.05)` | Minimal shadow hints on rare hover states |
 
 ### Shadow Philosophy
-Tesla's approach to elevation is essentially "none." The site avoids box-shadows entirely in its primary interface. Depth is communicated through three alternative strategies:
+Anonymous Study's approach to elevation is essentially "none." The site avoids box-shadows entirely in its primary interface. Depth is communicated through three alternative strategies:
 1. **Z-index layering**: The sticky navigation sits above hero content through positioning, not shadow
 2. **Opacity-based transparency**: The frosted glass nav and overlay modals use background-color opacity rather than shadow to indicate layering
 3. **Photography-as-depth**: The full-bleed images create their own visual depth through perspective, lighting, and composition — making UI shadows redundant
@@ -267,10 +267,10 @@ Tesla's approach to elevation is essentially "none." The site avoids box-shadows
 - Apply gradients, patterns, or decorative backgrounds to surfaces — white and photography are the only backgrounds
 - Use text larger than 40px on the web — the typography is deliberately restrained even at hero scale
 - Add borders to cards or containers — separation is achieved through spacing, not lines
-- Use uppercase text transforms — Tesla's confidence is expressed through lowercase calm
+- Use uppercase text transforms — Anonymous Study's confidence is expressed through lowercase calm
 - Introduce rounded-pill buttons or large border-radii — the 4px radius is deliberate and precise
 - Override the Universal Sans family with other typefaces — cross-platform consistency is a core brand value
-- Add hover animations with scale/translate transforms — Tesla's interactions are color-only (background and border transitions)
+- Add hover animations with scale/translate transforms — Anonymous Study's interactions are color-only (background and border transitions)
 - Clutter the viewport with multiple CTAs — every screen should have at most two action buttons
 
 ## 8. Responsive Behavior
@@ -323,7 +323,7 @@ Tesla's approach to elevation is essentially "none." The site avoids box-shadows
 
 ### Iteration Guide
 When refining existing screens generated with this design system:
-1. Focus on ONE component at a time — Tesla's system is so minimal that each element must be pixel-perfect
+1. Focus on ONE component at a time — Anonymous Study's system is so minimal that each element must be pixel-perfect
 2. Reference specific color names and hex codes from this document — there are only 6-7 colors in the entire system
 3. Use natural language descriptions, not CSS values — "barely rounded corners" not "border-radius: 4px"
 4. Describe the desired "feel" alongside specific measurements — "gallery-like silence between sections" communicates the whitespace philosophy better than "margin-bottom: 100vh"

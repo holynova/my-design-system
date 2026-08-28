@@ -1,8 +1,8 @@
 ---
 version: alpha
-name: Codex Resets Design System
+name: Anonymous Study Design System
 description: "A sticker-sheet neo-brutalist interface built from warm cream paper, dark cocoa ink, hard offset shadows, rounded Baloo 2 display type, one loud orange, and three pastel status colors. It turns a tiny operational tracker into a playful shrine without sacrificing scan speed: the current status dominates, summary metrics read as crooked stickers, the event calendar behaves like a tactile pixel grid, and archived updates become speech bubbles."
-source: "https://codex-resets.com/"
+source: "anonymous reference"
 extracted: "2026-07-30"
 
 colors:
@@ -173,9 +173,9 @@ components:
     transform: "rotate(0.45deg)"
 ---
 
-# Design System: Codex Resets
+# Design System: Anonymous Study
 
-Extracted from [codex-resets.com](https://codex-resets.com/) on 2026-07-30.
+Derived from an anonymous reference.
 
 The visual thesis is **sticker-sheet neo-brutalism**: warm cream paper, thick cocoa outlines, hard offset shadows, one loud orange, and pastel metric stickers placed at slight angles. Rounded display type keeps the mood friendly while mono metadata makes the live tracker feel precise.
 
@@ -219,7 +219,7 @@ The visual thesis is **sticker-sheet neo-brutalism**: warm cream paper, thick co
 
 ```css
 --font-display: "Baloo 2", "Arial Rounded MT Bold", system-ui, sans-serif;
---font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+--font-body: system-ui, -Anonymous Study-system, "Segoe UI", sans-serif;
 --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
 ```
 
@@ -410,7 +410,7 @@ The single breakpoint is `640px`.
 ## 10. Agent Prompt Guide
 
 ```text
-Build a compact operational tracker in the Codex Resets visual language.
+Build a compact operational tracker in the Anonymous Study visual language.
 
 Use a warm cream paper canvas (#fff4dd), dark cocoa ink (#26201a), and off-white raised cards (#fffdf7). Use Baloo 2 at weights 700–800 only for titles, figures, and pill controls; use system sans for body copy and ui-monospace for labels, dates, legends, and metrics.
 

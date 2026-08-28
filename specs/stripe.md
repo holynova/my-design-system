@@ -27,105 +27,105 @@ colors:
 
 typography:
   display-xxl:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 56px
     fontWeight: 300
     lineHeight: 1.03
     letterSpacing: -1.4px
     fontFeature: ss01
   display-xl:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 48px
     fontWeight: 300
     lineHeight: 1.15
     letterSpacing: -0.96px
     fontFeature: ss01
   display-lg:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 32px
     fontWeight: 300
     lineHeight: 1.1
     letterSpacing: -0.64px
     fontFeature: ss01
   display-md:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 26px
     fontWeight: 300
     lineHeight: 1.12
     letterSpacing: -0.26px
     fontFeature: ss01
   heading-lg:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 22px
     fontWeight: 300
     lineHeight: 1.1
     letterSpacing: -0.22px
     fontFeature: ss01
   heading-md:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 20px
     fontWeight: 300
     lineHeight: 1.4
     letterSpacing: -0.2px
     fontFeature: ss01
   heading-sm:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 18px
     fontWeight: 300
     lineHeight: 1.4
     letterSpacing: 0
     fontFeature: ss01
   body-lg:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 16px
     fontWeight: 300
     lineHeight: 1.4
     letterSpacing: 0
     fontFeature: ss01
   body-md:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 15px
     fontWeight: 300
     lineHeight: 1.4
     letterSpacing: 0
     fontFeature: ss01
   body-tabular:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 14px
     fontWeight: 300
     lineHeight: 1.4
     letterSpacing: -0.42px
     fontFeature: tnum
   button-md:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.0
     letterSpacing: 0
     fontFeature: ss01
   button-sm:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.0
     letterSpacing: 0
     fontFeature: ss01
   caption:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.4
     letterSpacing: -0.39px
     fontFeature: tnum
   micro:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 11px
     fontWeight: 300
     lineHeight: 1.4
     letterSpacing: 0
     fontFeature: ss01
   micro-cap:
-    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif"
+    fontFamily: "sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif"
     fontSize: 10px
     fontWeight: 400
     lineHeight: 1.15
@@ -262,7 +262,7 @@ Typography is built around **Sohne** at weight 300 with negative letter-spacing 
 
 ## Colors
 
-> **Source pages:** home (`/`), `/payments`, `/pricing`, `dashboard.stripe.com/register/payments`.
+> **Source pages:** home (`/`), `/payments`, `/pricing`, `dashboard.Anonymous Study.com/register/payments`.
 
 ### Brand & Accent
 - **Indigo** (`{colors.primary}` — `#533afd`): The brand's signature CTA color. Filled-pill button, link emphasis, gradient anchor.

@@ -1,4 +1,4 @@
-<!-- Design System — Nintendo 2001 Inspired Spec -->
+<!-- Design System — Anonymous Study Inspired Spec -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -6,13 +6,13 @@
     defer
     src="https://cloud.umami.is/script.js"
     data-website-id="e01c9f78-4607-4e60-b01c-77c8190b12b4"
-    data-domains="holynova.github.io"
+    data-domains=""
     data-exclude-search="true"
     data-exclude-hash="true"
   ></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design System — Nintendo 2001 Inspired Spec</title>
+<title>Design System — Anonymous Study Inspired Spec</title>
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,36 +23,36 @@
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-serif: Georgia, serif;
     --font-mono: ui-monospace, monospace;
-    
+
     --bg-base: #a1accb;
     --bg-surface: #f8fafc;
     --border-color: #5a5f8c;
     --border-dark: #cbd5e1;
-    
+
     --text-primary: #0c0c2e;
     --text-secondary: #475569;
     --text-muted: #94a3b8;
-    
+
     --accent-vue: #e60012;
     --accent-vue-hover: #2563eb;
     --accent-vue-glow: rgba(230, 0, 18, 0.08);
-    
+
     --radius-lg: 8px;
     --radius-md: 6px;
     --radius-sm: 4px;
     --radius-pill: 999px;
-    
+
     --shadow-flat: none;
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
     --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
-    
+
     --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* ═══════════════════ RESET & BASE ═══════════════════ */
   *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
-  
+
   html {
     background: var(--bg-base);
     color: var(--text-primary);
@@ -61,7 +61,7 @@
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
   }
-  
+
   body {
     line-height: 1.6;
     padding-bottom: 120px;
@@ -72,7 +72,7 @@
   hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
   pre, code { font-family: var(--font-mono); }
   code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
-  
+
   pre {
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
@@ -320,7 +320,7 @@
   }
   footer a { color: var(--text-primary); }
 
-  
+
 </style>
 </head>
 <body>
@@ -332,7 +332,7 @@
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" style="fill:currentColor;"/></svg>
     </div>
     <div>
-      <h1>Nintendo 2001 Inspired Spec</h1>
+      <h1>Anonymous Study Inspired Spec</h1>
       <div class="sub">Y2K periwinkle console web · Metal panels and glowing amber navs...</div>
     </div>
     <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
@@ -371,7 +371,7 @@
 
       <!-- 01 Visual Theme & Atmosphere -->
       <div id="visual-theme" class="sec-head"><span class="idx">01</span><h2>Visual Theme & Atmosphere</h2></div>
-      <p style='margin-bottom:16px; line-height:1.6;'>Nintendo.com circa 2001 is the web rendered as <strong>console hardware</strong>. Where most sites of the era reached for either grunge texture or corporate gradients, this interface builds itself out of <strong>brushed-periwinkle metal plates</strong> — every region is a discrete beveled panel, edge-lit with a brighter highlight on top and a <code>{colors.chrome-indigo}</code> shadow line beneath, as if stamped from the same injection-molded plastic as a Game Boy. The whole page reads as one machine faceplate: a body of <code>{colors.canvas}</code> periwinkle chrome carrying inset modules, with the corners of the largest panels physically <strong>chamfered</strong> (cut at 45°) rather than rounded, reinforcing the manufactured-object feeling.</p>
+      <p style='margin-bottom:16px; line-height:1.6;'>Anonymous Study circa 2001 is the web rendered as <strong>console hardware</strong>. Where most sites of the era reached for either grunge texture or corporate gradients, this interface builds itself out of <strong>brushed-periwinkle metal plates</strong> — every region is a discrete beveled panel, edge-lit with a brighter highlight on top and a <code>{colors.chrome-indigo}</code> shadow line beneath, as if stamped from the same injection-molded plastic as a Game Boy. The whole page reads as one machine faceplate: a body of <code>{colors.canvas}</code> periwinkle chrome carrying inset modules, with the corners of the largest panels physically <strong>chamfered</strong> (cut at 45°) rather than rounded, reinforcing the manufactured-object feeling.</p>
 <p style='margin-bottom:16px; line-height:1.6;'>The system runs on a tight three-voice contrast. The structural voice is the cool periwinkle-to-indigo chrome (<code>{colors.canvas}</code>, <code>{colors.periwinkle}</code>, <code>{colors.chrome-indigo}</code>). The authority voice is <code>{colors.carbon}</code> carbon-navy — the top navigation bar, the right-rail action buttons, and the footer, all near-black slabs printed with a faint <strong>halftone dot-matrix texture</strong> that evokes a speaker grille. The energy voice is warm and reserved for one job only: telling you where to go. <code>{colors.nav-gold}</code> lights the primary menu words, <code>{colors.amber}</code> fills the utility chips and badges, and <code>{colors.signal}</code> orange marks every "forward" cue — the round arrow buttons, the chevron chips beside each headline, the Submit button. Warmth in this system always means <em>action</em>; the cool chrome never carries it.</p>
 <p style='margin-bottom:16px; line-height:1.6;'>...</p>
 <p style='margin-bottom:16px; line-height:1.6;'><strong>Key Characteristics:</strong>
@@ -385,7 +385,7 @@
       <div id="color-palette" class="sec-head"><span class="idx">02</span><h2>Color Palette & Roles</h2></div>
       <p style='margin-bottom:16px; line-height:1.6;'>The palette is a <strong>cool metallic chassis with rationed warm signal</strong>. Read it as three layers: the periwinkle chrome that everything is built from, the carbon command slabs, and the warm wayfinding accents that are the only saturated color in the steady-state interface.</p>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Brand & Accent</h3>
-<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Nintendo Red</strong> (<code>{colors.primary}</code> — #e60012): The racetrack logo wordmark and the brand's anchor hue. Used sparingly as pure brand identity and doubled as the validation/alert color. Never a surface fill outside the logo plate.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Signal Orange</strong> (<code>{colors.signal}</code> — #f68d1f): The "go forward" color. Fills every round arrow button, every chevron chip beside a headline, the Submit button, and the "Play It On" platform badges. If something advances you, it is orange.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Anonymous Study Red</strong> (<code>{colors.primary}</code> — #e60012): The racetrack logo wordmark and the brand's anchor hue. Used sparingly as pure brand identity and doubled as the validation/alert color. Never a surface fill outside the logo plate.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Signal Orange</strong> (<code>{colors.signal}</code> — #f68d1f): The "go forward" color. Fills every round arrow button, every chevron chip beside a headline, the Submit button, and the "Play It On" platform badges. If something advances you, it is orange.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Surface</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Periwinkle Metallic</strong> (<code>{colors.canvas}</code> — #7a8aba): The primary interface body — the brushed-metal chrome that every module is inset into.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Light Periwinkle</strong> (<code>{colors.periwinkle}</code> — #8ba1d4): Raised mid panels (poll panel, system tiles) — one step brighter than canvas for elevation.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Text</h3>
@@ -393,7 +393,7 @@
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Semantic</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Error / Alert</strong> (<code>{colors.error}</code> — #e60012): Validation and destructive states reuse the brand red.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Systems Teal</strong> (<code>{colors.systems-teal}</code> — #206479): Page-accent tint — the Systems hero's circuit-board cyan field.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
       <div class="swatches" style="margin-top:20px;">
-        
+
             <div class="swatch" onclick="copyColor('#e60012', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#e60012; "></div>
                 <div class="color-label">
@@ -401,7 +401,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e60012</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#f68d1f', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#f68d1f; "></div>
                 <div class="color-label">
@@ -409,7 +409,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f68d1f</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ecab37', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ecab37; "></div>
                 <div class="color-label">
@@ -417,7 +417,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ecab37</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#e48600', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#e48600; "></div>
                 <div class="color-label">
@@ -425,7 +425,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e48600</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#7a8aba', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#7a8aba; "></div>
                 <div class="color-label">
@@ -433,7 +433,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#7a8aba</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#9fbee7', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#9fbee7; "></div>
                 <div class="color-label">
@@ -441,7 +441,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#9fbee7</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#9fbee7', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#9fbee7; "></div>
                 <div class="color-label">
@@ -449,7 +449,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#9fbee7</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#acace7', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#acace7; "></div>
                 <div class="color-label">
@@ -457,7 +457,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#acace7</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#c0d5e6', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#c0d5e6; "></div>
                 <div class="color-label">
@@ -465,7 +465,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#c0d5e6</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#8ba1d4', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#8ba1d4; "></div>
                 <div class="color-label">
@@ -473,7 +473,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#8ba1d4</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#3d4f97', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#3d4f97; "></div>
                 <div class="color-label">
@@ -481,7 +481,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#3d4f97</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#60619c', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#60619c; "></div>
                 <div class="color-label">
@@ -489,7 +489,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#60619c</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#dedede', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#dedede; "></div>
                 <div class="color-label">
@@ -497,7 +497,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#dedede</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
                 <div class="color-label">
@@ -505,7 +505,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#21242e', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#21242e; "></div>
                 <div class="color-label">
@@ -513,7 +513,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#21242e</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#5a5f8c', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#5a5f8c; "></div>
                 <div class="color-label">
@@ -521,7 +521,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#5a5f8c</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#21242e', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#21242e; "></div>
                 <div class="color-label">
@@ -529,7 +529,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#21242e</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#3d4f97', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#3d4f97; "></div>
                 <div class="color-label">
@@ -537,7 +537,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#3d4f97</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
                 <div class="color-label">
@@ -545,7 +545,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#206479', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#206479; "></div>
                 <div class="color-label">
@@ -553,7 +553,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#206479</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#a7282b', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#a7282b; "></div>
                 <div class="color-label">
@@ -561,7 +561,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#a7282b</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#e60012', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#e60012; "></div>
                 <div class="color-label">
@@ -569,7 +569,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e60012</div>
                 </div>
             </div>
-            
+
       </div>
 
       <!-- 03 Typography Rules -->
@@ -582,13 +582,13 @@ The era's web-safe reality is <strong>Arial / Helvetica</strong> throughout — 
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Uppercase + tracking is the chrome voice.</strong> Every structural label — nav words, panel headers ("Official News", "Featured Sites", "Player's Poll"), button text — is uppercase Arial Bold with a half-pixel of tracking. It reads like silkscreened legends on a controller.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Display type is outlined, never flat.</strong> Hero wordmarks always carry a thick contrasting outline and a hard offset shadow so they pop off the photographic field — the box-art convention.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Note on Font Substitutes</h3>
 ...
-      
+
         <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
             <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
             <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
         </div>
         <div style="display:flex; flex-direction:column; gap:16px;">
-        
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">nav-link</span>
@@ -597,9 +597,9 @@ The era's web-safe reality is <strong>Arial / Helvetica</strong> throughout — 
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:13px; font-weight:700; line-height:1; letter-spacing:0.5px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">ui-label</span>
@@ -608,9 +608,9 @@ The era's web-safe reality is <strong>Arial / Helvetica</strong> throughout — 
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:11px; font-weight:700; line-height:1.1; letter-spacing:0.5px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">display</span>
@@ -619,9 +619,9 @@ The era's web-safe reality is <strong>Arial / Helvetica</strong> throughout — 
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:44px; font-weight:900; line-height:1; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">hero-tagline</span>
@@ -630,9 +630,9 @@ The era's web-safe reality is <strong>Arial / Helvetica</strong> throughout — 
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:15px; font-weight:700; line-height:1.3; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">body</span>
@@ -641,9 +641,9 @@ The era's web-safe reality is <strong>Arial / Helvetica</strong> throughout — 
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:12px; font-weight:400; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">link</span>
@@ -652,9 +652,9 @@ The era's web-safe reality is <strong>Arial / Helvetica</strong> throughout — 
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:12px; font-weight:700; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">micro</span>
@@ -663,7 +663,7 @@ The era's web-safe reality is <strong>Arial / Helvetica</strong> throughout — 
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:10px; font-weight:400; line-height:1.3; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
                 </div>
 
@@ -685,10 +685,10 @@ Empty space is <strong>engineered seam</strong>, not breathing room. Modules but
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
         <p>Layout Grid Example</p>
-        
+
     <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
         <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
-        
+
         <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
@@ -703,14 +703,14 @@ Empty space is <strong>engineered seam</strong>, not breathing room. Modules but
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
         </div>
-        
+
         <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
             <div>Gutter spacing: 16px / 24px</div>
             <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
             <div>Max Container Width: 1200px</div>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 05 Depth & Elevation -->
@@ -721,7 +721,7 @@ Depth is also carried by <strong>texture and photography</strong>: the halftone 
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
         <p>Elevation Level Example</p>
-        
+
     <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
         <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
             <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
@@ -736,9 +736,9 @@ Depth is also carried by <strong>texture and photography</strong>: the halftone 
             <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
         </div>
     </div>
-    
+
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
-        
+
     <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
         <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
             <span style="font-weight:700;">radius-sm</span>
@@ -757,7 +757,7 @@ Depth is also carried by <strong>texture and photography</strong>: the halftone 
             <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 06 Component Stylings -->
@@ -775,10 +775,10 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
 <strong><code>left-rail-tab</code></strong> — Rotated section tabs
 <ul><li style='margin-left:20px; margin-bottom:6px;'>A thin vertical strip of <code>{colors.carbon}</code> tabs (Top Ten, Top Rentals, Player's Choice, ESRB Ratings) with vertically-rotated <code>{typography.ui-label}</code> text in <code>{colors.canvas-soft}</code>, clipped to the left chrome edge. Sharp corners, <code>{spacing.xs}</code> padding.</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Brand & Masthead</h3></p>
-<p style='margin-bottom:16px; line-height:1.6;'><strong><code>logo-pill</code></strong> — Nintendo racetrack logo
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>logo-pill</code></strong> — Anonymous Study racetrack logo
 <ul><li style='margin-left:20px; margin-bottom:6px;'>The wordmark in <code>{colors.primary}</code> red set inside a white <code>{rounded.full}</code> racetrack pill, outlined. Sits at the left of the nav bar. <code>{spacing.xs}</code> padding.</li></ul>
 <strong><code>mascot-bubble</code></strong> — Mario welcome speech bubble
-<ul><li style='margin-left:20px; margin-bottom:6px;'>A white <code>{rounded.lg}</code> rounded-rectangle speech bubble with a tail, carrying "Welcome to Nintendo.com!" in <code>{typography.micro}</code> <code>{colors.carbon}</code>, paired with the Mario cutout in the masthead. <code>{spacing.sm}</code> padding.</li></ul>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>A white <code>{rounded.lg}</code> rounded-rectangle speech bubble with a tail, carrying "Welcome to Anonymous Study!" in <code>{typography.micro}</code> <code>{colors.carbon}</code>, paired with the Mario cutout in the masthead. <code>{spacing.sm}</code> padding.</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Buttons</h3></p>
 <p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary</code></strong> — Amber utility / Go chip
 <ul><li style='margin-left:20px; margin-bottom:6px;'><code>{colors.amber}</code> fill, <code>{colors.carbon}</code> text in <code>{typography.ui-label}</code>, <code>{rounded.xs}</code> corners, <code>{spacing.md}</code> padding, with a beveled top highlight. The everyday tool button (Code Bank, Game Finder, Go).</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
@@ -821,7 +821,7 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
 <strong><code>promo-card</code></strong> — Side product promo
 <ul><li style='margin-left:20px; margin-bottom:6px;'>A <code>{colors.lavender}</code> <code>{rounded.sm}</code> card carrying an outlined product wordmark (e.g. Game Boy Advance) over a small product render, in the right rail. <code>{spacing.md}</code> padding.</li></ul>
 <strong><code>system-tile</code></strong> — Hardware grid tile (Systems page)
-<ul><li style='margin-left:20px; margin-bottom:6px;'>A <code>{colors.periwinkle}</code> <code>{rounded.sm}</code> tile holding a console render over a circuit-board backdrop with an outlined system name (Nintendo 64, Super Nintendo, Game Boy). <code>{spacing.sm}</code> padding, arranged in a 2×3 grid.</li></ul>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>A <code>{colors.periwinkle}</code> <code>{rounded.sm}</code> tile holding a console render over a circuit-board backdrop with an outlined system name (Anonymous Study 64, Super Anonymous Study, Game Boy). <code>{spacing.sm}</code> padding, arranged in a 2×3 grid.</li></ul>
 <strong><code>link-row-card</code></strong> — Utility link card (Systems page)
 <ul><li style='margin-left:20px; margin-bottom:6px;'>A white <code>{rounded.sm}</code> card with an amber label tab (Technical Help, Store Locator, Online Store), a character icon, and a one-line <code>{typography.body}</code> description. <code>{spacing.sm}</code> padding.</li></ul>
 <strong><code>calendar-widget</code></strong> — Month calendar (News page)
@@ -832,7 +832,7 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
 <strong><code>esrb-rating-square</code></strong> — Game content-rating square
 <ul><li style='margin-left:20px; margin-bottom:6px;'>A 20px white <code>{rounded.xs}</code> square stamping the content-rating letter (E, T) in <code>{typography.ui-label}</code> <code>{colors.carbon}</code>, on each game card.</li></ul>
 <strong><code>footer-bar</code></strong> — Page footer
-<ul><li style='margin-left:20px; margin-bottom:6px;'>A <code>{colors.carbon}</code> chamfered slab with the "©1997–2001 Nintendo…" copyright in <code>{typography.micro}</code> <code>{colors.canvas-soft}</code>, the ESRB badge, and a privacy link. Sharp corners, <code>{spacing.lg}</code> padding.</li></ul>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>A <code>{colors.carbon}</code> chamfered slab with the "©1997–2001 Anonymous Study…" copyright in <code>{typography.micro}</code> <code>{colors.canvas-soft}</code>, the ESRB badge, and a privacy link. Sharp corners, <code>{spacing.lg}</code> padding.</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Examples (illustrative)</h3></p>
 <p style='margin-bottom:16px; line-height:1.6;'><strong><code>ex-pricing-tier</code></strong> — Default Pricing tier card. Re-uses feature-card chrome with brand canvas-soft surface.
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Properties: <code>backgroundColor</code>, <code>textColor</code>, <code>borderColor</code>, <code>rounded</code>, <code>padding</code></li></ul>
@@ -865,7 +865,7 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Build every region as a <strong>beveled plate</strong>: a <code>{colors.canvas}</code> body with a brighter top edge and a <code>{colors.chrome-indigo}</code> shadow line beneath. The "assembled machine" feel depends on it.</li><li style='margin-left:20px; margin-bottom:6px;'>Reserve warm color for <strong>wayfinding only</strong> — <code>{colors.nav-gold}</code> for nav words, <code>{colors.amber}</code> for utility/badges, <code>{colors.signal}</code> for forward/Submit. Cool chrome never carries action color.</li><li style='margin-left:20px; margin-bottom:6px;'>Keep structural labels <strong>uppercase Arial Bold with 0.5px tracking</strong> (<code>{typography.ui-label}</code>) — it is the silkscreen-legend voice of the whole system.</li><li style='margin-left:20px; margin-bottom:6px;'>Render hero wordmarks as <strong>outlined + drop-shadowed <code>{typography.display}</code></strong> over full-bleed photographic fields tinted per page.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{colors.carbon}</code> with halftone texture for the <strong>command layer</strong> (nav, right rail, footer) to separate "system controls" from "content."</li><li style='margin-left:20px; margin-bottom:6px;'>Let panels <strong>butt together</strong> with thin bevel seams; density is the intended texture.</li><li style='margin-left:20px; margin-bottom:6px;'>Default corners to <strong>sharp/chamfered</strong> (<code>{rounded.none}</code>); spend roundness only on the logo pill, radio dots, and circle-arrow badges.</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Don't soften every corner — turning the sharp chrome into a uniformly rounded card system erases the manufactured-faceplate identity.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce a <strong>soft blurred drop-shadow</strong> elevation language; depth here is hard bevels and pictorial photography, not Material elevation.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't let <code>{colors.signal}</code> and <code>{colors.amber}</code> bleed into decorative use — warm color must always mean "act here."</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add accent colors outside the page-tint heroes (<code>{colors.systems-teal}</code>, <code>{colors.games-red}</code>); the steady-state chrome is strictly cool periwinkle + carbon.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't widen body copy or whitespace into an airy modern layout; the packed, fixed-canvas density is the brand.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't flatten the dual-nav structure (gold primary words over the pale secondary strip) into one bar — the layered command hierarchy is signature.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't render hero or system wordmarks as flat text; without the outline + shadow they lose the box-art reference entirely.</li></ul>
-      
+
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
         <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
             <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
@@ -880,15 +880,15 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
             </div>
         </div>
     </div>
-    
+
 
       <!-- 08 Responsive Behavior -->
       <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
-      
+
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
         <p>Responsive Behavior Example</p>
-        
+
     <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
         <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
             <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
@@ -921,12 +921,12 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
             </div>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 09 Agent Prompt Guide -->
       <div id="prompt-guide" class="sec-head"><span class="idx">09</span><h2>Agent Prompt Guide</h2></div>
-      
+
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Copyable Agent Integration Prompt:</p>
         <p>Prompt Guide Copy Box</p>
@@ -945,7 +945,7 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer>
-    <div><strong>Nintendo 2001 Inspired Spec Spec</strong> · Extracted from awesome-design-md</div>
+    <div><strong>Anonymous Study Inspired Spec Spec</strong> · Extracted from awesome-design-md</div>
     <div>
       <a href="../index.html">Design System Hub</a>
     </div>
@@ -955,11 +955,11 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
 
 <textarea id="markdown-spec-content" style="display:none;">## Overview
 
-Nintendo.com circa 2001 is the web rendered as **console hardware**. Where most sites of the era reached for either grunge texture or corporate gradients, this interface builds itself out of **brushed-periwinkle metal plates** — every region is a discrete beveled panel, edge-lit with a brighter highlight on top and a `{colors.chrome-indigo}` shadow line beneath, as if stamped from the same injection-molded plastic as a Game Boy. The whole page reads as one machine faceplate: a body of `{colors.canvas}` periwinkle chrome carrying inset modules, with the corners of the largest panels physically **chamfered** (cut at 45°) rather than rounded, reinforcing the manufactured-object feeling.
+Anonymous Study circa 2001 is the web rendered as **console hardware**. Where most sites of the era reached for either grunge texture or corporate gradients, this interface builds itself out of **brushed-periwinkle metal plates** — every region is a discrete beveled panel, edge-lit with a brighter highlight on top and a `{colors.chrome-indigo}` shadow line beneath, as if stamped from the same injection-molded plastic as a Game Boy. The whole page reads as one machine faceplate: a body of `{colors.canvas}` periwinkle chrome carrying inset modules, with the corners of the largest panels physically **chamfered** (cut at 45°) rather than rounded, reinforcing the manufactured-object feeling.
 
 The system runs on a tight three-voice contrast. The structural voice is the cool periwinkle-to-indigo chrome (`{colors.canvas}`, `{colors.periwinkle}`, `{colors.chrome-indigo}`). The authority voice is `{colors.carbon}` carbon-navy — the top navigation bar, the right-rail action buttons, and the footer, all near-black slabs printed with a faint **halftone dot-matrix texture** that evokes a speaker grille. The energy voice is warm and reserved for one job only: telling you where to go. `{colors.nav-gold}` lights the primary menu words, `{colors.amber}` fills the utility chips and badges, and `{colors.signal}` orange marks every "forward" cue — the round arrow buttons, the chevron chips beside each headline, the Submit button. Warmth in this system always means *action*; the cool chrome never carries it.
 
-Atmosphere comes from the **hero fields**, which break the periwinkle calm with full-bleed product photography over textured backdrops — a circuit-board cyan on Systems, a motion-blurred racetrack red on Games, a soft lavender wash on Home — each topped with chunky `{typography.display}` wordmarks rendered in white with a heavy outline and hard drop shadow, the visual signature of game-box cover type. A pixel-eared Mario leans in from the masthead with a "Welcome to Nintendo.com!" speech bubble, anchoring the entire machine to the brand's playful character voice.
+Atmosphere comes from the **hero fields**, which break the periwinkle calm with full-bleed product photography over textured backdrops — a circuit-board cyan on Systems, a motion-blurred racetrack red on Games, a soft lavender wash on Home — each topped with chunky `{typography.display}` wordmarks rendered in white with a heavy outline and hard drop shadow, the visual signature of game-box cover type. A pixel-eared Mario leans in from the masthead with a "Welcome to Anonymous Study!" speech bubble, anchoring the entire machine to the brand's playful character voice.
 
 **Key Characteristics:**
 - Every UI region is a **beveled metal plate** in `{colors.canvas}` periwinkle, edge-lit on top and shadow-lined with `{colors.chrome-indigo}` below — the page is assembled, not laid out.
@@ -975,7 +975,7 @@ Atmosphere comes from the **hero fields**, which break the periwinkle calm with 
 The palette is a **cool metallic chassis with rationed warm signal**. Read it as three layers: the periwinkle chrome that everything is built from, the carbon command slabs, and the warm wayfinding accents that are the only saturated color in the steady-state interface.
 
 ### Brand & Accent
-- **Nintendo Red** (`{colors.primary}` — #e60012): The racetrack logo wordmark and the brand's anchor hue. Used sparingly as pure brand identity and doubled as the validation/alert color. Never a surface fill outside the logo plate.
+- **Anonymous Study Red** (`{colors.primary}` — #e60012): The racetrack logo wordmark and the brand's anchor hue. Used sparingly as pure brand identity and doubled as the validation/alert color. Never a surface fill outside the logo plate.
 - **Signal Orange** (`{colors.signal}` — #f68d1f): The "go forward" color. Fills every round arrow button, every chevron chip beside a headline, the Submit button, and the "Play It On" platform badges. If something advances you, it is orange.
 - **Amber** (`{colors.amber}` — #ecab37): Utility energy. Fills the Code Bank / Game Finder / Go chips, the info-box header tabs, the sweepstakes stars, and the ESRB Privacy-Certified badge. Distinguished from Signal Orange by being more golden and reserved for *tools and marks* rather than *forward motion*.
 - **Nav Gold** (`{colors.nav-gold}` — #e48600): The deeper orange-gold reserved exclusively for the primary navigation words (Games, Systems, News, Nsider, Downloads) glowing on the carbon bar.
@@ -1113,11 +1113,11 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
 
 ### Brand & Masthead
 
-**`logo-pill`** — Nintendo racetrack logo
+**`logo-pill`** — Anonymous Study racetrack logo
 - The wordmark in `{colors.primary}` red set inside a white `{rounded.full}` racetrack pill, outlined. Sits at the left of the nav bar. `{spacing.xs}` padding.
 
 **`mascot-bubble`** — Mario welcome speech bubble
-- A white `{rounded.lg}` rounded-rectangle speech bubble with a tail, carrying "Welcome to Nintendo.com!" in `{typography.micro}` `{colors.carbon}`, paired with the Mario cutout in the masthead. `{spacing.sm}` padding.
+- A white `{rounded.lg}` rounded-rectangle speech bubble with a tail, carrying "Welcome to Anonymous Study!" in `{typography.micro}` `{colors.carbon}`, paired with the Mario cutout in the masthead. `{spacing.sm}` padding.
 
 ### Buttons
 
@@ -1184,7 +1184,7 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
 - A `{colors.lavender}` `{rounded.sm}` card carrying an outlined product wordmark (e.g. Game Boy Advance) over a small product render, in the right rail. `{spacing.md}` padding.
 
 **`system-tile`** — Hardware grid tile (Systems page)
-- A `{colors.periwinkle}` `{rounded.sm}` tile holding a console render over a circuit-board backdrop with an outlined system name (Nintendo 64, Super Nintendo, Game Boy). `{spacing.sm}` padding, arranged in a 2×3 grid.
+- A `{colors.periwinkle}` `{rounded.sm}` tile holding a console render over a circuit-board backdrop with an outlined system name (Anonymous Study 64, Super Anonymous Study, Game Boy). `{spacing.sm}` padding, arranged in a 2×3 grid.
 
 **`link-row-card`** — Utility link card (Systems page)
 - A white `{rounded.sm}` card with an amber label tab (Technical Help, Store Locator, Online Store), a character icon, and a one-line `{typography.body}` description. `{spacing.sm}` padding.
@@ -1201,7 +1201,7 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
 - A 20px white `{rounded.xs}` square stamping the content-rating letter (E, T) in `{typography.ui-label}` `{colors.carbon}`, on each game card.
 
 **`footer-bar`** — Page footer
-- A `{colors.carbon}` chamfered slab with the "©1997–2001 Nintendo…" copyright in `{typography.micro}` `{colors.canvas-soft}`, the ESRB badge, and a privacy link. Sharp corners, `{spacing.lg}` padding.
+- A `{colors.carbon}` chamfered slab with the "©1997–2001 Anonymous Study…" copyright in `{typography.micro}` `{colors.canvas-soft}`, the ESRB badge, and a privacy link. Sharp corners, `{spacing.lg}` padding.
 
 ### Examples (illustrative)
 
@@ -1306,7 +1306,7 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
     const btnMobile = document.getElementById('btn-sim-mobile');
     const btnTablet = document.getElementById('btn-sim-tablet');
     const btnDesktop = document.getElementById('btn-sim-desktop');
-    
+
     // Reset button styles
     [btnMobile, btnTablet, btnDesktop].forEach(btn => {
       if (btn) {
@@ -1315,14 +1315,14 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
         btn.style.color = 'var(--text-primary)';
       }
     });
-    
+
     const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
     if (activeBtn) {
       activeBtn.style.background = 'var(--accent-vue-glow)';
       activeBtn.style.borderColor = 'var(--accent-vue)';
       activeBtn.style.color = 'var(--accent-vue)';
     }
-    
+
     if (mode === 'mobile') {
       container.style.maxWidth = '375px';
       indicator.innerText = 'Width: 375px (Mobile < 768px)';
@@ -1338,5 +1338,5 @@ Hero photography fills beveled rectangles at roughly 4:1 (banner) and 16:9 propo
     }
   }
 </script>
-</body>
+<script src="page-actions.js"></script></body>
 </html>

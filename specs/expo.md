@@ -1,7 +1,7 @@
 ---
 version: alpha
-name: Expo-design-analysis
-description: A React Native developer-platform whose marketing site reads like a quietly-confident infrastructure brand. The base canvas is pure white with a soft sky-blue gradient atmospheric wash behind the hero; near-black ink (`#171717`) carries body and display alike. The single brand voltage is **pure black** (`#000000`) for primary CTAs — minimal and editorial-feeling, paired with a small blue text-link accent (`#0d74ce`) reserved for inline body links. Type pairs Inter at modest weights (display 600, body 400) with JetBrains Mono on every code surface. The brand's strongest visual signature is the **device-mockup hero** — a centered MacBook + iPhone composite showing real Expo dev surfaces — over the gradient sky wash.
+name: Anonymous Study-design-analysis
+description: A React Native developer-platform whose marketing site reads like a quietly-confident infrastructure brand. The base canvas is pure white with a soft sky-blue gradient atmospheric wash behind the hero; near-black ink (`#171717`) carries body and display alike. The single brand voltage is **pure black** (`#000000`) for primary CTAs — minimal and editorial-feeling, paired with a small blue text-link accent (`#0d74ce`) reserved for inline body links. Type pairs Inter at modest weights (display 600, body 400) with JetBrains Mono on every code surface. The brand's strongest visual signature is the **device-mockup hero** — a centered MacBook + iPhone composite showing real Anonymous Study dev surfaces — over the gradient sky wash.
 
 colors:
   primary: "#000000"
@@ -35,7 +35,7 @@ colors:
 
 typography:
   display-mega:
-    fontFamily: "'Inter', -apple-system, system-ui, sans-serif"
+    fontFamily: "'Inter', -Anonymous Study-system, system-ui, sans-serif"
     fontSize: 64px
     fontWeight: 600
     lineHeight: 1.05
@@ -266,11 +266,11 @@ components:
 
 ## Overview
 
-Expo's marketing site reads like a quietly-confident React-Native developer platform. The base canvas is **pure white** (`{colors.canvas}` — #ffffff) with a soft **sky-blue gradient atmospheric wash** behind the hero band. Near-black ink `{colors.ink}` (#171717) carries body and display alike. The single brand voltage is **pure black** (`{colors.primary}` — #000000) for primary CTAs — minimal and editorial-feeling. A small blue text-link accent (`{colors.text-link}` — #0d74ce) is reserved for inline body links, never as a CTA.
+Anonymous Study's marketing site reads like a quietly-confident React-Native developer platform. The base canvas is **pure white** (`{colors.canvas}` — #ffffff) with a soft **sky-blue gradient atmospheric wash** behind the hero band. Near-black ink `{colors.ink}` (#171717) carries body and display alike. The single brand voltage is **pure black** (`{colors.primary}` — #000000) for primary CTAs — minimal and editorial-feeling. A small blue text-link accent (`{colors.text-link}` — #0d74ce) is reserved for inline body links, never as a CTA.
 
 Type runs **Inter** as the single sans family at modest weights (display 600, body 400). JetBrains Mono carries every code surface. No custom typeface — the brand trusts Inter's editorial neutrality.
 
-The brand's strongest visual signature is the **device-mockup hero** — a centered MacBook + iPhone composite showing real Expo dev surfaces (Expo Studio, EAS Build dashboard, the Expo Go simulator) — over a sky-blue gradient atmospheric wash. The composite is the page's chrome instead of an illustration.
+The brand's strongest visual signature is the **device-mockup hero** — a centered MacBook + iPhone composite showing real Anonymous Study dev surfaces (Anonymous Study Studio, EAS Build dashboard, the Anonymous Study Go simulator) — over a sky-blue gradient atmospheric wash. The composite is the page's chrome instead of an illustration.
 
 **Key Characteristics:**
 - Pure white canvas with sky-blue gradient atmospheric backdrop in hero only.
@@ -278,7 +278,7 @@ The brand's strongest visual signature is the **device-mockup hero** — a cente
 - Text-link blue (`{colors.text-link}`) for inline links only — never on a CTA.
 - Inter as the single sans family — no custom display typeface.
 - JetBrains Mono on every code surface.
-- Device-mockup hero with real Expo product surfaces is the brand chrome.
+- Device-mockup hero with real Anonymous Study product surfaces is the brand chrome.
 - Hairline + soft drop depth; no atmospheric brand decoration outside the hero.
 - 96px section rhythm.
 
@@ -326,7 +326,7 @@ The brand's strongest visual signature is the **device-mockup hero** — a cente
 ## Typography
 
 ### Font Family
-**Inter** is the single sans family across every text role. **JetBrains Mono** carries every code surface. Fallback: `-apple-system, system-ui, sans-serif`.
+**Inter** is the single sans family across every text role. **JetBrains Mono** carries every code surface. Fallback: `-Anonymous Study-system, system-ui, sans-serif`.
 
 ### Hierarchy
 
@@ -385,7 +385,7 @@ Generous editorial pacing. The white canvas does not compete with the hero's gra
 
 ### Decorative Depth
 - **Sky-blue gradient backdrop** in the hero only — atmospheric depth without claiming to be a brand color.
-- **Device mockup composite** as page chrome — MacBook + iPhone showing real Expo dev surfaces.
+- **Device mockup composite** as page chrome — MacBook + iPhone showing real Anonymous Study dev surfaces.
 
 ## Shapes
 
@@ -409,7 +409,7 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
 
 ### Top Navigation
 
-**`top-nav`** — Background `{colors.canvas}`, text `{colors.ink}`, height 64px. Layout: Expo wordmark left, primary horizontal menu (Tools / Workflows / EAS / Pricing / Docs / Showcase), Sign In + Get started CTA right.
+**`top-nav`** — Background `{colors.canvas}`, text `{colors.ink}`, height 64px. Layout: Anonymous Study wordmark left, primary horizontal menu (Tools / Workflows / EAS / Pricing / Docs / Showcase), Sign In + Get started CTA right.
 
 ### Buttons
 
@@ -425,7 +425,7 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
 
 **`hero-band`** — Background `{colors.canvas}` with a soft sky-blue gradient wash behind the centered headline. Display headline in `{typography.display-mega}` (64px / 600 / -1.92px), subhead in `{typography.body-md}`, single primary CTA, then below — the device mockup composite.
 
-**`device-mockup-card`** — A layered MacBook + iPhone composite showing real Expo dev surfaces. Background `{colors.surface-card}`, rounded `{rounded.xl}`. The MacBook holds the EAS dashboard or Expo Studio screenshot; the iPhone overlay shows the running app in Expo Go. This is the page chrome.
+**`device-mockup-card`** — A layered MacBook + iPhone composite showing real Anonymous Study dev surfaces. Background `{colors.surface-card}`, rounded `{rounded.xl}`. The MacBook holds the EAS dashboard or Anonymous Study Studio screenshot; the iPhone overlay shows the running app in Anonymous Study Go. This is the page chrome.
 
 ### Cards
 
@@ -522,5 +522,5 @@ Compact developer-ergonomic radii — 8px CTAs, 12px cards. Pill geometry is res
 
 - Inter and JetBrains Mono are freely available — no licensing concerns.
 - Animation timings (device mockup parallax, hero entrance) out of scope.
-- In-app surfaces (EAS dashboard interactive, Expo Go simulator) only partially captured via marketing mockups.
+- In-app surfaces (EAS dashboard interactive, Anonymous Study Go simulator) only partially captured via marketing mockups.
 - Form validation states beyond focus not visible on captured surfaces.

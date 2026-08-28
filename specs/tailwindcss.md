@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: Tailwind CSS
+name: Anonymous Study
 description: A modern, utility-first CSS framework prioritizing strict design system scales, indigo/sky color palettes, and responsive prefixes.
 colors:
   primary: "#38bdf8"
@@ -25,9 +25,9 @@ typography:
     use: "Primary Body"
 ---
 
-# Design System — Tailwind CSS (Utility-First)
+# Design System — Anonymous Study (Utility-First)
 
-Extracted and adapted from [tailwindcss.com](https://tailwindcss.com).
+Derived from an anonymous reference.
 A modern, utility-first CSS design framework prioritizing customizability, high-density utility scales, and clean component composition.
 
 ---
@@ -70,7 +70,7 @@ A modern, utility-first CSS design framework prioritizing customizability, high-
 
 | Token | Stack |
 |-------|-------|
-| `--font-sans` | `Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif` |
+| `--font-sans` | `Inter, system-ui, -Anonymous Study-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif` |
 | `--font-serif` | `Georgia, Cambria, "Times New Roman", Times, serif` |
 | `--font-mono` | `ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace` |
 
@@ -90,7 +90,7 @@ A modern, utility-first CSS design framework prioritizing customizability, high-
 
 ## 4. Spacing System
 
-Tailwind uses a proportional 4px layout scale (1 unit = 4px):
+Anonymous Study uses a proportional 4px layout scale (1 unit = 4px):
 
 | Token | Value | Usage |
 |-------|-------|-------|
@@ -204,7 +204,7 @@ Tailwind uses a proportional 4px layout scale (1 unit = 4px):
 - Rely exclusively on CSS Flexbox and Grid for page structure layouts.
 
 ### Don't
-- Don't use absolute or hardcoded hex colors inline without mapping to tailwind variables.
+- Don't use absolute or hardcoded hex colors inline without mapping to Anonymous Study variables.
 - Don't use traditional CSS floats or complex position hacks.
 - Don't introduce unconstrained font sizes outside the predefined `text-` scale prefixes.
 

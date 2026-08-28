@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet">
   <style>
-    :root { --canvas:#faf8f4; --surface:#fff; --ink:#1a1a1a; --text-2:#525252; --text-3:#a3a3a3; --border:#e8e4dc; --hover:#f5f3ef; --font:Geist, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
+    :root { --canvas:#faf8f4; --surface:#fff; --ink:#1a1a1a; --text-2:#525252; --text-3:#a3a3a3; --border:#e8e4dc; --hover:#f5f3ef; --font:Geist, -Anonymous Study-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
     * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; background:var(--canvas); color:var(--ink); font:16px/1.5 var(--font); -webkit-font-smoothing:antialiased; }
     a { color:inherit; } :focus-visible { outline:2px solid var(--ink); outline-offset:3px; } button { font:inherit; } .shell { display:grid; grid-template-columns:320px minmax(0, 1fr); min-height:100dvh; }
     .rail { position:sticky; top:0; height:100dvh; padding:18px 24px 32px; display:flex; flex-direction:column; } .mark { width:36px; height:36px; border-radius:50%; display:grid; place-items:center; background:#050505; color:#fff; text-decoration:none; font-size:17px; }
@@ -34,12 +34,12 @@
         <a class="card" href="#spec"><div class="visual color">We’re Koto<br>The Creative Company</div><div class="card-copy"><p class="category">Design</p><h2>Adaptive Text Color</h2></div></a>
         <a class="card" href="#spec"><div class="visual dark" style="min-height:136px;display:grid;place-items:center;font-size:19px;letter-spacing:-.04em">Follow the platform’s language.</div><div class="card-copy"><p class="category">Copywriting</p><h2>Respect Platform Language</h2><p class="desc">Use familiar language where people already know what it means.</p></div></a>
       </section>
-      <section class="spec" id="spec"><h1>Detail Design System</h1><p id="resources">The complete implementation brief documents its warm-neutral palette, Geist typography, fixed narrative rail, natural-ratio card mosaic, pill controls, responsive behavior, and guardrails.</p><div class="spec-actions"><button id="copy-md">Copy spec</button><a href="../specs/detail-design.md">Open Markdown</a></div></section>
+      <section class="spec" id="spec"><h1>Anonymous Study</h1><p id="resources">The complete implementation brief documents its warm-neutral palette, Geist typography, fixed narrative rail, natural-ratio card mosaic, pill controls, responsive behavior, and guardrails.</p><div class="spec-actions"><button id="copy-md">Copy spec</button><a href="../specs/detail-design.md">Open Markdown</a></div></section>
     </main>
   </div>
   <script>
     document.querySelectorAll('.pill[aria-pressed]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('.pill[aria-pressed]').forEach(item => item.setAttribute('aria-pressed', 'false')); button.setAttribute('aria-pressed', 'true'); }));
     document.getElementById('copy-md').addEventListener('click', async event => { const button=event.currentTarget, original=button.textContent; try { const response=await fetch('../specs/detail-design.md'); if(!response.ok) throw new Error(); await navigator.clipboard.writeText(await response.text()); button.textContent='Copied'; } catch { button.textContent='Open Markdown'; setTimeout(()=>location.href='../specs/detail-design.md',450); } setTimeout(()=>button.textContent=original,1300); });
   </script>
-</body>
+<script src="page-actions.js"></script></body>
 </html>

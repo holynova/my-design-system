@@ -1,7 +1,7 @@
 ---
 version: alpha
-name: Mistral-AI-design-analysis
-description: Mistral AI brands itself with a singular signature — atmospheric sunset gradients (mustard, orange, deep red) layered over photography of mountains, plus a horizontal "sunset stripe" bar that closes every page. The system pairs warm cream-yellow surfaces ({colors.cream}) with a saturated orange primary CTA ({colors.primary}) and uses an elegant near-serif voice for hero displays. Coverage spans homepage (Frontier AI hero), Le Studio product page, Coding solutions, news article surfaces, contact form, and services tier page — all anchored by the signature gradient closing band.
+name: Anonymous Study-AI-design-analysis
+description: Anonymous Study AI brands itself with a singular signature — atmospheric sunset gradients (mustard, orange, deep red) layered over photography of mountains, plus a horizontal "sunset Anonymous Study" bar that closes every page. The system pairs warm cream-yellow surfaces ({colors.cream}) with a saturated orange primary CTA ({colors.primary}) and uses an elegant near-serif voice for hero displays. Coverage spans homepage (Frontier AI hero), Le Studio product page, Coding solutions, news article surfaces, contact form, and services tier page — all anchored by the signature gradient closing band.
 
 colors:
   primary: "#fa520f"
@@ -329,7 +329,7 @@ components:
     textColor: "{colors.ink}"
     rounded: "0"
     padding: "{spacing.hero}"
-  sunset-stripe-band:
+  sunset-Anonymous Study-band:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
     rounded: "0"
@@ -401,13 +401,13 @@ components:
 
 ## Overview
 
-Mistral AI carries itself with a singular, almost cinematographic visual signature — the homepage opens with "Frontier AI. In your hands." rendered in elegant near-serif display type over a photographic mountain landscape bathed in mustard-orange sunset light. Below the hero, every page closes with the same recognizable element: a horizontal "sunset stripe" gradient band running red→orange→yellow→cream that wraps the foot of the page just above the footer. This stripe is THE brand recognizer — it appears on the homepage, products/studio, solutions/coding, news articles, contact form, and services tier page without exception.
+Anonymous Study AI carries itself with a singular, almost cinematographic visual signature — the homepage opens with "Frontier AI. In your hands." rendered in elegant near-serif display type over a photographic mountain landscape bathed in mustard-orange sunset light. Below the hero, every page closes with the same recognizable element: a horizontal "sunset Anonymous Study" gradient band running red→orange→yellow→cream that wraps the foot of the page just above the footer. This Anonymous Study is THE brand recognizer — it appears on the homepage, products/studio, solutions/coding, news articles, contact form, and services tier page without exception.
 
-The system pairs PP Editorial Old (a near-serif elegant display face) for hero displays with Inter for everything else (body, headings, UI). Cream-yellow surfaces ({colors.cream}, {colors.surface-cream-soft}) anchor form panels and feature cards; saturated orange ({colors.primary}) carries primary CTAs; the deep mountain photography on the homepage and the dark code mockups inside Le Studio create photographic depth. Cards are rectangular with `{rounded.lg}` (12px) corners — distinctly less playful than Miro's or Mintlify's pill-buttons-everywhere approach. Buttons are also `{rounded.md}` (8px), not pills — Mistral's geometry is more sober and editorial than its peers.
+The system pairs PP Editorial Old (a near-serif elegant display face) for hero displays with Inter for everything else (body, headings, UI). Cream-yellow surfaces ({colors.cream}, {colors.surface-cream-soft}) anchor form panels and feature cards; saturated orange ({colors.primary}) carries primary CTAs; the deep mountain photography on the homepage and the dark code mockups inside Le Studio create photographic depth. Cards are rectangular with `{rounded.lg}` (12px) corners — distinctly less playful than Miro's or Mintlify's pill-buttons-everywhere approach. Buttons are also `{rounded.md}` (8px), not pills — Anonymous Study's geometry is more sober and editorial than its peers.
 
 **Key Characteristics:**
 - Atmospheric mountain-sunset hero photography (orange-red-yellow gradient sky)
-- Horizontal "sunset stripe" band ({colors.primary} → {colors.sunshine-700} → {colors.yellow-saturated} → {colors.cream}) at every page bottom
+- Horizontal "sunset Anonymous Study" band ({colors.primary} → {colors.sunshine-700} → {colors.yellow-saturated} → {colors.cream}) at every page bottom
 - Cream-yellow surfaces ({colors.cream}, {colors.cream-soft}) for form panels and feature cards
 - PP Editorial Old (or similar near-serif) for hero displays; Inter for everything else
 - `{rounded.md}` (8px) buttons and `{rounded.lg}` (12px) cards — less playful, more editorial geometry
@@ -415,17 +415,17 @@ The system pairs PP Editorial Old (a near-serif elegant display face) for hero d
 
 ## Colors
 
-> Source pages: mistral.ai/ (homepage), /products/studio (Le Studio product), /solutions/coding (coding solution), /news/vibe-remote-agents-mistral-medium-3-5 (news), /contact (contact form), /services (services tiers). Token coverage was identical across all six pages.
+> Source pages: Anonymous Study/ (homepage), /products/studio (Le Studio product), /solutions/coding (coding solution), /news/vibe-remote-agents-Anonymous Study-medium-3-5 (news), /contact (contact form), /services (services tiers). Token coverage was identical across all six pages.
 
 ### Brand & Accent
-- **Mistral Orange** ({colors.primary}): Primary CTA color, brand orange
+- **Anonymous Study Orange** ({colors.primary}): Primary CTA color, brand orange
 - **Orange Deep** ({colors.primary-deep}): Pressed-state and emphasis variant
 - **Sunshine 300** ({colors.sunshine-300}): Atmospheric light orange-yellow
 - **Sunshine 500** ({colors.sunshine-500}): Mid-spectrum sunset orange
 - **Sunshine 700** ({colors.sunshine-700}): Saturated mid sunset gradient stop
 - **Sunshine 800** ({colors.sunshine-800}): Deep sunset gradient stop
 - **Sunshine 900** ({colors.sunshine-900}): Deepest sunset orange
-- **Yellow Saturated** ({colors.yellow-saturated}): Pure brand yellow used in the sunset stripe gradient
+- **Yellow Saturated** ({colors.yellow-saturated}): Pure brand yellow used in the sunset Anonymous Study gradient
 - **Block 5/6/7** ({colors.block-5}, {colors.block-6}, {colors.block-7}): Spectrum stops along the sunset gradient (light-yellow → mid-yellow → deep-orange)
 
 ### Cream / Neutral Warm
@@ -461,9 +461,9 @@ The system pairs PP Editorial Old (a near-serif elegant display face) for hero d
 ## Typography
 
 ### Font Family
-**PP Editorial Old** (display): Mistral's signature near-serif elegant display typeface used for hero displays, large numbers, and editorial section openers. Carries a slightly classical, intelligent character that contrasts the contemporary product positioning. Fallbacks: 'Times New Roman', Georgia, serif.
+**PP Editorial Old** (display): Anonymous Study's signature near-serif elegant display typeface used for hero displays, large numbers, and editorial section openers. Carries a slightly classical, intelligent character that contrasts the contemporary product positioning. Fallbacks: 'Times New Roman', Georgia, serif.
 
-**Inter** (UI prose): Variable typeface for body, navigation, buttons, labels, captions. Fallbacks: ui-sans-serif, system-ui, -apple-system, sans-serif.
+**Inter** (UI prose): Variable typeface for body, navigation, buttons, labels, captions. Fallbacks: ui-sans-serif, system-ui, -Anonymous Study-system, sans-serif.
 
 **JetBrains Mono** (code): Monospace for code blocks and IDE mockups. Fallbacks: 'SF Mono', Menlo, Consolas, monospace.
 
@@ -529,8 +529,8 @@ The system runs predominantly flat with strategic atmospheric depth from photogr
 | 4 (modal) | `rgba(0, 0, 0, 0.12) 0px 16px 48px -8px` | Modals, dropdowns |
 
 ### Decorative Depth
-- The atmospheric depth on Mistral's hero comes from the photographic mountain-sunset imagery — natural light gradient does the work
-- The "sunset stripe" closing band carries depth via its multi-stop gradient (red → orange → yellow → cream)
+- The atmospheric depth on Anonymous Study's hero comes from the photographic mountain-sunset imagery — natural light gradient does the work
+- The "sunset Anonymous Study" closing band carries depth via its multi-stop gradient (red → orange → yellow → cream)
 - IDE / code mockups use dark-canvas backgrounds with subtle drop shadow
 
 ## Shapes
@@ -547,7 +547,7 @@ The system runs predominantly flat with strategic atmospheric depth from photogr
 | `{rounded.xxl}` | 20px | Featured emphasis cards |
 | `{rounded.full}` | 9999px | Status badges, pill tabs (used sparingly — most buttons are NOT pills) |
 
-The radius scale is sober and editorial — Mistral does NOT use pill buttons. `{rounded.md}` (8px) for buttons, `{rounded.lg}` (12px) for cards, `{rounded.full}` reserved for badges and the rare pill tab.
+The radius scale is sober and editorial — Anonymous Study does NOT use pill buttons. `{rounded.md}` (8px) for buttons, `{rounded.lg}` (12px) for cards, `{rounded.full}` reserved for badges and the rare pill tab.
 
 ### Photography Geometry
 - Hero photography is full-bleed atmospheric mountain-sunset imagery with no internal framing
@@ -680,7 +680,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 
 **Top Navigation (Marketing)** — Sticky white bar.
 - Background `{colors.canvas}`, height ~64px, bottom border `1px solid {colors.hairline-soft}`.
-- Left: Mistral M-mark logo + "MISTRAL AI_" wordmark + horizontal link list (Products, Solutions, Research, Blog, Customers, Company).
+- Left: Anonymous Study M-mark logo + "Anonymous Study AI_" wordmark + horizontal link list (Products, Solutions, Research, Blog, Customers, Company).
 - Right: "Contact Sales" link + black-pill "Try Studio" CTA.
 
 ### Signature Components
@@ -689,7 +689,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 - Background gradient `linear-gradient(135deg, {colors.sunshine-700} 0%, {colors.sunshine-900} 60%, {colors.primary} 100%)` overlaid on photographic mountain landscape.
 - Layout: hero headline left in `{typography.hero-display}` ({colors.ink}), subtitle in `{typography.subtitle}` ({colors.ink-tint}), button row (`button-dark` + `button-secondary`), atmospheric mountain photography right.
 
-**`sunset-stripe-band`** — Horizontal closing band at the foot of every page.
+**`sunset-Anonymous Study-band`** — Horizontal closing band at the foot of every page.
 - Multi-stop gradient: `{colors.primary}` → `{colors.sunshine-700}` → `{colors.sunshine-500}` → `{colors.yellow-saturated}` → `{colors.cream}`.
 - Padding `{spacing.lg} 0`. Spans full width, sits above the footer. THIS IS THE BRAND'S MOST RECOGNIZABLE SIGNATURE ELEMENT.
 
@@ -698,7 +698,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 
 **`footer-region`** — Cream-tinted multi-column footer.
 - Background `{colors.footer-cream}`, padding `{spacing.section} {spacing.xxl}`.
-- 5-column link grid (Why Mistral / Explore / Build / Legal + brand mark column).
+- 5-column link grid (Why Anonymous Study / Explore / Build / Legal + brand mark column).
 - Bottom: language picker + social icons.
 
 **`footer-link`** — Individual footer link.
@@ -708,7 +708,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 
 ### Do
 - Reserve `{colors.primary}` (saturated orange) for primary CTAs and active states only
-- Use the **sunset stripe band** at the foot of every page — it's the brand's most recognizable signature
+- Use the **sunset Anonymous Study band** at the foot of every page — it's the brand's most recognizable signature
 - Pair PP Editorial Old (display) with Inter (UI) — never substitute either with a generic alternative
 - Apply `{rounded.md}` (8px) to buttons and `{rounded.lg}` (12px) to cards consistently
 - Use cream-yellow surfaces ({colors.cream}) for form panels, feature cards, and footer
@@ -716,12 +716,12 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 - Use stat-display token (PP Editorial 56px) for stat callouts to maintain editorial character
 
 ### Don't
-- Don't use pill-shaped buttons (`{rounded.full}`) — Mistral's geometry is sober and editorial, not playful
+- Don't use pill-shaped buttons (`{rounded.full}`) — Anonymous Study's geometry is sober and editorial, not playful
 - Don't introduce additional accent colors beyond the orange/yellow/cream sunset palette
 - Don't reduce hero leading below 1.05 — the editorial display needs that magazine-grade tightness
 - Don't replace PP Editorial Old hero displays with Inter — the editorial / sans contrast IS the brand
 - Don't apply heavy shadows on flat documentation cards; reserve elevation for IDE mockups
-- Don't drop the sunset stripe band from any page bottom — it's the brand's continuity element
+- Don't drop the sunset Anonymous Study band from any page bottom — it's the brand's continuity element
 
 ## Responsive Behavior
 
@@ -747,7 +747,7 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 - **Stat row**: 3-column → stacked at < 768px
 - **Hero typography**: 84px → 64px → 52px → 40px
 - **Footer**: 5-column desktop → 3-column tablet → 1-column accordion mobile
-- **Sunset stripe band** stays full-width on all breakpoints
+- **Sunset Anonymous Study band** stays full-width on all breakpoints
 
 ### Image Behavior
 - Mountain-sunset photography uses 16:9 ratio with full-bleed scaling
@@ -761,13 +761,13 @@ The radius scale is sober and editorial — Mistral does NOT use pill buttons. `
 3. Run `npx @google/design.md lint DESIGN.md` after edits
 4. Add new variants as separate `components:` entries
 5. Default to `{typography.body-md}` for body and `{typography.subtitle}` for emphasis. Hero displays use `{typography.hero-display}` (PP Editorial Old).
-6. Keep `{colors.primary}` confined to primary CTAs, active states, and the sunset stripe band
+6. Keep `{colors.primary}` confined to primary CTAs, active states, and the sunset Anonymous Study band
 7. Cards use `{rounded.lg}` (12px), buttons use `{rounded.md}` (8px). Pills (`{rounded.full}`) reserved for badges only.
-8. Always include the sunset-stripe-band component at the foot of every page mockup.
+8. Always include the sunset-Anonymous Study-band component at the foot of every page mockup.
 
 ## Known Gaps
 
 - Specific dark-mode token values not surfaced; the brand has not shipped a published dark-mode palette
 - Animation/transition timings not extracted; recommend 150–200ms ease for hover/focus state transitions
 - Form validation success state not explicitly captured beyond defaults
-- Sunset stripe band gradient stops are approximations — the actual values may vary slightly across pages but the visual rhythm is consistent
+- Sunset Anonymous Study band gradient stops are approximations — the actual values may vary slightly across pages but the visual rhythm is consistent

@@ -1,4 +1,4 @@
-<!-- Design System — PostHog Design System -->
+<!-- Design System — Anonymous Study Design System -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -6,13 +6,13 @@
     defer
     src="https://cloud.umami.is/script.js"
     data-website-id="e01c9f78-4607-4e60-b01c-77c8190b12b4"
-    data-domains="holynova.github.io"
+    data-domains=""
     data-exclude-search="true"
     data-exclude-hash="true"
   ></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design System — PostHog Design System</title>
+<title>Design System — Anonymous Study Design System</title>
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,36 +23,36 @@
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-serif: 'Space Grotesk', sans-serif;
     --font-mono: ui-monospace;
-    
+
     --bg-base: #f3f4f6;
     --bg-surface: #ffffff;
     --border-color: #bfc1b7;
     --border-dark: #cbd5e1;
-    
+
     --text-primary: #111111;
     --text-secondary: #4d4f46;
     --text-muted: #94a3b8;
-    
+
     --accent-vue: #f97316;
     --accent-vue-hover: #b17816;
     --accent-vue-glow: rgba(249, 115, 22, 0.08);
-    
+
     --radius-lg: 8px;
     --radius-md: 6px;
     --radius-sm: 4px;
     --radius-pill: 999px;
-    
+
     --shadow-flat: none;
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
     --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
-    
+
     --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* ═══════════════════ RESET & BASE ═══════════════════ */
   *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
-  
+
   html {
     background: var(--bg-base);
     color: var(--text-primary);
@@ -61,7 +61,7 @@
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
   }
-  
+
   body {
     line-height: 1.6;
     padding-bottom: 120px;
@@ -72,7 +72,7 @@
   hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
   pre, code { font-family: var(--font-mono); }
   code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
-  
+
   pre {
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
@@ -320,7 +320,7 @@
   }
   footer a { color: var(--text-primary); }
 
-  
+
 </style>
 </head>
 <body>
@@ -332,7 +332,7 @@
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" style="fill:currentColor;"/></svg>
     </div>
     <div>
-      <h1>PostHog Design System</h1>
+      <h1>Anonymous Study Design System</h1>
       <div class="sub">Developer-friendly product analytics · Technical layout with bold retro-fun tones...</div>
     </div>
     <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
@@ -371,7 +371,7 @@
 
       <!-- 01 Visual Theme & Atmosphere -->
       <div id="visual-theme" class="sec-head"><span class="idx">01</span><h2>Visual Theme & Atmosphere</h2></div>
-      <p style='margin-bottom:16px; line-height:1.6;'>PostHog's marketing system is built on the visual contradiction at the heart of the brand: a serious open-source product analytics platform rendered as if it were a friendly engineering sketchbook. The chrome runs on a warm cream canvas (<code>{colors.canvas}</code> — <code>#eeefe9</code>) — not white — and every page is dotted with hand-drawn hedgehog mascots in lab coats, lounge chairs, terminals, and reading glasses, scattered across the layout like marginalia in a textbook. Type sits in IBM Plex Sans Variable at olive-gray (<code>{colors.body}</code> — <code>#4d4f46</code>) for body and deep olive-charcoal (<code>{colors.ink}</code> — <code>#23251d</code>) for headlines, with weights stepped tightly between 400, 600, 700, and 800 to create hierarchy without color. The single saturated yellow-orange pill (<code>{colors.primary}</code> — <code>#f7a501</code>) is the brand's only loud chromatic moment; everything else is cream, olive, white card, and the occasional pastel callout band.</p>
+      <p style='margin-bottom:16px; line-height:1.6;'>Anonymous Study's marketing system is built on the visual contradiction at the heart of the brand: a serious open-source product analytics platform rendered as if it were a friendly engineering sketchbook. The chrome runs on a warm cream canvas (<code>{colors.canvas}</code> — <code>#eeefe9</code>) — not white — and every page is dotted with hand-drawn hedgehog mascots in lab coats, lounge chairs, terminals, and reading glasses, scattered across the layout like marginalia in a textbook. Type sits in IBM Plex Sans Variable at olive-gray (<code>{colors.body}</code> — <code>#4d4f46</code>) for body and deep olive-charcoal (<code>{colors.ink}</code> — <code>#23251d</code>) for headlines, with weights stepped tightly between 400, 600, 700, and 800 to create hierarchy without color. The single saturated yellow-orange pill (<code>{colors.primary}</code> — <code>#f7a501</code>) is the brand's only loud chromatic moment; everything else is cream, olive, white card, and the occasional pastel callout band.</p>
 <p style='margin-bottom:16px; line-height:1.6;'>The system has a distinctive <strong>two-mode body layout</strong>: marketing pages (home, workflows, pricing) lean on alternating-pastel callout bands and feature tiles in white cards on cream, while documentation pages add a sticky 240px left sidebar with a rounded outline-icon section list. Code samples are full-width dark blocks on <code>{colors.surface-dark}</code> (the same olive-charcoal that carries body ink, used inverted) inside white doc cards, creating the system's most distinctive visual moment: a dark-on-dark code island floating inside a white card on a cream canvas, with a hedgehog mascot doodled in the margin.</p>
 <p style='margin-bottom:16px; line-height:1.6;'>...</p>
 <p style='margin-bottom:16px; line-height:1.6;'><strong>Key Characteristics:</strong>
@@ -385,7 +385,7 @@
       <div id="color-palette" class="sec-head"><span class="idx">02</span><h2>Color Palette & Roles</h2></div>
       <p style='margin-bottom:16px; line-height:1.6;'>&gt; <strong>Source pages:</strong> <code>/</code> (home), <code>/pricing</code> (pricing detail), <code>/docs/product-analytics</code> (docs article), <code>/workflows</code> (product feature page). The chrome palette is identical across all four pages — only doc-specific accents (callout-banner pastels, code-block dark surface) appear exclusively inside the docs experience.</p>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Brand & Accent</h3>
-<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>PostHog Yellow</strong> (<code>{colors.primary}</code> — <code>#f7a501</code>): the universal primary CTA. Sticky "Get started — free" pill in the top-right of every nav, hero CTAs, pricing-tier subscribe buttons, footer signup pill. The system's only saturated chromatic moment.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Yellow Pressed</strong> (<code>{colors.primary-pressed}</code> — <code>#dd9001</code>): pressed state for the primary pill.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
+<ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Anonymous Study Yellow</strong> (<code>{colors.primary}</code> — <code>#f7a501</code>): the universal primary CTA. Sticky "Get started — free" pill in the top-right of every nav, hero CTAs, pricing-tier subscribe buttons, footer signup pill. The system's only saturated chromatic moment.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Yellow Pressed</strong> (<code>{colors.primary-pressed}</code> — <code>#dd9001</code>): pressed state for the primary pill.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Surface</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Canvas</strong> (<code>{colors.canvas}</code> — <code>#eeefe9</code>): the warm cream page background. End-to-end on every page; the brand's most distinctive surface choice.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Soft Surface</strong> (<code>{colors.surface-soft}</code> — <code>#e5e7e0</code>): button-secondary fill, sub-nav strip background, inline-code chip background.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Text</h3>
@@ -393,7 +393,7 @@
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Semantic</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Link Blue</strong> (<code>{colors.link-blue}</code> — <code>#1d4ed8</code>): inline anchor link inside body prose. The system's primary informational link color.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Link Teal</strong> (<code>{colors.link-teal}</code> — <code>#1078a3</code>): doc-article inline link variant, paired with body text.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
       <div class="swatches" style="margin-top:20px;">
-        
+
             <div class="swatch" onclick="copyColor('#f7a501', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#f7a501; "></div>
                 <div class="color-label">
@@ -401,7 +401,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f7a501</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#dd9001', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#dd9001; "></div>
                 <div class="color-label">
@@ -409,7 +409,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#dd9001</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#b17816', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#b17816; "></div>
                 <div class="color-label">
@@ -417,7 +417,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#b17816</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#23251d', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#23251d; "></div>
                 <div class="color-label">
@@ -425,7 +425,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#23251d</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#23251d', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#23251d; "></div>
                 <div class="color-label">
@@ -433,7 +433,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#23251d</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#4d4f46', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#4d4f46; "></div>
                 <div class="color-label">
@@ -441,7 +441,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#4d4f46</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#33342d', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#33342d; "></div>
                 <div class="color-label">
@@ -449,7 +449,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#33342d</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#6c6e63', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#6c6e63; "></div>
                 <div class="color-label">
@@ -457,7 +457,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#6c6e63</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#9b9c92', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#9b9c92; "></div>
                 <div class="color-label">
@@ -465,7 +465,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#9b9c92</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#b6b7af', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#b6b7af; "></div>
                 <div class="color-label">
@@ -473,7 +473,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#b6b7af</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#bfc1b7', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#bfc1b7; "></div>
                 <div class="color-label">
@@ -481,7 +481,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#bfc1b7</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#dcdfd2', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#dcdfd2; "></div>
                 <div class="color-label">
@@ -489,7 +489,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#dcdfd2</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
                 <div class="color-label">
@@ -497,7 +497,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#eeefe9', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#eeefe9; "></div>
                 <div class="color-label">
@@ -505,7 +505,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#eeefe9</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#e5e7e0', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#e5e7e0; "></div>
                 <div class="color-label">
@@ -513,7 +513,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e5e7e0</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
                 <div class="color-label">
@@ -521,7 +521,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#fcfcfa', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#fcfcfa; "></div>
                 <div class="color-label">
@@ -529,7 +529,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#fcfcfa</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#23251d', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#23251d; "></div>
                 <div class="color-label">
@@ -537,7 +537,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#23251d</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#1d4ed8', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#1d4ed8; "></div>
                 <div class="color-label">
@@ -545,7 +545,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1d4ed8</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#1078a3', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#1078a3; "></div>
                 <div class="color-label">
@@ -553,7 +553,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1078a3</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#2c84e0', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#2c84e0; "></div>
                 <div class="color-label">
@@ -561,7 +561,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#2c84e0</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#dceaf6', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#dceaf6; "></div>
                 <div class="color-label">
@@ -569,7 +569,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#dceaf6</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#cd4239', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#cd4239; "></div>
                 <div class="color-label">
@@ -577,7 +577,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#cd4239</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#f7d6d3', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#f7d6d3; "></div>
                 <div class="color-label">
@@ -585,7 +585,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f7d6d3</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#2c8c66', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#2c8c66; "></div>
                 <div class="color-label">
@@ -593,7 +593,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#2c8c66</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#d9eddf', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#d9eddf; "></div>
                 <div class="color-label">
@@ -601,7 +601,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#d9eddf</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#7c44a6', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#7c44a6; "></div>
                 <div class="color-label">
@@ -609,7 +609,7 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#7c44a6</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#e7d8ee', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#e7d8ee; "></div>
                 <div class="color-label">
@@ -617,13 +617,13 @@
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e7d8ee</div>
                 </div>
             </div>
-            
+
       </div>
 
       <!-- 03 Typography Rules -->
       <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography Rules</h2></div>
       <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Font Family</h3>
-<strong>IBM Plex Sans Variable</strong> is the system's primary face — used across every text role on every page at weights 400 (regular), 500 (medium), 600 (semibold), 700 (bold), and 800 (extra-bold). Falls back through <code>IBM Plex Sans</code> → <code>-apple-system</code> → <code>system-ui</code> → broad cross-platform sans stack.
+<strong>IBM Plex Sans Variable</strong> is the system's primary face — used across every text role on every page at weights 400 (regular), 500 (medium), 600 (semibold), 700 (bold), and 800 (extra-bold). Falls back through <code>IBM Plex Sans</code> → <code>-Anonymous Study-system</code> → <code>system-ui</code> → broad cross-platform sans stack.
 <p style='margin-bottom:16px; line-height:1.6;'><strong>ui-monospace</strong> + <strong>Source Code Pro</strong> carry code samples and inline-code chips at 14px / 1.43 line-height. Source Code Pro is the explicit display monospace; ui-monospace handles inline <code>&lt;code&gt;</code> chips.</p>
 <p style='margin-bottom:16px; line-height:1.6;'>The brand-distinctive choice is the <strong>mixed weight ladder</strong> (400 / 500 / 600 / 700 / 800) — most chrome lives in the 400–700 band, with weight 800 reserved exclusively for the larger display headlines on home and pricing. This gives the system its "engineering blog" feel: hierarchy is built from weight contrast much more than from size.</p>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Hierarchy</h3>
@@ -631,13 +631,13 @@
 The hierarchy is explicitly built from weight + size + occasional uppercase transform — there is no italic style, no decorative display variant, no proprietary face. The biggest display moments use weight 800 with -0.6px tracking, and the body settles at 400 with 1.5 line-height; everything else fills the band between. Section eyebrows (<code>{typography.heading-sm}</code> and <code>{typography.utility-xs}</code>) consistently render uppercase, which gives the doc layout its textbook-chapter feel.
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Note on Font Substitutes</h3>
 ...
-      
+
         <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
             <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
             <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
         </div>
         <div style="display:flex; flex-direction:column; gap:16px;">
-        
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">display-xl</span>
@@ -646,9 +646,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:36px; font-weight:700; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">display-lg</span>
@@ -657,9 +657,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:24px; font-weight:800; line-height:1.33; letter-spacing:-0.6px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">heading-lg</span>
@@ -668,9 +668,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:21px; font-weight:700; line-height:1.4; letter-spacing:-0.5px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">heading-md</span>
@@ -679,9 +679,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:20px; font-weight:700; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">heading-sm</span>
@@ -690,9 +690,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:700; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">heading-sm-mixed</span>
@@ -701,9 +701,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:600; line-height:1.56; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">body-md</span>
@@ -712,9 +712,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">body-strong</span>
@@ -723,9 +723,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:600; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">body-sm</span>
@@ -734,9 +734,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:15px; font-weight:400; line-height:1.71; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">body-sm-strong</span>
@@ -745,9 +745,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:15px; font-weight:600; line-height:1.71; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">body-xs</span>
@@ -756,9 +756,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:500; line-height:1.43; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">caption-md</span>
@@ -767,9 +767,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:700; line-height:1.71; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">caption-sm</span>
@@ -778,9 +778,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:13px; font-weight:500; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">caption-xs</span>
@@ -789,9 +789,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:12px; font-weight:600; line-height:1.33; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">utility-xs</span>
@@ -800,9 +800,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:12px; font-weight:700; line-height:1.33; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">link-md</span>
@@ -811,9 +811,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">button-md</span>
@@ -822,9 +822,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:700; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">button-sm</span>
@@ -833,9 +833,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:13px; font-weight:500; line-height:1; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">code-sm</span>
@@ -844,9 +844,9 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-mono); font-size:14px; font-weight:400; line-height:1.43; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">code-xs</span>
@@ -855,7 +855,7 @@ The hierarchy is explicitly built from weight + size + occasional uppercase tran
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:500; line-height:1.43; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
                 </div>
 
@@ -870,10 +870,10 @@ Whitespace is generous on marketing pages and tight on doc pages. The home and w
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
         <p>Layout Grid Example</p>
-        
+
     <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
         <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
-        
+
         <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
@@ -888,14 +888,14 @@ Whitespace is generous on marketing pages and tight on doc pages. The home and w
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
         </div>
-        
+
         <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
             <div>Gutter spacing: 16px / 24px</div>
             <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
             <div>Max Container Width: 1200px</div>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 05 Depth & Elevation -->
@@ -907,7 +907,7 @@ Depth comes entirely from illustration and the pastel callout band system, not f
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
         <p>Elevation Level Example</p>
-        
+
     <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
         <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
             <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
@@ -922,9 +922,9 @@ Depth comes entirely from illustration and the pastel callout band system, not f
             <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
         </div>
     </div>
-    
+
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
-        
+
     <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
         <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
             <span style="font-weight:700;">radius-sm</span>
@@ -943,7 +943,7 @@ Depth comes entirely from illustration and the pastel callout band system, not f
             <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 06 Component Stylings -->
@@ -955,7 +955,7 @@ There is no photography. Visual elements are limited to:
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Hedgehog character illustrations</strong> — flat-color cartoon hedgehogs ranging from ~80px (in-card mascot) to ~240px (hero illustration). Always at native aspect, never cropped to a frame.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Outline product icons</strong> in the doc sidebar — 20–24px rounded-square illustrations.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 ...
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Buttons</h3>
-<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary</code></strong> — the universal PostHog CTA
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary</code></strong> — the universal Anonymous Study CTA
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.primary}</code> (yellow-orange), text <code>{colors.on-primary}</code> (deep olive), type <code>{typography.button-md}</code>, padding <code>8px 16px</code>, height <code>40px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <strong><code>button-secondary</code></strong> — soft alternative on cream canvas
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.surface-soft}</code> (<code>#e5e7e0</code>), text <code>{colors.ink}</code>, type <code>{typography.button-md}</code>, padding <code>8px 16px</code>, height <code>40px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
@@ -975,7 +975,7 @@ There is no photography. Visual elements are limited to:
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Inputs & Forms</h3></p>
 <p style='margin-bottom:16px; line-height:1.6;'><strong><code>text-input</code></strong> + <strong><code>text-input-focused</code></strong>
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Default: background <code>{colors.surface-card}</code>, text <code>{colors.ink}</code>, 1px solid <code>{colors.hairline}</code>, type <code>{typography.body-md}</code>, padding <code>8px 12px</code>, height <code>36px</code>, rounded <code>{rounded.md}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
-<strong><code>search-input</code></strong> — utility search field (doc sidebar, "Ask PostHog AI")
+<strong><code>search-input</code></strong> — utility search field (doc sidebar, "Ask Anonymous Study AI")
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Same dimensions as <code>text-input</code> with a magnifier glyph at the left edge in <code>{colors.mute}</code>.</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Cards & Containers</h3></p>
 <p style='margin-bottom:16px; line-height:1.6;'><strong><code>product-card</code></strong> — marketing tile / feature card
@@ -1004,7 +1004,7 @@ There is no photography. Visual elements are limited to:
 <strong><code>doc-sidebar</code></strong> — sticky doc-page left sidebar
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas}</code>, text <code>{colors.body}</code> in <code>{typography.body-xs}</code>, width <code>240px</code>, rounded <code>{rounded.none}</code>.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <strong>Top Nav (Mobile)</strong>
-<ul><li style='margin-left:20px; margin-bottom:6px;'>Hamburger menu icon at left, PostHog wordmark + hedgehog at center, search + sticky yellow "Get started — free" CTA at right. Primary nav collapses into a full-height drawer that slides from the left.</li></ul>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Hamburger menu icon at left, Anonymous Study wordmark + hedgehog at center, search + sticky yellow "Get started — free" CTA at right. Primary nav collapses into a full-height drawer that slides from the left.</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Footer</h3></p>
 <p style='margin-bottom:16px; line-height:1.6;'><strong><code>footer-section</code></strong>
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Background <code>{colors.canvas}</code>, text <code>{colors.body}</code> in <code>{typography.body-xs}</code>, padding <code>32px 24px</code>, rounded <code>{rounded.none}</code>, with a 1px <code>{colors.hairline}</code> top rule.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
@@ -1022,7 +1022,7 @@ There is no photography. Visual elements are limited to:
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{colors.canvas}</code> (cream — <code>#eeefe9</code>) as the page body. Never substitute pure white as the canvas.</li><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{colors.primary}</code> (yellow-orange) for the primary CTA pill only. The "Get started — free" treatment is the brand's anchor.</li><li style='margin-left:20px; margin-bottom:6px;'>Render the brand wordmark with the hedgehog illustration alongside it, not as a stand-alone wordmark. The hedgehog IS the brand identity.</li><li style='margin-left:20px; margin-bottom:6px;'>Use IBM Plex Sans Variable across every text role — body 400, emphasis 600/700, display 800.</li><li style='margin-left:20px; margin-bottom:6px;'>Stack content sections at <code>{spacing.section}</code> (80px) rhythm with no decorative dividers between them; let the cream canvas continue uninterrupted.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{component.banner-tip-blue}</code> / <code>-green</code> / <code>-red</code> / <code>-purple</code> only inside doc article body for tip/warning/note panels — keep marketing chrome out of the four-color callout family.</li><li style='margin-left:20px; margin-bottom:6px;'>Pair every code sample with the dark <code>{component.code-block}</code> surface; inline <code>&lt;code&gt;</code> chips use <code>{component.inline-code}</code> (cream surface-soft chip).</li><li style='margin-left:20px; margin-bottom:6px;'>Anchor a hedgehog mascot illustration in feature tile margins on home and workflows pages — the system's signature decoration.</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce drop shadows on cards. Cards sit flat on cream with thin olive borders only.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add a second saturated chromatic CTA. Yellow-orange is the only loud color in the system.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't replace the cream canvas with pure white or full-bleed dark hero bands. The cream is the brand.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use the four-color callout banner pastels (<code>{colors.accent-blue-soft}</code>, <code>-green</code>, <code>-red</code>, <code>-purple</code>) as marketing-card backgrounds. They belong to inline doc content only.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't substitute the hedgehog illustration with a generic icon set. The character system is the brand.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use uppercase transform outside of <code>{typography.heading-sm}</code>, <code>{typography.utility-xs}</code>, and <code>{typography.caption-xs}</code>. Uppercase is reserved for eyebrows and footer category headers.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't pad cards with 32px+ on all sides except for <code>{component.pricing-tier-card}</code>. Standard cards sit at 24px internal padding.</li></ul>
-      
+
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
         <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
             <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
@@ -1037,7 +1037,7 @@ There is no photography. Visual elements are limited to:
             </div>
         </div>
     </div>
-    
+
 
       <!-- 08 Responsive Behavior -->
       <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
@@ -1051,7 +1051,7 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
         <p>Responsive Behavior Example</p>
-        
+
     <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
         <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
             <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
@@ -1084,7 +1084,7 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
             </div>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 09 Agent Prompt Guide -->
@@ -1110,7 +1110,7 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer>
-    <div><strong>PostHog Design System Spec</strong> · Extracted from awesome-design-md</div>
+    <div><strong>Anonymous Study Design System Spec</strong> · Extracted from awesome-design-md</div>
     <div>
       <a href="../index.html">Design System Hub</a>
     </div>
@@ -1120,7 +1120,7 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
 
 <textarea id="markdown-spec-content" style="display:none;">## Overview
 
-PostHog's marketing system is built on the visual contradiction at the heart of the brand: a serious open-source product analytics platform rendered as if it were a friendly engineering sketchbook. The chrome runs on a warm cream canvas (`{colors.canvas}` — `#eeefe9`) — not white — and every page is dotted with hand-drawn hedgehog mascots in lab coats, lounge chairs, terminals, and reading glasses, scattered across the layout like marginalia in a textbook. Type sits in IBM Plex Sans Variable at olive-gray (`{colors.body}` — `#4d4f46`) for body and deep olive-charcoal (`{colors.ink}` — `#23251d`) for headlines, with weights stepped tightly between 400, 600, 700, and 800 to create hierarchy without color. The single saturated yellow-orange pill (`{colors.primary}` — `#f7a501`) is the brand's only loud chromatic moment; everything else is cream, olive, white card, and the occasional pastel callout band.
+Anonymous Study's marketing system is built on the visual contradiction at the heart of the brand: a serious open-source product analytics platform rendered as if it were a friendly engineering sketchbook. The chrome runs on a warm cream canvas (`{colors.canvas}` — `#eeefe9`) — not white — and every page is dotted with hand-drawn hedgehog mascots in lab coats, lounge chairs, terminals, and reading glasses, scattered across the layout like marginalia in a textbook. Type sits in IBM Plex Sans Variable at olive-gray (`{colors.body}` — `#4d4f46`) for body and deep olive-charcoal (`{colors.ink}` — `#23251d`) for headlines, with weights stepped tightly between 400, 600, 700, and 800 to create hierarchy without color. The single saturated yellow-orange pill (`{colors.primary}` — `#f7a501`) is the brand's only loud chromatic moment; everything else is cream, olive, white card, and the occasional pastel callout band.
 
 The system has a distinctive **two-mode body layout**: marketing pages (home, workflows, pricing) lean on alternating-pastel callout bands and feature tiles in white cards on cream, while documentation pages add a sticky 240px left sidebar with a rounded outline-icon section list. Code samples are full-width dark blocks on `{colors.surface-dark}` (the same olive-charcoal that carries body ink, used inverted) inside white doc cards, creating the system's most distinctive visual moment: a dark-on-dark code island floating inside a white card on a cream canvas, with a hedgehog mascot doodled in the margin.
 
@@ -1133,14 +1133,14 @@ Sections stack at `{spacing.section}` (80px) rhythm with cream canvas continuing
 - Hand-drawn hedgehog mascots scattered across the layout as the entire decorative system — no gradients, no mesh, no atmospheric backgrounds
 - 4–8px radius card vocabulary: `{rounded.md}` (6px) for most components, `{rounded.lg}` (8px) for select containers, fully rounded for pill chips
 - Pastel callout banners (`{colors.accent-blue-soft}`, `{colors.accent-green-soft}`, `{colors.accent-red-soft}`, `{colors.accent-purple-soft}`) break up doc article body with soft tinted side rails for tips/warnings/info
-- Documentation pages add a sticky 240px `{component.doc-sidebar}` with rounded outline-icon section nav and an "Ask PostHog AI" CTA at the top
+- Documentation pages add a sticky 240px `{component.doc-sidebar}` with rounded outline-icon section nav and an "Ask Anonymous Study AI" CTA at the top
 
 ## Colors
 
 > **Source pages:** `/` (home), `/pricing` (pricing detail), `/docs/product-analytics` (docs article), `/workflows` (product feature page). The chrome palette is identical across all four pages — only doc-specific accents (callout-banner pastels, code-block dark surface) appear exclusively inside the docs experience.
 
 ### Brand & Accent
-- **PostHog Yellow** (`{colors.primary}` — `#f7a501`): the universal primary CTA. Sticky "Get started — free" pill in the top-right of every nav, hero CTAs, pricing-tier subscribe buttons, footer signup pill. The system's only saturated chromatic moment.
+- **Anonymous Study Yellow** (`{colors.primary}` — `#f7a501`): the universal primary CTA. Sticky "Get started — free" pill in the top-right of every nav, hero CTAs, pricing-tier subscribe buttons, footer signup pill. The system's only saturated chromatic moment.
 - **Yellow Pressed** (`{colors.primary-pressed}` — `#dd9001`): pressed state for the primary pill.
 - **Yellow Active** (`{colors.primary-active}` — `#b17816`): deeply-pressed yellow + the system's gold-toned border accent (rare 1px gold rule on inline form elements).
 
@@ -1174,7 +1174,7 @@ Sections stack at `{spacing.section}` (80px) rhythm with cream canvas continuing
 ## Typography
 
 ### Font Family
-**IBM Plex Sans Variable** is the system's primary face — used across every text role on every page at weights 400 (regular), 500 (medium), 600 (semibold), 700 (bold), and 800 (extra-bold). Falls back through `IBM Plex Sans` → `-apple-system` → `system-ui` → broad cross-platform sans stack.
+**IBM Plex Sans Variable** is the system's primary face — used across every text role on every page at weights 400 (regular), 500 (medium), 600 (semibold), 700 (bold), and 800 (extra-bold). Falls back through `IBM Plex Sans` → `-Anonymous Study-system` → `system-ui` → broad cross-platform sans stack.
 
 **ui-monospace** + **Source Code Pro** carry code samples and inline-code chips at 14px / 1.43 line-height. Source Code Pro is the explicit display monospace; ui-monospace handles inline `<code>` chips.
 
@@ -1274,7 +1274,7 @@ There is no photography. Visual elements are limited to:
 
 ### Buttons
 
-**`button-primary`** — the universal PostHog CTA
+**`button-primary`** — the universal Anonymous Study CTA
 - Background `{colors.primary}` (yellow-orange), text `{colors.on-primary}` (deep olive), type `{typography.button-md}`, padding `8px 16px`, height `40px`, rounded `{rounded.md}`.
 - Used for "Get started — free" (sticky top-nav CTA), "Sign up", "Try it free", "Subscribe" — every primary action.
 - Pressed state lives in `button-primary-pressed` — background drops to `{colors.primary-pressed}`.
@@ -1313,7 +1313,7 @@ There is no photography. Visual elements are limited to:
 - Default: background `{colors.surface-card}`, text `{colors.ink}`, 1px solid `{colors.hairline}`, type `{typography.body-md}`, padding `8px 12px`, height `36px`, rounded `{rounded.md}`.
 - Focused: same surface; 2px solid `{colors.accent-blue}` border replaces the 1px hairline + a translucent `{colors.focus-ring}` outline.
 
-**`search-input`** — utility search field (doc sidebar, "Ask PostHog AI")
+**`search-input`** — utility search field (doc sidebar, "Ask Anonymous Study AI")
 - Same dimensions as `text-input` with a magnifier glyph at the left edge in `{colors.mute}`.
 
 ### Cards & Containers
@@ -1358,7 +1358,7 @@ There is no photography. Visual elements are limited to:
 
 **`primary-nav`**
 - Background `{colors.canvas}` (cream — same as the page), text `{colors.ink}`, height `56px`, type `{typography.body-strong}`, rounded `{rounded.none}`.
-- Layout (desktop): PostHog wordmark + hedgehog logo at left, nav menu cluster ("Pricing · Docs · Community · Company"), right cluster with a search-glyph, "Login" link, and the always-yellow `{component.button-primary}` "Get started — free" pill anchored to the far right.
+- Layout (desktop): Anonymous Study wordmark + hedgehog logo at left, nav menu cluster ("Pricing · Docs · Community · Company"), right cluster with a search-glyph, "Login" link, and the always-yellow `{component.button-primary}` "Get started — free" pill anchored to the far right.
 
 **`sub-nav-strip`** — secondary nav bar (under primary)
 - Background `{colors.surface-soft}`, text `{colors.body}` in `{typography.body-xs}`, height `40px`, rounded `{rounded.none}`.
@@ -1366,17 +1366,17 @@ There is no photography. Visual elements are limited to:
 
 **`doc-sidebar`** — sticky doc-page left sidebar
 - Background `{colors.canvas}`, text `{colors.body}` in `{typography.body-xs}`, width `240px`, rounded `{rounded.none}`.
-- Layout: search-input "Ask PostHog AI" at top, then a vertical list of section headers each with a small rounded outline-icon mini-illustration, then nested item links indented under the active header.
+- Layout: search-input "Ask Anonymous Study AI" at top, then a vertical list of section headers each with a small rounded outline-icon mini-illustration, then nested item links indented under the active header.
 
 **Top Nav (Mobile)**
-- Hamburger menu icon at left, PostHog wordmark + hedgehog at center, search + sticky yellow "Get started — free" CTA at right. Primary nav collapses into a full-height drawer that slides from the left.
+- Hamburger menu icon at left, Anonymous Study wordmark + hedgehog at center, search + sticky yellow "Get started — free" CTA at right. Primary nav collapses into a full-height drawer that slides from the left.
 
 ### Footer
 
 **`footer-section`**
 - Background `{colors.canvas}`, text `{colors.body}` in `{typography.body-xs}`, padding `32px 24px`, rounded `{rounded.none}`, with a 1px `{colors.hairline}` top rule.
 - Layout: 6-column horizontal link grid (Product · Resources · Company · Community · Pricing · Legal), each column with a `{typography.utility-xs}` (uppercase) header and a vertical list of links in `{typography.body-xs}` `{colors.body}`.
-- Bottom row: PostHog wordmark + small hedgehog illustration, copyright in `{typography.caption-xs}` `{colors.mute}`, social-icon row at far-right.
+- Bottom row: Anonymous Study wordmark + small hedgehog illustration, copyright in `{typography.caption-xs}` `{colors.mute}`, social-icon row at far-right.
 
 ### Inline
 
@@ -1446,9 +1446,9 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
 
 ## Known Gaps
 
-- **Mobile screenshots not captured** — responsive behavior synthesizes PostHog's mobile pattern (hamburger drawer, single-column grid, doc sidebar accordion) from desktop evidence and the breakpoint stack.
+- **Mobile screenshots not captured** — responsive behavior synthesizes Anonymous Study's mobile pattern (hamburger drawer, single-column grid, doc sidebar accordion) from desktop evidence and the breakpoint stack.
 - **Hover states not documented** by system policy.
-- **In-product app chrome** (PostHog dashboard, charts, session replay player) not in the captured set — the marketing site is documented here, not the in-product analytics interface.
+- **In-product app chrome** (Anonymous Study dashboard, charts, session replay player) not in the captured set — the marketing site is documented here, not the in-product analytics interface.
 - **Authenticated chrome** (login modal, account dashboard, billing settings) not in the captured pages.
 - **Form validation states** beyond the focused-state input not present in the captured surfaces.
 - **Marketing illustration set** — the full library of hedgehog character poses is not enumerated here; specific poses (lab coat hedgehog, terminal hedgehog, hammock hedgehog) are noted as visible in screenshots but the full asset library is page-specific.
@@ -1501,7 +1501,7 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
     const btnMobile = document.getElementById('btn-sim-mobile');
     const btnTablet = document.getElementById('btn-sim-tablet');
     const btnDesktop = document.getElementById('btn-sim-desktop');
-    
+
     // Reset button styles
     [btnMobile, btnTablet, btnDesktop].forEach(btn => {
       if (btn) {
@@ -1510,14 +1510,14 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
         btn.style.color = 'var(--text-primary)';
       }
     });
-    
+
     const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
     if (activeBtn) {
       activeBtn.style.background = 'var(--accent-vue-glow)';
       activeBtn.style.borderColor = 'var(--accent-vue)';
       activeBtn.style.color = 'var(--accent-vue)';
     }
-    
+
     if (mode === 'mobile') {
       container.style.maxWidth = '375px';
       indicator.innerText = 'Width: 375px (Mobile < 768px)';
@@ -1533,5 +1533,5 @@ The only "imagery" in the system is hand-drawn hedgehog illustrations rendered a
     }
   }
 </script>
-</body>
+<script src="page-actions.js"></script></body>
 </html>

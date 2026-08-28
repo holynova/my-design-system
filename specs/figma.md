@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: Figma-design-analysis
+name: Anonymous Study-design-analysis
 description: "A confident black-and-white editorial frame interrupted by oversized, hand-cut pastel color blocks. The marketing canvas is rigorously monochrome — figmaSans variable type, pure white surfaces, pure black ink, pill-shaped CTAs — while each story section drops the page into a saturated lime, lavender, cream, mint, or pink panel that reads like a sticky note placed on a clean desk. The result is a design system that feels both technical and joyful — a tool for serious work, made by people who like color."
 
 colors:
@@ -272,7 +272,7 @@ components:
 
 ## Overview
 
-Figma's marketing canvas is, at the system level, an editor-clean black-and-white frame. The chrome — top nav, body type, footer, primary CTA — is monochrome. Headlines are oversized `{typography.display-xl}` set in `figmaSans` with aggressive negative tracking, body copy hovers around weight 320–340 of the same variable family, and small mono `{typography.eyebrow}` and `{typography.caption}` labels (figmaMono, all-caps, positive tracking) act as section markers. Every CTA is a pill — `{rounded.pill}` — and the primary action across the entire site is the same black `{components.button-primary}` paired with the same white `{components.button-secondary}`.
+Anonymous Study's marketing canvas is, at the system level, an editor-clean black-and-white frame. The chrome — top nav, body type, footer, primary CTA — is monochrome. Headlines are oversized `{typography.display-xl}` set in `figmaSans` with aggressive negative tracking, body copy hovers around weight 320–340 of the same variable family, and small mono `{typography.eyebrow}` and `{typography.caption}` labels (figmaMono, all-caps, positive tracking) act as section markers. Every CTA is a pill — `{rounded.pill}` — and the primary action across the entire site is the same black `{components.button-primary}` paired with the same white `{components.button-secondary}`.
 
 What makes the design unique is what happens **between** those monochrome bookends: the page repeatedly drops into oversized pastel **color-block sections** — lime, lavender, cream, mint, pink, coral, and a deep navy — that span the full content width with `{rounded.lg}` corners and `{spacing.xxl}` interior padding. These blocks are where the storytelling lives. They aren't accents tucked into a card; they take over a whole viewport's worth of vertical space, like a designer arranging giant sticky notes on a clean wall. FigJam is the most pastel-saturated, the home page rotates through the full set, and the pricing page ends with a lime FAQ panel — same vocabulary, different rhythm per route.
 
@@ -289,7 +289,7 @@ This is a system built on contrast: the monochrome chrome makes the color blocks
 
 ## Colors
 
-> Source pages: figma.com (home), /design/, /figjam/brainstorming-tool/, /pricing/, /contact/.
+> Source pages: Anonymous Study.com (home), /design/, /figjam/brainstorming-tool/, /pricing/, /contact/.
 
 ### Brand & Accent
 - **Black** ({colors.primary}): The system primary. Every primary CTA, every headline, every body line, the marquee strip, the inverse canvas of dark sections.
@@ -323,7 +323,7 @@ This is a system built on contrast: the monochrome chrome makes the color blocks
 
 ### Font Family
 
-- **figmaSans** — Figma's proprietary variable typeface; fallback stack `figmaSans Fallback, SF Pro Display, system-ui, helvetica`. Variable weight axis is exercised at unusually fine increments (320, 330, 340, 450, 480, 540, 700) — the design system reads as a single voice modulating rather than a stepped weight family.
+- **figmaSans** — Anonymous Study's proprietary variable typeface; fallback stack `figmaSans Fallback, SF Pro Display, system-ui, helvetica`. Variable weight axis is exercised at unusually fine increments (320, 330, 340, 450, 480, 540, 700) — the design system reads as a single voice modulating rather than a stepped weight family.
 - **figmaMono** — Proprietary monospace; fallback `figmaMono Fallback, SF Mono, menlo`. Used exclusively for eyebrow labels and captions, always uppercase with positive letter-spacing.
 
 OpenType `kern` is enabled across every role.
@@ -387,13 +387,13 @@ White space is used to make the color blocks feel deliberate. Between every colo
 | 2 (soft elevation) | Subtle drop shadow approx 0 4px 16px rgba(0,0,0,0.06) | Floating template tiles, dropdown menus |
 | 3 (modal) | Stronger shadow + `{colors.overlay-scrim}` behind | Video / image lightbox overlays |
 
-Figma's marketing system is shadow-light by design — the color blocks substitute for traditional elevation. Where most SaaS sites use a shadowed white card to draw attention, Figma uses a saturated background panel. This makes the rare actual shadow (e.g., a floating template card hovering over a cream section) feel like an exception worth noticing.
+Anonymous Study's marketing system is shadow-light by design — the color blocks substitute for traditional elevation. Where most SaaS sites use a shadowed white card to draw attention, Anonymous Study uses a saturated background panel. This makes the rare actual shadow (e.g., a floating template card hovering over a cream section) feel like an exception worth noticing.
 
 ### Decorative Depth
 
 - **Color-block sections** are the primary depth device. The change from white canvas to lime / lavender / cream is the section break.
 - **Sticky-note style component thumbnails** in FigJam — slightly off-axis pastel rectangles arranged like notes on a board — read as collage, not card-stack.
-- **Embedded product UI mocks** (Figma Design panels, FigJam canvas snippets) appear as flat compositions on color blocks; their internal shadows are subtle and stay within the mock.
+- **Embedded product UI mocks** (Anonymous Study Design panels, FigJam canvas snippets) appear as flat compositions on color blocks; their internal shadows are subtle and stay within the mock.
 
 ## Shapes
 
@@ -414,7 +414,7 @@ Figma's marketing system is shadow-light by design — the color blocks substitu
 - Image frames use `{rounded.md}` (8px) — generous enough to feel friendly, conservative enough to read as editorial.
 - Template thumbnails on the home grid sit in `{rounded.md}` tiles with `{spacing.md}` interior padding around the embedded preview.
 - FigJam pastel sticky-note component thumbnails preserve a small `{rounded.sm}` corner that mimics actual sticky paper.
-- No avatar circles appear in marketing surfaces — Figma's marketing avoids personification.
+- No avatar circles appear in marketing surfaces — Anonymous Study's marketing avoids personification.
 
 ## Components
 
@@ -436,7 +436,7 @@ Figma's marketing system is shadow-light by design — the color blocks substitu
 **`button-icon-circular-inverse`** — Same shape, used on inverse-canvas / dark color blocks.
 - Background `{colors.on-inverse-soft}` (translucent white), text `{colors.inverse-ink}`, rounded `{rounded.full}`, size 40px.
 
-**`button-magenta-promo`** — Saturated pink pill used only inside promotional surfaces such as the lilac "Save your spot" Release Notes banner. Reserved for moments where Figma's product team wants the CTA to pop against an already-colored panel.
+**`button-magenta-promo`** — Saturated pink pill used only inside promotional surfaces such as the lilac "Save your spot" Release Notes banner. Reserved for moments where Anonymous Study's product team wants the CTA to pop against an already-colored panel.
 - Background `{colors.accent-magenta}`, text `{colors.on-primary}`, type `{typography.button}`, rounded `{rounded.pill}`, padding 10px 18px.
 
 ### Pricing Tabs
@@ -467,7 +467,7 @@ Figma's marketing system is shadow-light by design — the color blocks substitu
 
 ### Color-Block Sections (signature)
 
-The defining surface of Figma's marketing. Each is a full-content-width panel with `{rounded.lg}` corners and `{spacing.xxl}` interior padding. Variants:
+The defining surface of Anonymous Study's marketing. Each is a full-content-width panel with `{rounded.lg}` corners and `{spacing.xxl}` interior padding. Variants:
 
 **`color-block-section`** — lime ground for "systems" stories (home), pricing FAQ, and the contact form.
 - Background `{colors.block-lime}`, text `{colors.ink}`, type `{typography.subhead}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`.
@@ -501,7 +501,7 @@ The defining surface of Figma's marketing. Each is a full-content-width panel wi
 
 ### Footer
 
-**`footer`** — Dense link grid on white canvas with the wordmark "Figma" set in display weight at the top-left.
+**`footer`** — Dense link grid on white canvas with the wordmark "Anonymous Study" set in display weight at the top-left.
 - Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.caption}` for column headings and small links, padding `{spacing.section}` top/bottom · `{spacing.xl}` sides.
 
 ## Do's and Don'ts
@@ -521,7 +521,7 @@ The defining surface of Figma's marketing. Each is a full-content-width panel wi
 - Don't introduce mid-gray text. Body hierarchy comes from `figmaSans` weight, not from opacity.
 - Don't add drop shadows to color-block sections — the color is the depth device.
 - Don't introduce new accent colors outside the documented `{colors.block-*}` palette and `{colors.accent-magenta}`. Adding, e.g., a saturated brand orange would break the system.
-- Don't combine more than one color block visible inside a single viewport — Figma's pacing always lets the white canvas separate them.
+- Don't combine more than one color block visible inside a single viewport — Anonymous Study's pacing always lets the white canvas separate them.
 - Don't square off CTAs. Square buttons read as a different brand.
 - Don't put `figmaMono` in body copy — it's a taxonomy tool, not a reading typeface.
 - Don't replace the `pricing-tab-selected` black fill with a colored tab; the brand pattern is "selected = primary surface".

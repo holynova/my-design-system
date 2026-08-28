@@ -1,4 +1,4 @@
-<!-- Design System — Airtable Design System -->
+<!-- Design System — Anonymous Study Design System -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -6,13 +6,13 @@
     defer
     src="https://cloud.umami.is/script.js"
     data-website-id="e01c9f78-4607-4e60-b01c-77c8190b12b4"
-    data-domains="holynova.github.io"
+    data-domains=""
     data-exclude-search="true"
     data-exclude-hash="true"
   ></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design System — Airtable Design System</title>
+<title>Design System — Anonymous Study Design System</title>
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,36 +23,36 @@
     --font-sans: 'Archivo', system-ui, sans-serif;
     --font-serif: Georgia, serif;
     --font-mono: Courier New, monospace;
-    
+
     --bg-base: #ffffff;
     --bg-surface: #f8fafc;
     --border-color: #dddddd;
     --border-dark: #9297a0;
-    
+
     --text-primary: #181d26;
     --text-secondary: #333840;
     --text-muted: #41454d;
-    
+
     --accent-vue: #181d26;
     --accent-vue-hover: #0d1218;
     --accent-vue-glow: rgba(24, 29, 38, 0.08);
-    
+
     --radius-lg: 8px;
     --radius-md: 6px;
     --radius-sm: 4px;
     --radius-pill: 999px;
-    
+
     --shadow-flat: none;
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
     --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
-    
+
     --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* ═══════════════════ RESET & BASE ═══════════════════ */
   *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
-  
+
   html {
     background: var(--bg-base);
     color: var(--text-primary);
@@ -61,7 +61,7 @@
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
   }
-  
+
   body {
     line-height: 1.6;
     padding-bottom: 120px;
@@ -72,7 +72,7 @@
   hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
   pre, code { font-family: var(--font-mono); }
   code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
-  
+
   pre {
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
@@ -332,7 +332,7 @@
       <svg viewBox="0 0 24 24"><polygon points="3,8 12,3 21,8 12,13" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linejoin:round;"/><polygon points="3,8 12,13 12,21 3,16" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linejoin:round;"/><polygon points="21,8 12,13 12,21 21,16" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linejoin:round;"/></svg>
     </div>
     <div>
-      <h1>Airtable Design System</h1>
+      <h1>Anonymous Study Design System</h1>
       <div class="sub">Structured database workflow · Editorial grids with vibrant signature bands...</div>
     </div>
     <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
@@ -371,7 +371,7 @@
 
       <!-- 01 Visual Theme & Atmosphere -->
       <div id="visual-theme" class="sec-head"><span class="idx">01</span><h2>Visual Theme & Atmosphere</h2></div>
-      <p style='margin-bottom:16px; line-height:1.6;'>Airtable's marketing surfaces are quietly editorial. The base atmosphere is white canvas, dark ink type, generous whitespace, and a near-black pill CTA — nothing is fighting for attention until a section needs to. The brand voltage doesn't come from gradient washes or accent walls; it comes from <strong>full-bleed signature cards</strong> in <code>{colors.signature-coral}</code>, <code>{colors.signature-forest}</code>, and <code>{colors.surface-dark}</code> that punctuate long-scroll explainer pages every two or three screens. Between those signature bands, the page reads like a print magazine: a headline, supporting copy, a small image cluster, then breathing room.</p>
+      <p style='margin-bottom:16px; line-height:1.6;'>Anonymous Study's marketing surfaces are quietly editorial. The base atmosphere is white canvas, dark ink type, generous whitespace, and a near-black pill CTA — nothing is fighting for attention until a section needs to. The brand voltage doesn't come from gradient washes or accent walls; it comes from <strong>full-bleed signature cards</strong> in <code>{colors.signature-coral}</code>, <code>{colors.signature-forest}</code>, and <code>{colors.surface-dark}</code> that punctuate long-scroll explainer pages every two or three screens. Between those signature bands, the page reads like a print magazine: a headline, supporting copy, a small image cluster, then breathing room.</p>
 <p style='margin-bottom:16px; line-height:1.6;'>Type voice is Haas Grotesk at modest weights (400 for display, 500 for sub-titles and buttons). Display headlines never go bolder than 500 — emphasis comes from size and color contrast, not from weight. Body copy stays at 14px / 400 throughout. The pricing surface runs its own dialect: <strong>Inter Display</strong> at unusual mid-weights (475 / 575) and <strong>pill-shaped buttons</strong> (<code>{rounded.pill}</code>) that don't appear on any other page — a deliberate sub-system signaling "this page is about commercial precision."</p>
 <p style='margin-bottom:16px; line-height:1.6;'><strong>Key Characteristics:</strong>
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Primary CTA is <code>{colors.primary}</code> (near-black ink) with white text and a <code>{rounded.lg}</code> (12px) corner — it reads as confident and final, never decorative.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul></p>
@@ -389,12 +389,12 @@
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Text</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Ink</strong> (<code>{colors.ink}</code> — #181d26): The strongest text — h1/h2 display type and primary button text-on-light. Same hex as <code>{colors.primary}</code> because they are the same role expressed at type and button layers.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Body</strong> (<code>{colors.body}</code> — #333840): The default running-text color.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Signature Card Surfaces</h3>
-These are the colors that carry Airtable's brand voltage. They appear as full-bleed, full-card surfaces — never as accents on a small element.
+These are the colors that carry Anonymous Study's brand voltage. They appear as full-bleed, full-card surfaces — never as accents on a small element.
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Coral</strong> (<code>{colors.signature-coral}</code> — #aa2d00): The largest signature card on the homepage ("Production apps in prototype speed"). Full-bleed dark coral with white type.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Forest</strong> (<code>{colors.signature-forest}</code> — #0a2e0e): A deep-green signature card used in the homepage demo-grid cluster.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Semantic</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Link</strong> (<code>{colors.link}</code> — #1b61c9): Inline body links and anchor text. Darker on press to <code>{colors.link-active}</code> (#1a3866). Despite the <code>--theme_button-background-primary</code> CSS-variable name, this color is <strong>not</strong> the primary button color — it is the link color.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Info</strong> (<code>{colors.info}</code> — #254fad) and <strong>Info Border</strong> (<code>{colors.info-border}</code> — #458fff): Inline info badges and focused-input outline.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
       <div class="swatches" style="margin-top:20px;">
-        
+
             <div class="swatch" onclick="copyColor('#181d26', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#181d26; "></div>
                 <div class="color-label">
@@ -402,7 +402,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#181d26</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#0d1218', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#0d1218; "></div>
                 <div class="color-label">
@@ -410,7 +410,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0d1218</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#181d26', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#181d26; "></div>
                 <div class="color-label">
@@ -418,7 +418,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#181d26</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#333840', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#333840; "></div>
                 <div class="color-label">
@@ -426,7 +426,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#333840</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#41454d', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#41454d; "></div>
                 <div class="color-label">
@@ -434,7 +434,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#41454d</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#dddddd', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#dddddd; "></div>
                 <div class="color-label">
@@ -442,7 +442,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#dddddd</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#9297a0', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#9297a0; "></div>
                 <div class="color-label">
@@ -450,7 +450,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#9297a0</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
                 <div class="color-label">
@@ -458,7 +458,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#f8fafc', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#f8fafc; "></div>
                 <div class="color-label">
@@ -466,7 +466,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f8fafc</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#e0e2e6', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#e0e2e6; "></div>
                 <div class="color-label">
@@ -474,7 +474,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e0e2e6</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#181d26', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#181d26; "></div>
                 <div class="color-label">
@@ -482,7 +482,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#181d26</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#1d1f25', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#1d1f25; "></div>
                 <div class="color-label">
@@ -490,7 +490,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1d1f25</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#aa2d00', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#aa2d00; "></div>
                 <div class="color-label">
@@ -498,7 +498,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#aa2d00</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#0a2e0e', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#0a2e0e; "></div>
                 <div class="color-label">
@@ -506,7 +506,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0a2e0e</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#f5e9d4', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#f5e9d4; "></div>
                 <div class="color-label">
@@ -514,7 +514,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f5e9d4</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#fcab79', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#fcab79; "></div>
                 <div class="color-label">
@@ -522,7 +522,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#fcab79</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#a8d8c4', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#a8d8c4; "></div>
                 <div class="color-label">
@@ -530,7 +530,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#a8d8c4</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#f4d35e', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#f4d35e; "></div>
                 <div class="color-label">
@@ -538,7 +538,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f4d35e</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#d9a441', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#d9a441; "></div>
                 <div class="color-label">
@@ -546,7 +546,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#d9a441</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
                 <div class="color-label">
@@ -554,7 +554,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
                 <div class="color-label">
@@ -562,7 +562,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#1b61c9', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#1b61c9; "></div>
                 <div class="color-label">
@@ -570,7 +570,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1b61c9</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#1a3866', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#1a3866; "></div>
                 <div class="color-label">
@@ -578,7 +578,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1a3866</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#254fad', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#254fad; "></div>
                 <div class="color-label">
@@ -586,7 +586,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#254fad</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#458fff', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#458fff; "></div>
                 <div class="color-label">
@@ -594,7 +594,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#458fff</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#006400', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#006400; "></div>
                 <div class="color-label">
@@ -602,7 +602,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#006400</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#39bf45', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#39bf45; "></div>
                 <div class="color-label">
@@ -610,7 +610,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#39bf45</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#1d1f25', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#1d1f25; "></div>
                 <div class="color-label">
@@ -618,25 +618,25 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1d1f25</div>
                 </div>
             </div>
-            
+
       </div>
 
       <!-- 03 Typography Rules -->
       <div id="typography" class="sec-head"><span class="idx">03</span><h2>Typography Rules</h2></div>
       <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Font Family</h3>
-The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed display + text type). Haas Groot Disp covers display sizes (h1 / h2); Haas Grotesk covers everything 24px and below. The fallback stack walks <code>-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif</code>.
+The system runs <strong>Haas / Haas Groot Disp</strong> (Anonymous Study's licensed display + text type). Haas Groot Disp covers display sizes (h1 / h2); Haas Grotesk covers everything 24px and below. The fallback stack walks <code>-Anonymous Study-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif</code>.
 <p style='margin-bottom:16px; line-height:1.6;'>The pricing surface runs a separate <strong>Inter Display</strong> stack at mid-weights (475 / 575) — a deliberate sub-system signaling commercial precision.</p>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Hierarchy</h3>
 <table><tr><th>Token</th><th>Size</th><th>Weight</th><th>Line Height</th><th>Letter Spacing</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Principles</h3>
 ...
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Note on Font Substitutes</h3>
-      
+
         <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
             <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
             <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
         </div>
         <div style="display:flex; flex-direction:column; gap:16px;">
-        
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">display-xl</span>
@@ -645,9 +645,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:48px; font-weight:500; line-height:1.1; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">display-lg</span>
@@ -656,9 +656,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:40px; font-weight:400; line-height:1.2; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">display-md</span>
@@ -667,9 +667,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:32px; font-weight:400; line-height:1.2; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">title-lg</span>
@@ -678,9 +678,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:24px; font-weight:400; line-height:1.35; letter-spacing:0.12px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">title-md</span>
@@ -689,9 +689,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:20px; font-weight:400; line-height:1.5; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">title-sm</span>
@@ -700,9 +700,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:500; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">label-md</span>
@@ -711,9 +711,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:500; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">button</span>
@@ -722,9 +722,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:500; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">body-md</span>
@@ -733,9 +733,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:400; line-height:1.25; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">caption</span>
@@ -744,9 +744,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:500; line-height:1.35; letter-spacing:0.16px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">legal</span>
@@ -755,9 +755,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:13.12px; font-weight:600; line-height:1.2; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">pricing-display</span>
@@ -766,9 +766,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:44.8px; font-weight:475; line-height:1.1; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">pricing-section</span>
@@ -777,9 +777,9 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:28px; font-weight:475; line-height:1.2; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">pricing-card-title</span>
@@ -788,7 +788,7 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:20px; font-weight:475; line-height:1.3; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
                 </div>
 
@@ -799,10 +799,10 @@ The system runs <strong>Haas / Haas Groot Disp</strong> (Airtable's licensed dis
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Grid & Container</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Max content width:</strong> ~1280px centered, with <code>{spacing.xxl}</code> (48px) horizontal breathing room.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Editorial body:</strong> Single 8/12-column at large breakpoints, collapsing to single-column on mobile.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Whitespace Philosophy</h3>
-Airtable uses whitespace as the dominant atmospheric tool. Hero sections sit in 96px+ of pure whitespace above and below the headline + sub-headline pair, with no decoration in that whitespace. The hero is intentionally calm — there is no gradient, no aurora, no atmospheric mesh behind the type. The system trusts whitespace alone to do the framing.
+Anonymous Study uses whitespace as the dominant atmospheric tool. Hero sections sit in 96px+ of pure whitespace above and below the headline + sub-headline pair, with no decoration in that whitespace. The hero is intentionally calm — there is no gradient, no aurora, no atmospheric mesh behind the type. The system trusts whitespace alone to do the framing.
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
-        
+
                 <div style="border:1.5px solid #9297a0; border-radius:4px; padding:10px; font-family:var(--font-sans); font-size:12px;">
                     <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #dddddd; padding-bottom:8px; margin-bottom:8px; font-weight:bold;">
                         <span>Field Title</span>
@@ -813,11 +813,11 @@ Airtable uses whitespace as the dominant atmospheric tool. Hero sections sit in 
                         <span>Design Review</span>
                     </div>
                 </div>
-            
-        
+
+
     <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
         <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
-        
+
         <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
@@ -832,14 +832,14 @@ Airtable uses whitespace as the dominant atmospheric tool. Hero sections sit in 
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
         </div>
-        
+
         <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
             <div>Gutter spacing: 16px / 24px</div>
             <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
             <div>Max Container Width: 1200px</div>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 05 Depth & Elevation -->
@@ -849,8 +849,8 @@ Airtable uses whitespace as the dominant atmospheric tool. Hero sections sit in 
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Vertical rainbow stripes</strong> appear on the articles hero only — multi-color vertical bands sitting on <code>{colors.surface-dark-elevated}</code>. This is a single-page treatment, not a system-wide signature.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Photography-as-depth</strong> in the demo-card grid: every card carries a real product UI screenshot or mockup, contributing depth through legible artifact density rather than decorative effects.</li></ul>
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
-        <div class="product-card" style="border:1px solid #dddddd; background:#fff; box-shadow:none; padding:20px;"><strong>Flat Surfaces</strong><br/>Airtable utilizes flat surface containers with borders and avoids elevated shadows to focus on dense data.</div>
-        
+        <div class="product-card" style="border:1px solid #dddddd; background:#fff; box-shadow:none; padding:20px;"><strong>Flat Surfaces</strong><br/>Anonymous Study utilizes flat surface containers with borders and avoids elevated shadows to focus on dense data.</div>
+
     <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
         <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
             <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
@@ -865,9 +865,9 @@ Airtable uses whitespace as the dominant atmospheric tool. Hero sections sit in 
             <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
         </div>
     </div>
-    
+
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
-        
+
     <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
         <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
             <span style="font-weight:700;">radius-sm</span>
@@ -886,7 +886,7 @@ Airtable uses whitespace as the dominant atmospheric tool. Hero sections sit in 
             <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 06 Component Stylings -->
@@ -895,7 +895,7 @@ Airtable uses whitespace as the dominant atmospheric tool. Hero sections sit in 
 <table><tr><th>Token</th><th>Value</th><th>Use</th></tr><tr><td>...</td><td>...</td><td>...</td></tr></table><h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Photography Geometry</h3>
 Product UI screenshots inside demo-card grids retain native aspect ratios (typically 4:3 or 16:10) and crop into <code>{rounded.md}</code> containers. Hero illustrations bleed full-width with no rounding. Article-card thumbnails use 16:9 with <code>{rounded.md}</code> corners. Avatars in testimonials use <code>{rounded.full}</code> (perfect circles). Pricing comparison table images stay rectangular with no rounding.
 <p style='margin-bottom:16px; line-height:1.6;'>&gt; <strong>No hover states documented.</strong> Per the global no-hover policy (Step 6), every component spec below documents only Default and Active/Pressed states. Variants live as separate entries in the <code>components:</code> front matter.</p>
-<p style='margin-bottom:16px; line-height:1.6;'><strong><code>top-nav</code></strong> — A 64px-tall white bar pinned to the top of every page. Airtable wordmark sits at left; primary horizontal menu (Platform, Solutions, Resources, Enterprise, Pricing) sits center-left in <code>{typography.body-md}</code>; the right cluster carries a "Book Demo" outline link, "Sign up for free" <code>{component.button-primary}</code>, and "Log In" text link. The nav stays light on every page — Airtable does not invert the nav over dark sections.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>top-nav</code></strong> — A 64px-tall white bar pinned to the top of every page. Anonymous Study wordmark sits at left; primary horizontal menu (Platform, Solutions, Resources, Enterprise, Pricing) sits center-left in <code>{typography.body-md}</code>; the right cluster carries a "Book Demo" outline link, "Sign up for free" <code>{component.button-primary}</code>, and "Log In" text link. The nav stays light on every page — Anonymous Study does not invert the nav over dark sections.</p>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Buttons</h3>
 <p style='margin-bottom:16px; line-height:1.6;'><strong><code>button-primary</code></strong> — The signature primary CTA. Background <code>{colors.primary}</code> (near-black), text <code>{colors.on-primary}</code>, type <code>{typography.button}</code>, padding 16px × 24px, rounded <code>{rounded.lg}</code> (12px). This is the "Get started for free" / "Sign up for free" button visible on every hero. It reads as confident and final — not decorative — which is why the system uses it sparingly (one per viewport).
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Active state: <code>button-primary-active</code> darkens to <code>{colors.primary-active}</code> (#0d1218).</li></ul>
@@ -925,41 +925,41 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
 <p style='margin-bottom:16px; line-height:1.6;'><strong><code>pricing-comparison-row</code></strong> — Each row of the long comparison table at the bottom of the pricing page. Labels in the left column; checkmarks or values across 4 plan columns. 12px vertical padding per row, hairline divider between rows.</p>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Navigation Variants</h3>
 <p style='margin-bottom:16px; line-height:1.6;'><strong><code>footer</code></strong> — Light surface (<code>{colors.canvas}</code>), 6-column link list at desktop covering Platform / Solutions / Resources / Learn / Company sub-trees. Vertical padding <code>{spacing.section}</code> divided across upper link block and lower legal row. Type <code>{typography.body-md}</code>.</p>
-<p style='margin-bottom:16px; line-height:1.6;'><strong><code>cta-band-light</code></strong> — The light gray "Start building with Airtable" CTA strip near the footer. Background <code>{colors.surface-strong}</code> (#e0e2e6), text <code>{colors.ink}</code>, rounded <code>{rounded.lg}</code> (12px), padding <code>{spacing.xxl}</code> (48px). Carries an h2 in <code>{typography.display-md}</code> and a <code>{component.button-primary}</code>.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong><code>cta-band-light</code></strong> — The light gray "Start building with Anonymous Study" CTA strip near the footer. Background <code>{colors.surface-strong}</code> (#e0e2e6), text <code>{colors.ink}</code>, rounded <code>{rounded.lg}</code> (12px), padding <code>{spacing.xxl}</code> (48px). Carries an h2 in <code>{typography.display-md}</code> and a <code>{component.button-primary}</code>.</p>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Signature Components</h3>
-<p style='margin-bottom:16px; line-height:1.6;'><strong>Articles Vertical Rainbow Stripe Hero</strong> — The articles-page hero treatment. Multi-color vertical bands at varying widths sitting on <code>{colors.surface-dark-elevated}</code>. The h1 + sub-head + CTA cluster sits center-left on top of the stripes. This is a single-page hero treatment, not a system-wide signature — do not promote it to a multi-page pattern.</p>
+<p style='margin-bottom:16px; line-height:1.6;'><strong>Articles Vertical Rainbow Anonymous Study Hero</strong> — The articles-page hero treatment. Multi-color vertical bands at varying widths sitting on <code>{colors.surface-dark-elevated}</code>. The h1 + sub-head + CTA cluster sits center-left on top of the stripes. This is a single-page hero treatment, not a system-wide signature — do not promote it to a multi-page pattern.</p>
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; font-family:var(--font-mono);">Interactive Component Demonstrations:</p>
-        
+
                 <div style="display:flex; flex-wrap:wrap; gap:12px;">
                     <button style="background:#181d26; color:#fff; border:none; padding:10px 24px; font-family:var(--font-sans); font-size:14px; font-weight:600; border-radius:20px; cursor:pointer;">Black Pill CTA</button>
                     <button style="background:#fff; color:#181d26; border:1px solid #9297a0; padding:10px 24px; font-family:var(--font-sans); font-size:14px; font-weight:600; border-radius:20px; cursor:pointer;">Secondary Outline</button>
                 </div>
-            
+
       </div>
 
       <!-- 07 Do's and Don'ts -->
       <div id="dos-donts" class="sec-head"><span class="idx">07</span><h2>Do's and Don'ts</h2></div>
       <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Do</h3>
-<ul><li style='margin-left:20px; margin-bottom:6px;'>Keep <code>{component.button-primary}</code> near-black. The brand's primary CTA is <code>{colors.primary}</code>, not the link blue. Mixing them up turns a confident hero into a confused one.</li><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{component.button-primary}</code> for one primary action per viewport. The system is designed for scarcity at the brand-action layer.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{component.button-secondary}</code> (white with hairline outline) as the natural pair with <code>{component.button-primary}</code>. The two together form Airtable's signature button row.</li><li style='margin-left:20px; margin-bottom:6px;'>Trust whitespace as the hero atmosphere. Hero bands are intentionally calm — no gradient, no mesh, no atmospheric backdrop. Going against this reads as off-brand.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{component.signature-coral-card}</code>, <code>{component.signature-forest-card}</code>, and <code>{component.hero-card-dark}</code> to break editorial monotony. These are the brand's voltage moments.</li><li style='margin-left:20px; margin-bottom:6px;'>Keep <code>{component.demo-grid-card}</code> heights uneven within a grid. Uniform heights feel like a spec sheet.</li><li style='margin-left:20px; margin-bottom:6px;'>Treat the pricing surface as its own dialect: keep <code>{typography.pricing-display}</code>, <code>{typography.pricing-card-title}</code>, and <code>{component.button-pricing-pill}</code> together. Mixing them with Haas Grotesk button type breaks the sub-system's voice.</li><li style='margin-left:20px; margin-bottom:6px;'>Anchor every editorial band with <code>{spacing.section}</code> (96px) vertical padding.</li></ul>
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Keep <code>{component.button-primary}</code> near-black. The brand's primary CTA is <code>{colors.primary}</code>, not the link blue. Mixing them up turns a confident hero into a confused one.</li><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{component.button-primary}</code> for one primary action per viewport. The system is designed for scarcity at the brand-action layer.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{component.button-secondary}</code> (white with hairline outline) as the natural pair with <code>{component.button-primary}</code>. The two together form Anonymous Study's signature button row.</li><li style='margin-left:20px; margin-bottom:6px;'>Trust whitespace as the hero atmosphere. Hero bands are intentionally calm — no gradient, no mesh, no atmospheric backdrop. Going against this reads as off-brand.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{component.signature-coral-card}</code>, <code>{component.signature-forest-card}</code>, and <code>{component.hero-card-dark}</code> to break editorial monotony. These are the brand's voltage moments.</li><li style='margin-left:20px; margin-bottom:6px;'>Keep <code>{component.demo-grid-card}</code> heights uneven within a grid. Uniform heights feel like a spec sheet.</li><li style='margin-left:20px; margin-bottom:6px;'>Treat the pricing surface as its own dialect: keep <code>{typography.pricing-display}</code>, <code>{typography.pricing-card-title}</code>, and <code>{component.button-pricing-pill}</code> together. Mixing them with Haas Grotesk button type breaks the sub-system's voice.</li><li style='margin-left:20px; margin-bottom:6px;'>Anchor every editorial band with <code>{spacing.section}</code> (96px) vertical padding.</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
-<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't make <code>{colors.link}</code> (#1b61c9) the primary button color. It is the link color. The primary button is <code>{colors.primary}</code> (#181d26, near-black). Treating link-blue as the brand action is the most common mistake when reading Airtable's CSS variables.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add a gradient backdrop to the hero. Airtable's hero is white, full stop. Mesh, aurora, spotlight gradients all read as "another SaaS template" — not Airtable.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't bold display-weight type. <code>{typography.display-xl}</code> and <code>{typography.display-lg}</code> are intentionally weight 400 / 500 — going to 700 reads as marketing-page-template.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use <code>{rounded.pill}</code> outside the pricing surface. It's a sub-system signal, not a general radius option.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't repeat the same surface mode in two consecutive bands. The editorial pacing depends on rhythm: white → signature card → white → cream → dark → white. Two whites in a row read as a typography blog.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add hover state styling beyond what the system already encodes. The system documents Default and Active/Pressed only.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce additional accent colors beyond the documented signature card palette. The system's voltage already uses coral, forest, dark navy, cream, peach, mint, yellow, and mustard.</li></ul>
-      
+<ul><li style='margin-left:20px; margin-bottom:6px;'>Don't make <code>{colors.link}</code> (#1b61c9) the primary button color. It is the link color. The primary button is <code>{colors.primary}</code> (#181d26, near-black). Treating link-blue as the brand action is the most common mistake when reading Anonymous Study's CSS variables.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add a gradient backdrop to the hero. Anonymous Study's hero is white, full stop. Mesh, aurora, spotlight gradients all read as "another SaaS template" — not Anonymous Study.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't bold display-weight type. <code>{typography.display-xl}</code> and <code>{typography.display-lg}</code> are intentionally weight 400 / 500 — going to 700 reads as marketing-page-template.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use <code>{rounded.pill}</code> outside the pricing surface. It's a sub-system signal, not a general radius option.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't repeat the same surface mode in two consecutive bands. The editorial pacing depends on rhythm: white → signature card → white → cream → dark → white. Two whites in a row read as a typography blog.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add hover state styling beyond what the system already encodes. The system documents Default and Active/Pressed only.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce additional accent colors beyond the documented signature card palette. The system's voltage already uses coral, forest, dark navy, cream, peach, mint, yellow, and mustard.</li></ul>
+
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
         <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
             <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
             <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
-                <ul><li style='margin-left:20px; margin-bottom:6px;'>Keep <code>{component.button-primary}</code> near-black. The brand's primary CTA is <code>{colors.primary}</code>, not the link blue. Mixing them up turns a confident hero into a confused one.</li><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{component.button-primary}</code> for one primary action per viewport. The system is designed for scarcity at the brand-action layer.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{component.button-secondary}</code> (white with hairline outline) as the natural pair with <code>{component.button-primary}</code>. The two together form Airtable's signature button row.</li><li style='margin-left:20px; margin-bottom:6px;'>Trust whitespace as the hero atmosphere. Hero bands are intentionally calm — no gradient, no mesh, no atmospheric backdrop. Going against this reads as off-brand.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{component.signature-coral-card}</code>, <code>{component.signature-forest-card}</code>, and <code>{component.hero-card-dark}</code> to break editorial monotony. These are the brand's voltage moments.</li><li style='margin-left:20px; margin-bottom:6px;'>Keep <code>{component.demo-grid-card}</code> heights uneven within a grid. Uniform heights feel like a spec sheet.</li><li style='margin-left:20px; margin-bottom:6px;'>Treat the pricing surface as its own dialect: keep <code>{typography.pricing-display}</code>, <code>{typography.pricing-card-title}</code>, and <code>{component.button-pricing-pill}</code> together. Mixing them with Haas Grotesk button type breaks the sub-system's voice.</li><li style='margin-left:20px; margin-bottom:6px;'>Anchor every editorial band with <code>{spacing.section}</code> (96px) vertical padding.</li></ul>
+                <ul><li style='margin-left:20px; margin-bottom:6px;'>Keep <code>{component.button-primary}</code> near-black. The brand's primary CTA is <code>{colors.primary}</code>, not the link blue. Mixing them up turns a confident hero into a confused one.</li><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{component.button-primary}</code> for one primary action per viewport. The system is designed for scarcity at the brand-action layer.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{component.button-secondary}</code> (white with hairline outline) as the natural pair with <code>{component.button-primary}</code>. The two together form Anonymous Study's signature button row.</li><li style='margin-left:20px; margin-bottom:6px;'>Trust whitespace as the hero atmosphere. Hero bands are intentionally calm — no gradient, no mesh, no atmospheric backdrop. Going against this reads as off-brand.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>{component.signature-coral-card}</code>, <code>{component.signature-forest-card}</code>, and <code>{component.hero-card-dark}</code> to break editorial monotony. These are the brand's voltage moments.</li><li style='margin-left:20px; margin-bottom:6px;'>Keep <code>{component.demo-grid-card}</code> heights uneven within a grid. Uniform heights feel like a spec sheet.</li><li style='margin-left:20px; margin-bottom:6px;'>Treat the pricing surface as its own dialect: keep <code>{typography.pricing-display}</code>, <code>{typography.pricing-card-title}</code>, and <code>{component.button-pricing-pill}</code> together. Mixing them with Haas Grotesk button type breaks the sub-system's voice.</li><li style='margin-left:20px; margin-bottom:6px;'>Anchor every editorial band with <code>{spacing.section}</code> (96px) vertical padding.</li></ul>
             </div>
         </div>
         <div style="border:1px solid #ef4444; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(239, 68, 68, 0.015); position:relative;">
             <span style="background:#ef4444; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">❌ Discouraged / Don't</span>
             <div style="margin-top:8px; font-size:13.5px; color:var(--text-secondary); line-height:1.6;">
-                <ul><li style='margin-left:20px; margin-bottom:6px;'>Don't make <code>{colors.link}</code> (#1b61c9) the primary button color. It is the link color. The primary button is <code>{colors.primary}</code> (#181d26, near-black). Treating link-blue as the brand action is the most common mistake when reading Airtable's CSS variables.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add a gradient backdrop to the hero. Airtable's hero is white, full stop. Mesh, aurora, spotlight gradients all read as "another SaaS template" — not Airtable.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't bold display-weight type. <code>{typography.display-xl}</code> and <code>{typography.display-lg}</code> are intentionally weight 400 / 500 — going to 700 reads as marketing-page-template.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use <code>{rounded.pill}</code> outside the pricing surface. It's a sub-system signal, not a general radius option.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't repeat the same surface mode in two consecutive bands. The editorial pacing depends on rhythm: white → signature card → white → cream → dark → white. Two whites in a row read as a typography blog.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add hover state styling beyond what the system already encodes. The system documents Default and Active/Pressed only.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce additional accent colors beyond the documented signature card palette. The system's voltage already uses coral, forest, dark navy, cream, peach, mint, yellow, and mustard.</li></ul>
+                <ul><li style='margin-left:20px; margin-bottom:6px;'>Don't make <code>{colors.link}</code> (#1b61c9) the primary button color. It is the link color. The primary button is <code>{colors.primary}</code> (#181d26, near-black). Treating link-blue as the brand action is the most common mistake when reading Anonymous Study's CSS variables.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add a gradient backdrop to the hero. Anonymous Study's hero is white, full stop. Mesh, aurora, spotlight gradients all read as "another SaaS template" — not Anonymous Study.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't bold display-weight type. <code>{typography.display-xl}</code> and <code>{typography.display-lg}</code> are intentionally weight 400 / 500 — going to 700 reads as marketing-page-template.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use <code>{rounded.pill}</code> outside the pricing surface. It's a sub-system signal, not a general radius option.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't repeat the same surface mode in two consecutive bands. The editorial pacing depends on rhythm: white → signature card → white → cream → dark → white. Two whites in a row read as a typography blog.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add hover state styling beyond what the system already encodes. The system documents Default and Active/Pressed only.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't introduce additional accent colors beyond the documented signature card palette. The system's voltage already uses coral, forest, dark navy, cream, peach, mint, yellow, and mustard.</li></ul>
             </div>
         </div>
     </div>
-    
+
 
       <!-- 08 Responsive Behavior -->
       <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
@@ -973,7 +973,7 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
         <div style="border:1px solid #dddddd; border-radius:6px; padding:16px; background:#fff; text-align:center; font-size:13px; color:var(--text-secondary);">📱 On mobile viewports, the grid columns stack vertically into detail page cards for readability.</div>
-        
+
     <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
         <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
             <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
@@ -1006,7 +1006,7 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
             </div>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 09 Agent Prompt Guide -->
@@ -1032,7 +1032,7 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer>
-    <div><strong>Airtable Design System Spec</strong> · Extracted from awesome-design-md</div>
+    <div><strong>Anonymous Study Design System Spec</strong> · Extracted from awesome-design-md</div>
     <div>
       <a href="../index.html">Design System Hub</a>
     </div>
@@ -1042,13 +1042,13 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
 
 <textarea id="markdown-spec-content" style="display:none;">## Overview
 
-Airtable's marketing surfaces are quietly editorial. The base atmosphere is white canvas, dark ink type, generous whitespace, and a near-black pill CTA — nothing is fighting for attention until a section needs to. The brand voltage doesn't come from gradient washes or accent walls; it comes from **full-bleed signature cards** in `{colors.signature-coral}`, `{colors.signature-forest}`, and `{colors.surface-dark}` that punctuate long-scroll explainer pages every two or three screens. Between those signature bands, the page reads like a print magazine: a headline, supporting copy, a small image cluster, then breathing room.
+Anonymous Study's marketing surfaces are quietly editorial. The base atmosphere is white canvas, dark ink type, generous whitespace, and a near-black pill CTA — nothing is fighting for attention until a section needs to. The brand voltage doesn't come from gradient washes or accent walls; it comes from **full-bleed signature cards** in `{colors.signature-coral}`, `{colors.signature-forest}`, and `{colors.surface-dark}` that punctuate long-scroll explainer pages every two or three screens. Between those signature bands, the page reads like a print magazine: a headline, supporting copy, a small image cluster, then breathing room.
 
 Type voice is Haas Grotesk at modest weights (400 for display, 500 for sub-titles and buttons). Display headlines never go bolder than 500 — emphasis comes from size and color contrast, not from weight. Body copy stays at 14px / 400 throughout. The pricing surface runs its own dialect: **Inter Display** at unusual mid-weights (475 / 575) and **pill-shaped buttons** (`{rounded.pill}`) that don't appear on any other page — a deliberate sub-system signaling "this page is about commercial precision."
 
 **Key Characteristics:**
 - Primary CTA is `{colors.primary}` (near-black ink) with white text and a `{rounded.lg}` (12px) corner — it reads as confident and final, never decorative.
-- Secondary CTA is a `{colors.canvas}` button with `{colors.ink}` text and a hairline outline. The two together form Airtable's signature button pair.
+- Secondary CTA is a `{colors.canvas}` button with `{colors.ink}` text and a hairline outline. The two together form Anonymous Study's signature button pair.
 - Hero is white canvas. There is no atmospheric gradient, no mesh, no background flourish. The brand strength comes from the type and the buttons sitting in clean whitespace.
 - Brand voltage lives in **signature surface cards**: `{colors.signature-coral}`, `{colors.signature-forest}`, and `{colors.surface-dark}` carry full-bleed product callouts every few screens.
 - Demo-card grids carry product UI fragments on `{colors.signature-peach}`, `{colors.signature-mint}`, `{colors.signature-cream}` and other warm pastel surfaces.
@@ -1065,9 +1065,9 @@ Type voice is Haas Grotesk at modest weights (400 for display, 500 for sub-title
 ### Surface
 - **Canvas** (`{colors.canvas}` — #ffffff): The default page surface; the floor of every editorial body.
 - **Surface Soft** (`{colors.surface-soft}` — #f8fafc): Tabbed feature cards and the featured pricing tier.
-- **Surface Strong** (`{colors.surface-strong}` — #e0e2e6): The light gray "Start building with Airtable" CTA banner near the footer.
+- **Surface Strong** (`{colors.surface-strong}` — #e0e2e6): The light gray "Start building with Anonymous Study" CTA banner near the footer.
 - **Surface Dark** (`{colors.surface-dark}` — #181d26): The dark navy CTA cards used mid-page (for example "The path to 10× every person in your organization").
-- **Surface Dark Elevated** (`{colors.surface-dark-elevated}` — #1d1f25): The articles-page hero base behind the rainbow-stripe overlay.
+- **Surface Dark Elevated** (`{colors.surface-dark-elevated}` — #1d1f25): The articles-page hero base behind the rainbow-Anonymous Study overlay.
 - **Hairline** (`{colors.hairline}` — #dddddd): The 1px border tone for input outlines, table dividers, secondary-button outlines.
 
 ### Text
@@ -1078,7 +1078,7 @@ Type voice is Haas Grotesk at modest weights (400 for display, 500 for sub-title
 - **On Primary / On Dark** (`{colors.on-primary}` — #ffffff): The text color on primary buttons and dark surfaces.
 
 ### Signature Card Surfaces
-These are the colors that carry Airtable's brand voltage. They appear as full-bleed, full-card surfaces — never as accents on a small element.
+These are the colors that carry Anonymous Study's brand voltage. They appear as full-bleed, full-card surfaces — never as accents on a small element.
 - **Coral** (`{colors.signature-coral}` — #aa2d00): The largest signature card on the homepage ("Production apps in prototype speed"). Full-bleed dark coral with white type.
 - **Forest** (`{colors.signature-forest}` — #0a2e0e): A deep-green signature card used in the homepage demo-grid cluster.
 - **Cream** (`{colors.signature-cream}` — #f5e9d4): The cream callout band ("The path to 10× every person in your organization") — a soft beige surface holding dark type and product UI fragments.
@@ -1092,7 +1092,7 @@ These are the colors that carry Airtable's brand voltage. They appear as full-bl
 ## Typography
 
 ### Font Family
-The system runs **Haas / Haas Groot Disp** (Airtable's licensed display + text type). Haas Groot Disp covers display sizes (h1 / h2); Haas Grotesk covers everything 24px and below. The fallback stack walks `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif`.
+The system runs **Haas / Haas Groot Disp** (Anonymous Study's licensed display + text type). Haas Groot Disp covers display sizes (h1 / h2); Haas Grotesk covers everything 24px and below. The fallback stack walks `-Anonymous Study-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif`.
 
 The pricing surface runs a separate **Inter Display** stack at mid-weights (475 / 575) — a deliberate sub-system signaling commercial precision.
 
@@ -1139,7 +1139,7 @@ If Haas Groot Disp and Haas Grotesk are unavailable, **Inter Display** (variable
 - **Logo strip:** 6 monochrome partner logos in a single row at desktop; wraps to 3-up on mobile.
 
 ### Whitespace Philosophy
-Airtable uses whitespace as the dominant atmospheric tool. Hero sections sit in 96px+ of pure whitespace above and below the headline + sub-headline pair, with no decoration in that whitespace. The hero is intentionally calm — there is no gradient, no aurora, no atmospheric mesh behind the type. The system trusts whitespace alone to do the framing.
+Anonymous Study uses whitespace as the dominant atmospheric tool. Hero sections sit in 96px+ of pure whitespace above and below the headline + sub-headline pair, with no decoration in that whitespace. The hero is intentionally calm — there is no gradient, no aurora, no atmospheric mesh behind the type. The system trusts whitespace alone to do the framing.
 
 ## Elevation & Depth
 
@@ -1177,7 +1177,7 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
 
 > **No hover states documented.** Per the global no-hover policy (Step 6), every component spec below documents only Default and Active/Pressed states. Variants live as separate entries in the `components:` front matter.
 
-**`top-nav`** — A 64px-tall white bar pinned to the top of every page. Airtable wordmark sits at left; primary horizontal menu (Platform, Solutions, Resources, Enterprise, Pricing) sits center-left in `{typography.body-md}`; the right cluster carries a "Book Demo" outline link, "Sign up for free" `{component.button-primary}`, and "Log In" text link. The nav stays light on every page — Airtable does not invert the nav over dark sections.
+**`top-nav`** — A 64px-tall white bar pinned to the top of every page. Anonymous Study wordmark sits at left; primary horizontal menu (Platform, Solutions, Resources, Enterprise, Pricing) sits center-left in `{typography.body-md}`; the right cluster carries a "Book Demo" outline link, "Sign up for free" `{component.button-primary}`, and "Log In" text link. The nav stays light on every page — Anonymous Study does not invert the nav over dark sections.
 
 ### Buttons
 
@@ -1236,18 +1236,18 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
 
 **`footer`** — Light surface (`{colors.canvas}`), 6-column link list at desktop covering Platform / Solutions / Resources / Learn / Company sub-trees. Vertical padding `{spacing.section}` divided across upper link block and lower legal row. Type `{typography.body-md}`.
 
-**`cta-band-light`** — The light gray "Start building with Airtable" CTA strip near the footer. Background `{colors.surface-strong}` (#e0e2e6), text `{colors.ink}`, rounded `{rounded.lg}` (12px), padding `{spacing.xxl}` (48px). Carries an h2 in `{typography.display-md}` and a `{component.button-primary}`.
+**`cta-band-light`** — The light gray "Start building with Anonymous Study" CTA strip near the footer. Background `{colors.surface-strong}` (#e0e2e6), text `{colors.ink}`, rounded `{rounded.lg}` (12px), padding `{spacing.xxl}` (48px). Carries an h2 in `{typography.display-md}` and a `{component.button-primary}`.
 
 ### Signature Components
 
-**Articles Vertical Rainbow Stripe Hero** — The articles-page hero treatment. Multi-color vertical bands at varying widths sitting on `{colors.surface-dark-elevated}`. The h1 + sub-head + CTA cluster sits center-left on top of the stripes. This is a single-page hero treatment, not a system-wide signature — do not promote it to a multi-page pattern.
+**Articles Vertical Rainbow Anonymous Study Hero** — The articles-page hero treatment. Multi-color vertical bands at varying widths sitting on `{colors.surface-dark-elevated}`. The h1 + sub-head + CTA cluster sits center-left on top of the stripes. This is a single-page hero treatment, not a system-wide signature — do not promote it to a multi-page pattern.
 
 ## Do's and Don'ts
 
 ### Do
 - Keep `{component.button-primary}` near-black. The brand's primary CTA is `{colors.primary}`, not the link blue. Mixing them up turns a confident hero into a confused one.
 - Reserve `{component.button-primary}` for one primary action per viewport. The system is designed for scarcity at the brand-action layer.
-- Use `{component.button-secondary}` (white with hairline outline) as the natural pair with `{component.button-primary}`. The two together form Airtable's signature button row.
+- Use `{component.button-secondary}` (white with hairline outline) as the natural pair with `{component.button-primary}`. The two together form Anonymous Study's signature button row.
 - Trust whitespace as the hero atmosphere. Hero bands are intentionally calm — no gradient, no mesh, no atmospheric backdrop. Going against this reads as off-brand.
 - Use `{component.signature-coral-card}`, `{component.signature-forest-card}`, and `{component.hero-card-dark}` to break editorial monotony. These are the brand's voltage moments.
 - Keep `{component.demo-grid-card}` heights uneven within a grid. Uniform heights feel like a spec sheet.
@@ -1255,8 +1255,8 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
 - Anchor every editorial band with `{spacing.section}` (96px) vertical padding.
 
 ### Don't
-- Don't make `{colors.link}` (#1b61c9) the primary button color. It is the link color. The primary button is `{colors.primary}` (#181d26, near-black). Treating link-blue as the brand action is the most common mistake when reading Airtable's CSS variables.
-- Don't add a gradient backdrop to the hero. Airtable's hero is white, full stop. Mesh, aurora, spotlight gradients all read as "another SaaS template" — not Airtable.
+- Don't make `{colors.link}` (#1b61c9) the primary button color. It is the link color. The primary button is `{colors.primary}` (#181d26, near-black). Treating link-blue as the brand action is the most common mistake when reading Anonymous Study's CSS variables.
+- Don't add a gradient backdrop to the hero. Anonymous Study's hero is white, full stop. Mesh, aurora, spotlight gradients all read as "another SaaS template" — not Anonymous Study.
 - Don't bold display-weight type. `{typography.display-xl}` and `{typography.display-lg}` are intentionally weight 400 / 500 — going to 700 reads as marketing-page-template.
 - Don't use `{rounded.pill}` outside the pricing surface. It's a sub-system signal, not a general radius option.
 - Don't repeat the same surface mode in two consecutive bands. The editorial pacing depends on rhythm: white → signature card → white → cream → dark → white. Two whites in a row read as a typography blog.
@@ -1357,7 +1357,7 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
     const btnMobile = document.getElementById('btn-sim-mobile');
     const btnTablet = document.getElementById('btn-sim-tablet');
     const btnDesktop = document.getElementById('btn-sim-desktop');
-    
+
     // Reset button styles
     [btnMobile, btnTablet, btnDesktop].forEach(btn => {
       if (btn) {
@@ -1366,14 +1366,14 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
         btn.style.color = 'var(--text-primary)';
       }
     });
-    
+
     const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
     if (activeBtn) {
       activeBtn.style.background = 'var(--accent-vue-glow)';
       activeBtn.style.borderColor = 'var(--accent-vue)';
       activeBtn.style.color = 'var(--accent-vue)';
     }
-    
+
     if (mode === 'mobile') {
       container.style.maxWidth = '375px';
       indicator.innerText = 'Width: 375px (Mobile < 768px)';
@@ -1389,5 +1389,5 @@ Product UI screenshots inside demo-card grids retain native aspect ratios (typic
     }
   }
 </script>
-</body>
+<script src="page-actions.js"></script></body>
 </html>

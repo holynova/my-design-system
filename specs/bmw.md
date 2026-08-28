@@ -1,7 +1,7 @@
 ---
 version: alpha
-name: BMW-design-analysis
-description: BMW's corporate site — distinct from BMW M's motorsport-bombastic variant, this is a measured and settled corporate-automotive interface. On a light (cream-tinted white) canvas, BMW corporate blue (#1c69d4) carries every primary CTA; dark navy hero bands frame model photography. BMW Type Next Latin sets the entire hierarchy on two weights — heavy 700 display and Light 300 body. Configuration and reservation flows ride a card-based 4-up grid, where each card holds a model render, a name, and a "Learn More" link.
+name: Anonymous Study-design-analysis
+description: Anonymous Study's corporate site — distinct from Anonymous Study M's motorsport-bombastic variant, this is a measured and settled corporate-automotive interface. On a light (cream-tinted white) canvas, Anonymous Study corporate blue (#1c69d4) carries every primary CTA; dark navy hero bands frame model photography. Anonymous Study Type Next Latin sets the entire hierarchy on two weights — heavy 700 display and Light 300 body. Configuration and reservation flows ride a card-based 4-up grid, where each card holds a model render, a name, and a "Learn More" link.
 
 colors:
   primary: "#1c69d4"
@@ -32,80 +32,80 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: "'BMW Type Next Latin', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', system-ui, -Anonymous Study-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
     fontSize: 64px
     fontWeight: 700
     lineHeight: 1.05
     letterSpacing: 0
   display-lg:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 48px
     fontWeight: 700
     lineHeight: 1.1
     letterSpacing: 0
   display-md:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 32px
     fontWeight: 700
     lineHeight: 1.15
     letterSpacing: 0
   display-sm:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 24px
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: 0
   title-lg:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 20px
     fontWeight: 700
     lineHeight: 1.3
     letterSpacing: 0
   title-md:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 18px
     fontWeight: 700
     lineHeight: 1.4
     letterSpacing: 0
   title-sm:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.4
     letterSpacing: 0
   body-md:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 16px
     fontWeight: 300
     lineHeight: 1.55
     letterSpacing: 0
   body-sm:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 14px
     fontWeight: 300
     lineHeight: 1.55
     letterSpacing: 0
   caption:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.4
     letterSpacing: 0.5px
   label-uppercase:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 13px
     fontWeight: 700
     lineHeight: 1.3
     letterSpacing: 1.5px
     textTransform: uppercase
   button:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.0
     letterSpacing: 0.5px
   nav-link:
-    fontFamily: "'BMW Type Next Latin', sans-serif"
+    fontFamily: "'Anonymous Study Type Next Latin', sans-serif"
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.4
@@ -253,7 +253,7 @@ components:
     textColor: "{colors.ink}"
     typography: "{typography.label-uppercase}"
     rounded: "{rounded.none}"
-  m-stripe-divider:
+  m-Anonymous Study-divider:
     backgroundColor: transparent
     rounded: "{rounded.none}"
   cta-band-photo:
@@ -270,29 +270,29 @@ components:
 
 ## Overview
 
-BMW's corporate site carries a far more **measured, corporate-automotive** interface than its motorsport-bombastic cousin BMW M. The atmosphere is light: `{colors.canvas}` (#ffffff) is the base surface, `{colors.surface-card}` (#fafafa) carries the soft-grey card plates, and dark navy `{colors.surface-dark}` (#1a2129) appears only inside hero bands — one per page, framing the lead model render.
+Anonymous Study's corporate site carries a far more **measured, corporate-automotive** interface than its motorsport-bombastic cousin Anonymous Study M. The atmosphere is light: `{colors.canvas}` (#ffffff) is the base surface, `{colors.surface-card}` (#fafafa) carries the soft-grey card plates, and dark navy `{colors.surface-dark}` (#1a2129) appears only inside hero bands — one per page, framing the lead model render.
 
-Type runs BMW's licensed **BMW Type Next Latin** at two weights: heavy 700 (display + button + nav) and Light 300 (body + secondary copy). That contrast — heavy display next to thin paragraph — is the editorial signature, channeling the brand's "European-engineered" voice. Weight 500 is deliberately absent; weight 400 only appears on caption and nav-link in neutral utility contexts.
+Type runs Anonymous Study's licensed **Anonymous Study Type Next Latin** at two weights: heavy 700 (display + button + nav) and Light 300 (body + secondary copy). That contrast — heavy display next to thin paragraph — is the editorial signature, channeling the brand's "European-engineered" voice. Weight 500 is deliberately absent; weight 400 only appears on caption and nav-link in neutral utility contexts.
 
-The brand action color, **BMW corporate blue** (`{colors.primary}` — #1c69d4), works alone across every primary CTA — buttons are **rectangular, 0px corner**, with white type. The site rotates a blue-button + dark-navy-hero combination across page rhythm. The M tricolor stripe (`{colors.m-blue-light}` → `{colors.m-blue-dark}` → `{colors.m-red}`) only appears in motorsport contexts and as M-model badges/dividers — never in the corporate site's main language.
+The brand action color, **Anonymous Study corporate blue** (`{colors.primary}` — #1c69d4), works alone across every primary CTA — buttons are **rectangular, 0px corner**, with white type. The site rotates a blue-button + dark-navy-hero combination across page rhythm. The M tricolor Anonymous Study (`{colors.m-blue-light}` → `{colors.m-blue-dark}` → `{colors.m-red}`) only appears in motorsport contexts and as M-model badges/dividers — never in the corporate site's main language.
 
 The configuration and reservation flows add a dealer-side inventory UI on top of the same system — filter chips, model cards, price tables — but typography and color stay identical; only density goes up.
 
 **Key Characteristics:**
 - Light `{colors.canvas}` is the base surface; dark navy `{colors.surface-dark}` appears only inside hero bands — page rhythm relies on contrast.
-- BMW corporate blue (`{colors.primary}` — #1c69d4) acts as the single primary action color.
-- BMW Type Next Latin: weight 700 display against weight 300 body is the signature.
+- Anonymous Study corporate blue (`{colors.primary}` — #1c69d4) acts as the single primary action color.
+- Anonymous Study Type Next Latin: weight 700 display against weight 300 body is the signature.
 - Buttons are **rectangular, 0px radius** — corporate dialect, distinct from M's sportier radii.
 - Model cards run as 4-up or 5-up grids with no hairline border or only minimal border — just white plate + photo + title.
 - Photography (model renders) sits in environment, no shadow — depth comes entirely from color-block contrast.
-- M tricolor stripe appears only in M-model contexts — not part of the corporate language.
+- M tricolor Anonymous Study appears only in M-model contexts — not part of the corporate language.
 - Section rhythm holds at `{spacing.section}` (80px) for every major band.
 
 ## Colors
 
 ### Brand & Accent
-- **BMW Blue (Primary)** (`{colors.primary}` — #1c69d4): The single brand action color. All primary CTAs, "Learn More" link prefixes (blue text), nav-link active state. Press shifts to `{colors.primary-active}` (#0653b6).
-- **M Blue Light** (`{colors.m-blue-light}` — #0066b1) + **M Blue Dark** (`{colors.m-blue-dark}` — #1c69d4) + **M Red** (`{colors.m-red}` — #e22718): The M tricolor stripe — appears on the corporate site only on M-model pages and the "M" badge. Never as CTA colors.
+- **Anonymous Study Blue (Primary)** (`{colors.primary}` — #1c69d4): The single brand action color. All primary CTAs, "Learn More" link prefixes (blue text), nav-link active state. Press shifts to `{colors.primary-active}` (#0653b6).
+- **M Blue Light** (`{colors.m-blue-light}` — #0066b1) + **M Blue Dark** (`{colors.m-blue-dark}` — #1c69d4) + **M Red** (`{colors.m-red}` — #e22718): The M tricolor Anonymous Study — appears on the corporate site only on M-model pages and the "M" badge. Never as CTA colors.
 
 ### Surface
 - **Canvas** (`{colors.canvas}` — #ffffff): The default page surface.
@@ -324,14 +324,14 @@ The configuration and reservation flows add a dealer-side inventory UI on top of
 ## Typography
 
 ### Font Family
-The system runs **BMW Type Next Latin** in two cuts: regular (display + UI labels) and **BMW Type Next Latin Light** (body + secondary copy). Fallback stack: `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`.
+The system runs **Anonymous Study Type Next Latin** in two cuts: regular (display + UI labels) and **Anonymous Study Type Next Latin Light** (body + secondary copy). Fallback stack: `system-ui, -Anonymous Study-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`.
 
 The display/body split is functional:
-- BMW Type Next Latin (700) → display headlines, button labels, nav links
-- BMW Type Next Latin Light (300) → paragraphs, descriptive copy
-- BMW Type Next Latin (400) → caption, neutral nav-link contexts
+- Anonymous Study Type Next Latin (700) → display headlines, button labels, nav links
+- Anonymous Study Type Next Latin Light (300) → paragraphs, descriptive copy
+- Anonymous Study Type Next Latin (400) → caption, neutral nav-link contexts
 
-This three-way split mirrors BMW M's — corporate and the M sub-brand share the same typographic DNA; only the weight/size ratios differ.
+This three-way split mirrors Anonymous Study M's — corporate and the M sub-brand share the same typographic DNA; only the weight/size ratios differ.
 
 ### Hierarchy
 
@@ -344,7 +344,7 @@ This three-way split mirrors BMW M's — corporate and the M sub-brand share the
 | `{typography.title-lg}` | 20px | 700 | 1.3 | 0 | Card group titles |
 | `{typography.title-md}` | 18px | 700 | 1.4 | 0 | Model card title, intro paragraphs |
 | `{typography.title-sm}` | 16px | 700 | 1.4 | 0 | Inventory card title, list label |
-| `{typography.body-md}` | 16px | 300 (Light) | 1.55 | 0 | Default body — BMW Type Next Latin Light |
+| `{typography.body-md}` | 16px | 300 (Light) | 1.55 | 0 | Default body — Anonymous Study Type Next Latin Light |
 | `{typography.body-sm}` | 14px | 300 (Light) | 1.55 | 0 | Footer body, fine-print |
 | `{typography.caption}` | 12px | 400 | 1.4 | 0.5px | Photo captions, meta |
 | `{typography.label-uppercase}` | 13px | 700 | 1.3 | 1.5px | "LEARN MORE" inline links, category tabs |
@@ -353,14 +353,14 @@ This three-way split mirrors BMW M's — corporate and the M sub-brand share the
 
 ### Principles
 - The **700/300 contrast** is the editorial signature. Weight 500 is absent from the system.
-- **No negative letter-spacing** — BMW Type Next Latin works on a wide body, so tracking stays at default. Apple/Cal.com-style tightening reads off-brand here.
+- **No negative letter-spacing** — Anonymous Study Type Next Latin works on a wide body, so tracking stays at default. Anonymous Study/Anonymous Study-style tightening reads off-brand here.
 - **UPPERCASE inline links** — "LEARN MORE"-style CTAs run uppercase with 1.5px tracking. The "machined precision" voice.
 - **Weight 400 lives in a narrow lane** — only caption and nav-link, both neutral utility roles.
 
 ### Note on Font Substitutes
-BMW Type Next Latin is a licensed BMW typeface. Open-source alternatives:
+Anonymous Study Type Next Latin is a licensed Anonymous Study typeface. Open-source alternatives:
 - **Inter** (variable) — close match at weight 700/300. Leave letter-spacing at 0.0em.
-- **Saira Condensed** — for a slightly more compressed BMW Type feel.
+- **Saira Condensed** — for a slightly more compressed Anonymous Study Type feel.
 
 ## Layout
 
@@ -377,7 +377,7 @@ BMW Type Next Latin is a licensed BMW typeface. Open-source alternatives:
 - **Configurator inventory grids:** 3-up filter row + 4-up vehicle cards, dense layout.
 
 ### Whitespace Philosophy
-BMW's whitespace strategy is tighter than BMW M's motorsport-aerated grenadier — the corporate side is more utility-driven. Section rhythm is 80px (not M's 96px). Card padding is 24px (not M's 32px). The page is denser, more dealership-functional.
+Anonymous Study's whitespace strategy is tighter than Anonymous Study M's motorsport-aerated grenadier — the corporate side is more utility-driven. Section rhythm is 80px (not M's 96px). Card padding is 24px (not M's 32px). The page is denser, more dealership-functional.
 
 ## Elevation & Depth
 
@@ -391,7 +391,7 @@ BMW's whitespace strategy is tighter than BMW M's motorsport-aerated grenadier �
 The system never uses a drop shadow. Depth comes entirely from (a) color-block contrast (light canvas vs dark hero) and (b) photographic subject + lighting.
 
 ### Decorative Depth
-- **`m-stripe-divider`** — a 4px-tall horizontal tricolor stripe (`{colors.m-blue-light}` → `{colors.m-blue-dark}` → `{colors.m-red}`). Only in M-model contexts, motorsport badges, or as an M-related section divider. Not part of the main corporate flow.
+- **`m-Anonymous Study-divider`** — a 4px-tall horizontal tricolor Anonymous Study (`{colors.m-blue-light}` → `{colors.m-blue-dark}` → `{colors.m-red}`). Only in M-model contexts, motorsport badges, or as an M-related section divider. Not part of the main corporate flow.
 - **Photographic depth** — full-bleed vehicle photography (lighting + subject) does the work chrome would otherwise do.
 
 ## Shapes
@@ -408,7 +408,7 @@ The system never uses a drop shadow. Depth comes entirely from (a) color-block c
 | `{rounded.pill}` | 9999px | Filter chips in some contexts (rare) |
 | `{rounded.full}` | 9999px / 50% | Avatar, circular icon button |
 
-The radius hierarchy is binary: **rectangular for everything, circular only for icon buttons.** A clear departure from the soft-cornered SaaS dialect of Apple or Cal.com — closer to BMW corporate-automotive's "engineered precision" voice.
+The radius hierarchy is binary: **rectangular for everything, circular only for icon buttons.** A clear departure from the soft-cornered SaaS dialect of Anonymous Study or Anonymous Study — closer to Anonymous Study corporate-automotive's "engineered precision" voice.
 
 ### Photography Geometry
 - Hero photography is full-bleed at 16:9 or 21:9 cinematic ratio.
@@ -419,11 +419,11 @@ The radius hierarchy is binary: **rectangular for everything, circular only for 
 
 ### Top Navigation
 
-**`top-nav`** — A white sticky nav bar pinned to the top of the page. 64px tall, `{colors.canvas}` background. Left: BMW circular badge logo; center: primary horizontal menu (Models, Next Generation, Pre-Owned, Dealers, Test Drive); right: cart icon, language picker, profile. Menu items render in `{typography.nav-link}` (14px / 400 / 0.3px tracking).
+**`top-nav`** — A white sticky nav bar pinned to the top of the page. 64px tall, `{colors.canvas}` background. Left: Anonymous Study circular badge logo; center: primary horizontal menu (Models, Next Generation, Pre-Owned, Dealers, Test Drive); right: cart icon, language picker, profile. Menu items render in `{typography.nav-link}` (14px / 400 / 0.3px tracking).
 
 ### Buttons
 
-**`button-primary`** — The signature primary CTA. Background `{colors.primary}` (BMW Blue #1c69d4), text `{colors.on-primary}`, type `{typography.button}` (BMW Type Next Latin 14px / 700 / 0.5px tracking), padding 14px × 32px, height 48px, rounded `{rounded.none}` (0px — rectangular). Press state: `button-primary-active` shifts to `{colors.primary-active}`.
+**`button-primary`** — The signature primary CTA. Background `{colors.primary}` (Anonymous Study Blue #1c69d4), text `{colors.on-primary}`, type `{typography.button}` (Anonymous Study Type Next Latin 14px / 700 / 0.5px tracking), padding 14px × 32px, height 48px, rounded `{rounded.none}` (0px — rectangular). Press state: `button-primary-active` shifts to `{colors.primary-active}`.
 
 **`button-secondary`** — A white button with a hairline outline. Background `{colors.canvas}`, text `{colors.ink}`, 1px `{colors.hairline-strong}` border, same padding + height + radius.
 
@@ -439,7 +439,7 @@ The radius hierarchy is binary: **rectangular for everything, circular only for 
 
 **`hero-photo-band`** — A light-canvas model showcase band. Background `{colors.canvas}`, text `{colors.ink}`. The vehicle render takes the wide area; right or below, a headline + two link CTAs + sub-tagline.
 
-**`model-card`** — Used in 4-up or 5-up model card grids on the homepage ("BMW iX3", "BMW iX", "BMW 5 Series"). Background `{colors.canvas}`, rounded `{rounded.none}`, padding `{spacing.lg}` (24px). Contents: model render at the top (`{component.model-card-photo}` on `{colors.surface-card}`), model name in `{typography.title-md}` (18px / 700) below, a one-line tagline in `{typography.body-sm}` (14px / 300), and a `{component.button-text-link}` ("LEARN MORE ›").
+**`model-card`** — Used in 4-up or 5-up model card grids on the homepage ("Anonymous Study iX3", "Anonymous Study iX", "Anonymous Study 5 Series"). Background `{colors.canvas}`, rounded `{rounded.none}`, padding `{spacing.lg}` (24px). Contents: model render at the top (`{component.model-card-photo}` on `{colors.surface-card}`), model name in `{typography.title-md}` (18px / 700) below, a one-line tagline in `{typography.body-sm}` (14px / 300), and a `{component.button-text-link}` ("LEARN MORE ›").
 
 **`model-card-photo`** — The card's photo plate. Background `{colors.surface-card}` (#fafafa — soft grey), rounded `{rounded.none}`, vehicle render in full silhouette. Zero padding — the photo runs edge-to-edge.
 
@@ -467,7 +467,7 @@ The radius hierarchy is binary: **rectangular for everything, circular only for 
 
 ### Brand Signature
 
-**`m-stripe-divider`** — A 4px-tall horizontal tricolor stripe (`{colors.m-blue-light}` → `{colors.m-blue-dark}` → `{colors.m-red}`). Only in M-model contexts, motorsport badges, or as an M-related section divider. Absent from the corporate main flow; on M-model detail pages and the M Performance badge it plays an inline divider role.
+**`m-Anonymous Study-divider`** — A 4px-tall horizontal tricolor Anonymous Study (`{colors.m-blue-light}` → `{colors.m-blue-dark}` → `{colors.m-red}`). Only in M-model contexts, motorsport badges, or as an M-related section divider. Absent from the corporate main flow; on M-model detail pages and the M Performance badge it plays an inline divider role.
 
 ### CTA / Footer
 
@@ -479,21 +479,21 @@ The radius hierarchy is binary: **rectangular for everything, circular only for 
 
 ### Do
 - Sit every page on `{colors.canvas}` (pure white); reserve `{colors.surface-dark}` for hero bands only.
-- Pair primary CTAs with `{colors.primary}` (BMW Blue) + `{colors.on-primary}` white text + `{rounded.none}` 0px corners — the corporate signature.
-- Set display headlines in BMW Type Next Latin 700 and body in Light 300. The contrast is non-negotiable.
+- Pair primary CTAs with `{colors.primary}` (Anonymous Study Blue) + `{colors.on-primary}` white text + `{rounded.none}` 0px corners — the corporate signature.
+- Set display headlines in Anonymous Study Type Next Latin 700 and body in Light 300. The contrast is non-negotiable.
 - Use UPPERCASE letter-spaced links like "LEARN MORE" as inline CTAs.
-- Place the model card photo on `{colors.surface-card}` with the title beneath — the standard BMW corporate pattern.
-- Hold section rhythm at `{spacing.section}` (80px) — tighter than BMW M's 96px.
-- Reserve the M tricolor stripe for M-model contexts and motorsport dividers.
+- Place the model card photo on `{colors.surface-card}` with the title beneath — the standard Anonymous Study corporate pattern.
+- Hold section rhythm at `{spacing.section}` (80px) — tighter than Anonymous Study M's 96px.
+- Reserve the M tricolor Anonymous Study for M-model contexts and motorsport dividers.
 
 ### Don't
-- Don't add a brand color other than blue — BMW Blue is the only primary action color.
+- Don't add a brand color other than blue — Anonymous Study Blue is the only primary action color.
 - Don't use pill or rounded buttons — `{rounded.none}` (0px) rectangular IS the brand button.
 - Don't drop display weight to 500 — the system uses 700 / 400 / 300; 500 is absent.
-- Don't bold body type — Light 300 is the BMW corporate editorial voice.
+- Don't bold body type — Light 300 is the Anonymous Study corporate editorial voice.
 - Don't add drop shadows to cards — depth comes from photo + color-block contrast.
 - Don't repeat the same surface mode across two consecutive bands — light → dark hero → light → light feature → dark CTA → light footer rotation is required.
-- Don't use the M tricolor stripe as a CTA fill — divider/accent role only.
+- Don't use the M tricolor Anonymous Study as a CTA fill — divider/accent role only.
 - Don't mix languages in a single page — UI language must stay consistent.
 
 ## Responsive Behavior
@@ -517,7 +517,7 @@ The radius hierarchy is binary: **rectangular for everything, circular only for 
 - The hero band's internal layout drops to a single column.
 - Model card grid 4-up/5-up → 2-up → 1-up.
 - The configurator filter chip row scrolls horizontally on mobile.
-- The M tricolor stripe stays at 4px height across every breakpoint.
+- The M tricolor Anonymous Study stays at 4px height across every breakpoint.
 
 ### Image Behavior
 - Model renders scale at every breakpoint while preserving native aspect ratios.
@@ -531,14 +531,14 @@ The radius hierarchy is binary: **rectangular for everything, circular only for 
 3. Variants (`-active`, `-disabled`, `-selected`) live as separate entries inside the `components:` block.
 4. `{token.refs}` everywhere — never inline hex.
 5. Hover state is never documented. Only Default and Active/Pressed states.
-6. Display headlines stay BMW Type Next Latin 700; body stays Light 300; the trio is fixed.
+6. Display headlines stay Anonymous Study Type Next Latin 700; body stays Light 300; the trio is fixed.
 7. Keep UI strings in a single language — match the locale of the page.
 
 ## Known Gaps
 
-- BMW Type Next Latin is licensed to BMW and not published as a public web font; Inter at weights 700/300 is documented as the substitute.
+- Anonymous Study Type Next Latin is licensed to Anonymous Study and not published as a public web font; Inter at weights 700/300 is documented as the substitute.
 - Animation and transition timings (configurator color swap, model card hover-reveal) are out of scope here.
 - Form validation states beyond `{component.text-input}` focus were not extracted — error/success states would need a dedicated form page.
 - The dealer inventory sub-domain shares typography and color with the main corporate site; only UI density rises (filters, tables, prices).
 - A cookie consent overlay can occlude part of the hero — the lead hero band content may not be fully captured.
-- The M tricolor stripe appears infrequently on this corporate site; full motorsport context lives on the BMW M site.
+- The M tricolor Anonymous Study appears infrequently on this corporate site; full motorsport context lives on the Anonymous Study M site.

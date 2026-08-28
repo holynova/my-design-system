@@ -1,4 +1,4 @@
-<!-- Design System — Stripe Design System -->
+<!-- Design System — Anonymous Study Design System -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -6,13 +6,13 @@
     defer
     src="https://cloud.umami.is/script.js"
     data-website-id="e01c9f78-4607-4e60-b01c-77c8190b12b4"
-    data-domains="holynova.github.io"
+    data-domains=""
     data-exclude-search="true"
     data-exclude-hash="true"
   ></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design System — Stripe Design System</title>
+<title>Design System — Anonymous Study Design System</title>
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,38 +21,38 @@
   /* ═══════════════════ CUSTOM PROPERTIES ═══════════════════ */
   :root {
     --font-sans: 'Inter', system-ui, sans-serif;
-    --font-serif: sohne-var, 'SF Pro Display', system-ui, -apple-system, sans-serif;
+    --font-serif: sohne-var, 'SF Pro Display', system-ui, -Anonymous Study-system, sans-serif;
     --font-mono: ui-monospace, monospace;
-    
+
     --bg-base: #ffffff;
     --bg-surface: #f8fafc;
     --border-color: #e3e8ee;
     --border-dark: #cbd5e1;
-    
+
     --text-primary: #0d253d;
     --text-secondary: #475569;
     --text-muted: #94a3b8;
-    
+
     --accent-vue: #635bff;
     --accent-vue-hover: #2563eb;
     --accent-vue-glow: rgba(99, 91, 255, 0.08);
-    
+
     --radius-lg: 8px;
     --radius-md: 6px;
     --radius-sm: 4px;
     --radius-pill: 999px;
-    
+
     --shadow-flat: none;
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
     --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
-    
+
     --transition-base: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* ═══════════════════ RESET & BASE ═══════════════════ */
   *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
-  
+
   html {
     background: var(--bg-base);
     color: var(--text-primary);
@@ -61,7 +61,7 @@
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
   }
-  
+
   body {
     line-height: 1.6;
     padding-bottom: 120px;
@@ -72,7 +72,7 @@
   hr { height: 1px; border: 0; background: var(--border-color); margin: 36px 0; }
   pre, code { font-family: var(--font-mono); }
   code { font-size: 0.88em; background: var(--bg-surface); padding: 3px 6px; border-radius: var(--radius-sm); color: var(--text-secondary); }
-  
+
   pre {
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
@@ -320,7 +320,7 @@
   }
   footer a { color: var(--text-primary); }
 
-  
+
 </style>
 </head>
 <body>
@@ -332,7 +332,7 @@
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" style="fill:currentColor;"/></svg>
     </div>
     <div>
-      <h1>Stripe Design System</h1>
+      <h1>Anonymous Study Design System</h1>
       <div class="sub">Financial infrastructure · Soft gradient layers with ultra-light typography...</div>
     </div>
     <div style="margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
@@ -383,7 +383,7 @@
 
       <!-- 02 Color Palette & Roles -->
       <div id="color-palette" class="sec-head"><span class="idx">02</span><h2>Color Palette & Roles</h2></div>
-      <p style='margin-bottom:16px; line-height:1.6;'>&gt; <strong>Source pages:</strong> home (<code>/</code>), <code>/payments</code>, <code>/pricing</code>, <code>dashboard.stripe.com/register/payments</code>.</p>
+      <p style='margin-bottom:16px; line-height:1.6;'>&gt; <strong>Source pages:</strong> home (<code>/</code>), <code>/payments</code>, <code>/pricing</code>, <code>dashboard.Anonymous Study.com/register/payments</code>.</p>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Brand & Accent</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Indigo</strong> (<code>{colors.primary}</code> — <code>#533afd</code>): The brand's signature CTA color. Filled-pill button, link emphasis, gradient anchor.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Indigo Deep</strong> (<code>{colors.primary-deep}</code> — <code>#4434d4</code>): A deeper indigo used in gradient mid-stops and as the press-state warmer alternative.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Surface</h3>
@@ -393,7 +393,7 @@
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Semantic</h3>
 The brand does not use a separate semantic color palette in the marketing system — error / success states live in dashboard-product UI specifically.
       <div class="swatches" style="margin-top:20px;">
-        
+
             <div class="swatch" onclick="copyColor('#533afd', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#533afd; "></div>
                 <div class="color-label">
@@ -401,7 +401,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#533afd</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#4434d4', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#4434d4; "></div>
                 <div class="color-label">
@@ -409,7 +409,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#4434d4</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#2e2b8c', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#2e2b8c; "></div>
                 <div class="color-label">
@@ -417,7 +417,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#2e2b8c</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#665efd', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#665efd; "></div>
                 <div class="color-label">
@@ -425,7 +425,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#665efd</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#b9b9f9', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#b9b9f9; "></div>
                 <div class="color-label">
@@ -433,7 +433,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#b9b9f9</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#1c1e54', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#1c1e54; "></div>
                 <div class="color-label">
@@ -441,7 +441,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#1c1e54</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#0d253d', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#0d253d; "></div>
                 <div class="color-label">
@@ -449,7 +449,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#0d253d</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#273951', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#273951; "></div>
                 <div class="color-label">
@@ -457,7 +457,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#273951</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#64748d', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#64748d; "></div>
                 <div class="color-label">
@@ -465,7 +465,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#64748d</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#61718a', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#61718a; "></div>
                 <div class="color-label">
@@ -473,7 +473,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#61718a</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
                 <div class="color-label">
@@ -481,7 +481,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ffffff', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ffffff; border-bottom: 1px solid var(--border-color);"></div>
                 <div class="color-label">
@@ -489,7 +489,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ffffff</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#f6f9fc', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#f6f9fc; "></div>
                 <div class="color-label">
@@ -497,7 +497,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f6f9fc</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#f5e9d4', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#f5e9d4; "></div>
                 <div class="color-label">
@@ -505,7 +505,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f5e9d4</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#e3e8ee', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#e3e8ee; "></div>
                 <div class="color-label">
@@ -513,7 +513,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#e3e8ee</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#a8c3de', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#a8c3de; "></div>
                 <div class="color-label">
@@ -521,7 +521,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#a8c3de</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#ea2261', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#ea2261; "></div>
                 <div class="color-label">
@@ -529,7 +529,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#ea2261</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#f96bee', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#f96bee; "></div>
                 <div class="color-label">
@@ -537,7 +537,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#f96bee</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#9b6829', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#9b6829; "></div>
                 <div class="color-label">
@@ -545,7 +545,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#9b6829</div>
                 </div>
             </div>
-            
+
             <div class="swatch" onclick="copyColor('#003770', this)" style="cursor:pointer; position:relative;">
                 <div class="color-block" style="background:#003770; "></div>
                 <div class="color-label">
@@ -553,7 +553,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="hex" style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">#003770</div>
                 </div>
             </div>
-            
+
       </div>
 
       <!-- 03 Typography Rules -->
@@ -566,13 +566,13 @@ The brand does not use a separate semantic color palette in the marketing system
 <ul><li style='margin-left:20px; margin-bottom:6px;'><strong>Thin weight is the brand.</strong> Display tiers always render at weight 300. Bumping to 400+ removes the brand's editorial air.</li><li style='margin-left:20px; margin-bottom:6px;'><strong>Negative tracking on display.</strong> -1.4px at 56px, scaling proportionally down to -0.2px at 20px. The negative tracking is the brand's typographic signature.</li><li style='margin-left:20px; margin-bottom:6px;'>...</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Note on Font Substitutes</h3>
 ...
-      
+
         <div style="margin-top:16px; margin-bottom:20px; display:flex; gap:12px; align-items:center;">
             <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-muted); font-family:var(--font-mono); white-space:nowrap;">Dynamic Preview:</span>
             <input type="text" id="typo-preview-input" value="The quick brown fox jumps over the lazy dog" placeholder="Type here to test typography sizes..." oninput="updateTypoPreviews(this.value)" style="flex:1; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:var(--font-sans); font-size:13.5px; outline:none; background:var(--bg-base); color:var(--text-primary);" />
         </div>
         <div style="display:flex; flex-direction:column; gap:16px;">
-        
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">display-xxl</span>
@@ -581,9 +581,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:56px; font-weight:300; line-height:1.03; letter-spacing:-1.4px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">display-xl</span>
@@ -592,9 +592,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:48px; font-weight:300; line-height:1.15; letter-spacing:-0.96px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">display-lg</span>
@@ -603,9 +603,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:32px; font-weight:300; line-height:1.1; letter-spacing:-0.64px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">display-md</span>
@@ -614,9 +614,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:26px; font-weight:300; line-height:1.12; letter-spacing:-0.26px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">heading-lg</span>
@@ -625,9 +625,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:22px; font-weight:300; line-height:1.1; letter-spacing:-0.22px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">heading-md</span>
@@ -636,9 +636,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:20px; font-weight:300; line-height:1.4; letter-spacing:-0.2px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">heading-sm</span>
@@ -647,9 +647,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:18px; font-weight:300; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">body-lg</span>
@@ -658,9 +658,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:300; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">body-md</span>
@@ -669,9 +669,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:15px; font-weight:300; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">body-tabular</span>
@@ -680,9 +680,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:300; line-height:1.4; letter-spacing:-0.42px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">button-md</span>
@@ -691,9 +691,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:16px; font-weight:400; line-height:1.0; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">button-sm</span>
@@ -702,9 +702,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:14px; font-weight:400; line-height:1.0; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">caption</span>
@@ -713,9 +713,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:13px; font-weight:400; line-height:1.4; letter-spacing:-0.39px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">micro</span>
@@ -724,9 +724,9 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:11px; font-weight:300; line-height:1.4; letter-spacing:0; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
-                
+
                 <div style="border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; background:var(--bg-surface);">
                     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px; font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">
                         <span style="font-weight:700; color:var(--accent-vue);">micro-cap</span>
@@ -735,7 +735,7 @@ The brand does not use a separate semantic color palette in the marketing system
                     <div class="typo-preview-text" style="font-family:var(--font-sans); font-size:10px; font-weight:400; line-height:1.15; letter-spacing:0.1px; color:var(--text-primary); word-break:break-word;">
                         The quick brown fox jumps over the lazy dog
                     </div>
-                    
+
                 </div>
                 </div>
 
@@ -750,10 +750,10 @@ The gradient mesh occupies the upper third of the page; the white canvas below i
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Grid Layout Wireframe Mockup:</p>
         <p>Layout Grid Example</p>
-        
+
     <div style="margin-top:20px; padding:24px; border:1px dashed var(--accent-vue); border-radius:var(--radius-lg); background:var(--bg-surface); position:relative; overflow:hidden;">
         <div style="font-family:var(--font-mono); font-size:10px; color:var(--accent-vue); position:absolute; top:8px; left:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; opacity:0.8;">Layout Wireframe blueprint</div>
-        
+
         <div style="display:grid; grid-template-columns:repeat(12, 1fr); gap:12px; margin-top:24px; height:80px; position:relative; z-index:1;">
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">1</div>
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">2</div>
@@ -768,14 +768,14 @@ The gradient mesh occupies the upper third of the page; the white canvas below i
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">11</div>
             <div style="background:var(--accent-vue-glow); border:1.5px dashed var(--accent-vue); border-radius:var(--radius-sm); opacity:0.75; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:9px; color:var(--accent-vue); font-weight:bold;">12</div>
         </div>
-        
+
         <div style="display:flex; justify-content:space-between; margin-top:20px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:12px; z-index:1; position:relative;">
             <div>Gutter spacing: 16px / 24px</div>
             <div>Side Margins: 24px (Mobile) / 48px (Desktop)</div>
             <div>Max Container Width: 1200px</div>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 05 Depth & Elevation -->
@@ -785,7 +785,7 @@ The gradient mesh IS the depth system. Implemented as a layered SVG or large bac
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Elevation Level Showcase:</p>
         <p>Elevation Level Example</p>
-        
+
     <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
         <div style="padding:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); background:var(--bg-surface); box-shadow:var(--shadow-flat);">
             <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Flat Surface (Level 0)</span>
@@ -800,9 +800,9 @@ The gradient mesh IS the depth system. Implemented as a layered SVG or large bac
             <p style="margin-top:8px; font-size:13px; color:var(--text-secondary); margin-bottom:0;">Used for modals, select menus, code editor tooltips, and overlay headers.</p>
         </div>
     </div>
-    
+
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-top:32px; margin-bottom:8px; font-family:var(--font-mono);">Border Radius & Shape Scale:</p>
-        
+
     <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
         <div style="width:105px; height:80px; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10px;">
             <span style="font-weight:700;">radius-sm</span>
@@ -821,7 +821,7 @@ The gradient mesh IS the depth system. Implemented as a layered SVG or large bac
             <span style="color:var(--text-muted); margin-top:4px;">Pill / Tag</span>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 06 Component Stylings -->
@@ -875,7 +875,7 @@ The brand uses <strong>product UI mockups</strong> more than photography. Dashbo
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Reserve <code>{colors.primary}</code> for filled CTAs and inline link emphasis — it should appear sparingly, one filled button per band.</li><li style='margin-left:20px; margin-bottom:6px;'>Apply the gradient mesh to every marketing hero; bare-canvas heroes feel off-brand.</li><li style='margin-left:20px; margin-bottom:6px;'>Render display tiers at weight 300 with negative letter-spacing — the thin tracking is the typographic signature.</li><li style='margin-left:20px; margin-bottom:6px;'>Use <code>font-feature-settings: "tnum"</code> on every money / numeric cell.</li><li style='margin-left:20px; margin-bottom:6px;'>Apply <code>font-feature-settings: "ss01"</code> globally on the body element.</li><li style='margin-left:20px; margin-bottom:6px;'>Pair every feature explanation with a composited product UI mockup; the brand's argument is "look at the actual product."</li></ul>
 <h3 style="font-size:16px; font-weight:700; margin:20px 0 10px; color:var(--text-primary);">Don't</h3>
 <ul><li style='margin-left:20px; margin-bottom:6px;'>Don't bump display weight above 300 — at 400 the brand's editorial air collapses.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't add new accent colors outside the documented gradient stops (cream / orange / lavender / indigo / ruby / magenta).</li><li style='margin-left:20px; margin-bottom:6px;'>Don't use the indigo <code>{colors.primary}</code> as a body-text color — it's a CTA and link color, not a type color at body size.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't shrink button padding below <code>8px 16px</code> — the tight pill is part of the brand's transactional feel.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't render money cells without <code>tnum</code> — it breaks the quiet financial-data signature.</li><li style='margin-left:20px; margin-bottom:6px;'>Don't replace the pill shape with rounded-rectangles for buttons.</li></ul>
-      
+
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px; margin-bottom:40px;">
         <div style="border:1px solid #22c55e; border-radius:var(--radius-lg); padding:24px 20px; background:rgba(34, 197, 94, 0.015); position:relative;">
             <span style="background:#22c55e; color:#fff; font-family:var(--font-sans); font-size:11px; font-weight:700; padding:4px 10px; border-radius:var(--radius-sm); position:absolute; top:-11px; left:20px; text-transform:uppercase; letter-spacing:0.5px;">✅ Recommended / Do</span>
@@ -890,7 +890,7 @@ The brand uses <strong>product UI mockups</strong> more than photography. Dashbo
             </div>
         </div>
     </div>
-    
+
 
       <!-- 08 Responsive Behavior -->
       <div id="responsive" class="sec-head"><span class="idx">08</span><h2>Responsive Behavior</h2></div>
@@ -904,7 +904,7 @@ Product UI composites use <code>srcset</code> with art-direction crops at major 
       <div style="margin-top:20px; margin-bottom:40px;">
         <p style="font-size:12px; font-weight:600; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono);">Responsive Adaptation Note:</p>
         <p>Responsive Behavior Example</p>
-        
+
     <div style="margin-top:20px; border:1px solid var(--border-color); border-radius:var(--radius-lg); overflow:hidden; background:var(--bg-surface); margin-bottom:40px;">
         <div style="padding:12px 16px; background:rgba(0,0,0,0.01); border-bottom:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
             <span style="font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Interactive Viewport Simulator</span>
@@ -937,7 +937,7 @@ Product UI composites use <code>srcset</code> with art-direction crops at major 
             </div>
         </div>
     </div>
-    
+
       </div>
 
       <!-- 09 Agent Prompt Guide -->
@@ -963,7 +963,7 @@ Product UI composites use <code>srcset</code> with art-direction crops at major 
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer>
-    <div><strong>Stripe Design System Spec</strong> · Extracted from awesome-design-md</div>
+    <div><strong>Anonymous Study Design System Spec</strong> · Extracted from awesome-design-md</div>
     <div>
       <a href="../index.html">Design System Hub</a>
     </div>
@@ -990,7 +990,7 @@ Typography is built around **Sohne** at weight 300 with negative letter-spacing 
 
 ## Colors
 
-> **Source pages:** home (`/`), `/payments`, `/pricing`, `dashboard.stripe.com/register/payments`.
+> **Source pages:** home (`/`), `/payments`, `/pricing`, `dashboard.Anonymous Study.com/register/payments`.
 
 ### Brand & Accent
 - **Indigo** (`{colors.primary}` — `#533afd`): The brand's signature CTA color. Filled-pill button, link emphasis, gradient anchor.
@@ -1262,7 +1262,7 @@ Product UI composites use `srcset` with art-direction crops at major breakpoints
     const btnMobile = document.getElementById('btn-sim-mobile');
     const btnTablet = document.getElementById('btn-sim-tablet');
     const btnDesktop = document.getElementById('btn-sim-desktop');
-    
+
     // Reset button styles
     [btnMobile, btnTablet, btnDesktop].forEach(btn => {
       if (btn) {
@@ -1271,14 +1271,14 @@ Product UI composites use `srcset` with art-direction crops at major breakpoints
         btn.style.color = 'var(--text-primary)';
       }
     });
-    
+
     const activeBtn = mode === 'mobile' ? btnMobile : (mode === 'tablet' ? btnTablet : btnDesktop);
     if (activeBtn) {
       activeBtn.style.background = 'var(--accent-vue-glow)';
       activeBtn.style.borderColor = 'var(--accent-vue)';
       activeBtn.style.color = 'var(--accent-vue)';
     }
-    
+
     if (mode === 'mobile') {
       container.style.maxWidth = '375px';
       indicator.innerText = 'Width: 375px (Mobile < 768px)';
@@ -1294,5 +1294,5 @@ Product UI composites use `srcset` with art-direction crops at major breakpoints
     }
   }
 </script>
-</body>
+<script src="page-actions.js"></script></body>
 </html>

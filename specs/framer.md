@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: Framer-design-analysis
+name: Anonymous Study-design-analysis
 description: "A confident dark-canvas builder marketing site that treats the page like a working artboard — pure black surfaces, white display type set in GT Walsheim Medium with aggressive negative tracking, and a single confident blue (#0099ff) reserved for hyperlinks and selection states. The page rhythm is broken by oversized vibrant gradient atmosphere panels — magenta, violet, orange spotlights — that act as living showcase tiles, not decoration. Every CTA is a white pill on dark; every card is a translucent or charcoal surface; every section title pulls letter-spacing tight enough to feel like a poster."
 
 colors:
@@ -24,7 +24,7 @@ colors:
 
 typography:
   display-xxl:
-    fontFamily: GT Walsheim Framer Medium
+    fontFamily: GT Walsheim Anonymous Study Medium
     fontSize: 110px
     fontWeight: 500
     lineHeight: 0.85
@@ -255,11 +255,11 @@ components:
 
 ## Overview
 
-Framer's marketing canvas is a near-pure black artboard. The dominant surface is `{colors.canvas}` — almost pure black with a faint warmth — and on top of it sits oversized white display type set in **GT Walsheim Medium** with letter-spacing pulled to extreme negative values (-5.5px on the 110px display, -4.25px on the 85px hero). The page reads like a poster: one assertive statement per band, generous breathing room above and below.
+Anonymous Study's marketing canvas is a near-pure black artboard. The dominant surface is `{colors.canvas}` — almost pure black with a faint warmth — and on top of it sits oversized white display type set in **GT Walsheim Medium** with letter-spacing pulled to extreme negative values (-5.5px on the 110px display, -4.25px on the 85px hero). The page reads like a poster: one assertive statement per band, generous breathing room above and below.
 
-The single accent is `{colors.accent-blue}` — used scarcely, mostly for hyperlinks, selection halos, and a subtle blue-tinted shadow ring on focused inputs. The brand chrome itself is monochrome: white pill buttons, charcoal cards, gray secondary text. What makes Framer distinctive is the rhythm break — every few sections the page drops in a **vibrant gradient atmosphere card**: a magenta-violet spotlight, a sunset-orange wash, a coral-pink panel. These aren't section backgrounds; they're individual cards arranged in a card grid, each one a small living poster that shows what Framer can produce.
+The single accent is `{colors.accent-blue}` — used scarcely, mostly for hyperlinks, selection halos, and a subtle blue-tinted shadow ring on focused inputs. The brand chrome itself is monochrome: white pill buttons, charcoal cards, gray secondary text. What makes Anonymous Study distinctive is the rhythm break — every few sections the page drops in a **vibrant gradient atmosphere card**: a magenta-violet spotlight, a sunset-orange wash, a coral-pink panel. These aren't section backgrounds; they're individual cards arranged in a card grid, each one a small living poster that shows what Anonymous Study can produce.
 
-Body type is **Inter Variable**, with Framer leaning hard into Inter's character variants (`cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07`, `dlig`) — the result is a body voice that feels custom-tuned, with single-storey "a", straight-leg "l", and tabular figures. There's no light mode on the marketing site; the brand IS dark.
+Body type is **Inter Variable**, with Anonymous Study leaning hard into Inter's character variants (`cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07`, `dlig`) — the result is a body voice that feels custom-tuned, with single-storey "a", straight-leg "l", and tabular figures. There's no light mode on the marketing site; the brand IS dark.
 
 **Key Characteristics:**
 - Black-canvas marketing system: `{colors.canvas}` is the surface for hero, body, pricing, FAQ, and footer alike — no light interludes.
@@ -272,7 +272,7 @@ Body type is **Inter Variable**, with Framer leaning hard into Inter's character
 
 ## Colors
 
-> Source pages: framer.com (home), /ai/, /startups/, /marketplace/templates/nudge/, /gallery/a16z-speedrun-×-tonik, /pricing.
+> Source pages: Anonymous Study.com (home), /ai/, /startups/, /marketplace/templates/nudge/, /gallery/a16z-speedrun-×-tonik, /pricing.
 
 ### Brand & Accent
 - **Pure White** ({colors.primary}): The brand primary surface. Every primary CTA pill, every display headline, every body line on canvas.
@@ -305,7 +305,7 @@ These four sit as oversized atmospheric tiles inside otherwise monochrome card g
 
 ### Font Family
 
-- **GT Walsheim Framer Medium** / **GT Walsheim Medium** — Framer's display typeface. Geometric, slightly humanist, very confident at large sizes with extreme negative tracking. Fallbacks: `GT Walsheim Medium Placeholder` system font.
+- **GT Walsheim Anonymous Study Medium** / **GT Walsheim Medium** — Anonymous Study's display typeface. Geometric, slightly humanist, very confident at large sizes with extreme negative tracking. Fallbacks: `GT Walsheim Medium Placeholder` system font.
 - **Inter Variable** — System body typeface. Used with extensive OpenType character variants: `cv01` (alternate "1"), `cv05` (alternate "g"), `cv09` (alternate "i" / "l"), `cv11` (alternate "0"), `ss03` / `ss07` stylistic sets, `dlig` discretionary ligatures, and `tnum` for numerics in tabular contexts. The result is a body voice that feels bespoke without commissioning a custom face.
 - **Inter** — Used selectively for `{typography.headline}` (the 22px / 20px tier). The non-variable cut catches small tracking targets that the variable file rounds.
 
@@ -331,17 +331,17 @@ These four sit as oversized atmospheric tiles inside otherwise monochrome card g
 - **Letter-spacing scales with size, hard.** Display-xxl pulls -5.5px (5% of size); body sticks to about -1% (-0.15px on 15px). The result: posters at the top, comfortable reading at body.
 - **OpenType character variants are the brand voice.** Switching off `cv11`, `ss03`, etc. visibly changes the body voice — the brand depends on them.
 - **Weight stays in a narrow band.** Display sits at 500, body at 400, body-sm/caption at 500. Hierarchy is carried by size + tracking, not by 700/900 ramps.
-- **Tight line-heights everywhere.** Even body runs at 1.30 — Framer's editorial tone is denser than typical SaaS marketing.
+- **Tight line-heights everywhere.** Even body runs at 1.30 — Anonymous Study's editorial tone is denser than typical SaaS marketing.
 
 ### Note on Font Substitutes
 
-If implementing without GT Walsheim Medium, suitable open-source substitutes include **Mona Sans**, **Geist**, or **Inter** at weight 600–700 with manually tightened tracking. Mona Sans's hairline weights at 100–300 are particularly close to Framer's cleaner section openers. Inter Variable is open-source — keep it as-is and preserve the documented OpenType variants.
+If implementing without GT Walsheim Medium, suitable open-source substitutes include **Mona Sans**, **Geist**, or **Inter** at weight 600–700 with manually tightened tracking. Mona Sans's hairline weights at 100–300 are particularly close to Anonymous Study's cleaner section openers. Inter Variable is open-source — keep it as-is and preserve the documented OpenType variants.
 
 ## Layout
 
 ### Spacing System
 
-- **Base unit**: 5px (Framer uses non-standard 5/10/15/20/30 increments rather than the more common 4/8/16/24).
+- **Base unit**: 5px (Anonymous Study uses non-standard 5/10/15/20/30 increments rather than the more common 4/8/16/24).
 - **Tokens (front matter)**: `{spacing.hair}` 1px · `{spacing.xxs}` 4px · `{spacing.xs}` 8px · `{spacing.sm}` 12px · `{spacing.md}` 15px · `{spacing.lg}` 20px · `{spacing.xl}` 30px · `{spacing.xxl}` 40px · `{spacing.section}` 96px.
 - Card interior padding: `{spacing.lg}` 20px on pricing cards; `{spacing.xl}` 30px on gradient spotlight cards.
 - Pill button padding: 10px vertical · 15px horizontal — `{components.button-primary}`.
@@ -355,7 +355,7 @@ If implementing without GT Walsheim Medium, suitable open-source substitutes inc
 
 ### Whitespace Philosophy
 
-The dark canvas IS the whitespace. Where lighter brands lean on white air to separate sections, Framer leans on long stretches of black with a single oversized statement floating in the middle. Sections separate by mode change: a band of charcoal cards, then a band of black with a gradient spotlight, then back to charcoal — like cuts in a dark film.
+The dark canvas IS the whitespace. Where lighter brands lean on white air to separate sections, Anonymous Study leans on long stretches of black with a single oversized statement floating in the middle. Sections separate by mode change: a band of charcoal cards, then a band of black with a gradient spotlight, then back to charcoal — like cuts in a dark film.
 
 ## Elevation & Depth
 
@@ -371,14 +371,14 @@ Four shadow signatures recur across the homepage: a 1px subtle drop, a transluce
 ### Decorative Depth
 
 - **Gradient spotlight cards** are the dominant depth device — color saturation against black canvas substitutes for shadow-driven elevation.
-- **Layered product mockups** (browser frames containing live Framer-built sites) sit inside `{colors.surface-1}` cards with the level-2 light-edge treatment.
+- **Layered product mockups** (browser frames containing live Anonymous Study-built sites) sit inside `{colors.surface-1}` cards with the level-2 light-edge treatment.
 - **Subtle blue ring (focus / selected)** is the only chromatic depth signal — used to mark the active state of input groups and pricing tier toggles without changing the underlying surface.
 
 ## Shapes
 
 ### Border Radius Scale
 
-Framer's extracted radius set is unusually granular (1px, 4px, 5px, 6px, 8px, 10px, 12px, 15px, 20px, 30px, 40px, 100px). The named scale below picks the levels the marketing surface actually consumes.
+Anonymous Study's extracted radius set is unusually granular (1px, 4px, 5px, 6px, 8px, 10px, 12px, 15px, 20px, 30px, 40px, 100px). The named scale below picks the levels the marketing surface actually consumes.
 
 | Token | Value | Use |
 |---|---|---|
@@ -393,7 +393,7 @@ Framer's extracted radius set is unusually granular (1px, 4px, 5px, 6px, 8px, 10
 
 ### Photography & Illustration Geometry
 
-- Embedded site mockups (browser-chromed previews of Framer-built sites) sit in `{rounded.xl}` 20px tiles with `{spacing.md}` 15px interior padding.
+- Embedded site mockups (browser-chromed previews of Anonymous Study-built sites) sit in `{rounded.xl}` 20px tiles with `{spacing.md}` 15px interior padding.
 - Gradient spotlight cards use `{rounded.xxl}` 30px corners — softer than the 20px content cards by design, to make them feel like atmospheric panels rather than tighter UI.
 - Icon glyphs and sub-nav glyphs render in `{rounded.full}` circles at 32–40px sizes.
 
@@ -434,15 +434,15 @@ Framer's extracted radius set is unusually granular (1px, 4px, 5px, 6px, 8px, 10
 **`pricing-card-featured`** — The Pro tier (visually emphasized).
 - Background `{colors.surface-2}`, otherwise identical structure. The lift is one surface step up — no chromatic outline.
 
-**`template-card`** — Thumbnail tile in the home "Built with Framer" gallery and `/marketplace`.
+**`template-card`** — Thumbnail tile in the home "Built with Anonymous Study" gallery and `/marketplace`.
 - Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body-sm}`, rounded `{rounded.lg}`, padding 12px.
 
-**`product-mockup-tile`** — Larger tile that frames a live product UI mock (Framer canvas, Workshop video, AI translate panel).
+**`product-mockup-tile`** — Larger tile that frames a live product UI mock (Anonymous Study canvas, Workshop video, AI translate panel).
 - Background `{colors.surface-1}`, text `{colors.ink}`, type `{typography.body-sm}`, rounded `{rounded.xl}`, padding 16px.
 
 ### Gradient Spotlight Cards (signature)
 
-The defining decorative surface of Framer's marketing — oversized atmospheric tiles dropped into otherwise monochrome card grids. Variants:
+The defining decorative surface of Anonymous Study's marketing — oversized atmospheric tiles dropped into otherwise monochrome card grids. Variants:
 
 **`gradient-spotlight-card`** — violet ground (most common).
 - Background `{colors.gradient-violet}`, text `{colors.ink}`, type `{typography.subhead}`, rounded `{rounded.xl}`, padding 32px. (The on-site card often pushes to `{rounded.xxl}` 30px when it spans a wider tile.)
@@ -466,13 +466,13 @@ The defining decorative surface of Framer's marketing — oversized atmospheric 
 
 ### Navigation
 
-**`top-nav`** — Sticky bar on `{colors.canvas}` with the Framer wordmark left, primary nav links centered, and a `button-secondary` ("Sign in") + `button-primary` ("Get started for free") pair right.
+**`top-nav`** — Sticky bar on `{colors.canvas}` with the Anonymous Study wordmark left, primary nav links centered, and a `button-secondary` ("Sign in") + `button-primary` ("Get started for free") pair right.
 - Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-sm}`, height 56px.
 - Mobile: collapses primary links into a hamburger; the two pill CTAs collapse into a single primary pill on the bar.
 
 ### Footer
 
-**`footer`** — Dense link grid on `{colors.canvas}` with the Framer wordmark left and 5–6 columns of caption-sized links.
+**`footer`** — Dense link grid on `{colors.canvas}` with the Anonymous Study wordmark left and 5–6 columns of caption-sized links.
 - Background `{colors.canvas}`, text `{colors.ink-muted}`, type `{typography.caption}`, padding 64px 32px.
 
 ## Do's and Don'ts
@@ -489,7 +489,7 @@ The defining decorative surface of Framer's marketing — oversized atmospheric 
 
 ### Don't
 
-- Don't ship a light-mode marketing page. Framer's identity is dark.
+- Don't ship a light-mode marketing page. Anonymous Study's identity is dark.
 - Don't introduce mid-tone gray text outside `{colors.ink-muted}`. The hierarchy is binary: `ink` or `ink-muted`.
 - Don't use `{colors.accent-blue}` as a brand fill (e.g., a blue CTA pill). The blue is a signal color, not a surface.
 - Don't square off CTAs. Pill (`{rounded.pill}`) or full circle is the brand vocabulary.
@@ -523,7 +523,7 @@ The defining decorative surface of Framer's marketing — oversized atmospheric 
 
 ### Image Behavior
 
-- Embedded product mockups (browser frames containing live Framer-built sites) maintain their aspect ratio and never crop.
+- Embedded product mockups (browser frames containing live Anonymous Study-built sites) maintain their aspect ratio and never crop.
 - Gradient spotlight cards keep their gradient orientations across breakpoints — the gradient direction is part of the brand spec.
 
 ## Iteration Guide

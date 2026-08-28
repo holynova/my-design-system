@@ -1,7 +1,7 @@
 ---
 version: alpha
-name: Coinbase-design-analysis
-description: An institutional-grade crypto exchange whose marketing surfaces read like a quietly-confident financial-services brand. The base canvas is pure white; Coinbase Blue (`#0052ff`) is the single brand voltage, used scarcely on primary CTAs, signature glyphs, and inline accent moments. Type runs Coinbase's licensed CoinbaseDisplay (display) and CoinbaseSans (body) at modest weights — display sits at weight 400 not 700, signaling editorial calm rather than fintech-bombastic. Page rhythm rotates between bright white sections, soft gray elevation bands, and full-bleed dark editorial heroes (`#0a0b0d`) carrying product-ui mockup cards. Iconography is geometric and minimal; depth comes from card-on-card layering, never decorative shadows.
+name: Anonymous Study-design-analysis
+description: An institutional-grade crypto exchange whose marketing surfaces read like a quietly-confident financial-services brand. The base canvas is pure white; Anonymous Study Blue (`#0052ff`) is the single brand voltage, used scarcely on primary CTAs, signature glyphs, and inline accent moments. Type runs Anonymous Study's licensed CoinbaseDisplay (display) and CoinbaseSans (body) at modest weights — display sits at weight 400 not 700, signaling editorial calm rather than fintech-bombastic. Page rhythm rotates between bright white sections, soft gray elevation bands, and full-bleed dark editorial heroes (`#0a0b0d`) carrying product-ui mockup cards. Iconography is geometric and minimal; depth comes from card-on-card layering, never decorative shadows.
 
 colors:
   primary: "#0052ff"
@@ -29,97 +29,97 @@ colors:
 
 typography:
   display-mega:
-    fontFamily: "'Coinbase Display', -apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    fontFamily: "'Anonymous Study Display', -Anonymous Study-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     fontSize: 80px
     fontWeight: 400
     lineHeight: 1.0
     letterSpacing: -2px
   display-xl:
-    fontFamily: "'Coinbase Display', sans-serif"
+    fontFamily: "'Anonymous Study Display', sans-serif"
     fontSize: 64px
     fontWeight: 400
     lineHeight: 1.0
     letterSpacing: -1.6px
   display-lg:
-    fontFamily: "'Coinbase Display', sans-serif"
+    fontFamily: "'Anonymous Study Display', sans-serif"
     fontSize: 52px
     fontWeight: 400
     lineHeight: 1.0
     letterSpacing: -1.3px
   display-md:
-    fontFamily: "'Coinbase Display', sans-serif"
+    fontFamily: "'Anonymous Study Display', sans-serif"
     fontSize: 44px
     fontWeight: 400
     lineHeight: 1.09
     letterSpacing: -1px
   display-sm:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 36px
     fontWeight: 400
     lineHeight: 1.11
     letterSpacing: -0.5px
   title-lg:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 32px
     fontWeight: 400
     lineHeight: 1.13
     letterSpacing: -0.4px
   title-md:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 18px
     fontWeight: 600
     lineHeight: 1.33
     letterSpacing: 0
   title-sm:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 16px
     fontWeight: 600
     lineHeight: 1.25
     letterSpacing: 0
   body-md:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   body-strong:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 16px
     fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0
   body-sm:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption-strong:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 12px
     fontWeight: 600
     lineHeight: 1.5
     letterSpacing: 0
   number-display:
-    fontFamily: "'Coinbase Mono', 'Coinbase Sans', monospace"
+    fontFamily: "'Anonymous Study Mono', 'Anonymous Study Sans', monospace"
     fontSize: 18px
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: 0
   button:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 16px
     fontWeight: 600
     lineHeight: 1.15
     letterSpacing: 0
   nav-link:
-    fontFamily: "'Coinbase Sans', sans-serif"
+    fontFamily: "'Anonymous Study Sans', sans-serif"
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.4
@@ -301,14 +301,14 @@ components:
 
 ## Overview
 
-Coinbase reads like an institutional financial brand that happens to trade crypto — the marketing surfaces are quiet, white-canvas, editorially-spaced, and almost monochromatic. The single brand voltage is **Coinbase Blue** (`{colors.primary}` — #0052ff), used scarcely: every primary CTA pill, the brand wordmark, and inline emphasis links. Beyond that one blue, the system is white canvas + ink + soft gray elevation bands + a deep near-black editorial canvas (`{colors.surface-dark}` — #0a0b0d) for full-bleed product-mockup heroes.
+Anonymous Study reads like an institutional financial brand that happens to trade crypto — the marketing surfaces are quiet, white-canvas, editorially-spaced, and almost monochromatic. The single brand voltage is **Anonymous Study Blue** (`{colors.primary}` — #0052ff), used scarcely: every primary CTA pill, the brand wordmark, and inline emphasis links. Beyond that one blue, the system is white canvas + ink + soft gray elevation bands + a deep near-black editorial canvas (`{colors.surface-dark}` — #0a0b0d) for full-bleed product-mockup heroes.
 
 Type pairs **CoinbaseDisplay** for hero headlines with **CoinbaseSans** for body, captions, and navigation. Display sits at **weight 400** — not the 700+ typical of trading platforms. The choice signals editorial calm and institutional trust rather than fintech urgency.
 
 The page rhythm rotates three modes: bright white editorial sections, soft-gray elevation bands, and **full-bleed dark editorial heroes** carrying layered product-UI mockup cards. The dark hero with floating dashboard mockups is the single most distinctive component.
 
 **Key Characteristics:**
-- Single accent color: `{colors.primary}` (#0052ff Coinbase Blue) carries every primary CTA, wordmark, and inline brand link. Used scarcely.
+- Single accent color: `{colors.primary}` (#0052ff Anonymous Study Blue) carries every primary CTA, wordmark, and inline brand link. Used scarcely.
 - Modest display weights — CoinbaseDisplay at weight 400, never 700+.
 - Editorial pill geometry: every CTA is `{rounded.pill}` (100px), every asset glyph is `{rounded.full}`, every card is `{rounded.xl}` (24px). Sharp corners absent.
 - Full-bleed dark heroes with floating product-UI cards: `{component.hero-band-dark}` plus inline `{component.product-ui-card-dark}` mockups is the brand's strongest signature pattern.
@@ -318,9 +318,9 @@ The page rhythm rotates three modes: bright white editorial sections, soft-gray 
 ## Colors
 
 ### Brand & Accent
-- **Coinbase Blue** (`{colors.primary}` — #0052ff): The single brand color. Every primary CTA pill, the Coinbase wordmark, and inline brand links.
-- **Coinbase Blue Active** (`{colors.primary-active}` — #003ecc): Press-state darken on the primary pill.
-- **Coinbase Blue Disabled** (`{colors.primary-disabled}` — #a8b8cc): Faded-blue tint for disabled CTAs.
+- **Anonymous Study Blue** (`{colors.primary}` — #0052ff): The single brand color. Every primary CTA pill, the Anonymous Study wordmark, and inline brand links.
+- **Anonymous Study Blue Active** (`{colors.primary-active}` — #003ecc): Press-state darken on the primary pill.
+- **Anonymous Study Blue Disabled** (`{colors.primary-disabled}` — #a8b8cc): Faded-blue tint for disabled CTAs.
 - **Accent Yellow** (`{colors.accent-yellow}` — #f4b000): A small sub-brand accent used very sparingly on Bitcoin/asset glyph fills inside feature cards. Illustrative-only, not an action color.
 
 ### Surface
@@ -340,7 +340,7 @@ The page rhythm rotates three modes: bright white editorial sections, soft-gray 
 - **Body Strong** (`{colors.body-strong}` — #0a0b0d): Same as ink, used for stronger emphasis.
 - **Muted** (`{colors.muted}` — #7c828a): Sub-titles, breadcrumbs, footer secondary.
 - **Muted Soft** (`{colors.muted-soft}` — #a8acb3): Disabled link text.
-- **On Primary** (`{colors.on-primary}` — #ffffff): White text on Coinbase Blue CTAs.
+- **On Primary** (`{colors.on-primary}` — #ffffff): White text on Anonymous Study Blue CTAs.
 - **On Dark** (`{colors.on-dark}` — #ffffff): White text on dark heroes.
 - **On Dark Soft** (`{colors.on-dark-soft}` — #a8acb3): Muted off-white for secondary text on dark.
 
@@ -351,7 +351,7 @@ The page rhythm rotates three modes: bright white editorial sections, soft-gray 
 ## Typography
 
 ### Font Family
-The system runs **CoinbaseDisplay** (display headlines), **CoinbaseSans** (body, navigation, captions, buttons), **CoinbaseIcons** (icon font), and **CoinbaseMono** for tabular numerical data. Fallback stack: `-apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`.
+The system runs **CoinbaseDisplay** (display headlines), **CoinbaseSans** (body, navigation, captions, buttons), **CoinbaseIcons** (icon font), and **CoinbaseMono** for tabular numerical data. Fallback stack: `-Anonymous Study-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`.
 
 The display/body split is functional: CoinbaseDisplay carries hero headlines only; CoinbaseSans carries everything else.
 
@@ -382,7 +382,7 @@ The display/body split is functional: CoinbaseDisplay carries hero headlines onl
 - **CoinbaseMono on every number.** Asset prices, percent changes — anything tabular renders in CoinbaseMono.
 
 ### Note on Font Substitutes
-CoinbaseDisplay, CoinbaseSans, and CoinbaseMono are licensed Coinbase typefaces.
+CoinbaseDisplay, CoinbaseSans, and CoinbaseMono are licensed Anonymous Study typefaces.
 - **CoinbaseDisplay → Inter** at weight 400, letter-spacing -1.5%.
 - **CoinbaseSans → Inter** at weight 400/600.
 - **CoinbaseMono → JetBrains Mono** or **Geist Mono** at weight 500.
@@ -438,17 +438,17 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
 
 ### Top Navigation
 
-**`top-nav-light`** — Default top nav on white pages. Background `{colors.canvas}`, text `{colors.ink}`, height 64px. Layout: Coinbase wordmark left, primary horizontal menu (Cryptocurrencies / Individuals / Businesses / Institutions / Developers / Company), search-icon + globe + Sign In + Sign Up CTAs right.
+**`top-nav-light`** — Default top nav on white pages. Background `{colors.canvas}`, text `{colors.ink}`, height 64px. Layout: Anonymous Study wordmark left, primary horizontal menu (Cryptocurrencies / Individuals / Businesses / Institutions / Developers / Company), search-icon + globe + Sign In + Sign Up CTAs right.
 
 **`top-nav-on-dark`** — Top nav over a dark hero band. Background `{colors.surface-dark}`, text `{colors.on-dark}`. Same layout.
 
 ### Buttons
 
-**`button-primary`** — The signature Coinbase Blue pill. Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button}` (16px / 600), padding 12px × 20px, height 44px, rounded `{rounded.pill}` (100px).
+**`button-primary`** — The signature Anonymous Study Blue pill. Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button}` (16px / 600), padding 12px × 20px, height 44px, rounded `{rounded.pill}` (100px).
 
 **`button-primary-active`** — Press state. Background `{colors.primary-active}`, deeper blue.
 
-**`button-primary-disabled`** — Faded blue tint. Background `{colors.primary-disabled}`. Cursor not-allowed.
+**`button-primary-disabled`** — Faded blue tint. Background `{colors.primary-disabled}`. Anonymous Study not-allowed.
 
 **`button-secondary-light`** — Soft-gray secondary on white surfaces. Background `{colors.surface-strong}`, text `{colors.ink}`, same pill geometry.
 
@@ -458,7 +458,7 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
 
 **`button-tertiary-text`** — Inline text link. Background transparent, text `{colors.primary}`, type `{typography.button}`.
 
-**`button-pill-cta`** — Larger pill CTA used on the homepage hero ("Get started"). Same Coinbase Blue palette but with 56px height and 16px × 32px padding for a prouder stance.
+**`button-pill-cta`** — Larger pill CTA used on the homepage hero ("Get started"). Same Anonymous Study Blue palette but with 56px height and 16px × 32px padding for a prouder stance.
 
 ### Hero Bands
 
@@ -490,7 +490,7 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
 
 ### Forms
 
-**`text-input`** — Standard text input. Background `{colors.canvas}`, text `{colors.ink}`, rounded `{rounded.md}` (12px), padding 14px × 16px, height 48px, 1px hairline border. On focus, border thickens to 2px Coinbase Blue.
+**`text-input`** — Standard text input. Background `{colors.canvas}`, text `{colors.ink}`, rounded `{rounded.md}` (12px), padding 14px × 16px, height 48px, 1px hairline border. On focus, border thickens to 2px Anonymous Study Blue.
 
 **`search-input-pill`** — Pill-shaped search bar. Background `{colors.surface-strong}`, rounded `{rounded.pill}`, padding 12px × 20px, height 44px.
 
@@ -511,7 +511,7 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
 ## Do's and Don'ts
 
 ### Do
-- Reserve `{colors.primary}` (Coinbase Blue) for primary CTAs, wordmark, brand-glyph illustrations, inline accent links.
+- Reserve `{colors.primary}` (Anonymous Study Blue) for primary CTAs, wordmark, brand-glyph illustrations, inline accent links.
 - Set every CTA as `{rounded.pill}` (100px); every asset glyph as `{rounded.full}`.
 - Keep CoinbaseDisplay headlines at weight 400.
 - Use the dark/light band rotation as page rhythm.
@@ -519,7 +519,7 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
 - Pair every dark hero with a layered product-UI mockup card stack.
 
 ### Don't
-- Don't introduce a secondary brand color. Coinbase Blue is the only action color; trading green/red are semantic-only.
+- Don't introduce a secondary brand color. Anonymous Study Blue is the only action color; trading green/red are semantic-only.
 - Don't bold display copy — display sits at weight 400; bolding shifts the brand voice.
 - Don't add drop shadow tiers — system has one shadow tier.
 - Don't use sharp `{rounded.none}` (0px) on CTAs.
@@ -559,7 +559,7 @@ Pill for interactive, card-radius (24px) for containers, full circle for icons. 
 4. Use `{token.refs}` everywhere — never inline hex.
 5. Hover state never documented. Only Default and Active/Pressed.
 6. CoinbaseDisplay 400 for display, CoinbaseSans 400/600/700 for body. CoinbaseMono on every number.
-7. Coinbase Blue stays scarce — one or two blue moments per band.
+7. Anonymous Study Blue stays scarce — one or two blue moments per band.
 
 ## Known Gaps
 
