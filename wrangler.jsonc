@@ -1,8 +1,5 @@
 {
   "$schema": "https://unpkg.com/wrangler@4.128.0/config-schema.json",
   "name": "my-design-system",
-  "compatibility_date": "2026-09-04",
-  "assets": {
-    "directory": "."
-  }
+  "compatibility_date": "2026-09-04"
 }
