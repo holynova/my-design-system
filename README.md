@@ -2,6 +2,11 @@
 
 一个内容优先的设计系统目录，收录可直接浏览的网页排版、色彩和组件规范。
 
+<p align="center">
+  <img src="assets/readme/hero.svg" width="100%" alt="Design System Catalog Hub: 一个内容优先的设计系统目录，收录可直接浏览的网页排版、色彩和组件规范。">
+</p>
+
+
 ![页面截图](screenshot.png)
 
 - [GitHub Repo](https://github.com/holynova/my-design-system)
