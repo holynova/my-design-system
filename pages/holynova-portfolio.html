@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Design System: Holynova Portfolio</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><style>
+:root{--bg:#09090b;--s1:#121214;--s2:#18181b;--s3:#27272a;--text:#f4f4f5;--text2:#a1a1aa;--muted:#71717a;--line:rgba(255,255,255,.1);--line2:rgba(255,255,255,.18);--font:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"JetBrains Mono",monospace}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 var(--font)}button,a{font:inherit;color:inherit}button{cursor:pointer}:focus-visible{outline:2px solid #fff;outline-offset:3px}.wrap{max-width:1360px;margin:auto;padding:0 24px 80px}.header{height:60px;display:flex;align-items:center;justify-content:space-between;padding-top:16px}.pill,.button{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:var(--s1);border-radius:999px;box-shadow:0 1px 3px #0008;text-decoration:none}.pill{padding:6px 14px 6px 8px;font-size:13px;font-weight:600}.avatar{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#eee,#555)}.count{padding:2px 6px;border:1px solid var(--line);border-radius:4px;color:var(--text2);font:11px var(--mono)}.actions{display:flex;gap:10px}.button{min-height:34px;padding:7px 13px;color:var(--text2);font-size:12px}.hero{max-width:820px;margin:0 auto;padding:115px 0 40px;text-align:center}.hero h1{max-width:820px;margin:0 auto 14px;font-size:clamp(32px,5vw,56px);line-height:1.12;letter-spacing:-.04em}.hero p{max-width:600px;margin:0 auto;color:var(--text2);font-size:16px}.author{display:inline-flex;gap:8px;margin-top:24px;color:var(--muted);font-size:13px}.author b{color:var(--text);border-bottom:1px solid var(--line2)}.toolbar-wrap{position:sticky;top:0;z-index:2;padding:12px 0 24px;background:linear-gradient(to bottom,#09090bf5 0%,#09090be8 78%,transparent)}.toolbar{padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:var(--s1);box-shadow:0 8px 24px -4px #0008}.toolbar-top{display:flex;gap:10px}.search{flex:1;min-width:0;display:flex;align-items:center;gap:9px;padding:0 12px;border-radius:10px;background:var(--s2);color:var(--muted)}.search input{width:100%;min-height:38px;border:0;outline:0;background:transparent;color:var(--text)}kbd{padding:1px 5px;border:1px solid var(--line);border-radius:4px;font:11px var(--mono)}.categories{display:flex;gap:8px;overflow:auto;margin-top:12px}.category{flex:none;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--text2);font-size:12px}.category.active{border-color:var(--line2);background:var(--s3);color:var(--text)}.grid{columns:3 290px;column-gap:20px}.card{display:inline-block;width:100%;margin:0 0 20px;padding:12px;border:1px solid var(--line);border-radius:20px;background:var(--s1);box-shadow:0 2px 8px -2px #0008;break-inside:avoid}.media{min-height:150px;border-radius:14px;background:linear-gradient(135deg,#2b2b30,#121214);display:flex;align-items:end;padding:16px;overflow:hidden}.media.blue{background:linear-gradient(135deg,#304d68,#161a20)}.media.paper{background:#e9e3d9;color:#28231f}.media span{font-size:24px;font-weight:700;letter-spacing:-.05em}.tag{margin:14px 0 5px;color:var(--muted);font:11px var(--mono)}h2{margin:0;font-size:18px;letter-spacing:-.03em}.card p{margin:8px 0 0;color:var(--text2);font-size:13px}.meta{display:flex;justify-content:space-between;margin-top:14px;padding-top:10px;border-top:1px solid var(--line);color:var(--muted);font:10px var(--mono)}.spec{margin-top:48px;padding-top:32px;border-top:1px solid var(--line)}.spec h2{font-size:25px}.spec p{max-width:65ch;color:var(--text2)}.spec .button{margin-top:10px}@media(max-width:640px){.wrap{padding:0 16px 48px}.header{padding-top:12px}.hero{padding-top:78px;text-align:left}.hero p{margin-left:0}.author{margin-top:18px}.toolbar-top{display:block}.toolbar-top>.button{margin-top:8px}.grid{columns:1}.toolbar-wrap{margin-inline:-16px;padding-inline:16px}.actions .button{padding-inline:10px}}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head><body><div class="wrap"><header class="header"><a class="pill" href="../index.html"><i class="avatar"></i>holynova <span class="count">168</span></a><div class="actions"><button class="button">EN</button><button class="button">☼</button></div></header><section class="hero"><h1>small ideas, better products</h1><p>A curated collection of fine-crafted engineering and design projects shaping better products.</p><div class="author">Curated by <b>holynova · 小桑</b></div></section><div class="toolbar-wrap"><div class="toolbar"><div class="toolbar-top"><label class="search">⌕ <input aria-label="Search projects" placeholder="Search details (press /)…"><kbd>/</kbd></label><button class="button">↕ Latest</button></div><div class="categories"><button class="category active">All</button><button class="category">AI</button><button class="category">Design</button><button class="category">Developer Tools</button><button class="category">Chrome</button><button class="category">Data</button></div></div></div><main class="grid"><article class="card"><div class="media"><span>Design systems<br>that stay useful.</span></div><div class="tag">DESIGN SYSTEM · 2026</div><h2>Detail-driven interfaces</h2><p>Collect the small decisions that give a product its finished feel.</p><div class="meta"><span>TypeScript</span><span>★ 168</span></div></article><article class="card"><div class="media blue" style="min-height:220px"><span>Build<br>with intent.</span></div><div class="tag">DEVELOPER TOOL · 2026</div><h2>Project Brain</h2><p>A persistent memory layer for deliberate engineering work.</p><div class="meta"><span>JavaScript</span><span>★ 92</span></div></article><article class="card"><div class="media paper" style="min-height:180px"><span>Read the<br>difference.</span></div><div class="tag">VISUAL QA · 2026</div><h2>UI Compare</h2><p>Put design and implementation in the same precise frame.</p><div class="meta"><span>Chrome</span><span>★ 44</span></div></article></main><section class="spec"><h2>Holynova Portfolio System</h2><p>A dark-first archive with compact floating controls, editorial restraint, responsive search, and a natural-height catalogue.</p><button class="button" id="copy-md-btn">Copy specification</button></section></div>
+<textarea id="markdown-spec-content" style="display:none;">
+---
+version: 1.0
+name: Holynova Portfolio Design System
+description: "A dark-first, high-craft project archive: zinc surfaces, centered editorial introduction, floating utility controls, progressive sticky blur, and a searchable masonry of engineering and design work."
+source: "https://holynova.github.io/"
+extracted: "2026-08-27"
+---
+
+# Design System: Holynova Portfolio
+
+Extracted from [holynova.github.io](https://holynova.github.io/) on 2026-08-27. This system makes a large personal archive feel curated rather than crowded. A disciplined near-black canvas, soft layered elevation, compact controls, and a clear catalogue workflow keep the focus on individual projects.
+
+## 1. Visual Theme & Atmosphere
+
+**Dark-first editorial archive.** Moderate density (6/10), low layout variance (4/10), and deliberate interaction motion (5/10). The interface begins with a confident central statement, then moves into a practical sequence: search, sort, filter, browse, inspect.
+
+- Use darkness as a quiet exhibition ground, not a sci-fi aesthetic.
+- Keep visual color nearly monochrome. Project artwork provides the color and personality.
+- Make controls feel like precise floating hardware: compact, rounded, bordered, and softly elevated.
+- Let motion clarify focus, scroll position, filtering, and card selection—never create ambient spectacle.
+
+## 2. Color Palette & Roles
+
+| Token | Dark | Light | Role |
+|---|---:|---:|---|
+| `--bg-page` | `#09090b` | `#fafafa` | Page canvas |
+| `--surface-primary` | `#121214` | `#ffffff` | Header pills, toolbar, cards |
+| `--surface-secondary` | `#18181b` | `#f4f4f5` | Inputs and secondary controls |
+| `--surface-tertiary` | `#27272a` | `#e4e4e7` | Stronger inset or active surface |
+| `--text-primary` | `#f4f4f5` | `#09090b` | Titles and active controls |
+| `--text-secondary` | `#a1a1aa` | `#52525b` | Supporting copy |
+| `--text-muted` | `#71717a` | `#a1a1aa` | Hints and auxiliary metadata |
+| `--accent-star` | `#eab308` | `#ca8a04` | Star count only; never a general CTA color |
+| `--border-subtle` | `rgba(255,255,255,.07)` | `rgba(0,0,0,.06)` | Resting structure |
+| `--border-medium` | `rgba(255,255,255,.12)` | `rgba(0,0,0,.11)` | Active or raised structure |
+
+Color rules: primary actions are white in dark mode and ink in light mode. Keep status color sparse and semantic. Do not use rainbow palettes, blue-purple glows, gradient text, or pure-black-filled cards that erase surface hierarchy.
+
+## 3. Typography Rules
+
+```css
+--font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+--font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+--font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+```
+
+| Role | Size | Weight | Line height | Tracking |
+|---|---:|---:|---:|---:|
+| Hero title | `clamp(32px, 5vw, 56px)` | 700 | 1.12 | `-0.035em` |
+| Project title | `20–24px` | 600–700 | 1.25 | `-0.025em` |
+| Body / subtitle | `14–16px` | 400 | 1.6 | normal |
+| Control label | `12–13px` | 500–600 | 1.3 | `-0.01em` |
+| Numeric badge / metadata | `11px` | 400–600 | 1.4 | normal, mono |
+
+- Use Plus Jakarta Sans for all interface prose; use JetBrains Mono for counts, keyboard hints, technology labels, and compact metadata.
+- Do not use the serif stack in controls, cards, or the catalogue grid; reserve it for deliberate Chinese editorial accents only.
+- Keep the hero to one or two lines. Let scale and negative tracking create confidence rather than all-caps labels.
+
+## 4. Components
+
+### Floating brand pill and utility buttons
+
+- Background `--surface-primary`, `1px solid --border-subtle`, full pill radius, and a small soft shadow.
+- Brand pill: 8px internal leading inset, 26px round avatar, 13px/600 name, then an 11px mono count badge.
+- Utility buttons use 7px × 13px padding, 12px text, and raise by 1px on hover.
+- Apply `backdrop-filter: blur(20px)` only to controls that visibly float above moving content.
+
+### Hero
+
+- Centered, max 820px headline and max 600px description.
+- Desktop top padding is about 130px; bottom padding 40px.
+- Place a small author line underneath rather than a stack of CTAs. Underline the author name with a low-contrast rule.
+
+### Sticky catalogue toolbar
+
+- Sticky at `top: 0`, with a full-width progressive backdrop blur behind it.
+- Container is a 16px rounded surface with 12–14px padding, subtle border, and resting small shadow.
+- First row: search field on the left; sort control on the right. Second row: horizontally scrollable category pills.
+- On scroll, increase border contrast and use a deeper soft shadow—this is the only persistent elevation change.
+- Search input has a 16px left icon, 12px keyboard hint, and a 240px minimum width.
+
+### Project cards and inspector
+
+- Cards use `20px` outer rounding and `14px` media rounding, resting soft shadow, and deeper shadow at hover.
+- Preserve source imagery. Do not apply a uniform crop that hides work context.
+- Each card must give category, project name, a compact description, language/stars/update metadata, and a clear affordance to inspect.
+- The inspector is a modal/drawer with a small category tag, like count, previous/next/close controls, live preview region, and an information/sidebar split.
+
+## 5. Layout Principles
+
+- Cap the page at 1360px and use 24px side gutters; footer and header share that alignment.
+- Header is 60px tall and deliberately sparse: brand left, language/theme toggles right.
+- Keep the catalogue’s reading order usable without masonry placement; CSS columns or visually irregular cards must not scramble keyboard focus.
+- The toolbar is a workflow boundary between the editorial introduction and high-density project archive.
+- Avoid dashboard sidebars, oversized metric tiles, multi-accent navigation, or generic three-card marketing rows.
+
+## 6. Motion & Interaction
+
+| Interaction | Timing | Response |
+|---|---:|---|
+| Theme swap | `250ms cubic-bezier(.16,1,.3,1)` | Background and text crossfade cleanly |
+| Pill/button hover | `180–200ms` | Border strengthens; translateY(-1px) |
+| Toolbar after scroll | `250–350ms` | Border and shadow deepen |
+| Card hover | `220ms cubic-bezier(.16,1,.3,1)` | Shadow expands; no large scale |
+| Search/filter results | `180–250ms` | Reflow and fade without layout jumping |
+
+- Use `transform`, `opacity`, color, border, and shadow only. Respect `prefers-reduced-motion`.
+- A cursor-follow spotlight can be extremely faint (`2.5%` white in dark mode), fixed, and disabled on reduced motion. It must never become an obvious gradient effect.
+
+## 7. Responsive & Accessibility Rules
+
+- At mobile widths, reduce outer padding to 16px; keep the header in a single row.
+- Toolbar rows wrap only where necessary. Category pills scroll inside their rail, never at document level.
+- Keep every interactive target at least 44px tall on touch screens, even if the visible control is visually compact.
+- Support `/` to focus search, Escape to close inspector, and arrow keys to browse from the inspector.
+- Preserve visible focus rings using `--border-focus`; labels and icons must retain accessible names.
+- Dark and light themes are both first-class: update all neutral surfaces, borders, text, and shadows together.
+
+## 8. Anti-patterns (Banned)
+
+- No neon blue/purple gradients, glass everywhere, or color-saturated status decoration.
+- No Inter, generic serif headings, emoji UI icons, or oversized all-caps kickers.
+- No centered feature-card grid, fake dashboard statistics, hard black voids, or flat unlayered dark surfaces.
+- No autoplay video, bouncing scroll cues, infinite card float, or uncontrolled parallax.
+- No color-only state changes; never hide keyboard hints and close actions from screen readers.
+
+## 9. Agent Prompt Guide
+
+> Build a dark-first project archive with a Zinc-950 canvas (#09090b), layered charcoal surfaces (#121214, #18181b, #27272a), pale text (#f4f4f5), and low-contrast translucent borders. Use Plus Jakarta Sans for UI and JetBrains Mono for compact metadata. Place a slim floating header with a brand pill and language/theme controls above a centered editorial hero. Below it, add a sticky 16px-rounded search, sort, and category toolbar with a progressive backdrop blur. Render work as a natural-height project masonry with 20px rounded cards, restrained rest shadows, and a practical detail inspector. Make light mode complete and intentional. Avoid gradients, neon, generic feature cards, large CTA clusters, and motion that does not communicate state.
+</textarea>
+<script>
+  document.getElementById('copy-md-btn').addEventListener('click', async (e) => {
+    const btn = e.currentTarget;
+    const orig = btn.textContent;
+    try {
+      const md = document.getElementById('markdown-spec-content').value;
+      await navigator.clipboard.writeText(md);
+      btn.textContent = 'Copied!';
+    } catch (err) {
+      console.error(err);
+    }
+    setTimeout(() => btn.textContent = orig, 1500);
+  });
+</script>
+</body></html>

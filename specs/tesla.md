@@ -42,7 +42,7 @@ typography:
     use: "Action Button"
 ---
 
-# Design System Inspired by Tesla
+# Tesla Design System
 
 ## 1. Visual Theme & Atmosphere
 

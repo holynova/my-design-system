@@ -41,7 +41,7 @@ typography:
     use: "Primary CTA"
 ---
 
-# Design System Inspired by Lamborghini
+# Lamborghini Design System
 
 ## 1. Visual Theme & Atmosphere
 

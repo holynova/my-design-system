@@ -44,7 +44,7 @@ typography:
     use: "Button Uppercase"
 ---
 
-# Design System Inspired by Spotify
+# Spotify Design System
 
 ## 1. Visual Theme & Atmosphere
 
