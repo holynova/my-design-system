@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: Anonymous Study
+name: HTML Effectiveness
 description: A functional-minimalist reading design system with warm editorial style, featuring classic Serif/Sans/Mono typography and thin rules.
 colors:
   primary: "#d97757"
@@ -27,7 +27,7 @@ typography:
 
 # Design System — "The unreasonable effectiveness of HTML"
 
-Derived from an anonymous reference.
+Extracted from [thariqs.github.io/html-effectiveness](https://thariqs.github.io/html-effectiveness).
 A functional-minimalist, content-forward design language with editorial warmth.
 
 ---
@@ -74,7 +74,7 @@ A functional-minimalist, content-forward design language with editorial warmth.
 | Token     | Stack |
 |-----------|-------|
 | `--serif` | `ui-serif, Georgia, "Times New Roman", Times, serif` |
-| `--sans`  | `system-ui, -Anonymous Study-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif` |
+| `--sans`  | `system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif` |
 | `--mono`  | `ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace` |
 
 ### Type Scale

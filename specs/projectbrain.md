@@ -1,8 +1,8 @@
 ---
 version: alpha
-name: Anonymous Study (BRAIN.md) Design System
+name: Project Brain (BRAIN.md) Design System
 description: "A precision-crafted, developer-first documentation and CLI interface design system based on the Geist design philosophy. Featuring high-contrast terminal preview windows with traffic-light dots, monochrome grayscale base with vibrant multi-tint semantic accents (Blue, Green, Purple, Red, Amber), Geist Sans & Mono typography, interactive typewriter CLI showcases, modular workflow arrows, and clean accordion disclosures."
-source: "anonymous reference"
+source: "https://projectbrain.md/"
 extracted: "2026-08-17"
 
 colors:
@@ -46,7 +46,7 @@ colors:
     amber-600: "#ed9a00"
 
 typography:
-  font-sans: "'Geist', -Anonymous Study-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  font-sans: "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
   font-mono: "'Geist Mono', 'SF Mono', 'Fira Code', Consolas, monospace"
   hero-title:
     fontSize: "clamp(32px, 5vw, 40px)"
@@ -85,9 +85,9 @@ shadows:
   focus-ring-dark: "0 0 0 2px #000000, 0 0 0 4px #47a8ff"
 ---
 
-# Anonymous Study (BRAIN.md) Design System Specification
+# Project Brain (BRAIN.md) Design System Specification
 
-Derived from an anonymous reference.
+Extracted from [projectbrain.md](https://projectbrain.md/)  
 Official Website & Docs for BRAIN.md — A persistent memory layer for developer projects.
 
 ---
@@ -151,7 +151,7 @@ Official Website & Docs for BRAIN.md — A persistent memory layer for developer
 ## 3. Typography & Text Hierarchy
 
 ### Font Family
-- **Sans**: `'Geist', -Anonymous Study-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
+- **Sans**: `'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
 - **Mono**: `'Geist Mono', 'SF Mono', 'Fira Code', Consolas, monospace`
 
 ### Typography Hierarchy
