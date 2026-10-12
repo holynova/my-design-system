@@ -304,7 +304,7 @@ Code blocks use **system mono** (`ui-monospace`, with Menlo / Monaco / Consolas 
 - **Mono for code.** System mono families (Menlo / Monaco) — no proprietary mono webfont.
 
 ### Note on Font Substitutes
-Circular is proprietary. Use **Inter** at weight 500 with `letter-spacing: -1.92px` for display tiers. **Geist Sans** (open-source from Vercel) is another close alternative for both display and body. Avoid Helvetica defaults — they're heavier and lack the geometric warmth.
+Circular is proprietary. Use **Inter** at weight 500 with `letter-spacing: -1.92px` for display tiers. **Geist Sans** (open-source from Anonymous Study) is another close alternative for both display and body. Avoid Helvetica defaults — they're heavier and lack the geometric warmth.
 
 ## Layout
 

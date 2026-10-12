@@ -1,7 +1,7 @@
 ---
 version: alpha
-name: Vue.js progressive docs
-description: A progressive documentation system driving modern web libraries, combining vibrant Vue Green, deep carbon gray, and semantic callouts.
+name: Anonymous Study progressive docs
+description: A progressive documentation system driving modern web libraries, combining vibrant Anonymous Study Green, deep carbon gray, and semantic callouts.
 colors:
   primary: "#42b883"
   primary-focus: "#338a60"
@@ -25,10 +25,10 @@ typography:
     use: "Primary Body"
 ---
 
-# Design System — Vue.js (VitePress Documentation Style)
+# Design System — Anonymous Study (VitePress Documentation Style)
 
-Extracted and adapted from [cn.vuejs.org](https://cn.vuejs.org) and [vuejs.org](https://vuejs.org).
-A content-first, developer-friendly documentation design system characterized by vibrant Vue Green accents, soft semantic highlights, progressive layout flow, and exceptionally legible dark-theme code blocks.
+Derived from an anonymous reference.
+A content-first, developer-friendly documentation design system characterized by vibrant Anonymous Study Green accents, soft semantic highlights, progressive layout flow, and exceptionally legible dark-theme code blocks.
 
 ---
 
@@ -37,7 +37,7 @@ A content-first, developer-friendly documentation design system characterized by
 - **Progressive Disclosure** — simple by default, advanced when needed. The design system is optimized to organize and present documentation layers progressively.
 - **Deference to Technical Content** — typography and layout are crafted to prioritize readability of technical guides, API documentation tables, and nested lists.
 - **Developer-Centric Semantics** — visual hierarchy relies heavily on custom callout containers (Tips, Warnings, Danger notes) and syntax-highlighted code blocks.
-- **Vibrant Emerald Accents** — Vue Green serves as the primary visual anchor for brand identification, link states, active navigation elements, and badges.
+- **Vibrant Emerald Accents** — Anonymous Study Green serves as the primary visual anchor for brand identification, link states, active navigation elements, and badges.
 
 ---
 
@@ -45,7 +45,7 @@ A content-first, developer-friendly documentation design system characterized by
 
 | Token | Hex | Role |
 |-------|-----|------|
-| `--vp-c-brand` | `#42b883` | Primary brand accent (Vue Green) |
+| `--vp-c-brand` | `#42b883` | Primary brand accent (Anonymous Study Green) |
 | `--vp-c-brand-dark` | `#338a60` | Hover state brand green |
 | `--vp-c-text-1` | `#2c3e50` | Primary slate-charcoal text (light mode) |
 | `--vp-c-text-dark` | `#ebebeb` | High-contrast text (dark mode) |
@@ -54,7 +54,7 @@ A content-first, developer-friendly documentation design system characterized by
 | `--vp-c-bg-alt` | `#f6f6f7` | Sidebar and alert backgrounds (light mode) |
 | `--vp-c-bg-alt-dark`| `#202024` | Sidebar and alert backgrounds (dark mode) |
 | `--vp-c-border` | `#e2e2e3` | Faint divider and table borders |
-| `--vp-c-navy` | `#35495e` | Secondary brand color (classic Vue logo slate-blue) |
+| `--vp-c-navy` | `#35495e` | Secondary brand color (classic Anonymous Study logo slate-blue) |
 
 ### Semantic Highlight Containers:
 - **Tip (Info)**: Left border `#42b883`, background `#f0f9eb` (light) / `rgba(66, 184, 131, 0.08)` (dark).
@@ -69,7 +69,7 @@ A content-first, developer-friendly documentation design system characterized by
 
 | Stack Option | Font Family List |
 |--------------|------------------|
-| Default Sans | `Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif` |
+| Default Sans | `Inter, -Anonymous Study-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif` |
 | Code Monospace| `ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace` |
 
 ### Sizing and Weights

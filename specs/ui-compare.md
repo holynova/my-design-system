@@ -1,8 +1,8 @@
 ---
 version: alpha
-name: UI Compare Design System
+name: Anonymous Study Design System
 description: "A warm, precision-first utility system for visual UI acceptance: paper surfaces, ink rules, compact controls, and one amber signal that turns comparison state into a readable decision."
-source: "/Users/sym/Code/image-diff/src/sidepanel/sidepanel.css"
+source: "anonymous reference"
 extracted: "2026-08-09"
 
 colors:
@@ -19,7 +19,7 @@ colors:
 
 typography:
   ui-title:
-    fontFamily: "Avenir Next, Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontFamily: "Avenir Next, Avenir, -Anonymous Study-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "13px"
     fontWeight: 700
     lineHeight: "1.15"
@@ -32,7 +32,7 @@ typography:
     letterSpacing: "0.08em"
     textTransform: uppercase
   body:
-    fontFamily: "Avenir Next, Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontFamily: "Avenir Next, Avenir, -Anonymous Study-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "13px"
     fontWeight: 400
     lineHeight: "1.4"
@@ -103,9 +103,9 @@ components:
 
 ---
 
-# UI Compare Design System
+# Anonymous Study Design System
 
-Extracted from the local-first UI Compare Chrome extension in `/Users/sym/Code/image-diff`. This is a **warm precision utility**: a quiet paper canvas, ink-black hierarchy, hairline structure, compact controls, and one amber signal that keeps visual acceptance work fast to scan.
+Derived from an anonymous reference.
 
 ## 1. Design Philosophy
 
@@ -144,7 +144,7 @@ Extracted from the local-first UI Compare Chrome extension in `/Users/sym/Code/i
 
 ```css
 :root {
-  --font-ui: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-ui: "Avenir Next", Avenir, -Anonymous Study-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 ```
@@ -275,4 +275,4 @@ Build a compact visual-acceptance utility with a warm paper canvas (#f3f1e9), of
 
 ## 11. Source Boundary
 
-This specification records the UI tokens and interaction patterns in the local UI Compare Side Panel stylesheet on 2026-08-09. IndexedDB behavior, activeTab permissions, overlay geometry, and comparison algorithms are product behavior, not visual tokens. Re-check the source before copying the system into a different product.
+This specification records the UI tokens and interaction patterns in the local Anonymous Study Side Panel stylesheet on 2026-08-09. IndexedDB behavior, activeTab permissions, overlay geometry, and comparison algorithms are product behavior, not visual tokens. Re-check the source before copying the system into a different product.

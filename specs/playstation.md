@@ -1,8 +1,8 @@
 ---
 version: alpha
-name: PlayStation-design-analysis
+name: Anonymous Study-design-analysis
 description: |
-  A three-surface marketing system organized around alternating black, white, and PlayStation Blue chapters that scroll past the viewer like a console launch trailer. Each section has a single editorial purpose — hero photography, console product render, PS Plus tier callout, news strip — and each owns one of three full-bleed canvas modes. The chrome is unusually quiet for a gaming brand: bright PlayStation Blue (`#0070d1`) carries every primary CTA as a fully-rounded pill, the proprietary SST face renders display copy at a signature weight 300 (light) for an airy, premium feel, and a crisp 8px-radius secondary card system carries product info on either canvas mode. The system never decorates — no gradient backgrounds on chrome, no atmospheric mesh, no drop shadows beyond a faint section-divide. Imagery does all the heavy lifting: console glamour shots, game key art, and PS Plus tier illustrations occupy 60-90% of every section, with copy compressed into a small editorial slot.
+  A three-surface marketing system organized around alternating black, white, and Anonymous Study Blue chapters that scroll past the viewer like a console launch trailer. Each section has a single editorial purpose — hero photography, console product render, Reference Plus tier callout, news strip — and each owns one of three full-bleed canvas modes. The chrome is unusually quiet for a gaming brand: bright Anonymous Study Blue (`#0070d1`) carries every primary CTA as a fully-rounded pill, the proprietary SST face renders display copy at a signature weight 300 (light) for an airy, premium feel, and a crisp 8px-radius secondary card system carries product info on either canvas mode. The system never decorates — no gradient backgrounds on chrome, no atmospheric mesh, no drop shadows beyond a faint section-divide. Imagery does all the heavy lifting: console glamour shots, game key art, and Reference Plus tier illustrations occupy 60-90% of every section, with copy compressed into a small editorial slot.
 
 colors:
   primary: "#0070d1"
@@ -44,85 +44,85 @@ colors:
 
 typography:
   display-xl:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 54px
     fontWeight: 300
     lineHeight: 1.25
     letterSpacing: -0.1px
   display-lg:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 44px
     fontWeight: 300
     lineHeight: 1.25
     letterSpacing: 0.1px
   display-md:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 35px
     fontWeight: 300
     lineHeight: 1.25
     letterSpacing: 0
   heading-xl:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 28px
     fontWeight: 300
     lineHeight: 1.25
     letterSpacing: 0.1px
   heading-lg:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 22px
     fontWeight: 300
     lineHeight: 1.25
     letterSpacing: 0.1px
   heading-md:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 18px
     fontWeight: 600
     lineHeight: 1
     letterSpacing: 0
   body-md:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0.1px
   body-strong:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 18px
     fontWeight: 500
     lineHeight: 1.25
     letterSpacing: 0.4px
   body-sm:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption-md:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   caption-sm:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 12px
     fontWeight: 500
     lineHeight: 1.5
     letterSpacing: 0
   link-md:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   button-lg:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 18px
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: 0.45px
   button-md:
-    fontFamily: PlayStation SST
+    fontFamily: Anonymous Study SST
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.25
@@ -315,36 +315,36 @@ components:
 
 ## Overview
 
-PlayStation's marketing system reads like a console launch trailer scrolling past the viewer in chapters. Each section is a full-bleed band — pure black `{colors.canvas-dark}`, true white `{colors.canvas-light}`, or PlayStation Blue `{colors.primary}` — and each chapter owns one editorial moment: hero console photography, a games-coming-soon strip, the PlayStation Plus tier banner, the "30 Years of PlayStation" anniversary band, the news strip from the PlayStation Blog. There is no decorative chrome between chapters; the section background change IS the divider. Sections stack at `{spacing.section}` (96px) rhythm with the next band's color taking over the page edge-to-edge.
+Anonymous Study's marketing system reads like a console launch trailer scrolling past the viewer in chapters. Each section is a full-bleed band — pure black `{colors.canvas-dark}`, true white `{colors.canvas-light}`, or Anonymous Study Blue `{colors.primary}` — and each chapter owns one editorial moment: hero console photography, a games-coming-soon strip, the Anonymous Study Plus tier banner, the "30 Years of Anonymous Study" anniversary band, the news strip from the Anonymous Study Blog. There is no decorative chrome between chapters; the section background change IS the divider. Sections stack at `{spacing.section}` (96px) rhythm with the next band's color taking over the page edge-to-edge.
 
-The system has two distinct surface modes that alternate down the page: a **dark canvas mode** for editorial product moments (hero, "ON PLAYSTATION" band, marathon game pages) and a **light canvas mode** for utility surfaces (PS5 games listing, support pages, news index). Both modes use the same chrome vocabulary — fully-rounded `{rounded.full}` pill buttons, 8px-radius `{rounded.md}` cards, the proprietary PlayStation SST face — only the surface and on-surface colors change. The third surface mode is the **PlayStation Blue band** (`{colors.primary}` — `#0070d1`) reserved for the highest-priority moments: the Marathon launch CTA strip, the footer, and any "Action Required" banner.
+The system has two distinct surface modes that alternate down the page: a **dark canvas mode** for editorial product moments (hero, "ON Anonymous Study" band, marathon game pages) and a **light canvas mode** for utility surfaces (Reference Console games listing, support pages, news index). Both modes use the same chrome vocabulary — fully-rounded `{rounded.full}` pill buttons, 8px-radius `{rounded.md}` cards, the proprietary Anonymous Study SST face — only the surface and on-surface colors change. The third surface mode is the **Anonymous Study Blue band** (`{colors.primary}` — `#0070d1`) reserved for the highest-priority moments: the Marathon launch CTA strip, the footer, and any "Action Required" banner.
 
-The typography is the system's most distinctive choice. PlayStation SST renders display headlines at **weight 300** (light) — unusual for a gaming brand that could easily reach for bold geometric display faces. The light weight gives the chrome an airy, almost editorial quality that lets the imagery speak; copy is information rather than decoration. Heading sizes drop in tight increments (54 → 44 → 35 → 28 → 22 → 18) and body settles at 18px with 1.5 line-height for comfortable long-form reading on support and games pages.
+The typography is the system's most distinctive choice. Anonymous Study SST renders display headlines at **weight 300** (light) — unusual for a gaming brand that could easily reach for bold geometric display faces. The light weight gives the chrome an airy, almost editorial quality that lets the imagery speak; copy is information rather than decoration. Heading sizes drop in tight increments (54 → 44 → 35 → 28 → 22 → 18) and body settles at 18px with 1.5 line-height for comfortable long-form reading on support and games pages.
 
 **Key Characteristics:**
-- Three-canvas chapter system: `{colors.canvas-dark}` (black), `{colors.canvas-light}` (white), `{colors.primary}` (PlayStation Blue) alternating down the page
-- PlayStation Blue (`{colors.primary}` — `#0070d1`) is the universal primary CTA — fully-rounded pill at `{rounded.full}` (9999px)
+- Three-canvas chapter system: `{colors.canvas-dark}` (black), `{colors.canvas-light}` (white), `{colors.primary}` (Anonymous Study Blue) alternating down the page
+- Anonymous Study Blue (`{colors.primary}` — `#0070d1`) is the universal primary CTA — fully-rounded pill at `{rounded.full}` (9999px)
 - Commerce orange (`{colors.commerce}` — `#d53b00`) is the secondary CTA reserved for "Buy now" / "Pre-order" / store actions
-- PlayStation SST display tier renders at **weight 300** with -0.1px to +0.4px tracking — the brand's signature airy editorial voice
+- Anonymous Study SST display tier renders at **weight 300** with -0.1px to +0.4px tracking — the brand's signature airy editorial voice
 - 8px-radius (`{rounded.md}`) for product cards and feature panels; 4px-radius (`{rounded.sm}`) for inputs; pills (`{rounded.full}`) for every CTA
-- Game tiles, console renders, and PS Plus tier illustrations occupy 60-90% of each section — imagery does the storytelling
-- Color-block page rhythm (one observed band sequence): dark hero → light console showcase → dark "Great PS4 & PS5 games" rail → light "Discover PlayStation Plus" tier band → light "30 years of PlayStation" callout → dark "ON PLAYSTATION" band → light news strip → blue footer
+- Game tiles, console renders, and Reference Plus tier illustrations occupy 60-90% of each section — imagery does the storytelling
+- Color-block page rhythm (one observed band sequence): dark hero → light console showcase → dark "Great Reference Console & Reference Console games" rail → light "Discover Anonymous Study Plus" tier band → light "30 years of Anonymous Study" callout → dark "ON Anonymous Study" band → light news strip → blue footer
 
 ## Colors
 
-> **Source pages:** `/en-tr/` (home), `/en-tr/ps5/games/` (PS5 games listing), `/en-tr/games/marathon/` (single game page), `/tr-tr/support/account/` (support center). The chrome palette is identical across all four pages; the support page uses the light-canvas mode exclusively while marketing pages alternate.
+> **Source pages:** `/en-tr/` (home), `/en-tr/ps5/games/` (Reference Console games listing), `/en-tr/games/marathon/` (single game page), `/tr-tr/support/account/` (support center). The chrome palette is identical across all four pages; the support page uses the light-canvas mode exclusively while marketing pages alternate.
 
 ### Brand & Accent
-- **PlayStation Blue** (`{colors.primary}` — `#0070d1`): the brand's universal primary. Every primary CTA pill, the active filter chip, the footer surface, badge fills, and inline link color on dark surfaces.
-- **PlayStation Blue Pressed** (`{colors.primary-pressed}` — `#0064b7`): pressed state for the primary pill — also doubles as the inline link color on light surfaces.
-- **PlayStation Blue Active** (`{colors.primary-active}` — `#004d8d`): deeply-pressed state for the primary button.
+- **Anonymous Study Blue** (`{colors.primary}` — `#0070d1`): the brand's universal primary. Every primary CTA pill, the active filter chip, the footer surface, badge fills, and inline link color on dark surfaces.
+- **Anonymous Study Blue Pressed** (`{colors.primary-pressed}` — `#0064b7`): pressed state for the primary pill — also doubles as the inline link color on light surfaces.
+- **Anonymous Study Blue Active** (`{colors.primary-active}` — `#004d8d`): deeply-pressed state for the primary button.
 - **Commerce Orange** (`{colors.commerce}` — `#d53b00`): the secondary CTA reserved for store/buy/pre-order actions. The only warm color in the system.
 - **Commerce Orange Pressed** (`{colors.commerce-pressed}` — `#aa2f00`): pressed state for commerce buttons.
 - **Marathon Yellow** (`{colors.marathon-yellow}` — `#deff20`): a single high-saturation game-page accent extracted from Marathon's product palette — used only inside the dedicated `/marathon/` game page chrome and not part of the system's general accent vocabulary.
 
 ### Surface
 - **Canvas Dark** (`{colors.canvas-dark}` — `#000000`): pure black hero band, primary nav background, footer base. The dominant surface for editorial product moments.
-- **Surface Dark Elevated** (`{colors.surface-dark-elevated}` — `#121314`): inset dark panels, PS Plus tier banner background, "ON PLAYSTATION" gradient end.
+- **Surface Dark Elevated** (`{colors.surface-dark-elevated}` — `#121314`): inset dark panels, Reference Plus tier banner background, "ON Anonymous Study" gradient end.
 - **Surface Dark Card** (`{colors.surface-dark-card}` — `#181818`): game tile fill, dark product card background.
 - **Canvas Light** (`{colors.canvas-light}` — `#ffffff`): true white console-showcase band, support page body, news strip background.
 - **Soft Surface** (`{colors.surface-soft}` — `#f3f3f3`): hairline-soft band fill on light pages, divider rule on light surfaces.
@@ -371,22 +371,22 @@ The typography is the system's most distinctive choice. PlayStation SST renders 
 - **Link Dark** (`{colors.link-dark}` — `#53b1ff`): inline body-prose anchor link on dark canvas — a brightened blue for dark-mode legibility.
 
 ### Brand Gradient
-- **PlayStation Plus Gold Gradient** — a horizontal three-stop gold gradient `{colors.ps-plus-gold-start}` (`#ffce21`) → `{colors.ps-plus-gold-mid}` (`#f5a623`) → `{colors.ps-plus-gold-end}` (`#ee8e00`) that anchors the PS Plus banner on the home page. The only gradient in the system; reserved exclusively for PS Plus chrome.
+- **Anonymous Study Plus Gold Gradient** — a horizontal three-stop gold gradient `{colors.ps-plus-gold-start}` (`#ffce21`) → `{colors.ps-plus-gold-mid}` (`#f5a623`) → `{colors.ps-plus-gold-end}` (`#ee8e00`) that anchors the Reference Plus banner on the home page. The only gradient in the system; reserved exclusively for Reference Plus chrome.
 
 ## Typography
 
 ### Font Family
-- **PlayStation SST** is the proprietary brand sans-serif used across every text role on the site. It carries weights 300 (light), 400 (regular), 500 (medium), 600 (semibold), and 700 (bold), and falls back through `sst` → `Arial` → `Helvetica`. The brand's distinctive choice is using **weight 300 (light) for display headlines** — unusual for a gaming brand and the source of the system's editorial, airy character.
+- **Anonymous Study SST** is the proprietary brand sans-serif used across every text role on the site. It carries weights 300 (light), 400 (regular), 500 (medium), 600 (semibold), and 700 (bold), and falls back through `sst` → `Arial` → `Helvetica`. The brand's distinctive choice is using **weight 300 (light) for display headlines** — unusual for a gaming brand and the source of the system's editorial, airy character.
 - **SST** appears as a secondary cut for in-product surfaces, falling back to Helvetica → Arial.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `{typography.display-xl}` | 54px | 300 | 1.25 | -0.1px | Hero headline ("Discover all PS5 consoles and accessories") |
-| `{typography.display-lg}` | 44px | 300 | 1.25 | 0.1px | Section headline ("Great PS4 & PS5 games out now or coming soon") |
+| `{typography.display-xl}` | 54px | 300 | 1.25 | -0.1px | Hero headline ("Discover all Reference Console consoles and accessories") |
+| `{typography.display-lg}` | 44px | 300 | 1.25 | 0.1px | Section headline ("Great Reference Console & Reference Console games out now or coming soon") |
 | `{typography.display-md}` | 35px | 300 | 1.25 | 0 | Mid-section headline, game-page sub-hero |
-| `{typography.heading-xl}` | 28px | 300 | 1.25 | 0.1px | "30 Years of PlayStation" callout, in-band sub-heading |
+| `{typography.heading-xl}` | 28px | 300 | 1.25 | 0.1px | "30 Years of Anonymous Study" callout, in-band sub-heading |
 | `{typography.heading-lg}` | 22px | 300 | 1.25 | 0.1px | News card title, support category title |
 | `{typography.heading-md}` | 18px | 600 | 1 | 0 | Card label, navigation menu heading, in-product strong title |
 | `{typography.body-md}` | 18px | 400 | 1.5 | 0.1px | Body copy, paragraph text, support article body |
@@ -402,12 +402,12 @@ The typography is the system's most distinctive choice. PlayStation SST renders 
 The hierarchy works on a 1.25-line-height ladder almost exclusively — even body sits at 1.5 instead of the typical 1.6 — which keeps long-form support pages tight and console showcases efficient. The weight contrast between display (300) and button (700) is dramatic: a single 18px chrome line might host a heavyweight CTA next to a feather-light 22px headline, giving the system its editorial gaming-magazine feel.
 
 ### Note on Font Substitutes
-PlayStation SST is proprietary. The closest open-source substitutes:
+Anonymous Study SST is proprietary. The closest open-source substitutes:
 - **Roboto Light (300)** for the display tier — its slightly looser letter-spacing matches SST's display optical fit.
 - **Inter** at weights 400/500/600 for body and chrome — the closest geometric sans match for SST's body cut.
 - **Source Sans Pro Light (300)** as an alternative for the display tier when Roboto reads too utilitarian.
 
-When substituting, preserve the +0.1px to +0.45px tracking on display and button tiers — the spacing is part of what makes PlayStation SST feel premium at the light weight.
+When substituting, preserve the +0.1px to +0.45px tracking on display and button tiers — the spacing is part of what makes Anonymous Study SST feel premium at the light weight.
 
 ## Layout
 
@@ -434,16 +434,16 @@ Whitespace is structural and band-defined. The 96px `{spacing.section}` between 
 | 0 — Flat | No border, no shadow | Default for hero bands, footer, full-bleed sections — the dominant treatment |
 | 1 — Hairline divider | 1px solid `{colors.hairline-light}` or `{colors.hairline-dark}` | Card borders, support row dividers, footer column rules |
 | 2 — Soft active shadow | `0 4px 12px rgba(0,0,0,0.16)` | Active/pressed CTAs, lifted product card |
-| 3 — Section gradient | Soft top-to-bottom darkening from `{colors.surface-dark-elevated}` to `{colors.canvas-dark}` | "ON PLAYSTATION" band — only place a gradient appears on chrome |
+| 3 — Section gradient | Soft top-to-bottom darkening from `{colors.surface-dark-elevated}` to `{colors.canvas-dark}` | "ON Anonymous Study" band — only place a gradient appears on chrome |
 
 The system has effectively no resting shadow on cards; depth is built from surface-color contrast across band chapters. Cards lift only on press.
 
 ### Decorative Depth
 Depth comes from the alternating-band rhythm and from the imagery itself:
-- **Console product photography** — DualSense controller and PS5 console renders shot on neutral white with crisp edge lighting, full-bleed inside the light-canvas band.
+- **Console product photography** — DualSense controller and Reference Console console renders shot on neutral white with crisp edge lighting, full-bleed inside the light-canvas band.
 - **Game key art** — full-bleed cinematic stills (Marathon, the latest blockbuster releases) inside dark-canvas bands with title lockup overlaid in the lower-left.
-- **PS Plus tier banner** — a subtle horizontal gold gradient (`{colors.ps-plus-gold-start}` → `{colors.ps-plus-gold-end}`) sits as the only chrome gradient in the system, anchoring the "Discover PlayStation Plus" CTA.
-- **"ON PLAYSTATION" gradient band** — top-to-bottom deepening from `{colors.surface-dark-elevated}` (`#121314`) to `{colors.canvas-dark}` (`#000000`) creates a cinematic dimming effect under the anniversary callout.
+- **Reference Plus tier banner** — a subtle horizontal gold gradient (`{colors.ps-plus-gold-start}` → `{colors.ps-plus-gold-end}`) sits as the only chrome gradient in the system, anchoring the "Discover Anonymous Study Plus" CTA.
+- **"ON Anonymous Study" gradient band** — top-to-bottom deepening from `{colors.surface-dark-elevated}` (`#121314`) to `{colors.canvas-dark}` (`#000000`) creates a cinematic dimming effect under the anniversary callout.
 
 ## Shapes
 
@@ -453,7 +453,7 @@ Depth comes from the alternating-band rhythm and from the imagery itself:
 |---|---|---|
 | `{rounded.none}` | 0px | Hero bands, primary nav, footer, sub-nav, support article body — every full-bleed structural surface |
 | `{rounded.sm}` | 4px | Text inputs, support search field utilities |
-| `{rounded.md}` | 8px | Game tiles, product cards, feature cards, PS Plus banner |
+| `{rounded.md}` | 8px | Game tiles, product cards, feature cards, Reference Plus banner |
 | `{rounded.lg}` | 16px | Rare large container with extra-soft corners (e.g., dialog cards) |
 | `{rounded.full}` | 9999px | Every CTA pill (primary / commerce / secondary), filter chips, pagination dots, carousel paddles |
 
@@ -472,8 +472,8 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 
 ### Buttons
 
-**`button-primary`** — the universal PlayStation CTA
-- Background `{colors.primary}` (PlayStation Blue), text `{colors.on-primary}`, type `{typography.button-lg}`, padding `12px 28px`, height ~48px, rounded `{rounded.full}`.
+**`button-primary`** — the universal Anonymous Study CTA
+- Background `{colors.primary}` (Anonymous Study Blue), text `{colors.on-primary}`, type `{typography.button-lg}`, padding `12px 28px`, height ~48px, rounded `{rounded.full}`.
 - Used for "Add to bag", "Sign up", "Learn more", "Subscribe" — every primary action across both light and dark canvases.
 - Pressed state lives in `button-primary-pressed` — background drops to `{colors.primary-pressed}` (`#0064b7`).
 
@@ -498,7 +498,7 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 **`filter-pill`** + **`filter-pill-active`**
 - Default: background `{colors.surface-filter}` (translucent), text `{colors.ink}`, type `{typography.button-md}`, padding `8px 16px`, rounded `{rounded.full}`.
 - Active: background flips to `{colors.canvas-light}` (opaque white) — the chip "lifts" from the translucent default.
-- Used in the PS5 games filter strip ("All", "Coming Soon", "PlayStation VR2", "Recently Released").
+- Used in the Reference Console games filter strip ("All", "Coming Soon", "Anonymous Study VR2", "Recently Released").
 
 ### Inputs & Forms
 
@@ -514,7 +514,7 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 
 **`product-card`** — light-canvas product/feature card
 - Container: background `{colors.surface-card}` (`#f5f7fa` cool-blue-tinted), 1px solid `{colors.hairline-light}` (rare; usually borderless), padding `{spacing.lg}` (24px), rounded `{rounded.md}` (8px).
-- Used for the "PlayStation Store" sale callout, news cards, and PS Plus tier comparison cards on light canvas.
+- Used for the "Anonymous Study Store" sale callout, news cards, and Reference Plus tier comparison cards on light canvas.
 
 **`product-card-dark`** — dark-canvas product card
 - Container: background `{colors.surface-dark-card}` (`#181818`), padding `{spacing.lg}`, rounded `{rounded.md}`.
@@ -523,27 +523,27 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 **`game-tile`** — game/console thumbnail tile
 - Container: background `{colors.surface-dark-elevated}`, padding 0, rounded `{rounded.md}`.
 - Layout: 16:9 cover art at full bleed inside the radius, with title + platform tag overlaid at the bottom-left in `{typography.body-sm}`.
-- Used in the "Great PS4 & PS5 games" rail and the PS5 games listing grid.
+- Used in the "Great Reference Console & Reference Console games" rail and the Reference Console games listing grid.
 
 **`feature-card`** — light-canvas marketing card
 - Container: background `{colors.canvas-light}`, padding `{spacing.xl}` (32px), rounded `{rounded.md}`.
-- Used for the "PlayStation Store" hero card and similar feature panels with a small product icon, title, body, and CTA.
+- Used for the "Anonymous Study Store" hero card and similar feature panels with a small product icon, title, body, and CTA.
 
-**`hero-band-blue`** — the PlayStation Blue full-bleed band
+**`hero-band-blue`** — the Anonymous Study Blue full-bleed band
 - Background `{colors.primary}`, text `{colors.on-primary}` in `{typography.display-md}`, padding `96px 48px`, rounded `{rounded.none}`.
 - The Marathon launch CTA strip and the footer surface use this band. The band's defining purpose is "this is the action moment of the page."
 
 **`hero-band-dark`** — full-bleed dark hero
 - Background `{colors.canvas-dark}` (with optional gradient end at `{colors.surface-dark-elevated}`), text `{colors.on-dark}` in `{typography.display-xl}`, padding `96px 48px`, rounded `{rounded.none}`.
-- The home-page hero, the game-detail page hero, and the "ON PLAYSTATION" anniversary band.
+- The home-page hero, the game-detail page hero, and the "ON Anonymous Study" anniversary band.
 
 **`hero-band-light`** — full-bleed white hero
 - Background `{colors.canvas-light}`, text `{colors.ink}` in `{typography.display-xl}`, padding `96px 48px`, rounded `{rounded.none}`.
-- The console showcase band ("Discover all PS5 consoles and accessories") and the support page top.
+- The console showcase band ("Discover all Reference Console consoles and accessories") and the support page top.
 
-**`ps-plus-banner`** — PlayStation Plus tier callout
+**`ps-plus-banner`** — Anonymous Study Plus tier callout
 - Background `{colors.surface-dark-elevated}` with the `{colors.ps-plus-gold-start}` → `{colors.ps-plus-gold-end}` gold gradient as a horizontal accent bar across the top, text `{colors.on-dark}` in `{typography.heading-xl}`, padding `48px 32px`, rounded `{rounded.md}`.
-- The "Discover PlayStation Plus" full-width banner on the home page.
+- The "Discover Anonymous Study Plus" full-width banner on the home page.
 
 **`carousel-paddle`** — circular carousel control
 - Background `rgba(255,255,255,0.16)`, icon `{colors.on-dark}`, rounded `{rounded.full}`, size 48px.
@@ -566,11 +566,11 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 
 **`primary-nav`**
 - Background `{colors.canvas-dark}`, text `{colors.on-dark}`, height ~48px, type `{typography.body-strong}`, rounded `{rounded.none}`.
-- Layout (desktop): PlayStation P-logo at far-left, centered nav row ("Games · PS5 · PS4 · PS VR2 · Subscriptions · Hardware · Mobile · News · Shop · Support"), right cluster (search-glyph + locale + cart icon + user-avatar circle).
+- Layout (desktop): Anonymous Study P-logo at far-left, centered nav row ("Games · Reference Console · Reference Console · PS VR2 · Subscriptions · Hardware · Mobile · News · Shop · Support"), right cluster (search-glyph + locale + cart icon + user-avatar circle).
 
 **`sub-nav`** — secondary nav strip
 - Background `{colors.canvas-dark}`, text `{colors.on-dark}` in `{typography.caption-md}`, height ~40px, rounded `{rounded.none}`.
-- Sits directly below the primary nav on PS5 games / single game / PS Plus pages with section-specific anchor links.
+- Sits directly below the primary nav on Reference Console games / single game / Reference Plus pages with section-specific anchor links.
 
 **Top Nav (Mobile)**
 - Hamburger menu icon at left, P-logo at center, search + cart icons at right. Primary nav collapses into a full-screen dark drawer that slides from the left.
@@ -578,8 +578,8 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 ### Footer
 
 **`footer-section`**
-- Background `{colors.primary}` (PlayStation Blue), text `{colors.on-primary}` in `{typography.caption-md}`, padding `{spacing.xxl}` (48px) vertical.
-- Layout: large PlayStation wordmark at top-left, multi-column link grid (locale selector, store links, account, support, social), bottom row with terms / privacy fine-print in `{typography.caption-sm}`.
+- Background `{colors.primary}` (Anonymous Study Blue), text `{colors.on-primary}` in `{typography.caption-md}`, padding `{spacing.xxl}` (48px) vertical.
+- Layout: large Anonymous Study wordmark at top-left, multi-column link grid (locale selector, store links, account, support, social), bottom row with terms / privacy fine-print in `{typography.caption-sm}`.
 - The footer's blue surface is the system's "we're done — return to the brand" anchor.
 
 ### Support-page-specific
@@ -591,22 +591,22 @@ The radius vocabulary works on a 4 / 8 / pill rhythm for chrome with structural 
 ## Do's and Don'ts
 
 ### Do
-- Reserve `{colors.primary}` (PlayStation Blue) for primary CTAs and the footer surface only. The blue band is precious — at most one full-bleed blue band per page.
+- Reserve `{colors.primary}` (Anonymous Study Blue) for primary CTAs and the footer surface only. The blue band is precious — at most one full-bleed blue band per page.
 - Reserve `{colors.commerce}` (orange) for store/buy/pre-order CTAs only. It is never used on marketing chrome or hero pills.
-- Use PlayStation SST at weight 300 for display headings (54 / 44 / 35 / 28 / 22). The light weight is the brand voice.
+- Use Anonymous Study SST at weight 300 for display headings (54 / 44 / 35 / 28 / 22). The light weight is the brand voice.
 - Stack content sections at `{spacing.section}` (96px) rhythm with the next band's surface color taking over the page edge-to-edge — no decorative dividers between bands.
 - Use `{rounded.full}` (9999px) on every CTA pill and `{rounded.md}` (8px) on every product card. The two-radius vocabulary is the entire shape system aside from inputs.
 - Pair full-bleed game key art and console renders inside dark or light bands; let imagery occupy 60-90% of the band's vertical height.
-- Use `{component.ps-plus-banner}` with the gold gradient exclusively for the PlayStation Plus tier callout — never decorate other components with the gold.
+- Use `{component.ps-plus-banner}` with the gold gradient exclusively for the Anonymous Study Plus tier callout — never decorate other components with the gold.
 
 ### Don't
 - Don't introduce drop shadows on resting cards. The system is flat-on-canvas; cards lift only on press.
 - Don't replace `{colors.primary}` with another shade of blue. The brand blue is precise — `#0070d1` for default and `#0064b7` for pressed.
 - Don't use `{colors.commerce}` (orange) on marketing/hero CTAs. It's reserved exclusively for store actions.
-- Don't introduce a sans-serif body font, italic, or monospace style. PlayStation SST carries every text role.
+- Don't introduce a sans-serif body font, italic, or monospace style. Anonymous Study SST carries every text role.
 - Don't soften pill geometry. CTAs are always `{rounded.full}` — no medium-radius buttons.
-- Don't use the gold PS Plus gradient on anything that isn't the PS Plus banner. It is a tier-specific brand asset.
-- Don't put a gradient on chrome. The only allowed gradient is the gold PS Plus accent and the soft top-to-bottom darkening of the "ON PLAYSTATION" band.
+- Don't use the gold Reference Plus gradient on anything that isn't the Reference Plus banner. It is a tier-specific brand asset.
+- Don't put a gradient on chrome. The only allowed gradient is the gold Reference Plus accent and the soft top-to-bottom darkening of the "ON Anonymous Study" band.
 
 ## Responsive Behavior
 
@@ -648,14 +648,14 @@ All interactive elements meet WCAG AAA (≥ 44×44px). `{component.button-primar
 3. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
 4. Add new variants as separate component entries (`-pressed`, `-disabled`) — do not bury them inside prose.
 5. Default body to `{typography.body-md}` (18px / 400 / 1.5); reach for `{typography.display-xl}` strictly for the page-top hero headline; use `{typography.body-strong}` for primary nav links.
-6. Keep `{colors.primary}` scarce per viewport — at most one full-bleed PlayStation Blue band per page.
+6. Keep `{colors.primary}` scarce per viewport — at most one full-bleed Anonymous Study Blue band per page.
 7. When introducing a new component, ask whether it can be expressed with the existing pill + 8px-radius card + full-bleed-band vocabulary before adding new tokens. The system's strength is that it almost never needs new ones.
 
 ## Known Gaps
 
-- **Mobile screenshots not captured** — responsive behavior synthesizes PlayStation's known mobile pattern (hamburger drawer, single-column band reflow, hero downscale) from desktop evidence and the breakpoint stack.
+- **Mobile screenshots not captured** — responsive behavior synthesizes Anonymous Study's known mobile pattern (hamburger drawer, single-column band reflow, hero downscale) from desktop evidence and the breakpoint stack.
 - **Hover states not documented** by system policy.
 - **Sign-in / authentication chrome** (login modal, account dashboard, profile pages) not in the captured pages.
-- **PlayStation Store** in-store browsing surfaces (PDP / cart / checkout) are not in the captured set — those use a more dense data-table layout that this document does not describe.
+- **Anonymous Study Store** in-store browsing surfaces (PDP / cart / checkout) are not in the captured set — those use a more dense data-table layout that this document does not describe.
 - **Game-page-specific theming** — the `/marathon/` page uses `{colors.marathon-yellow}` as a chapter accent. Other game pages may pull in their own per-title brand colors that vary outside the documented system.
 - **Form validation states** (success / error inline messages) not present in the captured surfaces beyond the `{colors.warning}` color token.

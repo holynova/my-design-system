@@ -1,7 +1,7 @@
 ---
 version: alpha
-name: Notion-design-analysis
-description: Notion presents itself as the all-in-one workspace through a confident, illustration-rich brand voice — anchored by a deep navy hero band ({colors.brand-navy}) decorated with brand-colored sticky-note dots and mesh wire illustrations, a signature purple pill primary CTA ({colors.primary}), and a rich palette of pastel-tinted feature cards that echo the colorful database properties of the live product. The system uses a Notion-Sans (Inter-based) typeface across every UI surface, anchors a 4-tier pricing comparison (Free / Plus / Business / Enterprise), and presents the live workspace UI mockup directly inside the hero band. Coverage spans homepage, Enterprise, Product AI, Product Agents, Startups, and Pricing surfaces.
+name: Anonymous Study-design-analysis
+description: Anonymous Study presents itself as the all-in-one workspace through a confident, illustration-rich brand voice — anchored by a deep navy hero band ({colors.brand-navy}) decorated with brand-colored sticky-note dots and mesh wire illustrations, a signature purple pill primary CTA ({colors.primary}), and a rich palette of pastel-tinted feature cards that echo the colorful database properties of the live product. The system uses a Anonymous Study-Sans (Inter-based) typeface across every UI surface, anchors a 4-tier pricing comparison (Free / Plus / Business / Enterprise), and presents the live workspace UI mockup directly inside the hero band. Coverage spans homepage, Enterprise, Product AI, Product Agents, Startups, and Pricing surfaces.
 
 colors:
   primary: "#5645d4"
@@ -54,92 +54,92 @@ colors:
 
 typography:
   hero-display:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 80px
     fontWeight: 600
     lineHeight: 1.05
     letterSpacing: -2px
   display-lg:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 56px
     fontWeight: 600
     lineHeight: 1.10
     letterSpacing: -1px
   heading-1:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 48px
     fontWeight: 600
     lineHeight: 1.15
     letterSpacing: -0.5px
   heading-2:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 36px
     fontWeight: 600
     lineHeight: 1.20
     letterSpacing: -0.5px
   heading-3:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 28px
     fontWeight: 600
     lineHeight: 1.25
   heading-4:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 22px
     fontWeight: 600
     lineHeight: 1.30
   heading-5:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 18px
     fontWeight: 600
     lineHeight: 1.40
   subtitle:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.50
   body-md:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.55
   body-md-medium:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.55
   body-sm:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.50
   body-sm-medium:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.50
   caption:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 13px
     fontWeight: 400
     lineHeight: 1.40
   caption-bold:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.40
   micro:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 12px
     fontWeight: 500
     lineHeight: 1.40
   micro-uppercase:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 11px
     fontWeight: 600
     lineHeight: 1.40
     letterSpacing: 1px
   button-md:
-    fontFamily: Notion Sans
+    fontFamily: Anonymous Study Sans
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.30
@@ -445,29 +445,29 @@ components:
 
 ## Overview
 
-Notion presents itself as the all-in-one workspace through a confident, illustration-rich brand voice. The homepage opens with **"Meet the night shift."** rendered centered over a deep navy hero band ({colors.brand-navy}), decorated with brand-colored sticky-note dots and mesh wire illustrations scattered around the headline. The signature **purple pill primary CTA** ({colors.primary}) "Get Notion free" sits at the visual center, paired with an outlined "Request a demo" secondary. Below the buttons, a real Notion workspace UI mockup card (the "Ramp HQ" kanban board) breaks out of the hero band with a deep diffuse drop shadow.
+Anonymous Study presents itself as the all-in-one workspace through a confident, illustration-rich brand voice. The homepage opens with **"Meet the night shift."** rendered centered over a deep navy hero band ({colors.brand-navy}), decorated with brand-colored sticky-note dots and mesh wire illustrations scattered around the headline. The signature **purple pill primary CTA** ({colors.primary}) "Get Anonymous Study free" sits at the visual center, paired with an outlined "Request a demo" secondary. Below the buttons, a real Anonymous Study workspace UI mockup card (the "Ramp HQ" kanban board) breaks out of the hero band with a deep diffuse drop shadow.
 
-Below the hero, the page cycles through a distinctive sequence of feature sections: a dense sticky-note "Keep work moving 24/7" panel with red/blue/green/purple/teal status icons; a **bold yellow** ({colors.card-tint-yellow-bold}) "Ask your on-demand assistants" banner card flanked by orange/rose/mint pastel feature tiles showing assistant UI mockups; and a "Bring all your work together" 3-column grid with brand-colored mockups (sky-blue tutorial card, light Notion calendar, brown/rust testimonial slate). The pricing page renders 4 tiers (Free / Plus / Business / Enterprise) horizontally with one tier featured (purple-bordered) and a dense feature comparison table running below.
+Below the hero, the page cycles through a distinctive sequence of feature sections: a dense sticky-note "Keep work moving 24/7" panel with red/blue/green/purple/teal status icons; a **bold yellow** ({colors.card-tint-yellow-bold}) "Ask your on-demand assistants" banner card flanked by orange/rose/mint pastel feature tiles showing assistant UI mockups; and a "Bring all your work together" 3-column grid with brand-colored mockups (sky-blue tutorial card, light Anonymous Study calendar, brown/rust testimonial slate). The pricing page renders 4 tiers (Free / Plus / Business / Enterprise) horizontally with one tier featured (purple-bordered) and a dense feature comparison table running below.
 
-The system uses a Notion-Sans typeface (Inter-based) across every UI surface — humanist-geometric character that pairs naturally with the colorful illustrations. Buttons are `{rounded.md}` (8px) rectangles, NOT pills — distinguishing Notion's sober rectangular geometry from competitors that use pills universally. Cards use `{rounded.lg}` (12px) consistently.
+The system uses a Anonymous Study-Sans typeface (Inter-based) across every UI surface — humanist-geometric character that pairs naturally with the colorful illustrations. Buttons are `{rounded.md}` (8px) rectangles, NOT pills — distinguishing Anonymous Study's sober rectangular geometry from competitors that use pills universally. Cards use `{rounded.lg}` (12px) consistently.
 
 **Key Characteristics:**
 - Deep navy hero band ({colors.brand-navy}) with scattered sticky-note dots + mesh wire decorative illustrations
-- **Signature purple pill** ({colors.primary}) primary CTA — Notion's recognizable "Get Notion free" button color
-- Real Notion workspace UI mockup card embedded in the hero with deep drop shadow
+- **Signature purple pill** ({colors.primary}) primary CTA — Anonymous Study's recognizable "Get Anonymous Study free" button color
+- Real Anonymous Study workspace UI mockup card embedded in the hero with deep drop shadow
 - Bold yellow feature banner ({colors.card-tint-yellow-bold}) for high-emphasis content sections
 - Pastel feature card palette (peach, rose, mint, lavender, sky, yellow) echoing the live product database properties
-- Notion-Sans (Inter-based) across every UI surface
+- Anonymous Study-Sans (Inter-based) across every UI surface
 - 8px-rounded buttons (NOT pills), 12px-rounded cards — sober editorial geometry
 - 4-tier pricing comparison with dense feature table
 - Centered hero layout (different from the left-aligned norm of most B2B SaaS)
 
 ## Colors
 
-> Source pages: notion.com/ (homepage), /enterprise, /product/ai, /product/agents, /startups, /pricing. Token coverage was identical across all six pages.
+> Source pages: Anonymous Study.com/ (homepage), /enterprise, /product/ai, /product/agents, /startups, /pricing. Token coverage was identical across all six pages.
 
 ### Brand & Primary
-- **Notion Purple** ({colors.primary}): Signature primary CTA color — the unmistakable "Get Notion free" pill button. Reserved for the dominant CTA only.
+- **Anonymous Study Purple** ({colors.primary}): Signature primary CTA color — the unmistakable "Get Anonymous Study free" pill button. Reserved for the dominant CTA only.
 - **Purple Pressed** ({colors.primary-pressed}): Pressed-state variant
 - **Purple Deep** ({colors.primary-deep}): Deeper variant for emphasis
 - **Brand Navy** ({colors.brand-navy}): Hero band background — deep navy
@@ -511,7 +511,7 @@ The system uses a Notion-Sans typeface (Inter-based) across every UI surface —
 ### Text
 - **Ink Deep** ({colors.ink-deep}): Pure black for emphasis
 - **Ink** ({colors.ink}): Primary headlines and body text
-- **Charcoal** ({colors.charcoal}): Body emphasis (Notion's signature warm-charcoal)
+- **Charcoal** ({colors.charcoal}): Body emphasis (Anonymous Study's signature warm-charcoal)
 - **Slate** ({colors.slate}): Secondary text
 - **Steel** ({colors.steel}): Tertiary, footer links
 - **Stone** ({colors.stone}): Muted labels
@@ -527,7 +527,7 @@ The system uses a Notion-Sans typeface (Inter-based) across every UI surface —
 ## Typography
 
 ### Font Family
-**Notion Sans** (primary): Notion's custom Inter-based variable typeface. Fallbacks: Inter, -apple-system, system-ui, 'Segoe UI', Helvetica, sans-serif. Humanist-geometric character used across every UI surface.
+**Anonymous Study Sans** (primary): Anonymous Study's custom Inter-based variable typeface. Fallbacks: Inter, -Anonymous Study-system, system-ui, 'Segoe UI', Helvetica, sans-serif. Humanist-geometric character used across every UI surface.
 
 ### Hierarchy
 
@@ -599,7 +599,7 @@ Marketing surfaces use generous breathing room between feature card bands. Works
 | `{rounded.xxxl}` | 24px | Larger feature cards |
 | `{rounded.full}` | 9999px | Status badges, pill tabs (NOT regular buttons) |
 
-Notion's geometry is sober-editorial — `{rounded.md}` (8px) buttons distinguish it from pill-button-everywhere brands.
+Anonymous Study's geometry is sober-editorial — `{rounded.md}` (8px) buttons distinguish it from pill-button-everywhere brands.
 
 ## Components
 
@@ -715,8 +715,8 @@ Notion's geometry is sober-editorial — `{rounded.md}` (8px) buttons distinguis
 
 ### Documentation Components
 
-**`workspace-mockup-card`** — Embedded Notion workspace UI mockup on hero band ("Ramp HQ" kanban board).
-- Background `{colors.canvas}`, rounded `{rounded.lg}`, border `1px solid {colors.hairline}`, deep shadow `rgba(15, 15, 15, 0.20) 0px 24px 48px -8px`. Carries actual Notion product UI mock.
+**`workspace-mockup-card`** — Embedded Anonymous Study workspace UI mockup on hero band ("Ramp HQ" kanban board).
+- Background `{colors.canvas}`, rounded `{rounded.lg}`, border `1px solid {colors.hairline}`, deep shadow `rgba(15, 15, 15, 0.20) 0px 24px 48px -8px`. Carries actual Anonymous Study product UI mock.
 
 **`testimonial-card`** — Customer testimonial card.
 - Background `{colors.canvas}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`, border `1px solid {colors.hairline}`.
@@ -737,8 +737,8 @@ Notion's geometry is sober-editorial — `{rounded.md}` (8px) buttons distinguis
 
 **Top Navigation (Marketing)** — Sticky white bar.
 - Background `{colors.canvas}`, height ~64px, bottom border `1px solid {colors.hairline}`.
-- Left: Notion "N" logo + "Product / AI / Solutions / Resources / Enterprise / Pricing / Request a demo" links.
-- Right: "Get Notion free" purple button + "Log in" link.
+- Left: Anonymous Study "N" logo + "Product / AI / Solutions / Resources / Enterprise / Pricing / Request a demo" links.
+- Right: "Get Anonymous Study free" purple button + "Log in" link.
 
 ### Signature Components
 
@@ -749,7 +749,7 @@ Notion's geometry is sober-editorial — `{rounded.md}` (8px) buttons distinguis
 
 **`footer-region`** — Multi-column light footer.
 - Background `{colors.canvas}`, padding `{spacing.section} {spacing.xxl}`, top border `1px solid {colors.hairline}`.
-- 6-column link grid (Product / Download / Resources / Notion for / Company / Legal).
+- 6-column link grid (Product / Download / Resources / Anonymous Study for / Company / Legal).
 
 **`footer-link`** — Individual footer link.
 - Background transparent, text `{colors.steel}`, typography `{typography.body-sm}`, padding `{spacing.xxs} 0`.
@@ -761,17 +761,17 @@ Notion's geometry is sober-editorial — `{rounded.md}` (8px) buttons distinguis
 - Pair deep navy hero bands ({colors.brand-navy}) with the purple button + decorative sticky-note dots
 - Use pastel feature card tints (peach, rose, mint, lavender, sky, yellow) generously
 - Use `{colors.card-tint-yellow-bold}` for high-emphasis "Ask the assistant"-style banner cards
-- Apply `{rounded.md}` (8px) to buttons consistently — Notion uses rectangles, not pills
+- Apply `{rounded.md}` (8px) to buttons consistently — Anonymous Study uses rectangles, not pills
 - Apply `{rounded.lg}` (12px) to all card families
-- Maintain Notion-Sans across every UI surface
+- Maintain Anonymous Study-Sans across every UI surface
 - Use the workspace mockup card on hero bands to show actual product UI
 
 ### Don't
 - Don't use the purple for body text or large background surfaces
-- Don't use pill-shaped buttons; Notion's geometry is rectangular-sober
+- Don't use pill-shaped buttons; Anonymous Study's geometry is rectangular-sober
 - Don't mix link-blue ({colors.link-blue}) with primary-purple ({colors.primary}) — they have distinct roles
 - Don't apply heavy shadows on flat documentation cards
-- Don't replace Notion-Sans with a generic Inter
+- Don't replace Anonymous Study-Sans with a generic Inter
 
 ## Responsive Behavior
 

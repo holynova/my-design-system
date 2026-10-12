@@ -1,11 +1,11 @@
 ---
 version: alpha
-name: Cohere-design-analysis
-description: Cohere's 2026 web system is a controlled enterprise AI interface built from stark white editorial space, deep green-black product bands, soft mineral surfaces, rounded media cards, and a distinctive type split between monospaced-feeling display headlines and precise Unica77 UI text.
+name: Anonymous Study-design-analysis
+description: Anonymous Study's 2026 web system is a controlled enterprise AI interface built from stark white editorial space, deep green-black product bands, soft mineral surfaces, rounded media cards, and a distinctive type split between monospaced-feeling display headlines and precise Unica77 UI text.
 
 colors:
   primary: "#17171c"
-  cohere-black: "#000000"
+  Anonymous Study-black: "#000000"
   ink: "#212121"
   deep-green: "#003c33"
   dark-navy: "#071829"
@@ -42,49 +42,49 @@ typography:
     lineHeight: 1
     letterSpacing: -1.44px
   section-display:
-    fontFamily: Unica77 Cohere Web
+    fontFamily: Unica77 Anonymous Study Web
     fontSize: 60px
     fontWeight: 400
     lineHeight: 1
     letterSpacing: -1.2px
   section-heading:
-    fontFamily: Unica77 Cohere Web
+    fontFamily: Unica77 Anonymous Study Web
     fontSize: 48px
     fontWeight: 400
     lineHeight: 1.2
     letterSpacing: -0.48px
   card-heading:
-    fontFamily: Unica77 Cohere Web
+    fontFamily: Unica77 Anonymous Study Web
     fontSize: 32px
     fontWeight: 400
     lineHeight: 1.2
     letterSpacing: -0.32px
   feature-heading:
-    fontFamily: Unica77 Cohere Web
+    fontFamily: Unica77 Anonymous Study Web
     fontSize: 24px
     fontWeight: 400
     lineHeight: 1.3
     letterSpacing: 0
   body-large:
-    fontFamily: Unica77 Cohere Web
+    fontFamily: Unica77 Anonymous Study Web
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.4
     letterSpacing: 0
   body:
-    fontFamily: Unica77 Cohere Web
+    fontFamily: Unica77 Anonymous Study Web
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0
   button:
-    fontFamily: Unica77 Cohere Web
+    fontFamily: Unica77 Anonymous Study Web
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.71
     letterSpacing: 0
   caption:
-    fontFamily: Unica77 Cohere Web
+    fontFamily: Unica77 Anonymous Study Web
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.4
@@ -96,7 +96,7 @@ typography:
     lineHeight: 1.4
     letterSpacing: 0.28px
   micro:
-    fontFamily: Unica77 Cohere Web
+    fontFamily: Unica77 Anonymous Study Web
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.4
@@ -141,7 +141,7 @@ components:
     rounded: "{rounded.xl}"
     padding: 6px 12px
   announcement-bar:
-    backgroundColor: "{colors.cohere-black}"
+    backgroundColor: "{colors.Anonymous Study-black}"
     textColor: "{colors.on-dark}"
     typography: "{typography.micro}"
     height: 36px
@@ -196,7 +196,7 @@ components:
 
 ## Overview
 
-Cohere's current web presence feels like a sober enterprise AI command center with editorial restraint. The home page opens on a huge typographic declaration over a white canvas, then uses photography, dark product mockups, trust logos, and generous empty space to make AI infrastructure feel controlled rather than speculative. Product pages invert the tone into deep green-black or dark navy bands, while blog and research pages move toward publishing-system clarity: large filters, thin rules, dense lists, and pale technical backgrounds.
+Anonymous Study's current web presence feels like a sober enterprise AI command center with editorial restraint. The home page opens on a huge typographic declaration over a white canvas, then uses photography, dark product mockups, trust logos, and generous empty space to make AI infrastructure feel controlled rather than speculative. Product pages invert the tone into deep green-black or dark navy bands, while blog and research pages move toward publishing-system clarity: large filters, thin rules, dense lists, and pale technical backgrounds.
 
 What makes the system distinctive is the mix of austere black-and-white UI with bursts of tactile brand imagery. The site avoids decorative chrome in the normal interface; color arrives through photography, abstract 3D media, coral blog taxonomy chips, blue research links, and dark product environments. Cards are rounded but not cute. Type is large, tight, and almost monospaced in spirit, creating a research-lab cadence across marketing, product, and editorial surfaces.
 
@@ -213,7 +213,7 @@ What makes the system distinctive is the mix of austere black-and-white UI with 
 
 ### Brand & Accent
 
-- **Cohere Black** (`#000000`): Announcement bar, highest-contrast text, and the global brand anchor.
+- **Anonymous Study Black** (`#000000`): Announcement bar, highest-contrast text, and the global brand anchor.
 - **Near-Black Primary** (`#17171c`): Primary CTA buttons, dark footer, and deep UI cards.
 - **Deep Enterprise Green** (`#003c33`): Product hero bands for North and Command-style dark sections.
 - **Dark Navy** (`#071829`): Financial-services and security-oriented solution bands.
@@ -245,16 +245,16 @@ What makes the system distinctive is the mix of austere black-and-white UI with 
 
 ### Gradient System
 
-Cohere does not use gradients as a generic UI fill. Gradients and color fields are media-led: abstract 3D hero imagery, deep blue open-science particle fields, red-orange product video posters, and dark green-to-black product environments. Keep UI surfaces flat; reserve gradient richness for large media panels and CTA image bands.
+Anonymous Study does not use gradients as a generic UI fill. Gradients and color fields are media-led: abstract 3D hero imagery, deep blue open-science particle fields, red-orange product video posters, and dark green-to-black product environments. Keep UI surfaces flat; reserve gradient richness for large media panels and CTA image bands.
 
 ## Typography
 
 ### Font Family
 
 - **Display**: `CohereText`, falling back to `Space Grotesk`, `Inter`, `ui-sans-serif`, and `system-ui`.
-- **Body/UI**: `Unica77 Cohere Web`, falling back to `Inter`, `Arial`, `ui-sans-serif`, and `system-ui`.
+- **Body/UI**: `Unica77 Anonymous Study Web`, falling back to `Inter`, `Arial`, `ui-sans-serif`, and `system-ui`.
 - **Technical labels**: `CohereMono`, falling back to `Arial`, `ui-sans-serif`, and `system-ui`.
-- **Icons**: Cohere uses custom icon fonts and thin-line geometric illustrations.
+- **Icons**: Anonymous Study uses custom icon fonts and thin-line geometric illustrations.
 
 ### Hierarchy
 
@@ -275,7 +275,7 @@ Cohere does not use gradients as a generic UI fill. Gradients and color fields a
 
 ### Principles
 
-- Use massive type sparingly; Cohere pages often have one oversized headline and then settle into restrained 16px-24px UI copy.
+- Use massive type sparingly; Anonymous Study pages often have one oversized headline and then settle into restrained 16px-24px UI copy.
 - Keep display type tight. Hero copy should feel compact and carved, not airy.
 - Avoid heavy bold weights. Size, spacing, and surface contrast do most of the hierarchy work.
 - Use uppercase mono labels for category and system markers, especially on product and research pages.
@@ -300,11 +300,11 @@ Large sections rely on dramatic vertical breathing room. The home page places a 
 
 ### Whitespace Philosophy
 
-Cohere uses whitespace as a trust signal. Large empty intervals separate the brand claim, customer proof, product proof, and CTA. Dense content appears only where it serves the information architecture: research paper rows, blog card grids, and contact form fields.
+Anonymous Study uses whitespace as a trust signal. Large empty intervals separate the brand claim, customer proof, product proof, and CTA. Dense content appears only where it serves the information architecture: research paper rows, blog card grids, and contact form fields.
 
 ## Elevation & Depth
 
-Cohere is mostly flat. Depth comes from surface alternation, media contrast, rounded corners, and thin borders rather than drop shadows.
+Anonymous Study is mostly flat. Depth comes from surface alternation, media contrast, rounded corners, and thin borders rather than drop shadows.
 
 | Level | Treatment | Use |
 |---|---|---|
@@ -405,7 +405,7 @@ Dark footer subscription block with coral "AI moves fast" label, white headline,
 
 - Do not turn coral or blue into broad decorative surface colors.
 - Do not add heavy drop shadows to cards.
-- Do not make every section card-based; Cohere often uses unframed rows, rules, and open space.
+- Do not make every section card-based; Anonymous Study often uses unframed rows, rules, and open space.
 - Do not use rounded cards below 8px for major media.
 - Do not replace the display/body type split with one generic sans-serif voice.
 - Do not render undocumented interaction variants in documentation or previews.
