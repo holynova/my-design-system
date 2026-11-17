@@ -1,140 +1,82 @@
-# Design System Catalog Hub (设计系统目录库)
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="设计系统规范库 Design System Hub — Linear 暗色、Apple 极简等 39 套网页设计规范，零依赖单文件，一键复制">
+</p>
 
-一个高品质、内容优先、自包含且零依赖的网页设计规范与排版引擎目录库。本仓库收集并整理了多种不同美学风格的现代设计规范，点击即可直接预览其排版、间距、色板和核心组件。
+<p align="center">
+  <a href="https://my-design-system.xiaosang.cc/">▶ 在线浏览 Live Demo</a>
+  ·
+  <a href="https://holynova.github.io/my-design-system/">GitHub Pages 镜像</a>
+  ·
+  <a href="https://github.com/holynova/my-design-system">GitHub 仓库</a>
+</p>
 
-![Screenshot](screenshot.png)
+设计系统规范库收录 39 套网页设计规范：每套都是一份可直接预览的单文件 HTML 详情页（色板、字阶、间距、组件、Do's and Don'ts），外加一份同名 Markdown 规范文本。看中哪套，点「Copy Spec」就能把完整规范复制走，贴进自己的项目或交给 AI 按规范写页面。
 
-- **GitHub 仓库:** [holynova/my-design-system](https://github.com/holynova/my-design-system)
-- **在线预览:** [holynova.github.io/my-design-system](https://holynova.github.io/my-design-system/)
+Design System Hub catalogs 39 web design system specs. Each one is a self-contained single-file HTML page you can preview (palette, type scale, spacing, components, do's and don'ts) plus a matching Markdown spec. Like one? Hit "Copy Spec" and paste the full spec into your project — or hand it to an AI to build pages by the book.
 
----
+## 截图 / Screenshots
 
-## 目录中收录的设计系统
+<p align="center">
+  <img src="./assets/readme/screenshot-hub.png" width="800" alt="目录主页：设计系统规范库标题，精选/社区克隆与暗色/亮色筛选，HTML Effectiveness、潮流周刊、Linear、Apple 四张规范卡片">
+  <img src="./assets/readme/screenshot-detail.png" width="800" alt="Linear 规范详情页：深色画布、左侧 01–09 章节导航、右上角 Back to Home 与 Copy Spec 按钮">
+</p>
 
-精选目录当前收录以下九种代表性设计规范：
+## 收录的 39 套规范 / All 39 Specs
 
-1. **HTML Effectiveness Spec** ([html-effectiveness.html](pages/html-effectiveness.html))
-   - **特点**: 秉持温暖极简主义的文档级阅读设计系统，采用经典的 Serif / Sans / Mono 字体定位与 1.5px 极细实线修饰。
-   - **美学风格**: 人文报刊排版，象牙黄背景与黏土红点缀。
+| 类别 | 规范 |
+|------|------|
+| 品牌与产品 | Apple、Nike、Tesla、BMW、Lamborghini、PlayStation、Nintendo 2001、Dell 1996、Airbnb、Spotify、Shopify、Binance、Coinbase |
+| 开发者工具与 SaaS | Linear、Notion、Figma、Framer、Vercel、Supabase、PostHog、Stripe、Tailwind CSS、Vue、Expo、Cal、Airtable、ClickHouse、Cursor、Claude、Mistral.ai、Cohere |
+| 中文排版与编辑 | HTML Effectiveness、潮流周刊 by Tw93、Detail Design、UI Compare、Codex Resets、Project Brain、holynova-portfolio、Yadong Xie Lab |
 
-2. **潮流周刊 by Tw93 Spec** ([tw93.html](pages/tw93.html))
-   - **特点**: 专为中文长文排版打造的文学画报感设计系统，原生使用开源“霞鹜文楷”与红铜色点缀，并利用 `prefers-color-scheme` 原生支持暗色模式。
-   - **美学风格**: 赫蹏中文排版，沉静、典雅。
+每套规范在 `pages/` 有同名 HTML 详情页，在 `specs/` 有同名 Markdown 规范原文。
 
-3. **Linear Spec** ([linear.html](pages/linear.html))
-   - **特点**: 面向软件开发团队的暗色首选设计系统，以深邃星空蓝黑为底色，结合 Bento Grids 和悬浮时光学渐变（Cursor Radial Glow Tracker）营造极客质感。
-   - **美学风格**: 工程师优先、高响应速度、科技发光紫色调。
+## 功能 / Features
 
-4. **Apple HIG Spec** ([apple.html](pages/apple.html))
-   - **特点**: 遵循苹果官方人机交互指南（HIG）的经典网页设计，强调极致的内容遵从、宽留白、SF Pro 动态字阶与毛玻璃顶栏层级。
-   - **美学风格**: 高端产品感、简洁淡雅。
+- **自包含、零依赖**：每个详情页都是独立单文件，样式与脚本全在文件内，无需构建、离线可看。
+- **一键复制规范**：详情页右上角「Copy Spec」按钮，把整份 Markdown 规范（含设计原则与 token）复制到剪贴板，带成功反馈。
+- **目录筛选**：主页按「精选设计 / 社区克隆」与「全部 / 暗色 / 亮色」筛选，支持中/英文界面切换。
+- **原生返回导航**：子页面右上角返回按钮，风格与该设计系统一致，一键回目录主页。
+- **暗色模式**：潮流周刊、Linear 等规范支持系统级暗色模式。
 
-5. **Tailwind CSS Spec** ([tailwindcss.html](pages/tailwindcss.html))
-   - **特点**: 以实用优先为核心的现代响应式工具链，基于 Indigo 靛蓝与丰富且高对比的原子化色板。
-   - **美学风格**: 现代、活力、高效，搭配深灰色的背景与 Indigo、Sky 强调色。
+## 在项目里用这些规范 / How to Use a Spec
 
-6. **Notion Spec** ([notion.html](pages/notion.html))
-   - **特点**: 秉持无干扰极极简原则的块状文档搭建系统，强调单色黑白灰与温和的马卡龙色标。
-   - **美学风格**: 块状组装结构、无干扰极简、温暖素雅。
+1. 打开任意规范详情页，点右上角 **Copy Spec**，把 Markdown 规范存到项目里（如 `docs/design-system.md`）。
+2. 按规范里的 token 在全局样式中声明 CSS 变量，例如 Vue 翡翠绿 `--color-brand: #42b883`。
+3. 用 Tailwind 等框架时，把 token 扩展进配置文件（如 `theme.extend.colors.brand`），之后直接用 `bg-brand` 这类原子类。
 
-7. **Vue.js Spec** ([vue.html](pages/vue.html))
-   - **特点**: 基于 VitePress 驱动的现代渐进式文档设计系统，融合翡翠绿与深邃碳灰，以及标志性的提示框容器。
-   - **美学风格**: 翡翠绿与深灰色搭配，极简且高强度的阅读感。
+## 本地运行 / Run Locally
 
-8. **Codex Resets Spec** ([codex-resets.html](pages/codex-resets.html))
-   - **特点**: 从 [codex-resets.com](https://codex-resets.com/) 提取的贴纸纸张式新粗野主义设计系统，以暖米色画布、Baloo 2 粗圆体、2px 墨色描边和硬偏移阴影组织实时状态数据。
-   - **美学风格**: 暖色贴纸、数据仪表、轻松幽默的新粗野主义。
+零构建，直接打开 `index.html` 即可浏览；或起一个静态服务器：
 
-9. **UI Compare Spec** ([ui-compare.html](pages/ui-compare.html))
-   - **特点**: 从本地 UI Compare Chrome 扩展提炼的视觉验收工具系统，以暖纸张、细线结构、紧凑控件和琥珀色对比信号组织项目、图片、几何、锚点与视口工作流。
-   - **美学风格**: 暖色精密工具、低装饰、高可读性的本地优先工作台。
-
-10. **Project Brain (BRAIN.md) Spec** ([projectbrain.html](pages/projectbrain.html))
-    - **特点**: 从 [projectbrain.md](https://projectbrain.md/) 提取的开发者持久记忆层设计系统，基于 Vercel Geist 极简黑白灰哲学，结合高对比暗色终端窗口、macOS 交通灯指示、工作流指向箭头与折叠 FAQ。
-    - **美学风格**: Geist 工程师极简、高对比终端、精密且克制的语义色彩。
-
----
-
-## 核心特性
-
-- **自包含与零依赖**：每一个设计规范（HTML）都是完全独立的单文件，所有样式、字体加载和脚本均在文件内部实现，无需网络构建即可离线完美运行。
-- **全新交互卡片**：主页采用自适应响应式网格布局，卡片悬浮触发品牌主题色的渐变和指向箭头微动（`transform: translate(2px, -2px)`），点击即可在新标签页中打开。
-- **一键复制 Markdown 规范**：每个设计规范的详情页均集成了一键复制 Markdown 文本的按钮（“Copy Spec” / “复制规范”），直接嵌入了 raw spec 文本，带成功反馈动画。
-- **原生 Back 返回导航**：子页面右上角或导航条中加入了与该设计系统风格完全契合的返回按钮，无缝返回目录主页。
-- **优雅的暗色模式**：潮流周刊和 Linear 设计规范完美支持系统级暗色模式切换。
-
----
-
-## 项目结构
-
-为了保持仓库整洁，项目的文件结构进行了分层优化：
-
-```
-.
-├── index.html                  # 主目录 Hub 页面
-├── package.json                # 项目依赖及截图脚本
-├── README.md                   # 项目文档
-├── screenshot.png              # 仓库自动生成的最新预览截图
-├── pages/                      # 详情展示页面 (HTML)
-│   ├── html-effectiveness.html
-│   ├── tw93.html
-│   ├── linear.html
-│   ├── apple.html
-│   ├── tailwindcss.html
-│   ├── notion.html
-│   ├── codex-resets.html
-│   ├── ui-compare.html
-│   └── vue.html
-└── specs/                      # 原始设计系统规范 (Markdown 纯文本)
-    ├── html-effectiveness.md
-    ├── tw93.md
-    ├── linear.md
-    ├── apple.md
-    ├── tailwindcss.md
-    ├── notion.md
-    ├── codex-resets.md
-    ├── ui-compare.md
-    └── vue.md
+```bash
+python3 -m http.server 8000
+# 打开 http://localhost:8000
 ```
 
----
+## 技术 / Tech
 
-## 如何在您的项目中使用设计规范 (How to Use)
+- 纯 HTML + CSS + 少量 JS，零依赖、零构建；39 个详情页各为一个自包含文件。
+- 规范文本以 Markdown 存放在 `specs/`，详情页通过 `pages/page-actions.js` 实现复制与返回。
 
-仅需三步，即可将本仓库中整理的设计规范整合进您的实际开发项目中：
-
-### 第一步：获取设计规范 (Copy Spec)
-进入任意设计规范详情展示页面，点击右上角的 **“Copy Spec”** 按钮。该操作将把包含设计原则、设计 token（如色板、字阶、间距、圆角等）的 Markdown 格式规范内容复制到您的剪贴板中。建议将其保存至项目根目录的 `docs/design-system.md` 文件中。
-
-### 第二步：定义全局 CSS 变量 (CSS Tokens)
-在您项目的全局样式表（例如 `global.css` 或 `variables.css`）中，根据复制的设计规范声明 CSS 自定义属性（CSS 变量）：
-
-```css
-:root {
-  --color-brand: #42b883; /* Vue 翡翠绿 */
-  --color-text-primary: #2c3e50; /* 碳灰阅读文本 */
-  --font-sans: 'Inter', sans-serif;
-  --radius-card: 8px;
-  --spacing-paragraph: 16px;
-}
+```
+index.html          目录主页：卡片网格、筛选、中英切换
+pages/              39 个规范详情页（HTML，自包含）
+specs/              39 份规范原文（Markdown）
+screenshot.png      旧版预览截图（保留）
 ```
 
-### 第三步：应用至框架配置 (如 Tailwind CSS)
-如果您在使用 Tailwind CSS 等原子化类框架，可以扩展主配置文件以支持对应的设计系统 Token：
+## English
 
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        brand: '#42b883',
-      },
-      borderRadius: {
-        card: '8px',
-      }
-    }
-  }
-}
-```
-这样，您就能够直接在 HTML 中编写类如 `bg-brand` 或 `rounded-card` 的原子化样式，保持设计一致性。
+**Design System Hub** is a catalog of 39 web design system specs — Apple, Linear, Notion, Figma, Vercel, Stripe, Tailwind CSS, Vue, Nike, Tesla, and more, plus Chinese editorial systems like HTML Effectiveness and Tw93's magazine style.
+
+- **Self-contained, zero dependencies**: every spec is a single HTML file with all styles and scripts inline — no build step, works offline.
+- **Copy Spec**: each detail page has a one-click button that copies the full Markdown spec (principles + design tokens) to your clipboard.
+- **Browse**: filter the hub by curated/community and dark/light; Chinese/English UI toggle.
+- **Use a spec**: copy it into your project (e.g. `docs/design-system.md`), declare its tokens as CSS variables, and extend your Tailwind config to match.
+- **Run it**: open `index.html` — no build step.
+- **Tech**: plain HTML + CSS + a little JS. Specs live as Markdown in `specs/`; detail pages in `pages/`; copy/back actions in `pages/page-actions.js`.
+
+## 许可 / License
+
+package.json 声明为 Apache-2.0，仓库暂无 LICENSE 文件。
