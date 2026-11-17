@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="360" viewBox="0 0 1200 360"
+     role="img" aria-labelledby="title desc">
+  <title id="title">设计系统规范库 Design System Hub — 39 套网页设计规范，零依赖单文件，一键复制</title>
+  <desc id="desc">暖米纸底：左上标题设计系统规范库；右侧两张迷你规范卡片——Linear 暗色紫、Apple 极简白，下方一排品牌色板代表其余规范。</desc>
+
+  <rect width="1200" height="360" rx="26" fill="#f7f3ec"/>
+
+  <g id="title-block" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <text x="56" y="62" font-size="19" letter-spacing="3" fill="#6b5d43">设计规范目录 · DESIGN SYSTEM CATALOG</text>
+    <text x="56" y="128" font-size="62" font-weight="700" fill="#2b2620">设计系统规范库</text>
+    <text x="56" y="168" font-size="23" fill="#5c5347">DESIGN SYSTEM HUB — 39 套规范，点开即预览</text>
+    <text x="56" y="204" font-size="19" fill="#6b5d43">色板、字阶、间距、组件，一键复制 Markdown 规范。</text>
+    <g id="chips" font-size="18" fill="#2b2620" text-anchor="middle">
+      <g><rect x="56" y="238" width="126" height="36" rx="18" fill="#ffffff" stroke="#ddd3c0" stroke-width="1.5"/><text x="119" y="262">39 套规范</text></g>
+      <g><rect x="194" y="238" width="168" height="36" rx="18" fill="#ffffff" stroke="#ddd3c0" stroke-width="1.5"/><text x="278" y="262">零依赖单文件</text></g>
+      <g><rect x="374" y="238" width="168" height="36" rx="18" fill="#ffffff" stroke="#ddd3c0" stroke-width="1.5"/><text x="458" y="262">一键复制 Spec</text></g>
+      <g><rect x="554" y="238" width="126" height="36" rx="18" fill="#ffffff" stroke="#ddd3c0" stroke-width="1.5"/><text x="617" y="262">中英双语</text></g>
+    </g>
+  </g>
+
+  <g id="cards" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <g id="card-linear">
+      <rect x="800" y="48" width="330" height="120" rx="14" fill="#010102" stroke="#2a2a35" stroke-width="1.5"/>
+      <text x="874" y="95" font-size="20" font-weight="700" fill="#f7f8f8">Linear</text>
+      <text x="824" y="132" font-size="16" fill="#b9b9c2">深空暗色 · 薰衣草蓝强调</text>
+      <g id="card-linear-marks"><rect x="824" y="72" width="34" height="34" rx="8" fill="#5e6ad2"/><rect x="824" y="144" width="18" height="18" rx="4" fill="#5e6ad2"/><rect x="848" y="144" width="18" height="18" rx="4" fill="#23252a"/><rect x="872" y="144" width="18" height="18" rx="4" fill="#f7f8f8"/></g>
+    </g>
+    <g id="card-apple">
+      <rect x="800" y="184" width="330" height="120" rx="14" fill="#ffffff" stroke="#e3ddd2" stroke-width="1.5"/>
+      <text x="874" y="231" font-size="20" font-weight="700" fill="#1d1d1f">Apple HIG</text>
+      <text x="824" y="268" font-size="16" fill="#5c5c60">极简留白 · 毛玻璃层级</text>
+      <g id="card-apple-marks"><rect x="824" y="208" width="34" height="34" rx="8" fill="#0071e3"/><rect x="824" y="280" width="18" height="18" rx="4" fill="#0071e3"/><rect x="848" y="280" width="18" height="18" rx="4" fill="#f5f5f7"/><rect x="872" y="280" width="18" height="18" rx="4" fill="#1d1d1f"/></g>
+    </g>
+    <g id="swatch-row">
+      <rect x="800" y="316" width="30" height="30" rx="7" fill="#42b883"/>
+      <rect x="838" y="316" width="30" height="30" rx="7" fill="#000000"/>
+      <rect x="876" y="316" width="30" height="30" rx="7" fill="#b5533c"/>
+      <rect x="914" y="316" width="30" height="30" rx="7" fill="#635bff"/>
+      <rect x="952" y="316" width="30" height="30" rx="7" fill="#ff5a5f"/>
+      <rect x="990" y="316" width="30" height="30" rx="7" fill="#f0b90b"/>
+      <rect x="1028" y="316" width="30" height="30" rx="7" fill="#3ecf8e"/>
+      <rect x="1066" y="316" width="30" height="30" rx="7" fill="#1db954"/>
+    </g>
+    <g id="swatches-label">
+      <text x="1112" y="337" font-size="16" fill="#6b5d43">+29</text>
+    </g>
+  </g>
+</svg>
