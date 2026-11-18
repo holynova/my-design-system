@@ -1,9 +1,11 @@
+<p align="right"><a href="README.en.md">English</a></p>
+
 <p align="center">
   <img src="./assets/readme/hero.svg" width="100%" alt="设计系统规范库 Design System Hub — Linear 暗色、Apple 极简等 39 套网页设计规范，零依赖单文件，一键复制">
 </p>
 
 <p align="center">
-  <a href="https://my-design-system.xiaosang.cc/">▶ 在线浏览 Live Demo</a>
+  <a href="https://my-design-system.xiaosang.cc/">▶ 在线浏览</a>
   ·
   <a href="https://holynova.github.io/my-design-system/">GitHub Pages 镜像</a>
   ·
@@ -12,16 +14,14 @@
 
 设计系统规范库收录 39 套网页设计规范：每套都是一份可直接预览的单文件 HTML 详情页（色板、字阶、间距、组件、Do's and Don'ts），外加一份同名 Markdown 规范文本。看中哪套，点「Copy Spec」就能把完整规范复制走，贴进自己的项目或交给 AI 按规范写页面。
 
-Design System Hub catalogs 39 web design system specs. Each one is a self-contained single-file HTML page you can preview (palette, type scale, spacing, components, do's and don'ts) plus a matching Markdown spec. Like one? Hit "Copy Spec" and paste the full spec into your project — or hand it to an AI to build pages by the book.
-
-## 截图 / Screenshots
+## 截图
 
 <p align="center">
   <img src="./assets/readme/screenshot-hub.png" width="800" alt="目录主页：设计系统规范库标题，精选/社区克隆与暗色/亮色筛选，HTML Effectiveness、潮流周刊、Linear、Apple 四张规范卡片">
   <img src="./assets/readme/screenshot-detail.png" width="800" alt="Linear 规范详情页：深色画布、左侧 01–09 章节导航、右上角 Back to Home 与 Copy Spec 按钮">
 </p>
 
-## 收录的 39 套规范 / All 39 Specs
+## 收录的 39 套规范
 
 | 类别 | 规范 |
 |------|------|
@@ -31,7 +31,7 @@ Design System Hub catalogs 39 web design system specs. Each one is a self-contai
 
 每套规范在 `pages/` 有同名 HTML 详情页，在 `specs/` 有同名 Markdown 规范原文。
 
-## 功能 / Features
+## 功能
 
 - **自包含、零依赖**：每个详情页都是独立单文件，样式与脚本全在文件内，无需构建、离线可看。
 - **一键复制规范**：详情页右上角「Copy Spec」按钮，把整份 Markdown 规范（含设计原则与 token）复制到剪贴板，带成功反馈。
@@ -39,13 +39,13 @@ Design System Hub catalogs 39 web design system specs. Each one is a self-contai
 - **原生返回导航**：子页面右上角返回按钮，风格与该设计系统一致，一键回目录主页。
 - **暗色模式**：潮流周刊、Linear 等规范支持系统级暗色模式。
 
-## 在项目里用这些规范 / How to Use a Spec
+## 在项目里用这些规范
 
 1. 打开任意规范详情页，点右上角 **Copy Spec**，把 Markdown 规范存到项目里（如 `docs/design-system.md`）。
 2. 按规范里的 token 在全局样式中声明 CSS 变量，例如 Vue 翡翠绿 `--color-brand: #42b883`。
 3. 用 Tailwind 等框架时，把 token 扩展进配置文件（如 `theme.extend.colors.brand`），之后直接用 `bg-brand` 这类原子类。
 
-## 本地运行 / Run Locally
+## 本地运行
 
 零构建，直接打开 `index.html` 即可浏览；或起一个静态服务器：
 
@@ -54,7 +54,7 @@ python3 -m http.server 8000
 # 打开 http://localhost:8000
 ```
 
-## 技术 / Tech
+## 技术
 
 - 纯 HTML + CSS + 少量 JS，零依赖、零构建；39 个详情页各为一个自包含文件。
 - 规范文本以 Markdown 存放在 `specs/`，详情页通过 `pages/page-actions.js` 实现复制与返回。
@@ -65,18 +65,3 @@ pages/              39 个规范详情页（HTML，自包含）
 specs/              39 份规范原文（Markdown）
 screenshot.png      旧版预览截图（保留）
 ```
-
-## English
-
-**Design System Hub** is a catalog of 39 web design system specs — Apple, Linear, Notion, Figma, Vercel, Stripe, Tailwind CSS, Vue, Nike, Tesla, and more, plus Chinese editorial systems like HTML Effectiveness and Tw93's magazine style.
-
-- **Self-contained, zero dependencies**: every spec is a single HTML file with all styles and scripts inline — no build step, works offline.
-- **Copy Spec**: each detail page has a one-click button that copies the full Markdown spec (principles + design tokens) to your clipboard.
-- **Browse**: filter the hub by curated/community and dark/light; Chinese/English UI toggle.
-- **Use a spec**: copy it into your project (e.g. `docs/design-system.md`), declare its tokens as CSS variables, and extend your Tailwind config to match.
-- **Run it**: open `index.html` — no build step.
-- **Tech**: plain HTML + CSS + a little JS. Specs live as Markdown in `specs/`; detail pages in `pages/`; copy/back actions in `pages/page-actions.js`.
-
-## 许可 / License
-
-package.json 声明为 Apache-2.0，仓库暂无 LICENSE 文件。
