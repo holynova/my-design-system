@@ -1,9 +1,11 @@
 {
   "name": "my-design-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A functional-minimalist design system extracted from The Unreasonable Effectiveness of HTML",
   "main": "index.html",
   "scripts": {
+    "build": "node scripts/build.mjs",
+    "deploy": "npx --yes wrangler@4.128.0 deploy",
     "screenshot": "npx playwright screenshot file://$(pwd)/pages/html-effectiveness.html screenshot.png"
   },
   "keywords": ["design-system", "css", "html", "functional-minimalist"],

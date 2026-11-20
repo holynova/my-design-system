@@ -101,6 +101,7 @@
 
   /* MASTHEAD */
   .masthead {
+    flex-wrap: wrap;
     padding: 80px 0 48px;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 48px;
@@ -132,6 +133,8 @@
   }
 
   .back-home-link, #copy-md-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
     display: inline-flex;
     align-items: center;
     gap: 6px;

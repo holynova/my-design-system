@@ -443,6 +443,8 @@
     }
 
     .card-title {
+      min-width: 0;
+      overflow-wrap: anywhere;
       font-family: 'Outfit', sans-serif;
       font-size: 18px;
       font-weight: 700;
@@ -490,14 +492,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 5px 10px;
-      background: var(--bg);
+      flex: none;
+      white-space: nowrap;
+      line-height: 1;
+      min-height: 28px;
+      padding: 5px 9px;
+      background: transparent;
       border: 1px solid var(--card-border);
       border-radius: var(--radius-md);
       font-family: 'Outfit', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-main);
       cursor: pointer;
       z-index: 10;
       transition: all 0.2s ease;
@@ -20638,6 +20644,7 @@ Official Website & Docs for BRAIN.md — A persistent memory layer for developer
   <!-- Footer -->
   <footer>
     <p data-zh="© 2026 Design Systems Hub · 精选网页设计系统与规范库" data-en="© 2026 Design Systems Hub · Curated Web Design System Library">© 2026 Design Systems Hub · 精选网页设计系统与规范库</p>
+    <small>v1.0.1</small>
   </footer>
 
   <!-- Filter & Copy Logic -->
@@ -20746,6 +20753,8 @@ Official Website & Docs for BRAIN.md — A persistent memory layer for developer
       }
     }
 
+    const copyFeedbackTimers = new WeakMap();
+
     async function copyCardSpec(event, button) {
       event.preventDefault();
       event.stopPropagation();
@@ -20769,31 +20778,24 @@ Official Website & Docs for BRAIN.md — A persistent memory layer for developer
 
       if (!mdText) return;
 
-      navigator.clipboard.writeText(mdText).then(() => {
-        const originalHTML = button.innerHTML;
-        const copiedHTML = currentLang === 'zh' 
-          ? `<svg viewBox="0 0 24 24" style="width: 10px; height: 10px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 已复制!`
-          : `<svg viewBox="0 0 24 24" style="width: 10px; height: 10px; fill: currentColor; margin-right: 4px;"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!`;
-        
-        button.innerHTML = copiedHTML;
-        button.style.borderColor = 'var(--accent)';
-        button.style.background = 'var(--accent)';
-        
-        // Handle yellow contrast
-        const isYellow = button.closest('.card').style.getPropertyValue('--accent').trim() === '#faff69';
-        button.style.color = isYellow ? '#0a0a0a' : '#ffffff';
-        
-        setTimeout(() => {
-          button.innerHTML = originalHTML;
-          button.style.borderColor = '';
-          button.style.background = '';
-          button.style.color = '';
-        }, 2000);
-      }).catch(err => {
+      try {
+        await navigator.clipboard.writeText(mdText);
+        const label = button.querySelector('span');
+        label.dataset.zh = '已复制';
+        label.dataset.en = 'Copied';
+        label.textContent = label.dataset[currentLang];
+        clearTimeout(copyFeedbackTimers.get(button));
+        copyFeedbackTimers.set(button, setTimeout(() => {
+          label.dataset.zh = '复制';
+          label.dataset.en = 'Copy';
+          label.textContent = label.dataset[currentLang];
+          copyFeedbackTimers.delete(button);
+        }, 2000));
+      } catch (err) {
         console.error(err);
         const errMsg = currentLang === 'zh' ? '复制失败: ' : 'Failed to copy: ';
         alert(errMsg + err);
-      });
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
